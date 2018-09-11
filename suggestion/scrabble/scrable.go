@@ -1,22 +1,46 @@
 package scrabble
 
 import (
-	"github.com/tehsphinx/exalysis/extools"
-	"golang.org/x/tools/go/loader"
+	"go/ast"
+
+	"github.com/tehsphinx/dbg"
+	"github.com/tehsphinx/exalysis/suggestion/types"
+	"honnef.co/go/tools/ssa"
 )
 
-//Scrabble build scrabble suggestions
-func Scrabble(local *loader.PackageInfo, prog *loader.Program) []string {
-	extools.PrintAST(local)
+type testFunc func(sugg []string) []string
 
-	var (
-		sugg []string
-	)
+func NewScrabble(program *ssa.Program, pkg *ssa.Package) types.Suggester {
+	s := &Scrabble{
+		program: program,
+		pkg:     pkg,
+	}
+	s.tests = []testFunc{
+		s.testToLower,
+		//s.testToUpper,
+		//s.testMapRuneInt,
+	}
 
-	sugg = testToLower(local, prog, sugg)
-	sugg = testToUpper(local, prog, sugg)
-	sugg = testMapRuneInt(local, prog, sugg)
+	return s
 
+}
+
+//Scrabble implements the suggester for the scrabble exercise
+type Scrabble struct {
+	program *ssa.Program
+	pkg     *ssa.Package
+	tests   []testFunc
+}
+
+//Suggest builds suggestions for the exercise solution
+func (s *Scrabble) Suggest() []string {
+	//ast.Print(s.program, s.pkg.Files["scrabble.go"])
+	//extools2.PrintAST(local)
+
+	var sugg []string
+	for _, tf := range s.tests {
+		sugg = tf(sugg)
+	}
 	return sugg
 }
 
@@ -37,52 +61,69 @@ var (
 	speedCommentAdded bool
 )
 
-func testToLower(local *loader.PackageInfo, _ *loader.Program, sugg []string) []string {
-	fn, ok := extools.GetUsageFunc("ToLower", local)
-	if !ok {
-		return sugg
-	}
-	if fn.Pkg().Name() == "unicode" {
-		return sugg
-	}
+func (s *Scrabble) testToLower(sugg []string) []string {
+	//entryFunc := GetFuncDecl("Score", s.pkg)
+	//dbg.Red(entryFunc)
+
+	//ast.Inspect(s.pkg, func(node ast.Node) bool {
+	//	switch n := node.(type) {
+	//	case *ast.FuncDecl:
+	//		dbg.Green("funcDecl", n)
+	//	case *ast.FuncLit:
+	//		dbg.Green("funcLit", n)
+	//	case *ast.CallExpr:
+	//		dbg.Blue("call", n, n.Fun)
+	//	case *ast.Ident:
+	//		dbg.Red("ident", n, n.Name)
+	//	}
+	//	return true
+	//})
+
+	//fn, ok := extools2.GetUsageFunc("ToLower", local)
+	//if !ok {
+	//	return sugg
+	//}
+	//if fn.Pkg().Name() == "unicode" {
+	//	return sugg
+	//}
 
 	sugg = addSpeedComment(sugg)
 	return append(sugg, toLower)
 }
 
-func testToUpper(local *loader.PackageInfo, _ *loader.Program, sugg []string) []string {
-	fn, ok := extools.GetUsageFunc("ToUpper", local)
-	if !ok {
-		return sugg
-	}
-	if fn.Pkg().Name() == "unicode" {
-		return sugg
-	}
-
-	extools.GetDefinition("Score", local)
-	//usage := extools.GetUsage("ToUpper", local)
-	//dbg.Green(usage.Pos())
-
-	sugg = addSpeedComment(sugg)
-	return append(sugg, toUpper)
-}
-
-func testMapRuneInt(local *loader.PackageInfo, _ *loader.Program, sugg []string) []string {
-	for _, t := range local.Types {
-		switch t.Type.String() {
-		case "map[rune]int":
-			sugg = addSpeedComment(sugg)
-			sugg = append(sugg, trySwitch)
-			return sugg
-		case "map[string]int":
-			sugg = addSpeedComment(sugg)
-			sugg = append(sugg, mapRune)
-			sugg = append(sugg, trySwitch)
-			return sugg
-		}
-	}
-	return sugg
-}
+//func (s *Scrabble) testToUpper(fset *token.FileSet, pkg *ast.Package, sugg []string) []string {
+//	fn, ok := extools2.GetUsageFunc("ToUpper", local)
+//	if !ok {
+//		return sugg
+//	}
+//	if fn.Pkg().Name() == "unicode" {
+//		return sugg
+//	}
+//
+//	extools2.GetDefinition("Score", local)
+//	//usage := extools.GetUsage("ToUpper", local)
+//	//dbg.Green(usage.Pos())
+//
+//	sugg = addSpeedComment(sugg)
+//	return append(sugg, toUpper)
+//}
+//
+//func (s *Scrabble) testMapRuneInt(fset *token.FileSet, pkg *ast.Package, sugg []string) []string {
+//	for _, t := range local.Types {
+//		switch t.Type.String() {
+//		case "map[rune]int":
+//			sugg = addSpeedComment(sugg)
+//			sugg = append(sugg, trySwitch)
+//			return sugg
+//		case "map[string]int":
+//			sugg = addSpeedComment(sugg)
+//			sugg = append(sugg, mapRune)
+//			sugg = append(sugg, trySwitch)
+//			return sugg
+//		}
+//	}
+//	return sugg
+//}
 
 func addSpeedComment(sugg []string) []string {
 	if !speedCommentAdded {
@@ -90,4 +131,36 @@ func addSpeedComment(sugg []string) []string {
 		return append(sugg, speedComment)
 	}
 	return sugg
+}
+
+//GetFuncDecl searches for a function declaration
+func GetFuncDecl(name string, parent ast.Node) ast.Node {
+	var decl ast.Node
+	ast.Inspect(parent, func(node ast.Node) bool {
+		switch n := node.(type) {
+		case *ast.FuncDecl:
+			if n.Name.Name == name {
+				decl = node
+			}
+		}
+		return true
+	})
+	return decl
+}
+
+//FindFuncCall finds a function call
+func FindFuncCall(name string, parent ast.Node) ast.Node {
+	var decl ast.Node
+	ast.Inspect(parent, func(node ast.Node) bool {
+		switch n := node.(type) {
+		case *ast.CallExpr:
+			dbg.Green(n)
+		case *ast.FuncDecl:
+			if n.Name.Name == name {
+				decl = node
+			}
+		}
+		return true
+	})
+	return decl
 }
