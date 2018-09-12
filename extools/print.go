@@ -2,53 +2,10 @@ package extools
 
 import (
 	"fmt"
-	"go/ast"
-	"go/types"
 
 	"github.com/tehsphinx/dbg"
 	"golang.org/x/tools/go/loader"
 )
-
-func GetFunc(funcName string, pkg *loader.PackageInfo) (*types.Func, bool) {
-	if object, ok := pkg.Defs[ast.NewIdent(funcName)]; ok {
-		fn, ok := object.(*types.Func)
-		return fn, ok
-	}
-	return nil, false
-}
-
-//GetUsageFunc returns a function usage from given package
-func GetUsageFunc(funcName string, pkg *loader.PackageInfo) (*types.Func, bool) {
-	for k, v := range pkg.Uses {
-		if k.Name == funcName {
-			fn, ok := v.(*types.Func)
-			return fn, ok
-		}
-	}
-	return nil, false
-}
-
-//GetUsage returns a usage by name
-func GetUsage(name string, pkg *loader.PackageInfo) *ast.Ident {
-	for k := range pkg.Uses {
-		if k.Name == name {
-			return k
-		}
-	}
-	return nil
-}
-
-func GetDefinition(name string, pkg *loader.PackageInfo) types.Object {
-	for k, v := range pkg.Defs {
-		if k.String() == name {
-			dbg.Green(v.Name())
-			dbg.Magenta(v.Type())
-			dbg.Red(v.Parent())
-			return v
-		}
-	}
-	return nil
-}
 
 //PrintAST prints useful information on a package
 func PrintAST(pkg *loader.PackageInfo) {

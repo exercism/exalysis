@@ -1,9 +1,15 @@
 package suggestion
 
 import (
+	"fmt"
+	"go/token"
+	"io/ioutil"
 	"log"
+	"os"
 	"strings"
 
+	"github.com/golang/lint"
+	"github.com/tehsphinx/dbg"
 	"github.com/tehsphinx/exalysis/suggestion/scrabble"
 	"github.com/tehsphinx/exalysis/suggestion/types"
 	"golang.org/x/tools/go/loader"
@@ -16,31 +22,77 @@ var exercisePkgs = map[string]types.SuggesterCreator{
 }
 
 //GetSuggestions selects the package suggestion routine and returns the suggestions
-func GetSuggestions() string {
-	program := ssautil.CreateProgram(loadProg(), 0)
+func GetSuggestions() (string, string) {
+	prog := loadProg()
 
+	program := ssautil.CreateProgram(prog, 0)
 	pkg, creator := getExercisePkg(program)
 	if pkg == nil {
 		log.Fatal("no known exercise package found or not implemented")
 	}
 
-	reply := getGreeting(pkg.String())
+	files := getFiles(prog)
+	resLint := lintCode(files)
+	//resFmt := fmtCode(files)
 
-	sg := creator(program, pkg)
-	sugg := sg.Suggest()
-	if len(sugg) == 0 {
-		reply += perfectSolution
-	} else if len(sugg) < 2 {
-		reply += veryGoodSolution
-	} else if len(sugg) < 6 {
-		reply += goodSolution
-	} else {
-		reply += interestingSolution
+	var sugg []string
+	//if resFmt != "" {
+	//	dbg.Cyan("#### gofmt")
+	//	fmt.Println(resLint)
+	//}
+	if resLint != "" {
+		dbg.Cyan("#### golint")
+		fmt.Println(resLint)
+		sugg = append(sugg, notLinted)
 	}
+
+	sg := creator(prog, pkg)
+	sugg = append(sugg, sg.Suggest()...)
+
+	reply := getGreeting(pkg.Pkg.Name())
+	reply += praise(sugg)
 	reply += strings.Join(sugg, "\n")
 
-	return reply
+	return reply, approval(sugg, true, resLint == "")
 }
+
+func getFiles(prog *loader.Program) map[string][]byte {
+	workDir, err := os.Getwd()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var files = map[string][]byte{}
+	prog.Fset.Iterate(func(file *token.File) bool {
+		if strings.HasPrefix(file.Name(), workDir) &&
+			!strings.HasSuffix(file.Name(), "_test.go") {
+
+			b, err := ioutil.ReadFile(file.Name())
+			if err != nil {
+				log.Fatal(err)
+			}
+			files[file.Name()] = b
+		}
+		return true
+	})
+
+	return files
+}
+
+func lintCode(files map[string][]byte) string {
+	l := lint.Linter{}
+	ps, err := l.LintFiles(files)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var lintRes string
+	for _, p := range ps {
+		lintRes += fmt.Sprintf("%s: %s\n\t%s\n\tdoc: %s\n", p.Category, p.Text, p.Position.String(), p.Link)
+	}
+	return lintRes
+}
+
 func loadProg() *loader.Program {
 	var conf loader.Config
 	conf.Import(".")
@@ -67,4 +119,55 @@ func getGreeting(pkg string) string {
 		str += newcomerGreeting
 	}
 	return str
+}
+
+func praise(sugg []string) string {
+	if len(sugg) == 0 {
+		return perfectSolution
+	} else if len(sugg) < 2 {
+		return veryGoodSolution
+	} else if len(sugg) < 6 {
+		return goodSolution
+	}
+	return interestingSolution
+}
+
+func approval(sugg []string, gofmt, golint bool) string {
+	rating := "\n\n" + dbg.Sprint(dbg.ColorCyan, "#### Rating Suggestion")
+	var approve string
+	if !gofmt {
+		rating += dbg.Sprint(dbg.ColorRed, "go code not formatted")
+		if approve == "" {
+			approve = dbg.Sprint(dbg.ColorRed, "NO APPROVAL")
+		}
+	}
+	if !golint {
+		rating += dbg.Sprint(dbg.ColorRed, "go code not linted")
+		if approve == "" {
+			approve = dbg.Sprint(dbg.ColorRed, "NO APPROVAL")
+		}
+	}
+
+	var suggsAdded = fmt.Sprintf("Suggestions added: %d", len(sugg))
+	if 5 < len(sugg) {
+		rating += dbg.Sprint(dbg.ColorRed, suggsAdded)
+		if approve == "" {
+			approve = dbg.Sprint(dbg.ColorRed, "NO APPROVAL")
+		}
+	} else if 2 < len(sugg) {
+		rating += dbg.Sprint(dbg.ColorMagenta, suggsAdded)
+		if approve == "" {
+			approve = dbg.Sprint(dbg.ColorMagenta, "MAYBE APPROVE")
+		}
+	} else if 1 < len(sugg) {
+		rating += dbg.Sprint(dbg.ColorYellow, suggsAdded)
+		if approve == "" {
+			approve = dbg.Sprint(dbg.ColorYellow, "LIKELY APPROVE")
+		}
+	}
+	if approve == "" {
+		approve = dbg.Sprint(dbg.ColorGreen, "APPROVE")
+	}
+	rating += "Suggestion: " + approve
+	return rating
 }

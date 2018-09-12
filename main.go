@@ -8,8 +8,9 @@ import (
 )
 
 func main() {
-	sugg := suggestion.GetSuggestions()
+	sugg, approval := suggestion.GetSuggestions()
 
 	fmt.Println(sugg)
+	fmt.Print(approval)
 	clipboard.WriteAll(sugg)
 }
