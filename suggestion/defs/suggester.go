@@ -1,4 +1,4 @@
-package types
+package defs
 
 import (
 	"golang.org/x/tools/go/loader"

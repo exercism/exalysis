@@ -4,9 +4,8 @@ import (
 	"fmt"
 	"go/ast"
 
-	"github.com/tehsphinx/dbg"
 	"github.com/tehsphinx/exalysis/extools"
-	"github.com/tehsphinx/exalysis/suggestion/types"
+	"github.com/tehsphinx/exalysis/suggestion/defs"
 	"golang.org/x/tools/go/loader"
 	"honnef.co/go/tools/ssa"
 )
@@ -14,7 +13,7 @@ import (
 type testFunc func(sugg []string) []string
 
 //NewScrabble creates a new suggester for the scrabble exercise
-func NewScrabble(program *loader.Program, pkg *ssa.Package) types.Suggester {
+func NewScrabble(program *loader.Program, pkg *ssa.Package) defs.Suggester {
 	pkg.Build()
 	s := &Scrabble{
 		pkg:  pkg,
@@ -25,6 +24,7 @@ func NewScrabble(program *loader.Program, pkg *ssa.Package) types.Suggester {
 		s.testToLowerUpper("ToLower"),
 		s.testToLowerUpper("ToUpper"),
 		s.testMapRuneInt,
+		s.testRuneLoop,
 	}
 
 	return s
@@ -60,8 +60,13 @@ const (
 		"before the loop to increase speed"
 	toLowerUpperInLoop = "- you could have a look at `unicode.%[1]s` to replace `strings.%[1]s` " +
 		"in the loop to increase speed"
-	mapRune   = "- you could use a `map[rune]int` for direct lookup without type conversion instead of `map[string]int`"
-	trySwitch = "- if you are up for it using a `switch` instead of a `map` will increase speed significantly"
+	mapRune = "- you could use a `map[rune]int` for direct lookup without type conversion instead " +
+		"of `map[string]int`"
+	trySwitch  = "- if you are up for it using a `switch` instead of a `map` will increase speed significantly"
+	typeSwitch = "- try to avoid type switches. You could work with type `rune` instead of `string` in " +
+		"the `for` loop. A rune is created with e.g. 'A'."
+	loopRuneNotByte = "- Iterating over a `string` will provice `rune`s which is a complete character and can " +
+		"consist of **multiple** bytes. Try using runes instead of bytes."
 )
 
 var (
@@ -70,7 +75,7 @@ var (
 
 func (s *Scrabble) testToLowerUpper(fnType string) testFunc {
 	return func(sugg []string) []string {
-		fnID, fn := extools.GetUsageFunc(fnType, s.lPkg)
+		fnID, fn := extools.GetUsage(fnType, s.lPkg)
 		if fn == nil {
 			return sugg
 		}
@@ -85,91 +90,6 @@ func (s *Scrabble) testToLowerUpper(fnType string) testFunc {
 		return append(sugg, fmt.Sprintf(toLowerUpper, fnType))
 	}
 }
-
-//func (s *Scrabble) testToUpper(sugg []string) []string {
-//	id, fn := extools.GetUsageFunc("ToUpper", s.lPkg)
-//	if fn == nil {
-//		return sugg
-//	}
-//	if fn.Pkg().Name() == "unicode" {
-//		return sugg
-//	}
-//
-//	dbg.Green(fn.Scope())
-//	dbg.Green(fn.Parent())
-//
-//	//s.pkg.Pkg.Scope().Contains(nil)
-//	entryFn := s.pkg.Func("Score")
-//	dbg.Magenta(entryFn)
-//	dbg.Magenta(entryFn.Blocks)
-//	for _, block := range entryFn.Blocks {
-//		dbg.Blue("BLOCK", block)
-//		dbg.Blue(block.Comment)
-//		dbg.Blue(block.Index)
-//		dbg.Blue(block.Instrs)
-//		dbg.Blue(block.Preds)
-//		dbg.Blue(block.Succs)
-//		dbg.Blue(block.String())
-//		dbg.Blue(block.Dominees())
-//		dbg.Blue(block.Idom())
-//		dbg.Blue(block.Phis())
-//	}
-//
-//	dbg.Magenta(entryFn.AnonFuncs)
-//	dbg.Magenta(entryFn.FreeVars)
-//	dbg.Magenta(entryFn.Locals)
-//	dbg.Magenta(entryFn.Params)
-//	dbg.Magenta(entryFn.Signature)
-//	dbg.Magenta(entryFn.Synthetic)
-//	dbg.Magenta(entryFn.DomPreorder())
-//	dbg.Magenta(entryFn.Name())
-//	dbg.Magenta(entryFn.Object())
-//	dbg.Magenta(entryFn.Parent())
-//	dbg.Magenta(entryFn.Pos())
-//	dbg.Magenta(entryFn.Referrers())
-//	dbg.Magenta(entryFn.String())
-//	dbg.Magenta(entryFn.Syntax())
-//	dbg.Magenta(entryFn.Syntax().Pos())
-//	dbg.Magenta(entryFn.Syntax().End())
-//	dbg.Magenta(entryFn.Token())
-//	dbg.Magenta(entryFn.Type())
-//	//encFn := ssa.EnclosingFunction(s.pkg, []ast.Node{id})
-//	//dbg.Cyan(encFn)
-//	//dbg.Cyan(encFn.String())
-//
-//	for k, v := range s.lPkg.Scopes {
-//		if v.Contains(id.Pos()) {
-//			dbg.Red(v)
-//			//dbg.Green(v.Names())
-//			dbg.Blue(k)
-//			dbg.Green(reflect.TypeOf(k))
-//			switch o := k.(type) {
-//			case *ast.ForStmt:
-//				dbg.Yellow(o)
-//			case *ast.RangeStmt:
-//				dbg.Yellow(o)
-//			}
-//		}
-//	}
-//
-//	//floop := s.lPkg.Scopes
-//	extools.PrintScopes(s.lPkg)
-//
-//	dbg.Blue(id.Name)
-//	dbg.Blue(id.Obj)
-//	dbg.Blue(id.NamePos)
-//	dbg.Blue(id.String())
-//	dbg.Blue(id.Pos())
-//	dbg.Blue(id.End())
-//	dbg.Blue(id.IsExported())
-//
-//	//extools.GetDefinition("Score", local)
-//	//usage := extools.GetUsage("ToUpper", local)
-//	//dbg.Green(usage.Pos())
-//
-//	//sugg = addSpeedComment(sugg)
-//	return sugg
-//}
 
 func (s *Scrabble) testMapRuneInt(sugg []string) []string {
 	for _, t := range s.lPkg.Types {
@@ -188,42 +108,25 @@ func (s *Scrabble) testMapRuneInt(sugg []string) []string {
 	return sugg
 }
 
+func (s *Scrabble) testRuneLoop(sugg []string) []string {
+	scope := extools.NewScope(s.pkg.Func("Score").Syntax())
+	ranges := extools.RangeStmtsInScope(scope, s.lPkg)
+	for l, r := range ranges {
+		if l.Value == nil || r.Lookup(l.Value.(*ast.Ident).Name).Type().String() == "byte" {
+			sugg = append(sugg, loopRuneNotByte)
+		}
+		fnID, _ := extools.GetUsageInScope("string", r, s.lPkg)
+		if fnID != nil {
+			return append(sugg, typeSwitch)
+		}
+	}
+	return sugg
+}
+
 func addSpeedComment(sugg []string) []string {
 	if !speedCommentAdded {
 		speedCommentAdded = true
 		return append(sugg, speedComment)
 	}
 	return sugg
-}
-
-//GetFuncDecl searches for a function declaration
-func GetFuncDecl(name string, parent ast.Node) ast.Node {
-	var decl ast.Node
-	ast.Inspect(parent, func(node ast.Node) bool {
-		switch n := node.(type) {
-		case *ast.FuncDecl:
-			if n.Name.Name == name {
-				decl = node
-			}
-		}
-		return true
-	})
-	return decl
-}
-
-//FindFuncCall finds a function call
-func FindFuncCall(name string, parent ast.Node) ast.Node {
-	var decl ast.Node
-	ast.Inspect(parent, func(node ast.Node) bool {
-		switch n := node.(type) {
-		case *ast.CallExpr:
-			dbg.Green(n)
-		case *ast.FuncDecl:
-			if n.Name.Name == name {
-				decl = node
-			}
-		}
-		return true
-	})
-	return decl
 }
