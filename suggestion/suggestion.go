@@ -10,14 +10,19 @@ import (
 
 	"github.com/golang/lint"
 	"github.com/tehsphinx/dbg"
+	"github.com/tehsphinx/exalysis/suggestion/defs"
 	"github.com/tehsphinx/exalysis/suggestion/scrabble"
-	"github.com/tehsphinx/exalysis/suggestion/types"
 	"golang.org/x/tools/go/loader"
 	"honnef.co/go/tools/ssa"
 	"honnef.co/go/tools/ssa/ssautil"
 )
 
-var exercisePkgs = map[string]types.SuggesterCreator{
+var (
+	//LintMinConfidence sets the min confidence for linting
+	LintMinConfidence float64
+)
+
+var exercisePkgs = map[string]defs.SuggesterCreator{
 	"scrabble": scrabble.NewScrabble,
 }
 
@@ -88,6 +93,10 @@ func lintCode(files map[string][]byte) string {
 
 	var lintRes string
 	for _, p := range ps {
+		if p.Confidence < LintMinConfidence {
+			continue
+		}
+		dbg.Red(p.Confidence)
 		lintRes += fmt.Sprintf("%s: %s\n\t%s\n\tdoc: %s\n", p.Category, p.Text, p.Position.String(), p.Link)
 	}
 	return lintRes
@@ -103,7 +112,7 @@ func loadProg() *loader.Program {
 	return prog
 }
 
-func getExercisePkg(program *ssa.Program) (*ssa.Package, types.SuggesterCreator) {
+func getExercisePkg(program *ssa.Program) (*ssa.Package, defs.SuggesterCreator) {
 	for _, pkg := range program.AllPackages() {
 		if sg, ok := exercisePkgs[pkg.Pkg.Name()]; ok {
 			return pkg, sg
