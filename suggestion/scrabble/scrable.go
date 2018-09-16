@@ -19,6 +19,7 @@ func NewScrabble(pkg *astrav.Package) defs.Suggester {
 	}
 	s.tests = []testFunc{
 		s.testGoRoutine,
+		s.testMapInFunc,
 		s.testToLowerUpper("ToLower"),
 		s.testToLowerUpper("ToUpper"),
 		s.testMapRuneInt,
@@ -66,6 +67,8 @@ const (
 	replaceSwitch = "- Check out the `switch` statement to use instead the many `if` statements."
 	goRoutines    = "- I see you are using go routines. Check the benchmarking with and without go routines " +
 		"and opt for the faster solution. Challenge: Why is the faster solution faster?"
+	moveMap = "- You are creating a map inside the `Score` function. Try moving this code outside the " +
+		"function so it is created only once with the package."
 )
 
 var (
@@ -143,6 +146,7 @@ func (s *Scrabble) testRuneLoop(sugg []string) []string {
 func (s *Scrabble) testGoRoutine(sugg []string) []string {
 	goStmts := s.pkg.FindByNodeType(astrav.NodeTypeGoStmt)
 	if len(goStmts) != 0 {
+		sugg = addSpeedComment(sugg)
 		return append(sugg, goRoutines)
 	}
 	return sugg
@@ -155,6 +159,22 @@ func (s *Scrabble) testIfElseToSwitch(sugg []string) []string {
 		if 5 < len(ifs) {
 			return append(sugg, replaceSwitch)
 		}
+	}
+	return sugg
+}
+
+func (s *Scrabble) testMapInFunc(sugg []string) []string {
+	fn := s.pkg.FindFirstByName("Score")
+	maps := fn.FindByValueType("map[rune]int")
+	if len(maps) == 0 {
+		maps = fn.FindByValueType("map[string]int")
+	}
+	if len(maps) == 0 {
+		maps = fn.FindByValueType("map[int]string")
+	}
+	if len(maps) != 0 {
+		sugg = addSpeedComment(sugg)
+		return append(sugg, moveMap)
 	}
 	return sugg
 }
