@@ -21,6 +21,7 @@ func NewScrabble(pkg *astrav.Package) defs.Suggester {
 		s.testToLowerUpper("ToLower"),
 		s.testToLowerUpper("ToUpper"),
 		s.testMapRuneInt,
+		s.testIfElseToSwitch,
 		s.testRuneLoop,
 	}
 
@@ -61,6 +62,7 @@ const (
 		"the `for` loop. A rune is created with e.g. 'A'."
 	loopRuneNotByte = "- Iterating over a `string` will provice `rune`s which is a complete character and can " +
 		"consist of **multiple** bytes. Try using runes instead of bytes."
+	replaceSwitch = "- Check out the `switch` statement to use instead the many `if` statements."
 )
 
 var (
@@ -128,6 +130,17 @@ func (s *Scrabble) testRuneLoop(sugg []string) []string {
 
 		if r.FindByName("string") != nil {
 			return append(sugg, typeSwitch)
+		}
+	}
+	return sugg
+}
+
+func (s *Scrabble) testIfElseToSwitch(sugg []string) []string {
+	ranges := s.pkg.FindFirstByName("Score").FindByNodeType(astrav.NodeTypeRangeStmt)
+	for _, r := range ranges {
+		ifs := r.FindByNodeType(astrav.NodeTypeIfStmt)
+		if 5 < len(ifs) {
+			return append(sugg, replaceSwitch)
 		}
 	}
 	return sugg
