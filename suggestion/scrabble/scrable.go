@@ -54,8 +54,8 @@ const (
 		"before the loop to increase speed"
 	toLowerUpperInLoop = "- you could have a look at `unicode.%[1]s` to replace `strings.%[1]s` " +
 		"in the loop to increase speed"
-	mapRune = "- you could use a `map[rune]int` for direct lookup without type conversion instead " +
-		"of `map[string]int`"
+	mapRune = "- you could use a `map[rune]int` instead of `%s` for direct lookup of the score value " +
+		"for a `rune`: no type conversion needed."
 	trySwitch  = "- if you are up for it using a `switch` instead of a `map` will increase speed significantly"
 	typeSwitch = "- try to avoid type switches. You could work with type `rune` instead of `string` in " +
 		"the `for` loop. A rune is created with e.g. 'A'."
@@ -95,7 +95,13 @@ func (s *Scrabble) testMapRuneInt(sugg []string) []string {
 	}
 	if len(s.pkg.FindByValueType("map[string]int")) != 0 {
 		sugg = addSpeedComment(sugg)
-		sugg = append(sugg, mapRune)
+		sugg = append(sugg, fmt.Sprintf(mapRune, "map[string]int"))
+		sugg = append(sugg, trySwitch)
+		return sugg
+	}
+	if len(s.pkg.FindByValueType("map[int]string")) != 0 {
+		sugg = addSpeedComment(sugg)
+		sugg = append(sugg, fmt.Sprintf(mapRune, "map[int]string"))
 		sugg = append(sugg, trySwitch)
 		return sugg
 	}
@@ -106,9 +112,18 @@ func (s *Scrabble) testRuneLoop(sugg []string) []string {
 	ranges := s.pkg.FindFirstByName("Score").FindByNodeType(astrav.NodeTypeRangeStmt)
 	for _, r := range ranges {
 		l := r.(*astrav.RangeStmt)
-		if l.Value == nil ||
-			r.FindFirstByName(l.Value.(*ast.Ident).Name).IsValueType("byte") {
+		if l.Value == nil {
 			sugg = append(sugg, loopRuneNotByte)
+		} else {
+			var isByte bool
+			for _, ident := range r.FindIdentByName(l.Value.(*ast.Ident).Name) {
+				if ident.IsValueType("byte") {
+					isByte = true
+				}
+			}
+			if isByte {
+				sugg = append(sugg, loopRuneNotByte)
+			}
 		}
 
 		if r.FindByName("string") != nil {
