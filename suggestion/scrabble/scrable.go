@@ -18,6 +18,7 @@ func NewScrabble(pkg *astrav.Package) defs.Suggester {
 		pkg: pkg,
 	}
 	s.tests = []testFunc{
+		s.testGoRoutine,
 		s.testToLowerUpper("ToLower"),
 		s.testToLowerUpper("ToUpper"),
 		s.testMapRuneInt,
@@ -63,6 +64,8 @@ const (
 	loopRuneNotByte = "- Iterating over a `string` will provice `rune`s which is a complete character and can " +
 		"consist of **multiple** bytes. Try using runes instead of bytes."
 	replaceSwitch = "- Check out the `switch` statement to use instead the many `if` statements."
+	goRoutines    = "- I see you are using go routines. Check the benchmarking with and without go routines " +
+		"and opt for the faster solution. Challenge: Why is the faster solution faster?"
 )
 
 var (
@@ -115,7 +118,9 @@ func (s *Scrabble) testRuneLoop(sugg []string) []string {
 	for _, r := range ranges {
 		l := r.(*astrav.RangeStmt)
 		if l.Value == nil {
-			sugg = append(sugg, loopRuneNotByte)
+			if l.Key != nil {
+				sugg = append(sugg, loopRuneNotByte)
+			}
 		} else {
 			var isByte bool
 			for _, ident := range r.FindIdentByName(l.Value.(*ast.Ident).Name) {
@@ -131,6 +136,14 @@ func (s *Scrabble) testRuneLoop(sugg []string) []string {
 		if r.FindByName("string") != nil {
 			return append(sugg, typeSwitch)
 		}
+	}
+	return sugg
+}
+
+func (s *Scrabble) testGoRoutine(sugg []string) []string {
+	goStmts := s.pkg.FindByNodeType(astrav.NodeTypeGoStmt)
+	if len(goStmts) != 0 {
+		return append(sugg, goRoutines)
 	}
 	return sugg
 }
