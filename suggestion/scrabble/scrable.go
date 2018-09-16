@@ -103,7 +103,7 @@ func (s *Scrabble) testMapRuneInt(sugg []string) []string {
 }
 
 func (s *Scrabble) testRuneLoop(sugg []string) []string {
-	ranges := s.pkg.FindFirstByName("Score").FindByType(astrav.NodeTypeRangeStmt)
+	ranges := s.pkg.FindFirstByName("Score").FindByNodeType(astrav.NodeTypeRangeStmt)
 	for _, r := range ranges {
 		l := r.(*astrav.RangeStmt)
 		if l.Value == nil ||
