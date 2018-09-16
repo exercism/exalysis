@@ -92,7 +92,6 @@ func lintCode(files map[string][]byte) string {
 		if p.Confidence < LintMinConfidence {
 			continue
 		}
-		dbg.Red(p.Confidence)
 		lintRes += fmt.Sprintf("%s: %s\n\t%s\n\tdoc: %s\n", p.Category, p.Text, p.Position.String(), p.Link)
 	}
 	return lintRes
