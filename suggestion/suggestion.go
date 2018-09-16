@@ -9,12 +9,11 @@ import (
 	"strings"
 
 	"github.com/golang/lint"
+	"github.com/tehsphinx/astrav"
 	"github.com/tehsphinx/dbg"
 	"github.com/tehsphinx/exalysis/suggestion/defs"
 	"github.com/tehsphinx/exalysis/suggestion/scrabble"
 	"golang.org/x/tools/go/loader"
-	"honnef.co/go/tools/ssa"
-	"honnef.co/go/tools/ssa/ssautil"
 )
 
 var (
@@ -28,15 +27,18 @@ var exercisePkgs = map[string]defs.SuggesterCreator{
 
 //GetSuggestions selects the package suggestion routine and returns the suggestions
 func GetSuggestions() (string, string) {
-	prog := loadProg()
+	folder := astrav.NewFolder(".")
+	_, err := folder.ParseFolder()
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	program := ssautil.CreateProgram(prog, 0)
-	pkg, creator := getExercisePkg(program)
-	if pkg == nil {
+	pkg, creator := getExercisePkg(folder)
+	if creator == nil {
 		log.Fatal("no known exercise package found or not implemented")
 	}
 
-	files := getFiles(prog)
+	files := getFiles(folder)
 	resLint := lintCode(files)
 	//resFmt := fmtCode(files)
 
@@ -51,24 +53,24 @@ func GetSuggestions() (string, string) {
 		sugg = append(sugg, notLinted)
 	}
 
-	sg := creator(prog, pkg)
+	sg := creator(pkg)
 	sugg = append(sugg, sg.Suggest()...)
 
-	reply := getGreeting(pkg.Pkg.Name())
+	reply := getGreeting(pkg.Name)
 	reply += praise(sugg)
 	reply += strings.Join(sugg, "\n")
 
 	return reply, approval(sugg, true, resLint == "")
 }
 
-func getFiles(prog *loader.Program) map[string][]byte {
+func getFiles(prog *astrav.Folder) map[string][]byte {
 	workDir, err := os.Getwd()
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	var files = map[string][]byte{}
-	prog.Fset.Iterate(func(file *token.File) bool {
+	prog.FSet.Iterate(func(file *token.File) bool {
 		if strings.HasPrefix(file.Name(), workDir) &&
 			!strings.HasSuffix(file.Name(), "_test.go") {
 
@@ -112,9 +114,9 @@ func loadProg() *loader.Program {
 	return prog
 }
 
-func getExercisePkg(program *ssa.Program) (*ssa.Package, defs.SuggesterCreator) {
-	for _, pkg := range program.AllPackages() {
-		if sg, ok := exercisePkgs[pkg.Pkg.Name()]; ok {
+func getExercisePkg(program *astrav.Folder) (*astrav.Package, defs.SuggesterCreator) {
+	for name, pkg := range program.Pkgs {
+		if sg, ok := exercisePkgs[name]; ok {
 			return pkg, sg
 		}
 	}

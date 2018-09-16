@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"go/ast"
 
-	"github.com/tehsphinx/exalysis/extools"
+	"github.com/tehsphinx/astrav"
 	"github.com/tehsphinx/exalysis/suggestion/defs"
 	"golang.org/x/tools/go/loader"
 	"honnef.co/go/tools/ssa"
@@ -13,12 +13,9 @@ import (
 type testFunc func(sugg []string) []string
 
 //NewScrabble creates a new suggester for the scrabble exercise
-func NewScrabble(program *loader.Program, pkg *ssa.Package) defs.Suggester {
-	pkg.Build()
+func NewScrabble(pkg *astrav.Package) defs.Suggester {
 	s := &Scrabble{
-		pkg:  pkg,
-		prog: program,
-		lPkg: program.Package("."),
+		pkg: pkg,
 	}
 	s.tests = []testFunc{
 		s.testToLowerUpper("ToLower"),
@@ -28,22 +25,19 @@ func NewScrabble(program *loader.Program, pkg *ssa.Package) defs.Suggester {
 	}
 
 	return s
-
 }
 
 //Scrabble implements the suggester for the scrabble exercise
 type Scrabble struct {
-	prog  *loader.Program
-	lPkg  *loader.PackageInfo
-	pkg   *ssa.Package
-	tests []testFunc
+	pkg    *astrav.Package
+	prog   *loader.Program
+	lPkg   *loader.PackageInfo
+	ssaPkg *ssa.Package
+	tests  []testFunc
 }
 
 //Suggest builds suggestions for the exercise solution
 func (s *Scrabble) Suggest() []string {
-	//ast.Print(s.pkg, s.pkg.Files["scrabble.go"])
-	//extools2.PrintAST(local)
-
 	var sugg []string
 	for _, tf := range s.tests {
 		sugg = tf(sugg)
@@ -73,50 +67,51 @@ var (
 	speedCommentAdded bool
 )
 
-func (s *Scrabble) testToLowerUpper(fnType string) testFunc {
+func (s *Scrabble) testToLowerUpper(fnName string) testFunc {
 	return func(sugg []string) []string {
-		fnID, fn := extools.GetUsage(fnType, s.lPkg)
-		if fn == nil {
-			return sugg
-		}
-		if fn.Pkg().Name() == "unicode" {
-			return sugg
-		}
+		fns := s.pkg.FindByName(fnName)
+		for _, fn := range fns {
+			if f, ok := fn.(*astrav.SelectorExpr); !ok ||
+				f.X.(*ast.Ident).Name == "unicode" {
+				continue
+			}
+			sugg = addSpeedComment(sugg)
 
-		sugg = addSpeedComment(sugg)
-		if forRange := extools.EnclosingRangeStmt(fnID, s.lPkg); forRange != nil {
-			return append(sugg, fmt.Sprintf(toLowerUpperInLoop, fnType))
+			if fn.IsContainedByType(astrav.NodeTypeRangeStmt) {
+				sugg = append(sugg, fmt.Sprintf(toLowerUpperInLoop, fnName))
+			} else {
+				sugg = append(sugg, fmt.Sprintf(toLowerUpper, fnName))
+			}
 		}
-		return append(sugg, fmt.Sprintf(toLowerUpper, fnType))
+		return sugg
 	}
 }
 
 func (s *Scrabble) testMapRuneInt(sugg []string) []string {
-	for _, t := range s.lPkg.Types {
-		switch t.Type.String() {
-		case "map[rune]int":
-			sugg = addSpeedComment(sugg)
-			sugg = append(sugg, trySwitch)
-			return sugg
-		case "map[string]int":
-			sugg = addSpeedComment(sugg)
-			sugg = append(sugg, mapRune)
-			sugg = append(sugg, trySwitch)
-			return sugg
-		}
+	if len(s.pkg.FindByValueType("map[rune]int")) != 0 {
+		sugg = addSpeedComment(sugg)
+		sugg = append(sugg, trySwitch)
+		return sugg
+	}
+	if len(s.pkg.FindByValueType("map[string]int")) != 0 {
+		sugg = addSpeedComment(sugg)
+		sugg = append(sugg, mapRune)
+		sugg = append(sugg, trySwitch)
+		return sugg
 	}
 	return sugg
 }
 
 func (s *Scrabble) testRuneLoop(sugg []string) []string {
-	scope := extools.NewScope(s.pkg.Func("Score").Syntax())
-	ranges := extools.RangeStmtsInScope(scope, s.lPkg)
-	for l, r := range ranges {
-		if l.Value == nil || r.Lookup(l.Value.(*ast.Ident).Name).Type().String() == "byte" {
+	ranges := s.pkg.FindFirstByName("Score").FindByType(astrav.NodeTypeRangeStmt)
+	for _, r := range ranges {
+		l := r.(*astrav.RangeStmt)
+		if l.Value == nil ||
+			r.FindFirstByName(l.Value.(*ast.Ident).Name).IsValueType("byte") {
 			sugg = append(sugg, loopRuneNotByte)
 		}
-		fnID, _ := extools.GetUsageInScope("string", r, s.lPkg)
-		if fnID != nil {
+
+		if r.FindByName("string") != nil {
 			return append(sugg, typeSwitch)
 		}
 	}
