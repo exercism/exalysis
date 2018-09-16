@@ -2,10 +2,10 @@ package suggestion
 
 import (
 	"fmt"
+	"go/format"
 	"go/token"
 	"io/ioutil"
 	"log"
-	"os"
 	"strings"
 
 	"github.com/golang/lint"
@@ -13,7 +13,6 @@ import (
 	"github.com/tehsphinx/dbg"
 	"github.com/tehsphinx/exalysis/suggestion/defs"
 	"github.com/tehsphinx/exalysis/suggestion/scrabble"
-	"golang.org/x/tools/go/loader"
 )
 
 var (
@@ -39,14 +38,15 @@ func GetSuggestions() (string, string) {
 	}
 
 	files := getFiles(folder)
+	resFmt := fmtCode(files)
 	resLint := lintCode(files)
-	//resFmt := fmtCode(files)
 
 	var sugg []string
-	//if resFmt != "" {
-	//	dbg.Cyan("#### gofmt")
-	//	fmt.Println(resLint)
-	//}
+	if resFmt != "" {
+		dbg.Cyan("#### gofmt")
+		fmt.Println(resFmt)
+		sugg = append(sugg, notFormatted)
+	}
 	if resLint != "" {
 		dbg.Cyan("#### golint")
 		fmt.Println(resLint)
@@ -60,19 +60,13 @@ func GetSuggestions() (string, string) {
 	reply += praise(sugg)
 	reply += strings.Join(sugg, "\n")
 
-	return reply, approval(sugg, true, resLint == "")
+	return reply, approval(sugg, resFmt == "", resLint == "")
 }
 
 func getFiles(prog *astrav.Folder) map[string][]byte {
-	workDir, err := os.Getwd()
-	if err != nil {
-		log.Fatal(err)
-	}
-
 	var files = map[string][]byte{}
 	prog.FSet.Iterate(func(file *token.File) bool {
-		if strings.HasPrefix(file.Name(), workDir) &&
-			!strings.HasSuffix(file.Name(), "_test.go") {
+		if !strings.HasSuffix(file.Name(), "_test.go") {
 
 			b, err := ioutil.ReadFile(file.Name())
 			if err != nil {
@@ -104,14 +98,17 @@ func lintCode(files map[string][]byte) string {
 	return lintRes
 }
 
-func loadProg() *loader.Program {
-	var conf loader.Config
-	conf.Import(".")
-	prog, err := conf.Load()
-	if err != nil {
-		log.Fatal(err)
+func fmtCode(files map[string][]byte) string {
+	for _, file := range files {
+		f, err := format.Source(file)
+		if err != nil {
+			return fmt.Sprintf("code fails to format with error: %s\n", err)
+		}
+		if string(f) != string(file) {
+			return "code is not formatted!\n"
+		}
 	}
-	return prog
+	return ""
 }
 
 func getExercisePkg(program *astrav.Folder) (*astrav.Package, defs.SuggesterCreator) {
