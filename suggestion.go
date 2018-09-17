@@ -103,7 +103,7 @@ func fmtCode(files map[string][]byte) string {
 		if err != nil {
 			return fmt.Sprintf("code fails to format with error: %s\n", err)
 		}
-		if string(f) != string(file) {
+		if string(f) != strings.Replace(string(file), "\r\n", "\n", -1) {
 			return "code is not formatted!\n"
 		}
 	}
