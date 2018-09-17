@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"github.com/atotto/clipboard"
-	"github.com/tehsphinx/exalysis/suggestion"
+	"github.com/tehsphinx/exalysis"
 )
 
 var (
@@ -14,9 +14,9 @@ var (
 
 func main() {
 	flag.Parse()
-	suggestion.LintMinConfidence = *minConfidence
+	exalysis.LintMinConfidence = *minConfidence
 
-	sugg, approval := suggestion.GetSuggestions()
+	sugg, approval := exalysis.GetSuggestions()
 
 	fmt.Println(sugg)
 	fmt.Print(approval)

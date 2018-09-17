@@ -1,4 +1,4 @@
-package suggestion
+package exalysis
 
 import (
 	"fmt"
@@ -11,8 +11,8 @@ import (
 	"github.com/golang/lint"
 	"github.com/tehsphinx/astrav"
 	"github.com/tehsphinx/dbg"
-	"github.com/tehsphinx/exalysis/suggestion/defs"
-	"github.com/tehsphinx/exalysis/suggestion/scrabble"
+	"github.com/tehsphinx/exalysis/defs"
+	"github.com/tehsphinx/exalysis/track/scrabble"
 )
 
 var (

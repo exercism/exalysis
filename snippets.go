@@ -1,4 +1,4 @@
-package suggestion
+package exalysis
 
 const (
 	greeting            = "Hi there!\n\n"

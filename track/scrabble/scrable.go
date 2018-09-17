@@ -5,7 +5,7 @@ import (
 	"go/ast"
 
 	"github.com/tehsphinx/astrav"
-	"github.com/tehsphinx/exalysis/suggestion/defs"
+	"github.com/tehsphinx/exalysis/defs"
 	"golang.org/x/tools/go/loader"
 	"honnef.co/go/tools/ssa"
 )
