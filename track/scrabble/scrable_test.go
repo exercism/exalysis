@@ -1,6 +1,7 @@
 package scrabble
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -8,30 +9,24 @@ import (
 	"github.com/tehsphinx/exalysis/testhelper"
 )
 
-func TestUnicode(t *testing.T) {
-	var solutions = []string{
-		"./solutions/1",
-	}
-	for _, sol := range solutions {
-		_, pkg, err := testhelper.LoadExample(sol, "scrabble")
-		if err != nil {
-			t.Fatal(err)
-		}
-
-		r := extypes.NewResponse()
-		sugg := NewScrabble(pkg)
-		sugg.Suggest(r)
-
-		assert.True(t, r.HasSuggestion("unicode.md"))
-	}
+var suggestTests = []struct {
+	path     string
+	suggID   string
+	expected bool
+}{
+	{path: "./solutions/1", suggID: "unicode.md", expected: true},
+	{path: "./solutions/3", suggID: "unicode.md", expected: true},
+	{path: "./solutions/2", suggID: "unicode_loop.md", expected: true},
+	{path: "./solutions/3", suggID: "unicode_loop.md", expected: false},
+	{path: "./solutions/2", suggID: "move_map.md", expected: true},
+	{path: "./solutions/3", suggID: "move_map.md", expected: false},
+	{path: "./solutions/2", suggID: "maprune.md", expected: true},
+	{path: "./solutions/2", suggID: "try_switch.md", expected: true},
 }
 
-func TestUnicodeLoop(t *testing.T) {
-	var solutions = []string{
-		"./solutions/2",
-	}
-	for _, sol := range solutions {
-		_, pkg, err := testhelper.LoadExample(sol, "scrabble")
+func TestScrabble_Suggest(t *testing.T) {
+	for _, test := range suggestTests {
+		_, pkg, err := testhelper.LoadExample(test.path, "scrabble")
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -40,60 +35,6 @@ func TestUnicodeLoop(t *testing.T) {
 		sugg := NewScrabble(pkg)
 		sugg.Suggest(r)
 
-		assert.True(t, r.HasSuggestion("unicode_loop.md"))
-	}
-}
-
-func TestMoveMap(t *testing.T) {
-	var solutions = []string{
-		"./solutions/2",
-	}
-	for _, sol := range solutions {
-		_, pkg, err := testhelper.LoadExample(sol, "scrabble")
-		if err != nil {
-			t.Fatal(err)
-		}
-
-		r := extypes.NewResponse()
-		sugg := NewScrabble(pkg)
-		sugg.Suggest(r)
-
-		assert.True(t, r.HasSuggestion("move_map.md"))
-	}
-}
-
-func TestMapRune(t *testing.T) {
-	var solutions = []string{
-		"./solutions/2",
-	}
-	for _, sol := range solutions {
-		_, pkg, err := testhelper.LoadExample(sol, "scrabble")
-		if err != nil {
-			t.Fatal(err)
-		}
-
-		r := extypes.NewResponse()
-		sugg := NewScrabble(pkg)
-		sugg.Suggest(r)
-
-		assert.True(t, r.HasSuggestion("maprune.md"))
-	}
-}
-
-func TestTrySwitch(t *testing.T) {
-	var solutions = []string{
-		"./solutions/2",
-	}
-	for _, sol := range solutions {
-		_, pkg, err := testhelper.LoadExample(sol, "scrabble")
-		if err != nil {
-			t.Fatal(err)
-		}
-
-		r := extypes.NewResponse()
-		sugg := NewScrabble(pkg)
-		sugg.Suggest(r)
-
-		assert.True(t, r.HasSuggestion("try_switch.md"))
+		assert.Equal(t, test.expected, r.HasSuggestion(test.suggID), fmt.Sprintf("test failed: %+v", test))
 	}
 }
