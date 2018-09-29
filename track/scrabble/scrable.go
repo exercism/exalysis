@@ -57,7 +57,7 @@ func (s *Scrabble) testToLowerUpper(fnName string) testFunc {
 			}
 			addSpeedComment(r)
 
-			if fn.IsContainedByType(astrav.NodeTypeRangeStmt) {
+			if fn.NextParentByType(astrav.NodeTypeBlockStmt).IsContainedByType(astrav.NodeTypeRangeStmt) {
 				r.AppendImprovement(tpl.UnicodeLoop.Format(fnName))
 			} else {
 				r.AppendImprovement(tpl.Unicode.Format(fnName))
@@ -141,7 +141,14 @@ func (s *Scrabble) testMapInFunc(r *extypes.Response) {
 	if len(maps) == 0 {
 		maps = fn.FindByValueType("map[int]string")
 	}
-	if len(maps) != 0 {
+
+	var hasMapDef bool
+	for _, m := range maps {
+		if !m.IsNodeType(astrav.NodeTypeIdent) {
+			hasMapDef = true
+		}
+	}
+	if hasMapDef {
 		addSpeedComment(r)
 		r.AppendTodo(tpl.MoveMap)
 	}
