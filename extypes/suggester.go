@@ -1,4 +1,4 @@
-package defs
+package extypes
 
 import (
 	"github.com/tehsphinx/astrav"
@@ -9,5 +9,5 @@ type SuggesterCreator func(pkg *astrav.Package) Suggester
 
 //Suggester defines an interface to be implemented by an exercise suggestion creator.
 type Suggester interface {
-	Suggest() []string
+	Suggest(r *Response)
 }

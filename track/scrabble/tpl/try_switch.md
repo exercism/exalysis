@@ -1,0 +1,1 @@
+- if you are up for it using a `switch` instead of a `map` will increase speed significantly

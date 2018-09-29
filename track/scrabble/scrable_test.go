@@ -4,9 +4,9 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/tehsphinx/exalysis/defs"
+	"github.com/tehsphinx/exalysis/extypes"
 )
 
 func TestSuggesterInterface(t *testing.T) {
-	assert.Implements(t, (*Scrabble)(nil), new(defs.Suggester))
+	assert.Implements(t, (*Scrabble)(nil), new(extypes.Suggester))
 }
