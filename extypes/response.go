@@ -118,3 +118,54 @@ func (s *Response) improvementIntro() tpl.Template {
 func (s *Response) LenSuggestions() int {
 	return len(s.todo) + len(s.improvement)
 }
+
+//GetTemplate returns requested template by id. Mainly used for testing to check if a template was
+//being added or not on a specific example.
+func (s *Response) GetTemplate(id string) (tpl.Template, bool) {
+	for _, t := range s.greeting {
+		if t.ID() == id {
+			return t, true
+		}
+	}
+	for _, t := range s.intro {
+		if t.ID() == id {
+			return t, true
+		}
+	}
+	if t, ok := s.GetSuggestion(id); ok {
+		return t, ok
+	}
+	for _, t := range s.outro {
+		if t.ID() == id {
+			return t, true
+		}
+	}
+	return nil, false
+}
+
+//GetSuggestion does the same as GetTemplate but only searches in todos and improments
+func (s *Response) GetSuggestion(id string) (tpl.Template, bool) {
+	for _, t := range s.todo {
+		if t.ID() == id {
+			return t, true
+		}
+	}
+	for _, t := range s.improvement {
+		if t.ID() == id {
+			return t, true
+		}
+	}
+	return nil, false
+}
+
+//HasTemplate uses GetTemplate to search for a template but only returns if it was found or not
+func (s *Response) HasTemplate(id string) bool {
+	_, ok := s.GetTemplate(id)
+	return ok
+}
+
+//HasSuggestion uses GetSuggestion to search for a template but only returns if it was found or not
+func (s *Response) HasSuggestion(id string) bool {
+	_, ok := s.GetTemplate(id)
+	return ok
+}

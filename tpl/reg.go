@@ -4,11 +4,11 @@ package tpl
 
 //Templates to be used in the response of suggester
 var (
-	Greeting         = NewFormatTemplate(MustAsset("greeting.md"))
-	NewcomerGreeting = NewFormatTemplate(MustAsset("newcomer_greeting.md"))
-	Improvement      = NewFormatTemplate(MustAsset("improvement.md"))
-	Todo             = NewFormatTemplate(MustAsset("todo.md"))
-	Praise           = NewFormatTemplate(MustAsset("praise.md"))
-	NotLinted        = NewFormatTemplate(MustAsset("not_linted.md"))
-	NotFormatted     = NewFormatTemplate(MustAsset("not_formatted.md"))
+	Greeting         = NewFormatTemplate("greeting.md", MustAsset)
+	NewcomerGreeting = NewStringTemplate("newcomer_greeting.md", MustAsset)
+	Improvement      = NewFormatTemplate("improvement.md", MustAsset)
+	Todo             = NewFormatTemplate("todo.md", MustAsset)
+	Praise           = NewFormatTemplate("praise.md", MustAsset)
+	NotLinted        = NewStringTemplate("not_linted.md", MustAsset)
+	NotFormatted     = NewStringTemplate("not_formatted.md", MustAsset)
 )

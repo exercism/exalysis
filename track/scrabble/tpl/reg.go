@@ -8,13 +8,13 @@ import (
 
 //Templates to be used in the response of suggester
 var (
-	Unicode         = tpl.NewFormatTemplate(MustAsset("unicode.md"))
-	UnicodeLoop     = tpl.NewFormatTemplate(MustAsset("unicode_loop.md"))
-	MapRune         = tpl.NewFormatTemplate(MustAsset("maprune.md"))
-	TypeConversion  = tpl.NewFormatTemplate(MustAsset("type_conversion.md"))
-	TrySwitch       = tpl.NewFormatTemplate(MustAsset("try_switch.md"))
-	LoopRuneNotByte = tpl.NewFormatTemplate(MustAsset("loop_rune_not_byte.md"))
-	IfsToSwitch     = tpl.NewFormatTemplate(MustAsset("ifs_to_switch.md"))
-	GoRoutines      = tpl.NewFormatTemplate(MustAsset("go_routines.md"))
-	MoveMap         = tpl.NewFormatTemplate(MustAsset("move_map.md"))
+	Unicode         = tpl.NewFormatTemplate("unicode.md", MustAsset)
+	UnicodeLoop     = tpl.NewFormatTemplate("unicode_loop.md", MustAsset)
+	MapRune         = tpl.NewFormatTemplate("maprune.md", MustAsset)
+	TypeConversion  = tpl.NewStringTemplate("type_conversion.md", MustAsset)
+	TrySwitch       = tpl.NewStringTemplate("try_switch.md", MustAsset)
+	LoopRuneNotByte = tpl.NewStringTemplate("loop_rune_not_byte.md", MustAsset)
+	IfsToSwitch     = tpl.NewStringTemplate("ifs_to_switch.md", MustAsset)
+	GoRoutines      = tpl.NewStringTemplate("go_routines.md", MustAsset)
+	MoveMap         = tpl.NewStringTemplate("move_map.md", MustAsset)
 )
