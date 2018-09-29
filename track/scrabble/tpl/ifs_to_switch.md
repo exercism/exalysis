@@ -1,0 +1,1 @@
+- Check out the `switch` statement to use instead the many `if` statements.

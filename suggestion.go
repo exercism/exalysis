@@ -11,7 +11,8 @@ import (
 	"github.com/golang/lint"
 	"github.com/tehsphinx/astrav"
 	"github.com/tehsphinx/dbg"
-	"github.com/tehsphinx/exalysis/defs"
+	"github.com/tehsphinx/exalysis/extypes"
+	"github.com/tehsphinx/exalysis/tpl"
 	"github.com/tehsphinx/exalysis/track/scrabble"
 )
 
@@ -20,7 +21,7 @@ var (
 	LintMinConfidence float64
 )
 
-var exercisePkgs = map[string]defs.SuggesterCreator{
+var exercisePkgs = map[string]extypes.SuggesterCreator{
 	"scrabble": scrabble.NewScrabble,
 }
 
@@ -37,30 +38,28 @@ func GetSuggestions() (string, string) {
 		log.Fatal("no known exercise package found or not implemented")
 	}
 
+	var r = extypes.NewResponse()
+	addGreeting(r, pkg.Name, folder.StudentName())
+
 	files := getFiles(folder)
 	resFmt := fmtCode(files)
 	resLint := lintCode(files)
 
-	var sugg []string
 	if resFmt != "" {
 		dbg.Cyan("#### gofmt")
 		fmt.Println(resFmt)
-		sugg = append(sugg, notFormatted)
+		r.AppendTodo(tpl.NotFormatted)
 	}
 	if resLint != "" {
 		dbg.Cyan("#### golint")
 		fmt.Println(resLint)
-		sugg = append(sugg, notLinted)
+		r.AppendTodo(tpl.NotLinted)
 	}
 
 	sg := creator(pkg)
-	sugg = append(sugg, sg.Suggest()...)
+	sg.Suggest(r)
 
-	reply := getGreeting(pkg.Name)
-	reply += praise(sugg)
-	reply += strings.Join(sugg, "\n")
-
-	return reply, approval(sugg, resFmt == "", resLint == "")
+	return r.GetAnswerString(), approval(r, resFmt == "", resLint == "")
 }
 
 func getFiles(prog *astrav.Folder) map[string][]byte {
@@ -110,7 +109,7 @@ func fmtCode(files map[string][]byte) string {
 	return ""
 }
 
-func getExercisePkg(program *astrav.Folder) (*astrav.Package, defs.SuggesterCreator) {
+func getExercisePkg(program *astrav.Folder) (*astrav.Package, extypes.SuggesterCreator) {
 	for name, pkg := range program.Pkgs {
 		if sg, ok := exercisePkgs[name]; ok {
 			return pkg, sg
@@ -119,27 +118,15 @@ func getExercisePkg(program *astrav.Folder) (*astrav.Package, defs.SuggesterCrea
 	return nil, nil
 }
 
-func getGreeting(pkg string) string {
-	str := greeting
+func addGreeting(r *extypes.Response, pkg, student string) {
+	r.SetGreeting(tpl.Greeting.Format(student))
 	switch pkg {
 	case "twofer":
-		str += newcomerGreeting
+		r.AppendGreeting(tpl.NewcomerGreeting)
 	}
-	return str
 }
 
-func praise(sugg []string) string {
-	if len(sugg) == 0 {
-		return perfectSolution
-	} else if len(sugg) < 2 {
-		return veryGoodSolution
-	} else if len(sugg) < 6 {
-		return goodSolution
-	}
-	return interestingSolution
-}
-
-func approval(sugg []string, gofmt, golint bool) string {
+func approval(r *extypes.Response, gofmt, golint bool) string {
 	rating := "\n\n" + dbg.Sprint(dbg.ColorCyan, "#### Rating Suggestion")
 	var approve string
 	if !gofmt {
@@ -155,18 +142,19 @@ func approval(sugg []string, gofmt, golint bool) string {
 		}
 	}
 
-	var suggsAdded = fmt.Sprintf("Suggestions added: %d", len(sugg))
-	if 5 < len(sugg) {
+	l := r.LenSuggestions()
+	var suggsAdded = fmt.Sprintf("Suggestions added: %d", l)
+	if 5 < l {
 		rating += dbg.Sprint(dbg.ColorRed, suggsAdded)
 		if approve == "" {
 			approve = dbg.Sprint(dbg.ColorRed, "NO APPROVAL")
 		}
-	} else if 2 < len(sugg) {
+	} else if 2 < l {
 		rating += dbg.Sprint(dbg.ColorMagenta, suggsAdded)
 		if approve == "" {
 			approve = dbg.Sprint(dbg.ColorMagenta, "MAYBE APPROVE")
 		}
-	} else if 1 < len(sugg) {
+	} else if 1 < l {
 		rating += dbg.Sprint(dbg.ColorYellow, suggsAdded)
 		if approve == "" {
 			approve = dbg.Sprint(dbg.ColorYellow, "LIKELY APPROVE")
