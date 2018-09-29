@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/golang/lint"
+	"github.com/pmezard/go-difflib/difflib"
 	"github.com/tehsphinx/astrav"
 	"github.com/tehsphinx/dbg"
 	"github.com/tehsphinx/exalysis/extypes"
@@ -103,10 +104,25 @@ func fmtCode(files map[string][]byte) string {
 			return fmt.Sprintf("code fails to format with error: %s\n", err)
 		}
 		if string(f) != strings.Replace(string(file), "\r\n", "\n", -1) {
-			return "code is not formatted!\n"
+			return getDiff(file, f)
 		}
 	}
 	return ""
+}
+
+func getDiff(current, formatted []byte) string {
+	diff := difflib.UnifiedDiff{
+		A:        difflib.SplitLines(string(current)),
+		B:        difflib.SplitLines(string(formatted)),
+		FromFile: "Current",
+		ToFile:   "Formatted",
+		Context:  0,
+	}
+	text, err := difflib.GetUnifiedDiffString(diff)
+	if err != nil {
+		return fmt.Sprintf("error while diffing strings: %s", err)
+	}
+	return text
 }
 
 func getExercisePkg(program *astrav.Folder) (*astrav.Package, extypes.SuggesterCreator) {
