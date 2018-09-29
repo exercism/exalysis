@@ -134,13 +134,7 @@ func (s *Scrabble) testIfElseToSwitch(r *extypes.Response) {
 
 func (s *Scrabble) testMapInFunc(r *extypes.Response) {
 	fn := s.pkg.FindFirstByName("Score")
-	maps := fn.FindByValueType("map[rune]int")
-	if len(maps) == 0 {
-		maps = fn.FindByValueType("map[string]int")
-	}
-	if len(maps) == 0 {
-		maps = fn.FindByValueType("map[int]string")
-	}
+	maps := fn.FindMaps()
 
 	var hasMapDef bool
 	for _, m := range maps {
