@@ -20,6 +20,7 @@ var suggestTests = []struct {
 	{path: "./solutions/3", suggID: "unicode_loop.md", expected: false},
 	{path: "./solutions/2", suggID: "move_map.md", expected: true},
 	{path: "./solutions/3", suggID: "move_map.md", expected: false},
+	{path: "./solutions/4", suggID: "move_map.md", expected: true},
 	{path: "./solutions/2", suggID: "maprune.md", expected: true},
 	{path: "./solutions/2", suggID: "try_switch.md", expected: true},
 }
