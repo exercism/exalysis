@@ -1,6 +1,6 @@
-//go:generate go-bindata -ignore=\.go -pkg=tpl -o=bindata.go ./...
+//go:generate go-bindata -ignore=\.go -pkg=gtpl -o=bindata.go ./...
 
-package tpl
+package gtpl
 
 //Templates to be used in the response of suggester
 var (
@@ -11,4 +11,6 @@ var (
 	Praise           = NewFormatTemplate("praise.md", MustAsset)
 	NotLinted        = NewStringTemplate("not_linted.md", MustAsset)
 	NotFormatted     = NewStringTemplate("not_formatted.md", MustAsset)
+	Questions        = NewStringTemplate("questions.md", MustAsset)
+	Benchmarking     = NewStringTemplate("benchmarking.md", MustAsset)
 )

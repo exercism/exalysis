@@ -5,6 +5,7 @@ import (
 
 	"github.com/tehsphinx/astrav"
 	"github.com/tehsphinx/exalysis/extypes"
+	"github.com/tehsphinx/exalysis/gtpl"
 	"github.com/tehsphinx/exalysis/track/scrabble/tpl"
 	"golang.org/x/tools/go/loader"
 	"honnef.co/go/tools/ssa"
@@ -54,6 +55,7 @@ func (s *Scrabble) testToLowerUpper(fnName string) testFunc {
 				f.X.(*ast.Ident).Name == "unicode" {
 				continue
 			}
+			addSpeedComment(r)
 
 			if fn.IsContainedByType(astrav.NodeTypeRangeStmt) {
 				r.AppendImprovement(tpl.UnicodeLoop.Format(fnName))
@@ -66,15 +68,18 @@ func (s *Scrabble) testToLowerUpper(fnName string) testFunc {
 
 func (s *Scrabble) testMapRuneInt(r *extypes.Response) {
 	if len(s.pkg.FindByValueType("map[rune]int")) != 0 {
+		addSpeedComment(r)
 		r.AppendImprovement(tpl.TrySwitch)
 		return
 	}
 	if len(s.pkg.FindByValueType("map[string]int")) != 0 {
+		addSpeedComment(r)
 		r.AppendImprovement(tpl.MapRune.Format("map[string]int"))
 		r.AppendImprovement(tpl.TrySwitch)
 		return
 	}
 	if len(s.pkg.FindByValueType("map[int]string")) != 0 {
+		addSpeedComment(r)
 		r.AppendImprovement(tpl.MapRune.Format("map[int]string"))
 		r.AppendImprovement(tpl.TrySwitch)
 		return
@@ -111,6 +116,7 @@ func (s *Scrabble) testRuneLoop(r *extypes.Response) {
 func (s *Scrabble) testGoRoutine(r *extypes.Response) {
 	goStmts := s.pkg.FindByNodeType(astrav.NodeTypeGoStmt)
 	if len(goStmts) != 0 {
+		addSpeedComment(r)
 		r.AppendTodo(tpl.GoRoutines)
 	}
 }
@@ -136,6 +142,16 @@ func (s *Scrabble) testMapInFunc(r *extypes.Response) {
 		maps = fn.FindByValueType("map[int]string")
 	}
 	if len(maps) != 0 {
+		addSpeedComment(r)
 		r.AppendTodo(tpl.MoveMap)
+	}
+}
+
+var speedCommentAdded bool
+
+func addSpeedComment(r *extypes.Response) {
+	if !speedCommentAdded {
+		speedCommentAdded = true
+		r.AppendOutro(gtpl.Benchmarking)
 	}
 }

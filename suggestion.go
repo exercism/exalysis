@@ -13,7 +13,7 @@ import (
 	"github.com/tehsphinx/astrav"
 	"github.com/tehsphinx/dbg"
 	"github.com/tehsphinx/exalysis/extypes"
-	"github.com/tehsphinx/exalysis/tpl"
+	"github.com/tehsphinx/exalysis/gtpl"
 	"github.com/tehsphinx/exalysis/track/scrabble"
 )
 
@@ -49,12 +49,12 @@ func GetSuggestions() (string, string) {
 	if resFmt != "" {
 		dbg.Cyan("#### gofmt")
 		fmt.Println(resFmt)
-		r.AppendTodo(tpl.NotFormatted)
+		r.AppendTodo(gtpl.NotFormatted)
 	}
 	if resLint != "" {
 		dbg.Cyan("#### golint")
 		fmt.Println(resLint)
-		r.AppendTodo(tpl.NotLinted)
+		r.AppendTodo(gtpl.NotLinted)
 	}
 
 	sg := creator(pkg)
@@ -135,10 +135,10 @@ func getExercisePkg(program *astrav.Folder) (*astrav.Package, extypes.SuggesterC
 }
 
 func addGreeting(r *extypes.Response, pkg, student string) {
-	r.SetGreeting(tpl.Greeting.Format(student))
+	r.SetGreeting(gtpl.Greeting.Format(student))
 	switch pkg {
 	case "twofer":
-		r.AppendGreeting(tpl.NewcomerGreeting)
+		r.AppendGreeting(gtpl.NewcomerGreeting)
 	}
 }
 

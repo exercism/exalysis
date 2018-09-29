@@ -1,8 +1,6 @@
 package extypes
 
-import (
-	"github.com/tehsphinx/exalysis/tpl"
-)
+import "github.com/tehsphinx/exalysis/gtpl"
 
 //NewResponse creates a new response
 func NewResponse() *Response {
@@ -14,41 +12,41 @@ func NewResponse() *Response {
 //answer string to be replied to the student on exercism.
 type Response struct {
 	// the following slices make up the answer in the order given here
-	greeting    []tpl.Template
-	intro       []tpl.Template
-	todo        []tpl.Template
-	improvement []tpl.Template
-	outro       []tpl.Template
+	greeting    []gtpl.Template
+	intro       []gtpl.Template
+	todo        []gtpl.Template
+	improvement []gtpl.Template
+	outro       []gtpl.Template
 }
 
 //SetGreeting sets the greeting overwriting already set or added greetings
-func (s *Response) SetGreeting(template tpl.Template) {
-	s.greeting = []tpl.Template{template}
+func (s *Response) SetGreeting(template gtpl.Template) {
+	s.greeting = []gtpl.Template{template}
 }
 
 //AppendGreeting adds a greeting template
-func (s *Response) AppendGreeting(template tpl.Template) {
+func (s *Response) AppendGreeting(template gtpl.Template) {
 	s.greeting = append(s.greeting, template)
 }
 
 //AppendIntro adds an intro template
-func (s *Response) AppendIntro(template tpl.Template) {
+func (s *Response) AppendIntro(template gtpl.Template) {
 	s.intro = append(s.intro, template)
 }
 
 //AppendTodo adds a task to the list to be done before approval
-func (s *Response) AppendTodo(template tpl.Template) {
+func (s *Response) AppendTodo(template gtpl.Template) {
 	s.todo = append(s.todo, template)
 }
 
 //AppendImprovement adds a optional improvement to the list that can be made
 //by the student to improve the solution.
-func (s *Response) AppendImprovement(template tpl.Template) {
+func (s *Response) AppendImprovement(template gtpl.Template) {
 	s.improvement = append(s.improvement, template)
 }
 
 //AppendOutro adds an outro template
-func (s *Response) AppendOutro(template tpl.Template) {
+func (s *Response) AppendOutro(template gtpl.Template) {
 	s.outro = append(s.outro, template)
 }
 
@@ -62,25 +60,33 @@ func (s *Response) GetAnswerString() string {
 	for _, t := range s.intro {
 		answ += t.TplString()
 	}
+
+	var suggsAdded bool
 	if len(s.todo) != 0 {
 		answ += s.todoIntro().TplString()
 		for _, t := range s.todo {
 			answ += t.TplString()
 		}
+		suggsAdded = true
 	}
 	if len(s.improvement) != 0 {
 		answ += s.improvementIntro().TplString()
 		for _, t := range s.improvement {
 			answ += t.TplString()
 		}
+		suggsAdded = true
 	}
+	if suggsAdded {
+		s.AppendOutro(gtpl.Questions)
+	}
+
 	for _, t := range s.outro {
 		answ += t.TplString()
 	}
 	return answ
 }
 
-func (s *Response) praise() tpl.Template {
+func (s *Response) praise() gtpl.Template {
 	var (
 		l   = len(s.todo)*2 + len(s.improvement)
 		adj string
@@ -95,23 +101,23 @@ func (s *Response) praise() tpl.Template {
 	default:
 		adj = "interesting"
 	}
-	return tpl.Praise.Format(adj)
+	return gtpl.Praise.Format(adj)
 }
 
-func (s *Response) todoIntro() tpl.Template {
+func (s *Response) todoIntro() gtpl.Template {
 	adj := "point"
 	if 1 < len(s.todo) {
 		adj = "points"
 	}
-	return tpl.Todo.Format(adj)
+	return gtpl.Todo.Format(adj)
 }
 
-func (s *Response) improvementIntro() tpl.Template {
+func (s *Response) improvementIntro() gtpl.Template {
 	adj := "one thought"
 	if 1 < len(s.todo) {
 		adj = "some thoughts"
 	}
-	return tpl.Improvement.Format(adj)
+	return gtpl.Improvement.Format(adj)
 }
 
 //LenSuggestions returns the amount of suggestions added
@@ -121,7 +127,7 @@ func (s *Response) LenSuggestions() int {
 
 //GetTemplate returns requested template by id. Mainly used for testing to check if a template was
 //being added or not on a specific example.
-func (s *Response) GetTemplate(id string) (tpl.Template, bool) {
+func (s *Response) GetTemplate(id string) (gtpl.Template, bool) {
 	for _, t := range s.greeting {
 		if t.ID() == id {
 			return t, true
@@ -144,7 +150,7 @@ func (s *Response) GetTemplate(id string) (tpl.Template, bool) {
 }
 
 //GetSuggestion does the same as GetTemplate but only searches in todos and improments
-func (s *Response) GetSuggestion(id string) (tpl.Template, bool) {
+func (s *Response) GetSuggestion(id string) (gtpl.Template, bool) {
 	for _, t := range s.todo {
 		if t.ID() == id {
 			return t, true
