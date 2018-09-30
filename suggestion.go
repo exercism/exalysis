@@ -3,8 +3,6 @@ package exalysis
 import (
 	"fmt"
 	"go/format"
-	"go/token"
-	"io/ioutil"
 	"log"
 	"strings"
 
@@ -42,7 +40,7 @@ func GetSuggestions() (string, string) {
 	var r = extypes.NewResponse()
 	addGreeting(r, pkg.Name, folder.StudentName())
 
-	files := getFiles(folder)
+	files := folder.GetRawFiles()
 	resFmt := fmtCode(files)
 	resLint := lintCode(files)
 
@@ -60,23 +58,6 @@ func GetSuggestions() (string, string) {
 	suggFunc(pkg, r)
 
 	return r.GetAnswerString(), approval(r, resFmt == "", resLint == "")
-}
-
-func getFiles(prog *astrav.Folder) map[string][]byte {
-	var files = map[string][]byte{}
-	prog.FSet.Iterate(func(file *token.File) bool {
-		if !strings.HasSuffix(file.Name(), "_test.go") {
-
-			b, err := ioutil.ReadFile(file.Name())
-			if err != nil {
-				log.Fatal(err)
-			}
-			files[file.Name()] = b
-		}
-		return true
-	})
-
-	return files
 }
 
 func lintCode(files map[string][]byte) string {
@@ -124,8 +105,8 @@ func getDiff(current, formatted []byte) string {
 	return text
 }
 
-func getExercisePkg(program *astrav.Folder) (*astrav.Package, extypes.SuggestionFunc) {
-	for name, pkg := range program.Pkgs {
+func getExercisePkg(folder *astrav.Folder) (*astrav.Package, extypes.SuggestionFunc) {
+	for name, pkg := range folder.Pkgs {
 		if sg, ok := exercisePkgs[name]; ok {
 			return pkg, sg
 		}

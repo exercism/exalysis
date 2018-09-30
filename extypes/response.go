@@ -1,6 +1,10 @@
 package extypes
 
-import "github.com/tehsphinx/exalysis/gtpl"
+import (
+	"fmt"
+
+	"github.com/tehsphinx/exalysis/gtpl"
+)
 
 //NewResponse creates a new response
 func NewResponse() *Response {
@@ -16,6 +20,7 @@ type Response struct {
 	intro       []gtpl.Template
 	todo        []gtpl.Template
 	improvement []gtpl.Template
+	comment     []gtpl.Template
 	outro       []gtpl.Template
 }
 
@@ -39,10 +44,15 @@ func (s *Response) AppendTodo(template gtpl.Template) {
 	s.todo = append(s.todo, template)
 }
 
-//AppendImprovement adds a optional improvement to the list that can be made
+//AppendImprovement adds a optional improvement to the response that can be made
 //by the student to improve the solution.
 func (s *Response) AppendImprovement(template gtpl.Template) {
 	s.improvement = append(s.improvement, template)
+}
+
+//AppendComment adds a thought or comment to the response
+func (s *Response) AppendComment(template gtpl.Template) {
+	s.comment = append(s.comment, template)
 }
 
 //AppendOutro adds an outro template
@@ -76,6 +86,15 @@ func (s *Response) GetAnswerString() string {
 		}
 		suggsAdded = true
 	}
+
+	if len(s.comment) != 0 {
+		answ += s.commentIntro().TplString()
+		for _, t := range s.comment {
+			answ += t.TplString()
+		}
+		suggsAdded = true
+	}
+
 	if suggsAdded {
 		s.AppendOutro(gtpl.Questions)
 	}
@@ -120,6 +139,18 @@ func (s *Response) improvementIntro() gtpl.Template {
 	return gtpl.Improvement.Format(adj)
 }
 
+func (s *Response) commentIntro() gtpl.Template {
+	further := "further "
+	if s.LenSuggestions() == 0 {
+		further = ""
+	}
+	adj := fmt.Sprintf("One %sthought", further)
+	if 1 < len(s.comment) {
+		adj = fmt.Sprintf("Some %sthoughts", further)
+	}
+	return gtpl.Comment.Format(adj)
+}
+
 //LenSuggestions returns the amount of suggestions added
 func (s *Response) LenSuggestions() int {
 	return len(s.todo) + len(s.improvement)
@@ -149,7 +180,7 @@ func (s *Response) GetTemplate(id string) (gtpl.Template, bool) {
 	return nil, false
 }
 
-//GetSuggestion does the same as GetTemplate but only searches in todos and improments
+//GetSuggestion does the same as GetTemplate but only searches in todos and improments and comments
 func (s *Response) GetSuggestion(id string) (gtpl.Template, bool) {
 	for _, t := range s.todo {
 		if t.ID() == id {
@@ -157,6 +188,11 @@ func (s *Response) GetSuggestion(id string) (gtpl.Template, bool) {
 		}
 	}
 	for _, t := range s.improvement {
+		if t.ID() == id {
+			return t, true
+		}
+	}
+	for _, t := range s.comment {
 		if t.ID() == id {
 			return t, true
 		}

@@ -25,7 +25,7 @@ var suggestTests = []struct {
 	{path: "./solutions/2", suggID: "try_switch.md", expected: true},
 }
 
-func TestScrabble_Suggest(t *testing.T) {
+func Test_Suggest(t *testing.T) {
 	for _, test := range suggestTests {
 		_, pkg, err := testhelper.LoadExample(test.path, "scrabble")
 		if err != nil {
@@ -33,8 +33,7 @@ func TestScrabble_Suggest(t *testing.T) {
 		}
 
 		r := extypes.NewResponse()
-		sugg := NewScrabble(pkg)
-		sugg.Suggest(r)
+		Suggest(pkg, r)
 
 		assert.Equal(t, test.expected, r.HasSuggestion(test.suggID), fmt.Sprintf("test failed: %+v", test))
 	}
