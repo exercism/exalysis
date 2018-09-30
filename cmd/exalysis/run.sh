@@ -8,7 +8,7 @@ pushd $GOPATH/src/github.com/tehsphinx/exalysis >/dev/null
 
 # building starts here
 GO111MODULE=on go generate ./...
-GO111MODULE=on go build -o ./exalysis ./cmd
+GO111MODULE=on go build -o ./exalysis ./cmd/exalysis
 # building ends here. Move exalysis executable to a folder contained in PATH variable.
 
 popd >/dev/null
