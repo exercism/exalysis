@@ -22,8 +22,8 @@ var (
 	LintMinConfidence float64
 )
 
-var exercisePkgs = map[string]extypes.SuggesterCreator{
-	"scrabble": scrabble.NewScrabble,
+var exercisePkgs = map[string]extypes.SuggestionFunc{
+	"scrabble": scrabble.Suggest,
 }
 
 //GetSuggestions selects the package suggestion routine and returns the suggestions
@@ -34,8 +34,8 @@ func GetSuggestions() (string, string) {
 		log.Fatal(err)
 	}
 
-	pkg, creator := getExercisePkg(folder)
-	if creator == nil {
+	pkg, suggFunc := getExercisePkg(folder)
+	if suggFunc == nil {
 		log.Fatal("no known exercise package found or not implemented")
 	}
 
@@ -57,8 +57,7 @@ func GetSuggestions() (string, string) {
 		r.AppendTodo(gtpl.NotLinted)
 	}
 
-	sg := creator(pkg)
-	sg.Suggest(r)
+	suggFunc(pkg, r)
 
 	return r.GetAnswerString(), approval(r, resFmt == "", resLint == "")
 }
@@ -125,7 +124,7 @@ func getDiff(current, formatted []byte) string {
 	return text
 }
 
-func getExercisePkg(program *astrav.Folder) (*astrav.Package, extypes.SuggesterCreator) {
+func getExercisePkg(program *astrav.Folder) (*astrav.Package, extypes.SuggestionFunc) {
 	for name, pkg := range program.Pkgs {
 		if sg, ok := exercisePkgs[name]; ok {
 			return pkg, sg

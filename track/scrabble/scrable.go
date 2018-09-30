@@ -7,49 +7,28 @@ import (
 	"github.com/tehsphinx/exalysis/extypes"
 	"github.com/tehsphinx/exalysis/gtpl"
 	"github.com/tehsphinx/exalysis/track/scrabble/tpl"
-	"golang.org/x/tools/go/loader"
-	"honnef.co/go/tools/ssa"
 )
 
-type testFunc func(r *extypes.Response)
-
-//NewScrabble creates a new suggester for the scrabble exercise
-func NewScrabble(pkg *astrav.Package) extypes.Suggester {
-	s := &Scrabble{
-		pkg: pkg,
-	}
-	s.tests = []testFunc{
-		s.testGoRoutine,
-		s.testMapInFunc,
-		s.testToLowerUpper("ToLower"),
-		s.testToLowerUpper("ToUpper"),
-		s.testMapRuneInt,
-		s.testIfElseToSwitch,
-		s.testRuneLoop,
-	}
-
-	return s
-}
-
-//Scrabble implements the suggester for the scrabble exercise
-type Scrabble struct {
-	pkg    *astrav.Package
-	prog   *loader.Program
-	lPkg   *loader.PackageInfo
-	ssaPkg *ssa.Package
-	tests  []testFunc
-}
-
 //Suggest builds suggestions for the exercise solution
-func (s *Scrabble) Suggest(r *extypes.Response) {
-	for _, tf := range s.tests {
-		tf(r)
+func Suggest(pkg *astrav.Package, r *extypes.Response) {
+	for _, tf := range exFuncs {
+		tf(pkg, r)
 	}
 }
 
-func (s *Scrabble) testToLowerUpper(fnName string) testFunc {
-	return func(r *extypes.Response) {
-		fns := s.pkg.FindByName(fnName)
+var exFuncs = []extypes.SuggestionFunc{
+	testGoRoutine,
+	testMapInFunc,
+	testToLowerUpper("ToLower"),
+	testToLowerUpper("ToUpper"),
+	testMapRuneInt,
+	testIfElseToSwitch,
+	testRuneLoop,
+}
+
+func testToLowerUpper(fnName string) extypes.SuggestionFunc {
+	return func(pkg *astrav.Package, r *extypes.Response) {
+		fns := pkg.FindByName(fnName)
 		for _, fn := range fns {
 			if f, ok := fn.(*astrav.SelectorExpr); !ok ||
 				f.X.(*ast.Ident).Name == "unicode" {
@@ -66,19 +45,19 @@ func (s *Scrabble) testToLowerUpper(fnName string) testFunc {
 	}
 }
 
-func (s *Scrabble) testMapRuneInt(r *extypes.Response) {
-	if len(s.pkg.FindByValueType("map[rune]int")) != 0 {
+func testMapRuneInt(pkg *astrav.Package, r *extypes.Response) {
+	if len(pkg.FindByValueType("map[rune]int")) != 0 {
 		addSpeedComment(r)
 		r.AppendImprovement(tpl.TrySwitch)
 		return
 	}
-	if len(s.pkg.FindByValueType("map[string]int")) != 0 {
+	if len(pkg.FindByValueType("map[string]int")) != 0 {
 		addSpeedComment(r)
 		r.AppendImprovement(tpl.MapRune.Format("map[string]int"))
 		r.AppendImprovement(tpl.TrySwitch)
 		return
 	}
-	if len(s.pkg.FindByValueType("map[int]string")) != 0 {
+	if len(pkg.FindByValueType("map[int]string")) != 0 {
 		addSpeedComment(r)
 		r.AppendImprovement(tpl.MapRune.Format("map[int]string"))
 		r.AppendImprovement(tpl.TrySwitch)
@@ -86,8 +65,8 @@ func (s *Scrabble) testMapRuneInt(r *extypes.Response) {
 	}
 }
 
-func (s *Scrabble) testRuneLoop(r *extypes.Response) {
-	ranges := s.pkg.FindFirstByName("Score").FindByNodeType(astrav.NodeTypeRangeStmt)
+func testRuneLoop(pkg *astrav.Package, r *extypes.Response) {
+	ranges := pkg.FindFirstByName("Score").FindByNodeType(astrav.NodeTypeRangeStmt)
 	for _, rng := range ranges {
 		l := rng.(*astrav.RangeStmt)
 		if l.Value == nil {
@@ -113,16 +92,16 @@ func (s *Scrabble) testRuneLoop(r *extypes.Response) {
 	}
 }
 
-func (s *Scrabble) testGoRoutine(r *extypes.Response) {
-	goStmts := s.pkg.FindByNodeType(astrav.NodeTypeGoStmt)
+func testGoRoutine(pkg *astrav.Package, r *extypes.Response) {
+	goStmts := pkg.FindByNodeType(astrav.NodeTypeGoStmt)
 	if len(goStmts) != 0 {
 		addSpeedComment(r)
 		r.AppendTodo(tpl.GoRoutines)
 	}
 }
 
-func (s *Scrabble) testIfElseToSwitch(r *extypes.Response) {
-	ranges := s.pkg.FindFirstByName("Score").FindByNodeType(astrav.NodeTypeRangeStmt)
+func testIfElseToSwitch(pkg *astrav.Package, r *extypes.Response) {
+	ranges := pkg.FindFirstByName("Score").FindByNodeType(astrav.NodeTypeRangeStmt)
 	for _, rng := range ranges {
 		ifs := rng.FindByNodeType(astrav.NodeTypeIfStmt)
 		if 5 < len(ifs) {
@@ -132,8 +111,8 @@ func (s *Scrabble) testIfElseToSwitch(r *extypes.Response) {
 	}
 }
 
-func (s *Scrabble) testMapInFunc(r *extypes.Response) {
-	fn := s.pkg.FindFirstByName("Score")
+func testMapInFunc(pkg *astrav.Package, r *extypes.Response) {
+	fn := pkg.FindFirstByName("Score")
 	maps := fn.FindMaps()
 
 	var hasMapDef bool
