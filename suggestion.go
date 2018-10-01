@@ -13,6 +13,7 @@ import (
 	"github.com/tehsphinx/exalysis/extypes"
 	"github.com/tehsphinx/exalysis/gtpl"
 	"github.com/tehsphinx/exalysis/track/scrabble"
+	"github.com/tehsphinx/exalysis/track/twofer"
 )
 
 var (
@@ -21,6 +22,7 @@ var (
 )
 
 var exercisePkgs = map[string]extypes.SuggestionFunc{
+	"twofer":   twofer.Suggest,
 	"scrabble": scrabble.Suggest,
 }
 

@@ -5,8 +5,9 @@ Exalysis is a tool ment for mentors of the [exercism](https://exercism.io) go tr
 ## Status
 This is a prove of concept. I use it to mentor and enhance/extend it as I go.
 
-Implemented exercises:
-- Scrabble Score
+***Exercise implementations:***
+- TwoFer (in progress)
+- Scrabble Score 
 
 ## Installation
 

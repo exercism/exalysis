@@ -1,0 +1,1 @@
+- The comment describing the %s should have the correct format. For defails you can check the section below.
