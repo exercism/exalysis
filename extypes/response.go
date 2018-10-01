@@ -208,6 +208,6 @@ func (s *Response) HasTemplate(id string) bool {
 
 //HasSuggestion uses GetSuggestion to search for a template but only returns if it was found or not
 func (s *Response) HasSuggestion(id string) bool {
-	_, ok := s.GetTemplate(id)
+	_, ok := s.GetSuggestion(id)
 	return ok
 }
