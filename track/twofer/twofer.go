@@ -2,6 +2,7 @@ package twofer
 
 import (
 	"bytes"
+	"fmt"
 	"strings"
 
 	"github.com/tehsphinx/astrav"
@@ -36,8 +37,6 @@ func examFmt(pkg *astrav.Package, r *extypes.Response) {
 		r.AppendComment(tpl.PlusUsed)
 		return
 	}
-
-	//TODO: add more checks
 }
 
 func examComments(pkg *astrav.Package, r *extypes.Response) {
@@ -45,33 +44,46 @@ func examComments(pkg *astrav.Package, r *extypes.Response) {
 		addStub(r)
 	}
 
-	//TODO: create a function for this to reduce replicated code
 	cGroup := pkg.ChildByNodeType(astrav.NodeTypeFile).ChildByNodeType(astrav.NodeTypeCommentGroup)
-	if cGroup == nil {
-		r.AppendImprovement(tpl.MissingComment.Format("Packages"))
-		addCommentFormat(r)
-	} else {
-		c := strings.TrimSpace(strings.Replace(cGroup.Children()[0].(*astrav.Comment).Text, "/", "", 2))
-
-		if strings.Contains(c, "should have a package comment") {
-			addStub(r)
-		} else if !strings.HasPrefix(c, "Package twofer ") {
-			r.AppendImprovement(tpl.WrongCommentFormat.Format("package twofer"))
-			addCommentFormat(r)
-		}
-	}
+	checkComment(cGroup, r, "package", "twofer")
 
 	cGroup = pkg.FindFirstByName("ShareWith").ChildByNodeType(astrav.NodeTypeCommentGroup)
+	checkComment(cGroup, r, "function", "ShareWith")
+}
+
+var commentStrings = map[string]struct {
+	typeString       string
+	stubString       string
+	prefixString     string
+	wrongCommentName string
+}{
+	"package": {
+		typeString:       "Packages",
+		stubString:       "should have a package comment",
+		prefixString:     "Package %s ",
+		wrongCommentName: "package `%s`",
+	},
+	"function": {
+		typeString:       "Exported functions",
+		stubString:       "should have a comment",
+		prefixString:     "%s ",
+		wrongCommentName: "function `%s`",
+	},
+}
+
+// we only do this on the first exercise. Later we ask them to use golint.
+func checkComment(cGroup astrav.Node, r *extypes.Response, commentType, name string) {
+	strPack := commentStrings[commentType]
 	if cGroup == nil {
-		r.AppendImprovement(tpl.MissingComment.Format("Exported functions"))
+		r.AppendImprovement(tpl.MissingComment.Format(strPack.typeString))
 		addCommentFormat(r)
 	} else {
 		c := strings.TrimSpace(strings.Replace(cGroup.Children()[0].(*astrav.Comment).Text, "/", "", 2))
 
-		if strings.Contains(c, "should have a comment") {
+		if strings.Contains(c, strPack.stubString) {
 			addStub(r)
-		} else if !strings.HasPrefix(c, "ShareWith ") {
-			r.AppendImprovement(tpl.WrongCommentFormat.Format("function `ShareWith`"))
+		} else if !strings.HasPrefix(c, fmt.Sprintf(strPack.prefixString, name)) {
+			r.AppendImprovement(tpl.WrongCommentFormat.Format(fmt.Sprintf(strPack.wrongCommentName, name)))
 			addCommentFormat(r)
 		}
 	}
