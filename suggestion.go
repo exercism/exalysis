@@ -43,23 +43,46 @@ func GetSuggestions() (string, string) {
 	addGreeting(r, pkg.Name, folder.StudentName())
 
 	files := folder.GetRawFiles()
-	resFmt := fmtCode(files)
-	resLint := lintCode(files)
-
-	if resFmt != "" {
-		dbg.Cyan("#### gofmt")
-		fmt.Println(resFmt)
-		r.AppendTodo(gtpl.NotFormatted)
-	}
-	if resLint != "" {
-		dbg.Cyan("#### golint")
-		fmt.Println(resLint)
-		r.AppendTodo(gtpl.NotLinted)
-	}
+	fmtOk := checkFmt(files, r, pkg.Name)
+	lintOk := checkLint(files, r, pkg.Name)
 
 	suggFunc(pkg, r)
 
-	return r.GetAnswerString(), approval(r, resFmt == "", resLint == "")
+	return r.GetAnswerString(), approval(r, fmtOk, lintOk)
+}
+
+func checkFmt(files map[string][]byte, r *extypes.Response, pkgName string) bool {
+	resFmt := fmtCode(files)
+	if resFmt == "" {
+		return true
+	}
+
+	dbg.Cyan("#### gofmt")
+	fmt.Println(resFmt)
+	if pkgName == "twofer" {
+		r.AppendImprovement(gtpl.NotFormatted)
+	} else {
+		r.AppendTodo(gtpl.NotFormatted)
+	}
+
+	return false
+}
+
+func checkLint(files map[string][]byte, r *extypes.Response, pkgName string) bool {
+	resLint := lintCode(files)
+	if resLint == "" {
+		return true
+	}
+
+	dbg.Cyan("#### golint")
+	fmt.Println(resLint)
+	if pkgName == "twofer" {
+		r.AppendImprovement(gtpl.NotLinted)
+	} else {
+		r.AppendTodo(gtpl.NotLinted)
+	}
+
+	return false
 }
 
 func lintCode(files map[string][]byte) string {
