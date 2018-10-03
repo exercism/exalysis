@@ -20,6 +20,7 @@ func Suggest(pkg *astrav.Package, r *extypes.Response) {
 
 var exFuncs = []extypes.SuggestionFunc{
 	examRuneToByte,
+	examMultipleStringConversions,
 	examErrorMessage,
 }
 
@@ -28,9 +29,26 @@ func examRuneToByte(pkg *astrav.Package, r *extypes.Response) {
 	for _, node := range nodes {
 		for _, n := range node.Siblings() {
 			if n.ValueType().String() == "rune" {
-				r.AppendImprovement(tpl.RuneToByte)
+				r.AppendComment(tpl.RuneToByte)
 			}
 		}
+	}
+}
+
+func examMultipleStringConversions(pkg *astrav.Package, r *extypes.Response) {
+	rngNode := pkg.FindFirstByNodeType(astrav.NodeTypeRangeStmt)
+	if rngNode == nil {
+		return
+	}
+
+	count := 0
+	for _, node := range rngNode.FindByName("string") {
+		if node.Parent().IsNodeType(astrav.NodeTypeCallExpr) {
+			count++
+		}
+	}
+	if 1 < count {
+		r.AppendImprovement(tpl.MultiStringConv)
 	}
 }
 

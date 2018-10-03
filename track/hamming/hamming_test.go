@@ -6,16 +6,19 @@ import (
 
 	"github.com/stretchr/testify/assert"
 	"github.com/tehsphinx/exalysis/extypes"
+	"github.com/tehsphinx/exalysis/gtpl"
 	"github.com/tehsphinx/exalysis/testhelper"
+	"github.com/tehsphinx/exalysis/track/hamming/tpl"
 )
 
 var suggestTests = []struct {
-	path     string
-	suggID   string
-	expected bool
+	path       string
+	suggestion gtpl.Template
+	expected   bool
 }{
-	{path: "./solutions/1", suggID: "error-message-format.md", expected: true},
-	{path: "./solutions/1", suggID: "rune-to-byte.md", expected: true},
+	{path: "./solutions/1", suggestion: tpl.ErrorMessageFormat, expected: true},
+	{path: "./solutions/1", suggestion: tpl.RuneToByte, expected: true},
+	{path: "./solutions/2", suggestion: tpl.MultiStringConv, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {
@@ -28,6 +31,6 @@ func Test_Suggest(t *testing.T) {
 		r := extypes.NewResponse()
 		Suggest(pkg, r)
 
-		assert.Equal(t, test.expected, r.HasSuggestion(test.suggID), fmt.Sprintf("test failed: %+v", test))
+		assert.Equal(t, test.expected, r.HasSuggestion(test.suggestion.ID()), fmt.Sprintf("test failed: %+v", test))
 	}
 }

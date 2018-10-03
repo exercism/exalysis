@@ -8,4 +8,5 @@ import "github.com/tehsphinx/exalysis/gtpl"
 var (
 	ErrorMessageFormat = gtpl.NewStringTemplate("error-message-format.md", MustAsset)
 	RuneToByte         = gtpl.NewStringTemplate("rune-to-byte.md", MustAsset)
+	MultiStringConv    = gtpl.NewStringTemplate("multiple-string-conversions.md", MustAsset)
 )
