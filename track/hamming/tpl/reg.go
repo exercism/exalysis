@@ -7,4 +7,5 @@ import "github.com/tehsphinx/exalysis/gtpl"
 //Templates to be used in the response of suggester
 var (
 	ErrorMessageFormat = gtpl.NewStringTemplate("error-message-format.md", MustAsset)
+	RuneToByte         = gtpl.NewStringTemplate("rune-to-byte.md", MustAsset)
 )

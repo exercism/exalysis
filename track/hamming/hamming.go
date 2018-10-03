@@ -19,7 +19,19 @@ func Suggest(pkg *astrav.Package, r *extypes.Response) {
 }
 
 var exFuncs = []extypes.SuggestionFunc{
+	examRuneToByte,
 	examErrorMessage,
+}
+
+func examRuneToByte(pkg *astrav.Package, r *extypes.Response) {
+	nodes := pkg.FindByName("byte")
+	for _, node := range nodes {
+		for _, n := range node.Siblings() {
+			if n.ValueType().String() == "rune" {
+				r.AppendImprovement(tpl.RuneToByte)
+			}
+		}
+	}
 }
 
 func examErrorMessage(pkg *astrav.Package, r *extypes.Response) {

@@ -15,6 +15,7 @@ var suggestTests = []struct {
 	expected bool
 }{
 	{path: "./solutions/1", suggID: "error-message-format.md", expected: true},
+	{path: "./solutions/1", suggID: "rune-to-byte.md", expected: true},
 }
 
 func Test_Suggest(t *testing.T) {
