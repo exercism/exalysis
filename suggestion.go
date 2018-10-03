@@ -12,6 +12,7 @@ import (
 	"github.com/tehsphinx/dbg"
 	"github.com/tehsphinx/exalysis/extypes"
 	"github.com/tehsphinx/exalysis/gtpl"
+	"github.com/tehsphinx/exalysis/track/hamming"
 	"github.com/tehsphinx/exalysis/track/scrabble"
 	"github.com/tehsphinx/exalysis/track/twofer"
 )
@@ -23,6 +24,7 @@ var (
 
 var exercisePkgs = map[string]extypes.SuggestionFunc{
 	"twofer":   twofer.Suggest,
+	"hamming":  hamming.Suggest,
 	"scrabble": scrabble.Suggest,
 }
 
