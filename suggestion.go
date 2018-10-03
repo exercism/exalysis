@@ -61,8 +61,9 @@ func checkFmt(files map[string][]byte, r *extypes.Response, pkgName string) bool
 
 	dbg.Cyan("#### gofmt")
 	fmt.Println(resFmt)
-	if pkgName == "twofer" {
+	if pkgName == "twofer" || pkgName == "hamming" {
 		r.AppendImprovement(gtpl.NotFormatted)
+		return true
 	} else {
 		r.AppendTodo(gtpl.NotFormatted)
 	}
@@ -78,8 +79,9 @@ func checkLint(files map[string][]byte, r *extypes.Response, pkgName string) boo
 
 	dbg.Cyan("#### golint")
 	fmt.Println(resLint)
-	if pkgName == "twofer" {
+	if pkgName == "twofer" || pkgName == "hamming" {
 		r.AppendImprovement(gtpl.NotLinted)
+		return true
 	} else {
 		r.AppendTodo(gtpl.NotLinted)
 	}
