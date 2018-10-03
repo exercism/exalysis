@@ -19,6 +19,11 @@ var suggestTests = []struct {
 	{path: "./solutions/1", suggID: "missing-comment.md", expected: false},
 	{path: "./solutions/1", suggID: "comment-format.md", expected: false},
 	{path: "./solutions/1", suggID: "wrong-comment-format.md", expected: false},
+	{path: "./solutions/1", suggID: "minimal-conditional.md", expected: false},
+	{path: "./solutions/2", suggID: "plus-used.md", expected: false},
+	{path: "./solutions/2", suggID: "stub.md", expected: true},
+	{path: "./solutions/2", suggID: "minimal-conditional.md", expected: true},
+	{path: "./solutions/3", suggID: "use-string-placeholder.md", expected: true},
 }
 
 func Test_Suggest(t *testing.T) {

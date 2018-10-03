@@ -1,4 +1,4 @@
-- Remember to delete all the stub comments.
+- Remember to delete and replace all the stub comments.
 Comments that are incorrect or irrelevant make it harder to read the code.
 
   Go developers take documentation [very seriously](https://golang.org/doc/effective_go.html#commentary).
