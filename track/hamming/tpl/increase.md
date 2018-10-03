@@ -1,0 +1,1 @@
+- To increase a number Go supports the `count++` syntax.
