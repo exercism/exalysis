@@ -19,6 +19,8 @@ var suggestTests = []struct {
 	{path: "./solutions/1", suggestion: tpl.ErrorMessageFormat, expected: true},
 	{path: "./solutions/1", suggestion: tpl.RuneToByte, expected: true},
 	{path: "./solutions/2", suggestion: tpl.MultiStringConv, expected: true},
+	{path: "./solutions/3", suggestion: tpl.ErrorMessageFormat, expected: true},
+	{path: "./solutions/3", suggestion: tpl.Increase, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {

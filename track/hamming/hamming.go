@@ -21,6 +21,7 @@ func Suggest(pkg *astrav.Package, r *extypes.Response) {
 var exFuncs = []extypes.SuggestionFunc{
 	examRuneToByte,
 	examMultipleStringConversions,
+	examIncrease,
 	examErrorMessage,
 }
 
@@ -49,6 +50,18 @@ func examMultipleStringConversions(pkg *astrav.Package, r *extypes.Response) {
 	}
 	if 1 < count {
 		r.AppendImprovement(tpl.MultiStringConv)
+	}
+}
+
+func examIncrease(pkg *astrav.Package, r *extypes.Response) {
+	loop := pkg.FindFirstByNodeType(astrav.NodeTypeRangeStmt)
+	if loop == nil {
+		loop = pkg.FindFirstByNodeType(astrav.NodeTypeForStmt)
+	}
+	for _, node := range loop.FindByNodeType(astrav.NodeTypeBinaryExpr) {
+		if node.(*astrav.BinaryExpr).Op.String() == "+" {
+			r.AppendComment(tpl.Increase)
+		}
 	}
 }
 
