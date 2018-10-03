@@ -11,4 +11,6 @@ var (
 	CommentFormat      = gtpl.NewStringTemplate("comment-format.md", MustAsset)
 	MissingComment     = gtpl.NewFormatTemplate("missing-comment.md", MustAsset)
 	WrongCommentFormat = gtpl.NewFormatTemplate("wrong-comment-format.md", MustAsset)
+	MinimalConditional = gtpl.NewFormatTemplate("minimal-conditional.md", MustAsset)
+	UseStringPH        = gtpl.NewFormatTemplate("use-string-placeholder.md", MustAsset)
 )

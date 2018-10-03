@@ -3,6 +3,7 @@ package twofer
 import (
 	"bytes"
 	"fmt"
+	"regexp"
 	"strings"
 
 	"github.com/tehsphinx/astrav"
@@ -23,6 +24,7 @@ func Suggest(pkg *astrav.Package, r *extypes.Response) {
 var exFuncs = []extypes.SuggestionFunc{
 	examFmt,
 	examComments,
+	examConditional,
 }
 
 func examFmt(pkg *astrav.Package, r *extypes.Response) {
@@ -37,6 +39,13 @@ func examFmt(pkg *astrav.Package, r *extypes.Response) {
 		r.AppendComment(tpl.PlusUsed)
 		return
 	}
+
+	fmtSprintf := pkg.FindFirstByName("Sprintf")
+	if fmtSprintf != nil {
+		if bytes.Contains(fmtSprintf.Parent().GetSource(), []byte("%v")) {
+			r.AppendImprovement(tpl.UseStringPH)
+		}
+	}
 }
 
 func examComments(pkg *astrav.Package, r *extypes.Response) {
@@ -49,6 +58,15 @@ func examComments(pkg *astrav.Package, r *extypes.Response) {
 
 	cGroup = pkg.FindFirstByName("ShareWith").ChildByNodeType(astrav.NodeTypeCommentGroup)
 	checkComment(cGroup, r, "function", "ShareWith")
+}
+
+var outputPart = regexp.MustCompile(`, one for me\.`)
+
+func examConditional(pkg *astrav.Package, r *extypes.Response) {
+	matches := outputPart.FindAllIndex(pkg.GetSource(), -1)
+	if 1 < len(matches) {
+		r.AppendImprovement(tpl.MinimalConditional)
+	}
 }
 
 var commentStrings = map[string]struct {

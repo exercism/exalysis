@@ -1,0 +1,1 @@
+- you could try to find the minimal conditional. Currently you are repeating most of the output string.

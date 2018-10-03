@@ -1,3 +1,4 @@
+
 ---
 Go has [great guidelines](https://golang.org/doc/effective_go.html)
 about how to write comments.
@@ -27,4 +28,5 @@ such as [godoc.org](http://godoc.org), `godoc`, and `go doc`.
 Take a moment to read the section on doc comments in the official style guide,
 [Effective Go](https://golang.org/doc/effective_go.html) to see the reasoning
 behind these choices.
+
 ---
