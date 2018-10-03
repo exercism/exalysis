@@ -21,6 +21,7 @@ var suggestTests = []struct {
 	{path: "./solutions/2", suggestion: tpl.MultiStringConv, expected: true},
 	{path: "./solutions/3", suggestion: tpl.ErrorMessageFormat, expected: true},
 	{path: "./solutions/3", suggestion: tpl.Increase, expected: true},
+	{path: "./solutions/4", suggestion: tpl.InvertIf, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {
@@ -33,6 +34,7 @@ func Test_Suggest(t *testing.T) {
 		r := extypes.NewResponse()
 		Suggest(pkg, r)
 
-		assert.Equal(t, test.expected, r.HasSuggestion(test.suggestion.ID()), fmt.Sprintf("test failed: %+v", test))
+		assert.Equal(t, test.expected, r.HasSuggestion(test.suggestion.ID()),
+			fmt.Sprintf("test failed: %+v", test))
 	}
 }

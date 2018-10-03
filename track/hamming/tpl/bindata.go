@@ -2,6 +2,7 @@
 // sources:
 // error-message-format.md (262B)
 // increase.md (56B)
+// invert-if.md (184B)
 // multiple-string-conversions.md (366B)
 // rune-to-byte.md (442B)
 
@@ -109,6 +110,26 @@ func increaseMd() (*asset, error) {
 
 	info := bindataFileInfo{name: "increase.md", size: 56, mode: os.FileMode(420), modTime: time.Unix(1538573739, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x14, 0x73, 0xa1, 0x85, 0x4, 0xa, 0xf2, 0x64, 0x82, 0xfa, 0x8f, 0xf7, 0xe7, 0x75, 0x8e, 0x1d, 0xd7, 0xd8, 0x60, 0x92, 0x93, 0xb0, 0x7d, 0xb7, 0x5d, 0x99, 0x4, 0xc5, 0x62, 0x87, 0xea, 0xbb}}
+	return a, nil
+}
+
+var _invertIfMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x54\xcd\xd1\x0d\xc2\x30\x0c\x84\xe1\x77\xa6\xb8\x05\xe8\x34\x0c\x10\x27\xb9\x90\x88\xd6\x91\x6c\x07\xa9\xdb\xa3\x22\xf1\xc0\xf3\x9d\xfe\xef\x8e\x73\x2e\x14\x51\x1c\xf2\x22\xa2\x13\x6d\x69\x89\x31\x15\xc7\x34\xc2\x28\x55\xf2\x4e\xe4\x13\x43\xdf\xb4\x18\xfa\xfc\xfe\xd2\x68\x09\x1e\x12\x3c\xa8\x81\x2e\x5a\xf7\xdf\x46\xb3\x69\x28\xe2\x44\x1b\xe6\xb1\xdd\x1e\xfd\x6a\x79\x60\xb6\x7f\xe5\xb2\xa3\x53\x91\x89\xb9\xa2\x52\x83\x15\x99\x45\x96\x13\xa2\x48\xdc\x9d\x09\xc3\xa1\x33\xa0\x64\x65\xdd\x3e\x01\x00\x00\xff\xff\x05\xb1\xc3\xea\xb8\x00\x00\x00")
+
+func invertIfMdBytes() ([]byte, error) {
+	return bindataRead(
+		_invertIfMd,
+		"invert-if.md",
+	)
+}
+
+func invertIfMd() (*asset, error) {
+	bytes, err := invertIfMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "invert-if.md", size: 184, mode: os.FileMode(420), modTime: time.Unix(1538575393, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x71, 0x86, 0xe5, 0x2d, 0xf2, 0xd5, 0x9c, 0xf2, 0xd, 0xdc, 0x4b, 0x7d, 0x7e, 0x75, 0x58, 0x97, 0x71, 0xbf, 0xf9, 0x4d, 0xb2, 0x7f, 0x86, 0xd4, 0x4b, 0x15, 0xcb, 0x45, 0x61, 0x56, 0x99, 0x62}}
 	return a, nil
 }
 
@@ -247,6 +268,8 @@ var _bindata = map[string]func() (*asset, error){
 
 	"increase.md": increaseMd,
 
+	"invert-if.md": invertIfMd,
+
 	"multiple-string-conversions.md": multipleStringConversionsMd,
 
 	"rune-to-byte.md": runeToByteMd,
@@ -295,6 +318,7 @@ type bintree struct {
 var _bintree = &bintree{nil, map[string]*bintree{
 	"error-message-format.md":        &bintree{errorMessageFormatMd, map[string]*bintree{}},
 	"increase.md":                    &bintree{increaseMd, map[string]*bintree{}},
+	"invert-if.md":                   &bintree{invertIfMd, map[string]*bintree{}},
 	"multiple-string-conversions.md": &bintree{multipleStringConversionsMd, map[string]*bintree{}},
 	"rune-to-byte.md":                &bintree{runeToByteMd, map[string]*bintree{}},
 }}
