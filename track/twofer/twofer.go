@@ -113,22 +113,22 @@ var (
 )
 
 func getAddStub() func(r *extypes.Response) {
-	var stubAdded bool
+	var added bool
 	return func(r *extypes.Response) {
-		if stubAdded {
+		if added {
 			return
 		}
-		stubAdded = true
+		added = true
 		r.AppendImprovement(tpl.Stub)
 	}
 }
 func getAddCommentFormat() func(r *extypes.Response) {
-	var commentAdded bool
+	var added bool
 	return func(r *extypes.Response) {
-		if commentAdded {
+		if added {
 			return
 		}
-		commentAdded = true
+		added = true
 		r.AppendOutro(tpl.CommentFormat)
 	}
 }
