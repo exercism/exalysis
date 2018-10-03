@@ -32,7 +32,8 @@ func examInvertIf(pkg *astrav.Package, r *extypes.Response) {
 		if loop == nil {
 			loop = ifNode.FindFirstByNodeType(astrav.NodeTypeForStmt)
 		}
-		if loop != nil {
+		condition := ifNode.ChildByNodeType(astrav.NodeTypeBinaryExpr).(*astrav.BinaryExpr)
+		if loop != nil && condition != nil && condition.Op.String() == "==" {
 			r.AppendImprovement(tpl.InvertIf)
 		}
 	}

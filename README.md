@@ -7,7 +7,7 @@ This is a prove of concept. I use it to mentor and enhance/extend it as I go.
 
 ***Exercise implementations:***
 - TwoFer
-- Hamming (in progress)
+- Hamming
 - Scrabble Score 
 
 ## Installation

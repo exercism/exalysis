@@ -22,6 +22,7 @@ var suggestTests = []struct {
 	{path: "./solutions/3", suggestion: tpl.ErrorMessageFormat, expected: true},
 	{path: "./solutions/3", suggestion: tpl.Increase, expected: true},
 	{path: "./solutions/4", suggestion: tpl.InvertIf, expected: true},
+	{path: "./solutions/5", suggestion: tpl.InvertIf, expected: false},
 }
 
 func Test_Suggest(t *testing.T) {
