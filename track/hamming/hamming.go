@@ -19,10 +19,23 @@ func Suggest(pkg *astrav.Package, r *extypes.Response) {
 }
 
 var exFuncs = []extypes.SuggestionFunc{
+	examInvertIf,
 	examRuneToByte,
 	examMultipleStringConversions,
 	examIncrease,
 	examErrorMessage,
+}
+
+func examInvertIf(pkg *astrav.Package, r *extypes.Response) {
+	for _, ifNode := range pkg.FindByNodeType(astrav.NodeTypeIfStmt) {
+		loop := ifNode.FindFirstByNodeType(astrav.NodeTypeRangeStmt)
+		if loop == nil {
+			loop = ifNode.FindFirstByNodeType(astrav.NodeTypeForStmt)
+		}
+		if loop != nil {
+			r.AppendImprovement(tpl.InvertIf)
+		}
+	}
 }
 
 func examRuneToByte(pkg *astrav.Package, r *extypes.Response) {
