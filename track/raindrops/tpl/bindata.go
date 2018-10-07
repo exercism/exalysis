@@ -2,6 +2,7 @@
 // sources:
 // concat-not-needed.md (77B)
 // many-loops.md (146B)
+// strings-builder.md (251B)
 
 package tpl
 
@@ -110,6 +111,26 @@ func manyLoopsMd() (*asset, error) {
 	return a, nil
 }
 
+var _stringsBuilderMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x3c\x8f\xbd\x4e\xc4\x40\x0c\x84\xfb\x7b\x8a\xe9\x11\x5b\x20\x51\xd2\xd0\xdd\x23\xd0\xad\xb3\xf1\x5d\xac\xdb\x1f\xc9\xe3\x45\xa4\xe1\xd9\x51\x82\xa0\x73\xe1\xef\x9b\x99\x67\x5c\x41\x55\xec\x63\x42\x5c\x31\x69\xfd\x0e\x41\x66\xb8\xf5\x3b\xd3\xfb\xb4\xba\xaa\xe7\x84\x6b\x47\x6c\x46\xe8\x97\x7a\x31\x2a\x62\x93\x38\xe0\x46\x08\x16\x0b\x8c\x4f\xf5\x87\xd5\x0a\xe9\x2b\xf2\xd3\x5b\x86\x94\x98\x52\xeb\x8e\x4b\x19\x9d\xb3\x29\xf1\xfd\x92\x5e\x11\x76\x9c\x55\x49\x34\x6d\xc3\xf7\x13\xb1\x3f\xd1\x4d\x18\xea\x09\x1f\x63\xa2\x48\x87\xcf\x23\x5b\x91\x17\xed\x65\x6b\xe2\x0f\x66\x08\xb1\x2a\x8b\xdb\xa2\x2b\xec\xf7\xe1\xf2\x5f\xce\x3a\xc3\x67\x09\x1b\x9d\xa7\x3c\x7c\x87\xc5\x31\xd4\xa9\xf5\x96\xf0\x13\x00\x00\xff\xff\xe3\x47\xf0\xa4\xfb\x00\x00\x00")
+
+func stringsBuilderMdBytes() ([]byte, error) {
+	return bindataRead(
+		_stringsBuilderMd,
+		"strings-builder.md",
+	)
+}
+
+func stringsBuilderMd() (*asset, error) {
+	bytes, err := stringsBuilderMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "strings-builder.md", size: 251, mode: os.FileMode(420), modTime: time.Unix(1538930716, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x32, 0xb4, 0xb4, 0x9a, 0xe9, 0x90, 0x6d, 0xe3, 0x6d, 0x4c, 0x2f, 0x5c, 0xf9, 0x6e, 0x68, 0x92, 0x55, 0x96, 0x95, 0x9b, 0xe4, 0xf0, 0x5b, 0x50, 0x76, 0x28, 0xcb, 0x83, 0x35, 0xca, 0x19, 0xa8}}
+	return a, nil
+}
+
 // Asset loads and returns the asset for the given name.
 // It returns an error if the asset could not be found or
 // could not be loaded.
@@ -204,6 +225,8 @@ var _bindata = map[string]func() (*asset, error){
 	"concat-not-needed.md": concatNotNeededMd,
 
 	"many-loops.md": manyLoopsMd,
+
+	"strings-builder.md": stringsBuilderMd,
 }
 
 // AssetDir returns the file names below a certain
@@ -249,6 +272,7 @@ type bintree struct {
 var _bintree = &bintree{nil, map[string]*bintree{
 	"concat-not-needed.md": &bintree{concatNotNeededMd, map[string]*bintree{}},
 	"many-loops.md":        &bintree{manyLoopsMd, map[string]*bintree{}},
+	"strings-builder.md":   &bintree{stringsBuilderMd, map[string]*bintree{}},
 }}
 
 // RestoreAsset restores an asset under the given directory.

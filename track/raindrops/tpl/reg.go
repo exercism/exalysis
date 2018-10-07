@@ -8,4 +8,5 @@ import "github.com/tehsphinx/exalysis/gtpl"
 var (
 	ManyLoops       = gtpl.NewStringTemplate("many-loops.md", MustAsset)
 	ConcatNotNeeded = gtpl.NewStringTemplate("concat-not-needed.md", MustAsset)
+	StringsBuilder  = gtpl.NewStringTemplate("strings-builder.md", MustAsset)
 )

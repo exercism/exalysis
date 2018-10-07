@@ -15,6 +15,7 @@ func Suggest(pkg *astrav.Package, r *extypes.Response) {
 
 var exFuncs = []extypes.SuggestionFunc{
 	examManyLoops,
+	examStringsBuilder,
 	examTooManyConcats,
 }
 
@@ -45,5 +46,12 @@ func examTooManyConcats(pkg *astrav.Package, r *extypes.Response) {
 	}
 	if 2 < count {
 		r.AppendImprovement(tpl.ConcatNotNeeded)
+	}
+}
+
+func examStringsBuilder(pkg *astrav.Package, r *extypes.Response) {
+	builder := pkg.FindByName("Builder")
+	if builder != nil {
+		r.AppendImprovement(tpl.StringsBuilder)
 	}
 }
