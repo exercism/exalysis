@@ -1,5 +1,7 @@
 # Exalysis
 
+[![Build Status](https://travis-ci.org/tehsphinx/exalysis.svg?branch=master)](https://travis-ci.org/tehsphinx/exalysis)
+
 Exalysis is a tool ment for mentors of the [exercism](https://exercism.io) go track.
 
 ## Status
