@@ -19,6 +19,7 @@ var suggestTests = []struct {
 	{path: "./solutions/1", suggestion: tpl.ManyLoops, expected: true},
 	{path: "./solutions/1", suggestion: tpl.ConcatNotNeeded, expected: false},
 	{path: "./solutions/2", suggestion: tpl.ConcatNotNeeded, expected: true},
+	{path: "./solutions/3", suggestion: tpl.StringsBuilder, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {
