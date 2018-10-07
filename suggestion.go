@@ -2,6 +2,7 @@ package exalysis
 
 import (
 	"fmt"
+	"github.com/tehsphinx/exalysis/track/raindrops"
 	"go/format"
 	"log"
 	"strings"
@@ -25,6 +26,7 @@ var (
 var exercisePkgs = map[string]extypes.SuggestionFunc{
 	"twofer":   twofer.Suggest,
 	"hamming":  hamming.Suggest,
+	"raindrops":  raindrops.Suggest,
 	"scrabble": scrabble.Suggest,
 }
 
