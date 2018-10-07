@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
 
 	"github.com/atotto/clipboard"
 	"github.com/tehsphinx/exalysis"
@@ -20,5 +21,7 @@ func main() {
 
 	fmt.Println(sugg)
 	fmt.Print(approval)
-	clipboard.WriteAll(sugg)
+	if err := clipboard.WriteAll(sugg); err != nil {
+		log.Println(err)
+	}
 }
