@@ -16,7 +16,7 @@ This is a prove of concept. I use it to mentor and enhance/extend it as I go.
 ## Installation
 
 ```
-GO111MODULE=on go install github.com/tehsphinx/exalysis/cmd/exalysis
+go install github.com/tehsphinx/exalysis/cmd/exalysis
 ```
 
 ## Usage
