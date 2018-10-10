@@ -6,15 +6,14 @@ import (
 	"log"
 	"strings"
 
-	"github.com/tehsphinx/exalysis/track/raindrops"
-
 	"github.com/golang/lint"
+	"github.com/logrusorgru/aurora"
 	"github.com/pmezard/go-difflib/difflib"
 	"github.com/tehsphinx/astrav"
-	"github.com/tehsphinx/dbg"
 	"github.com/tehsphinx/exalysis/extypes"
 	"github.com/tehsphinx/exalysis/gtpl"
 	"github.com/tehsphinx/exalysis/track/hamming"
+	"github.com/tehsphinx/exalysis/track/raindrops"
 	"github.com/tehsphinx/exalysis/track/scrabble"
 	"github.com/tehsphinx/exalysis/track/twofer"
 )
@@ -42,11 +41,11 @@ func GetSuggestions() (string, string) {
 	var pkgName string
 	pkg, suggFunc := getExercisePkg(folder)
 	if suggFunc == nil {
-		dbg.Red("Current folder does not contain a known exercism solution!")
-		dbg.Red("Running general code checks:")
+		fmt.Println(aurora.Red("Current folder does not contain a known exercism solution!"))
+		fmt.Println(aurora.Gray("Running general code checks:"))
 	} else {
 		pkgName = pkg.Name
-		dbg.Cyan(fmt.Sprintf("Exercism package found: %s", pkgName))
+		fmt.Println(aurora.Sprintf(aurora.Gray("Exercism package found: %s"), aurora.Green(pkgName)))
 	}
 
 	var r = extypes.NewResponse()
@@ -66,11 +65,11 @@ func GetSuggestions() (string, string) {
 func checkFmt(files map[string][]byte, r *extypes.Response, pkgName string) bool {
 	resFmt := fmtCode(files)
 	if resFmt == "" {
-		dbg.Green("gofmt: OK")
+		fmt.Println(aurora.Gray("gofmt:\t\t"), aurora.Green("OK"))
 		return true
 	}
 
-	dbg.Cyan("#### gofmt")
+	fmt.Println(aurora.Gray("gofmt:\t\t"), aurora.Red("FAIL"))
 	fmt.Println(resFmt)
 	if pkgName == "twofer" || pkgName == "hamming" {
 		r.AppendImprovement(gtpl.NotFormatted)
@@ -85,11 +84,11 @@ func checkFmt(files map[string][]byte, r *extypes.Response, pkgName string) bool
 func checkLint(files map[string][]byte, r *extypes.Response, pkgName string) bool {
 	resLint := lintCode(files)
 	if resLint == "" {
-		dbg.Green("golint: OK")
+		fmt.Println(aurora.Gray("golint:\t\t"), aurora.Green("OK"))
 		return true
 	}
 
-	dbg.Cyan("#### golint")
+	fmt.Println(aurora.Gray("golint:\t\t"), aurora.Red("FAIL"))
 	fmt.Println(resLint)
 	if pkgName == "twofer" || pkgName == "hamming" {
 		r.AppendImprovement(gtpl.NotLinted)
@@ -164,42 +163,32 @@ func addGreeting(r *extypes.Response, pkg, student string) {
 }
 
 func approval(r *extypes.Response, gofmt, golint bool) string {
-	rating := "\n\n" + dbg.Sprint(dbg.ColorCyan, "#### Rating Suggestion")
-	var approve string
-	if !gofmt {
-		rating += dbg.Sprint(dbg.ColorRed, "go code not formatted")
-		if approve == "" {
-			approve = dbg.Sprint(dbg.ColorRed, "NO APPROVAL")
-		}
+	rating := aurora.Gray("Rating Suggestion\n").String()
+	var approve aurora.Value
+	if !gofmt && approve == nil {
+		approve = aurora.Red("NO APPROVAL")
 	}
-	if !golint {
-		rating += dbg.Sprint(dbg.ColorRed, "go code not linted")
-		if approve == "" {
-			approve = dbg.Sprint(dbg.ColorRed, "NO APPROVAL")
-		}
+	if !golint && approve == nil {
+		approve = aurora.Red("NO APPROVAL")
 	}
 
-	l := r.LenSuggestions()
-	var suggsAdded = fmt.Sprintf("Suggestions added: %d", l)
-	if 5 < l {
-		rating += dbg.Sprint(dbg.ColorRed, suggsAdded)
-		if approve == "" {
-			approve = dbg.Sprint(dbg.ColorRed, "NO APPROVAL")
-		}
-	} else if 2 < l {
-		rating += dbg.Sprint(dbg.ColorMagenta, suggsAdded)
-		if approve == "" {
-			approve = dbg.Sprint(dbg.ColorMagenta, "MAYBE APPROVE")
-		}
-	} else if 1 < l {
-		rating += dbg.Sprint(dbg.ColorYellow, suggsAdded)
-		if approve == "" {
-			approve = dbg.Sprint(dbg.ColorYellow, "LIKELY APPROVE")
+	rating += fmt.Sprintf("Todos:\t\t%d\n", aurora.Red(r.LenTodos()))
+	rating += fmt.Sprintf("Suggestions:\t%d\n", aurora.Brown(r.LenImprovements()))
+	rating += fmt.Sprintf("Comments:\t%d\n", aurora.Green(r.LenComments()))
+
+	if approve == nil {
+		l := r.LenSuggestions()
+		switch {
+		case 5 < l:
+			approve = aurora.Red("NO APPROVAL")
+		case 2 < l:
+			approve = aurora.Magenta("MAYBE APPROVE")
+		case 1 < l:
+			approve = aurora.Brown("LIKELY APPROVE")
+		default:
+			approve = aurora.Green("APPROVE")
 		}
 	}
-	if approve == "" {
-		approve = dbg.Sprint(dbg.ColorGreen, "APPROVE")
-	}
-	rating += "Suggestion: " + approve
+	rating += fmt.Sprintf("Suggestion:\t%s\n", approve)
 	return rating
 }

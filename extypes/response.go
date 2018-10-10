@@ -156,6 +156,21 @@ func (s *Response) LenSuggestions() int {
 	return len(s.todo) + len(s.improvement)
 }
 
+//LenTodos returns the amount of todos added
+func (s *Response) LenTodos() int {
+	return len(s.todo)
+}
+
+//LenImprovements returns the amount of improvement suggestions added
+func (s *Response) LenImprovements() int {
+	return len(s.improvement)
+}
+
+//LenComments returns the amount of comments added
+func (s *Response) LenComments() int {
+	return len(s.comment)
+}
+
 //GetTemplate returns requested template by id. Mainly used for testing to check if a template was
 //being added or not on a specific example.
 func (s *Response) GetTemplate(id string) (gtpl.Template, bool) {
