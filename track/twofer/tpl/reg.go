@@ -13,4 +13,5 @@ var (
 	WrongCommentFormat = gtpl.NewFormatTemplate("wrong-comment-format.md", MustAsset)
 	MinimalConditional = gtpl.NewFormatTemplate("minimal-conditional.md", MustAsset)
 	UseStringPH        = gtpl.NewFormatTemplate("use-string-placeholder.md", MustAsset)
+	GeneralizeName     = gtpl.NewFormatTemplate("generalize-name.md", MustAsset)
 )
