@@ -19,7 +19,7 @@ func main() {
 
 	sugg, approval := exalysis.GetSuggestions()
 
-	fmt.Println(sugg)
+	fmt.Println("\n" + sugg)
 	fmt.Print(approval)
 	if err := clipboard.WriteAll(sugg); err != nil {
 		log.Println(err)
