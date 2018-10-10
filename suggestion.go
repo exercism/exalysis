@@ -2,10 +2,11 @@ package exalysis
 
 import (
 	"fmt"
-	"github.com/tehsphinx/exalysis/track/raindrops"
 	"go/format"
 	"log"
 	"strings"
+
+	"github.com/tehsphinx/exalysis/track/raindrops"
 
 	"github.com/golang/lint"
 	"github.com/pmezard/go-difflib/difflib"
@@ -24,10 +25,10 @@ var (
 )
 
 var exercisePkgs = map[string]extypes.SuggestionFunc{
-	"twofer":   twofer.Suggest,
-	"hamming":  hamming.Suggest,
-	"raindrops":  raindrops.Suggest,
-	"scrabble": scrabble.Suggest,
+	"twofer":    twofer.Suggest,
+	"hamming":   hamming.Suggest,
+	"raindrops": raindrops.Suggest,
+	"scrabble":  scrabble.Suggest,
 }
 
 //GetSuggestions selects the package suggestion routine and returns the suggestions
@@ -38,19 +39,26 @@ func GetSuggestions() (string, string) {
 		log.Fatal(err)
 	}
 
+	var pkgName string
 	pkg, suggFunc := getExercisePkg(folder)
 	if suggFunc == nil {
-		log.Fatal("no known exercise package found or not implemented")
+		dbg.Red("Current folder does not contain a known exercism solution!")
+		dbg.Red("Running general code checks:")
+	} else {
+		pkgName = pkg.Name
+		dbg.Cyan(fmt.Sprintf("Exercism package found: %s", pkgName))
 	}
 
 	var r = extypes.NewResponse()
-	addGreeting(r, pkg.Name, folder.StudentName())
+	addGreeting(r, pkgName, folder.StudentName())
 
 	files := folder.GetRawFiles()
-	fmtOk := checkFmt(files, r, pkg.Name)
-	lintOk := checkLint(files, r, pkg.Name)
+	fmtOk := checkFmt(files, r, pkgName)
+	lintOk := checkLint(files, r, pkgName)
 
-	suggFunc(pkg, r)
+	if suggFunc != nil {
+		suggFunc(pkg, r)
+	}
 
 	return r.GetAnswerString(), approval(r, fmtOk, lintOk)
 }
@@ -58,6 +66,7 @@ func GetSuggestions() (string, string) {
 func checkFmt(files map[string][]byte, r *extypes.Response, pkgName string) bool {
 	resFmt := fmtCode(files)
 	if resFmt == "" {
+		dbg.Green("gofmt: OK")
 		return true
 	}
 
@@ -76,6 +85,7 @@ func checkFmt(files map[string][]byte, r *extypes.Response, pkgName string) bool
 func checkLint(files map[string][]byte, r *extypes.Response, pkgName string) bool {
 	resLint := lintCode(files)
 	if resLint == "" {
+		dbg.Green("golint: OK")
 		return true
 	}
 
