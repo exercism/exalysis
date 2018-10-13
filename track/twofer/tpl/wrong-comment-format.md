@@ -1,1 +1,1 @@
-- The comment describing the %s should have the correct format. For defails you can check the section below.
+- The comment describing the %s should have the correct format. For details you can check the section below.

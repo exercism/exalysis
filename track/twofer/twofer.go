@@ -22,6 +22,7 @@ func Suggest(pkg *astrav.Package, r *extypes.Response) {
 }
 
 var exFuncs = []extypes.SuggestionFunc{
+	examGeneralizeNames,
 	examFmt,
 	examComments,
 	examConditional,
@@ -63,9 +64,19 @@ func examComments(pkg *astrav.Package, r *extypes.Response) {
 var outputPart = regexp.MustCompile(`, one for me\.`)
 
 func examConditional(pkg *astrav.Package, r *extypes.Response) {
-	matches := outputPart.FindAllIndex(pkg.GetSource(), -1)
+	matches := outputPart.FindAllIndex(pkg.FindFirstByName("ShareWith").GetSource(), -1)
 	if 1 < len(matches) {
 		r.AppendImprovement(tpl.MinimalConditional)
+	}
+}
+
+func examGeneralizeNames(pkg *astrav.Package, r *extypes.Response) {
+	contains := bytes.Contains(pkg.FindFirstByName("ShareWith").GetSource(), []byte("Alice"))
+	if !contains {
+		contains = bytes.Contains(pkg.FindFirstByName("ShareWith").GetSource(), []byte("Bob"))
+	}
+	if contains {
+		r.AppendImprovement(tpl.GeneralizeName)
 	}
 }
 
