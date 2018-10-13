@@ -111,7 +111,7 @@ func generalizeNameMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "generalize-name.md", size: 166, mode: os.FileMode(420), modTime: time.Unix(1539192870, 0)}
+	info := bindataFileInfo{name: "generalize-name.md", size: 166, mode: os.FileMode(420), modTime: time.Unix(1539419469, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x6, 0x80, 0xb6, 0x8d, 0xbf, 0x31, 0x5b, 0x5b, 0x96, 0x0, 0x2e, 0xcd, 0x97, 0xea, 0x38, 0x7f, 0xb4, 0x72, 0x34, 0x81, 0xb7, 0x87, 0xd0, 0x2e, 0x25, 0x31, 0xb8, 0xc8, 0xd7, 0x4c, 0x47, 0x47}}
 	return a, nil
 }
@@ -211,12 +211,12 @@ func useStringPlaceholderMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "use-string-placeholder.md", size: 423, mode: os.FileMode(420), modTime: time.Unix(1539198863, 0)}
+	info := bindataFileInfo{name: "use-string-placeholder.md", size: 423, mode: os.FileMode(420), modTime: time.Unix(1539419398, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x18, 0xb8, 0x45, 0xe7, 0x4e, 0x3c, 0xf9, 0xa9, 0x3f, 0x85, 0x9a, 0xde, 0x7e, 0x79, 0xdc, 0x78, 0xd2, 0xee, 0x1b, 0xdc, 0x27, 0xd2, 0x47, 0xb4, 0x60, 0x8, 0x31, 0x67, 0xec, 0x68, 0xe7, 0x4a}}
 	return a, nil
 }
 
-var _wrongCommentFormatMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x1c\xca\xc1\x0d\xc2\x30\x0c\x05\xd0\x55\xfe\x85\x23\x1d\x83\x09\x58\x20\x75\x7e\x71\x44\x62\x4b\xb6\x0b\x62\x7b\xa4\x5e\x9f\xde\x1d\x4f\x25\xc4\xd7\xa2\x15\x3a\x53\x62\xec\xc3\x5e\x28\x25\x6e\x89\x54\x3f\x67\x87\xb6\x0f\x2f\x12\x8f\xa0\x14\x0e\x8f\xd5\x6a\xc3\xc3\x03\x9d\x47\x1b\x33\xf1\xf3\x13\xd2\x0c\xa2\x94\xf7\xb5\x93\x52\xc3\x0d\x3b\xa7\x7f\xb7\x7f\x00\x00\x00\xff\xff\x82\x89\x6a\xf2\x6c\x00\x00\x00")
+var _wrongCommentFormatMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x1c\xca\xc1\x0d\xc2\x30\x0c\x05\xd0\x55\xfe\x85\x23\x1d\x83\x09\x58\x20\x75\x3e\x38\x22\xb1\x25\xdb\x05\xb1\x7d\xa5\x5e\x9f\xde\x1d\x4f\x25\xc4\xd7\xa2\x15\x3a\x53\x62\xec\xc3\xde\x28\x25\x6e\x89\x54\x3f\x66\x87\xb6\x2f\x2f\x12\x8f\xa0\x14\x5e\x1e\xab\xd5\x86\x87\x07\x3a\xab\x8d\x99\xf8\xfb\x01\x69\x06\x51\xca\xe7\xda\x49\xa9\xe1\x86\x9d\xd3\x7f\xdb\x19\x00\x00\xff\xff\x6a\x87\xb8\x87\x6c\x00\x00\x00")
 
 func wrongCommentFormatMdBytes() ([]byte, error) {
 	return bindataRead(
@@ -231,8 +231,8 @@ func wrongCommentFormatMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "wrong-comment-format.md", size: 108, mode: os.FileMode(420), modTime: time.Unix(1538428444, 0)}
-	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xe7, 0xfd, 0x73, 0x49, 0x20, 0x9e, 0x44, 0x25, 0x47, 0x46, 0xe4, 0xe4, 0x61, 0x38, 0x71, 0x5a, 0x9c, 0x19, 0x27, 0x24, 0x3d, 0x4, 0xdd, 0x45, 0xf7, 0x2e, 0x24, 0x9, 0xd9, 0xb8, 0xe8, 0x3c}}
+	info := bindataFileInfo{name: "wrong-comment-format.md", size: 108, mode: os.FileMode(420), modTime: time.Unix(1539419469, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x3, 0x7b, 0x87, 0x6d, 0x63, 0x21, 0xf7, 0xe6, 0x61, 0x8c, 0xef, 0xd0, 0x95, 0xa1, 0xfc, 0xa8, 0xb1, 0xae, 0x2c, 0xeb, 0x6e, 0xbf, 0x26, 0x3a, 0xdd, 0xe4, 0x2c, 0x63, 0xbe, 0xf4, 0xc2, 0x6c}}
 	return a, nil
 }
 
