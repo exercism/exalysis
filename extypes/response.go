@@ -173,22 +173,22 @@ func (s *Response) LenComments() int {
 
 //GetTemplate returns requested template by id. Mainly used for testing to check if a template was
 //being added or not on a specific example.
-func (s *Response) GetTemplate(id string) (gtpl.Template, bool) {
+func (s *Response) GetTemplate(tpl gtpl.Template) (gtpl.Template, bool) {
 	for _, t := range s.greeting {
-		if t.ID() == id {
+		if t.ID() == tpl.ID() {
 			return t, true
 		}
 	}
 	for _, t := range s.intro {
-		if t.ID() == id {
+		if t.ID() == tpl.ID() {
 			return t, true
 		}
 	}
-	if t, ok := s.GetSuggestion(id); ok {
+	if t, ok := s.GetSuggestion(tpl); ok {
 		return t, ok
 	}
 	for _, t := range s.outro {
-		if t.ID() == id {
+		if t.ID() == tpl.ID() {
 			return t, true
 		}
 	}
@@ -196,19 +196,19 @@ func (s *Response) GetTemplate(id string) (gtpl.Template, bool) {
 }
 
 //GetSuggestion does the same as GetTemplate but only searches in todos and improments and comments
-func (s *Response) GetSuggestion(id string) (gtpl.Template, bool) {
+func (s *Response) GetSuggestion(tpl gtpl.Template) (gtpl.Template, bool) {
 	for _, t := range s.todo {
-		if t.ID() == id {
+		if t.ID() == tpl.ID() {
 			return t, true
 		}
 	}
 	for _, t := range s.improvement {
-		if t.ID() == id {
+		if t.ID() == tpl.ID() {
 			return t, true
 		}
 	}
 	for _, t := range s.comment {
-		if t.ID() == id {
+		if t.ID() == tpl.ID() {
 			return t, true
 		}
 	}
@@ -216,13 +216,13 @@ func (s *Response) GetSuggestion(id string) (gtpl.Template, bool) {
 }
 
 //HasTemplate uses GetTemplate to search for a template but only returns if it was found or not
-func (s *Response) HasTemplate(id string) bool {
-	_, ok := s.GetTemplate(id)
+func (s *Response) HasTemplate(tpl gtpl.Template) bool {
+	_, ok := s.GetTemplate(tpl)
 	return ok
 }
 
 //HasSuggestion uses GetSuggestion to search for a template but only returns if it was found or not
-func (s *Response) HasSuggestion(id string) bool {
-	_, ok := s.GetSuggestion(id)
+func (s *Response) HasSuggestion(tpl gtpl.Template) bool {
+	_, ok := s.GetSuggestion(tpl)
 	return ok
 }
