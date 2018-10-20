@@ -19,9 +19,10 @@ func Suggest(pkg *astrav.Package, r *extypes.Response) {
 var exFuncs = []extypes.SuggestionFunc{
 	testGoRoutine,
 	testMapInFunc,
+	testFlattenMap,
 	testToLowerUpper("ToLower"),
 	testToLowerUpper("ToUpper"),
-	testMapRuneInt,
+	testTrySwitch,
 	testIfElseToSwitch,
 	testRuneLoop,
 }
@@ -45,7 +46,19 @@ func testToLowerUpper(fnName string) extypes.SuggestionFunc {
 	}
 }
 
-func testMapRuneInt(pkg *astrav.Package, r *extypes.Response) {
+func testFlattenMap(pkg *astrav.Package, r *extypes.Response) {
+	loopCount := len(pkg.FindByNodeType(astrav.NodeTypeForStmt))
+	loopCount += len(pkg.FindByNodeType(astrav.NodeTypeRangeStmt))
+	if 1 < loopCount {
+		addSpeedComment(r)
+		r.AppendImprovement(tpl.FlattenMap)
+	}
+}
+
+func testTrySwitch(pkg *astrav.Package, r *extypes.Response) {
+	if r.HasSuggestion(tpl.FlattenMap) {
+		return
+	}
 	if len(pkg.FindByValueType("map[rune]int")) != 0 {
 		addSpeedComment(r)
 		r.AppendImprovement(tpl.TrySwitch)
@@ -85,7 +98,10 @@ func testRuneLoop(pkg *astrav.Package, r *extypes.Response) {
 			}
 		}
 
-		if rng.FindByName("string") != nil {
+		if rng.FindByName("string") != nil &&
+			!r.HasSuggestion(tpl.MapRune) &&
+			!r.HasSuggestion(tpl.FlattenMap) {
+
 			r.AppendImprovement(tpl.TypeConversion)
 			return
 		}

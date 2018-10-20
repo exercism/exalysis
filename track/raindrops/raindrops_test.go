@@ -32,7 +32,7 @@ func Test_Suggest(t *testing.T) {
 		r := extypes.NewResponse()
 		Suggest(pkg, r)
 
-		assert.Equal(t, test.expected, r.HasSuggestion(test.suggestion.ID()),
+		assert.Equal(t, test.expected, r.HasSuggestion(test.suggestion),
 			fmt.Sprintf("test failed: %+v", test))
 	}
 }
