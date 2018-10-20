@@ -59,7 +59,7 @@ func GetSuggestions() (string, string) {
 		suggFunc(pkg, r)
 	}
 
-	return r.GetAnswerString(), approval(r, fmtOk, lintOk)
+	return r.GetAnswerString(), rating(r, fmtOk, lintOk)
 }
 
 func checkFmt(files map[string][]byte, r *extypes.Response, pkgName string) bool {
@@ -162,33 +162,37 @@ func addGreeting(r *extypes.Response, pkg, student string) {
 	}
 }
 
-func approval(r *extypes.Response, gofmt, golint bool) string {
+func rating(r *extypes.Response, gofmt, golint bool) string {
 	rating := aurora.Gray("Rating Suggestion\n").String()
-	var approve aurora.Value
-	if !gofmt && approve == nil {
-		approve = aurora.Red("NO APPROVAL")
-	}
-	if !golint && approve == nil {
-		approve = aurora.Red("NO APPROVAL")
-	}
-
 	rating += fmt.Sprintf("Todos:\t\t%d\n", aurora.Red(r.LenTodos()))
 	rating += fmt.Sprintf("Suggestions:\t%d\n", aurora.Brown(r.LenImprovements()))
 	rating += fmt.Sprintf("Comments:\t%d\n", aurora.Green(r.LenComments()))
 
-	if approve == nil {
-		l := r.LenSuggestions()
-		switch {
-		case 5 < l:
-			approve = aurora.Red("NO APPROVAL")
-		case 2 < l:
-			approve = aurora.Magenta("MAYBE APPROVE")
-		case 1 < l:
-			approve = aurora.Brown("LIKELY APPROVE")
-		default:
-			approve = aurora.Green("APPROVE")
-		}
-	}
+	approve := approval(r, gofmt, golint)
 	rating += fmt.Sprintf("Suggestion:\t%s\n", approve)
 	return rating
+}
+
+func approval(r *extypes.Response, gofmt, golint bool) aurora.Value {
+	if !gofmt {
+		return aurora.Red("NO APPROVAL")
+	}
+	if !golint {
+		return aurora.Red("NO APPROVAL")
+	}
+	if r.LenTodos() != 0 {
+		return aurora.Red("NO APPROVAL")
+	}
+
+	l := r.LenImprovements()
+	switch {
+	case 5 < l:
+		return aurora.Red("NO APPROVAL")
+	case 2 < l:
+		return aurora.Magenta("MAYBE APPROVE")
+	case 1 < l:
+		return aurora.Brown("LIKELY APPROVE")
+	}
+
+	return aurora.Green("APPROVE")
 }
