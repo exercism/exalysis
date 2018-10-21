@@ -8,6 +8,7 @@
 // maprune.md (195B)
 // move-map.md (148B)
 // regex.md (387B)
+// slice-rune-conversion.md (188B)
 // try-switch.md (92B)
 // type-conversion.md (149B)
 // unicode-loop.md (99B)
@@ -240,6 +241,26 @@ func regexMd() (*asset, error) {
 	return a, nil
 }
 
+var _sliceRuneConversionMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x34\x8e\x51\x6a\xc3\x40\x0c\x44\xff\x7b\x8a\x39\x40\xbb\x07\x30\xf4\x16\xfd\x29\x21\xb0\x62\xa3\xd8\x82\x8d\x14\x24\xd9\x89\x09\xb9\x7b\xb0\x49\xfe\x86\xe1\xf1\x66\x7e\xf0\x6f\x33\xc8\x19\xcd\x74\x61\x4f\xd1\x11\x84\x48\xdf\x82\x68\x1a\x08\xf5\x70\xf4\x59\xb9\x22\x0d\x39\xb1\xa2\x9b\x5d\x61\x0b\x3b\x24\x0b\xfe\x26\x09\x48\x40\x2d\xa1\xdc\x38\x82\x7c\x05\xc5\x8e\x6d\x9a\x9d\x24\x7c\xbd\xad\x37\xe9\x1d\x34\xa7\x5d\x28\xa5\x51\xef\x2b\x9a\x33\x25\x63\x5b\x89\x01\xf5\x6c\x0e\xd1\x13\xdf\xbf\xf7\x0a\xc3\x2f\x9c\x74\xe4\xcf\xaf\x47\x29\xe5\x59\x5f\x01\x00\x00\xff\xff\x83\xec\xfc\x2d\xbc\x00\x00\x00")
+
+func sliceRuneConversionMdBytes() ([]byte, error) {
+	return bindataRead(
+		_sliceRuneConversionMd,
+		"slice-rune-conversion.md",
+	)
+}
+
+func sliceRuneConversionMd() (*asset, error) {
+	bytes, err := sliceRuneConversionMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "slice-rune-conversion.md", size: 188, mode: os.FileMode(420), modTime: time.Unix(1540125149, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xf, 0xc3, 0x7, 0x7e, 0x26, 0x1e, 0x96, 0x98, 0x11, 0xb3, 0x84, 0x4d, 0x1e, 0x2e, 0x26, 0xf4, 0xdc, 0x52, 0x54, 0xac, 0x9d, 0xe1, 0xe2, 0x54, 0x2d, 0x2e, 0x94, 0xf3, 0x56, 0x81, 0x5e, 0xe8}}
+	return a, nil
+}
+
 var _trySwitchMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x14\xc8\xd1\x09\x83\x21\x0c\x04\xe0\x55\x6e\x81\x0e\xd2\x2d\x0c\xfe\x89\x3d\xb0\x51\x4c\x44\xdc\xbe\xf4\xf5\x7b\xe1\x6d\xb8\x63\x43\x96\x62\x4f\xd8\x58\x60\x62\x07\xbd\x41\x50\xe2\x30\xeb\xa7\x80\x1e\xa9\xf2\x60\xd8\x5f\xbf\x32\x0b\x0e\x7b\x07\xbd\x2e\x95\x50\xc4\x54\x7d\x10\x6c\x4e\x63\x15\xcf\x7e\x7f\x01\x00\x00\xff\xff\x0e\x2b\xc4\xd7\x5c\x00\x00\x00")
 
 func trySwitchMdBytes() ([]byte, error) {
@@ -427,6 +448,8 @@ var _bindata = map[string]func() (*asset, error){
 
 	"regex.md": regexMd,
 
+	"slice-rune-conversion.md": sliceRuneConversionMd,
+
 	"try-switch.md": trySwitchMd,
 
 	"type-conversion.md": typeConversionMd,
@@ -477,18 +500,19 @@ type bintree struct {
 }
 
 var _bintree = &bintree{nil, map[string]*bintree{
-	"challenge.md":          &bintree{challengeMd, map[string]*bintree{}},
-	"flatten-map.md":        &bintree{flattenMapMd, map[string]*bintree{}},
-	"go-routines.md":        &bintree{goRoutinesMd, map[string]*bintree{}},
-	"ifs-to-switch.md":      &bintree{ifsToSwitchMd, map[string]*bintree{}},
-	"loop-rune-not-byte.md": &bintree{loopRuneNotByteMd, map[string]*bintree{}},
-	"maprune.md":            &bintree{mapruneMd, map[string]*bintree{}},
-	"move-map.md":           &bintree{moveMapMd, map[string]*bintree{}},
-	"regex.md":              &bintree{regexMd, map[string]*bintree{}},
-	"try-switch.md":         &bintree{trySwitchMd, map[string]*bintree{}},
-	"type-conversion.md":    &bintree{typeConversionMd, map[string]*bintree{}},
-	"unicode-loop.md":       &bintree{unicodeLoopMd, map[string]*bintree{}},
-	"unicode.md":            &bintree{unicodeMd, map[string]*bintree{}},
+	"challenge.md":             &bintree{challengeMd, map[string]*bintree{}},
+	"flatten-map.md":           &bintree{flattenMapMd, map[string]*bintree{}},
+	"go-routines.md":           &bintree{goRoutinesMd, map[string]*bintree{}},
+	"ifs-to-switch.md":         &bintree{ifsToSwitchMd, map[string]*bintree{}},
+	"loop-rune-not-byte.md":    &bintree{loopRuneNotByteMd, map[string]*bintree{}},
+	"maprune.md":               &bintree{mapruneMd, map[string]*bintree{}},
+	"move-map.md":              &bintree{moveMapMd, map[string]*bintree{}},
+	"regex.md":                 &bintree{regexMd, map[string]*bintree{}},
+	"slice-rune-conversion.md": &bintree{sliceRuneConversionMd, map[string]*bintree{}},
+	"try-switch.md":            &bintree{trySwitchMd, map[string]*bintree{}},
+	"type-conversion.md":       &bintree{typeConversionMd, map[string]*bintree{}},
+	"unicode-loop.md":          &bintree{unicodeLoopMd, map[string]*bintree{}},
+	"unicode.md":               &bintree{unicodeMd, map[string]*bintree{}},
 }}
 
 // RestoreAsset restores an asset under the given directory.
