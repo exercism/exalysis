@@ -9,4 +9,7 @@ var (
 	ManyLoops       = gtpl.NewStringTemplate("many-loops.md", MustAsset)
 	ConcatNotNeeded = gtpl.NewStringTemplate("concat-not-needed.md", MustAsset)
 	StringsBuilder  = gtpl.NewStringTemplate("strings-builder.md", MustAsset)
+	PlusEqual       = gtpl.NewStringTemplate("plus-equal.md", MustAsset)
+	Itoa            = gtpl.NewStringTemplate("itoa.md", MustAsset)
+	ExtensiveFor    = gtpl.NewStringTemplate("extensive-for-loop.md", MustAsset)
 )
