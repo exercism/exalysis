@@ -18,8 +18,10 @@ func Suggest(pkg *astrav.Package, r *extypes.Response) {
 
 var exFuncs = []extypes.SuggestionFunc{
 	testGoRoutine,
+	testRegex,
 	testMapInFunc,
 	testFlattenMap,
+	testMapRuneInt,
 	testToLowerUpper("ToLower"),
 	testToLowerUpper("ToUpper"),
 	testTrySwitch,
@@ -27,8 +29,33 @@ var exFuncs = []extypes.SuggestionFunc{
 	testRuneLoop,
 }
 
+func testRegex(pkg *astrav.Package, r *extypes.Response) {
+	rgx := pkg.FindFirstByName("Score").FindFirstByName("MustCompile")
+	if rgx == nil {
+		rgx = pkg.FindFirstByName("Score").FindFirstByName("Compile")
+	}
+
+	if rgx != nil &&
+		rgx.(*astrav.SelectorExpr).X != nil &&
+		rgx.(*astrav.SelectorExpr).X.(*ast.Ident).Name == "regexp" {
+
+		lit := rgx.Parent().ChildByNodeType(astrav.NodeTypeBasicLit)
+		if lit != nil && lit.IsValueType("string") {
+			// is a static regex
+			r.AppendTodo(tpl.Regex)
+			r.AppendComment(tpl.Challenge)
+			r.AppendOutro(gtpl.Regex)
+			addSpeedComment(r)
+		}
+	}
+}
+
 func testToLowerUpper(fnName string) extypes.SuggestionFunc {
 	return func(pkg *astrav.Package, r *extypes.Response) {
+		if r.HasSuggestion(tpl.Regex) {
+			return
+		}
+
 		fns := pkg.FindByName(fnName)
 		for _, fn := range fns {
 			if f, ok := fn.(*astrav.SelectorExpr); !ok ||
@@ -55,25 +82,39 @@ func testFlattenMap(pkg *astrav.Package, r *extypes.Response) {
 	}
 }
 
+func testMapRuneInt(pkg *astrav.Package, r *extypes.Response) {
+	if r.HasSuggestion(tpl.FlattenMap) {
+		return
+	}
+	if len(pkg.FindByValueType("map[string]int")) != 0 {
+		addSpeedComment(r)
+		r.AppendImprovement(tpl.MapRune.Format("map[string]int"))
+		return
+	}
+	if len(pkg.FindByValueType("map[int]string")) != 0 {
+		addSpeedComment(r)
+		r.AppendImprovement(tpl.MapRune.Format("map[int]string"))
+		return
+	}
+}
+
 func testTrySwitch(pkg *astrav.Package, r *extypes.Response) {
 	if r.HasSuggestion(tpl.FlattenMap) {
 		return
 	}
 	if len(pkg.FindByValueType("map[rune]int")) != 0 {
 		addSpeedComment(r)
-		r.AppendImprovement(tpl.TrySwitch)
+		r.AppendComment(tpl.TrySwitch)
 		return
 	}
 	if len(pkg.FindByValueType("map[string]int")) != 0 {
 		addSpeedComment(r)
-		r.AppendImprovement(tpl.MapRune.Format("map[string]int"))
-		r.AppendImprovement(tpl.TrySwitch)
+		r.AppendComment(tpl.TrySwitch)
 		return
 	}
 	if len(pkg.FindByValueType("map[int]string")) != 0 {
 		addSpeedComment(r)
-		r.AppendImprovement(tpl.MapRune.Format("map[int]string"))
-		r.AppendImprovement(tpl.TrySwitch)
+		r.AppendComment(tpl.TrySwitch)
 		return
 	}
 }

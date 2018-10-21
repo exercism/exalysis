@@ -1,0 +1,1 @@
+- Challenge: You know how to run and interpret the benchmarks now. Can you think of other ways to solve this that might be (a lot) faster?

@@ -4,15 +4,17 @@ package gtpl
 
 //Templates to be used in the response of suggester
 var (
-	Greeting         = NewFormatTemplate("greeting.md", MustAsset)
-	NewcomerGreeting = NewStringTemplate("newcomer_greeting.md", MustAsset)
-	Praise           = NewFormatTemplate("praise.md", MustAsset)
-	Todo             = NewFormatTemplate("todo.md", MustAsset)
-	Improvement      = NewFormatTemplate("improvement.md", MustAsset)
-	Comment          = NewFormatTemplate("comment.md", MustAsset)
-	Questions        = NewStringTemplate("questions.md", MustAsset)
+	Greeting         = NewFormatTemplate("response/greeting.md", MustAsset)
+	NewcomerGreeting = NewStringTemplate("response/newcomer_greeting.md", MustAsset)
+	Praise           = NewFormatTemplate("response/praise.md", MustAsset)
+	Todo             = NewFormatTemplate("response/todo.md", MustAsset)
+	Improvement      = NewFormatTemplate("response/improvement.md", MustAsset)
+	Comment          = NewFormatTemplate("response/comment.md", MustAsset)
+	Questions        = NewStringTemplate("response/questions.md", MustAsset)
 
-	NotLinted    = NewStringTemplate("not_linted.md", MustAsset)
-	NotFormatted = NewStringTemplate("not_formatted.md", MustAsset)
-	Benchmarking = NewStringTemplate("benchmarking.md", MustAsset)
+	NotLinted    = NewStringTemplate("tools/not_linted.md", MustAsset)
+	NotFormatted = NewStringTemplate("tools/not_formatted.md", MustAsset)
+
+	Benchmarking = NewStringTemplate("topic/benchmarking.md", MustAsset)
+	Regex        = NewStringTemplate("topic/regex.md", MustAsset)
 )
