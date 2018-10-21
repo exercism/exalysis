@@ -16,4 +16,6 @@ var (
 	IfsToSwitch     = gtpl.NewStringTemplate("ifs-to-switch.md", MustAsset)
 	GoRoutines      = gtpl.NewStringTemplate("go-routines.md", MustAsset)
 	MoveMap         = gtpl.NewStringTemplate("move-map.md", MustAsset)
+	Regex           = gtpl.NewStringTemplate("regex.md", MustAsset)
+	Challenge       = gtpl.NewStringTemplate("challenge.md", MustAsset)
 )
