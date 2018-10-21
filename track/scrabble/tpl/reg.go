@@ -18,4 +18,5 @@ var (
 	MoveMap         = gtpl.NewStringTemplate("move-map.md", MustAsset)
 	Regex           = gtpl.NewStringTemplate("regex.md", MustAsset)
 	Challenge       = gtpl.NewStringTemplate("challenge.md", MustAsset)
+	SliceRuneConv   = gtpl.NewStringTemplate("slice-rune-conversion.md", MustAsset)
 )
