@@ -12,4 +12,5 @@ var (
 	PlusEqual       = gtpl.NewStringTemplate("plus-equal.md", MustAsset)
 	Itoa            = gtpl.NewStringTemplate("itoa.md", MustAsset)
 	ExtensiveFor    = gtpl.NewStringTemplate("extensive-for-loop.md", MustAsset)
+	LoopMap         = gtpl.NewStringTemplate("loop-map.md", MustAsset)
 )

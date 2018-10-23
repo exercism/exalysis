@@ -24,6 +24,7 @@ var suggestTests = []struct {
 	{path: "./solutions/5", suggestion: tpl.Itoa, expected: true},
 	{path: "./solutions/6", suggestion: tpl.ExtensiveFor, expected: true},
 	{path: "./solutions/6", suggestion: tpl.PlusEqual, expected: true},
+	{path: "./solutions/7", suggestion: tpl.LoopMap, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {
