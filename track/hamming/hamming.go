@@ -24,6 +24,46 @@ var exFuncs = []extypes.SuggestionFunc{
 	examMultipleStringConversions,
 	examIncrease,
 	examErrorMessage,
+	examDeclareWhenNeeded,
+}
+
+func examDeclareWhenNeeded(pkg *astrav.Package, r *extypes.Response) {
+	if r.HasSuggestion(tpl.InvertIf) {
+		return
+	}
+
+	distFunc := pkg.FindFirstByName("Distance")
+	returns := distFunc.FindByNodeType(astrav.NodeTypeReturnStmt)
+	for _, ret := range returns {
+		for _, child := range ret.Children() {
+			if !child.IsNodeType(astrav.NodeTypeIdent) {
+				continue
+			}
+			returnVar := child.(*astrav.Ident)
+			if returnVar.Obj == nil {
+				continue
+			}
+
+			varDecl := distFunc.FindFirstByName(returnVar.Name).Parent()
+
+			// variable not declared in the same block as the return statement
+			if varDecl.IsNodeType(astrav.NodeTypeAssignStmt) {
+				if !returnVar.NextParentByType(astrav.NodeTypeBlockStmt).Contains(varDecl) {
+					r.AppendImprovement(tpl.DeclareNeeded)
+				}
+			}
+
+			// there is another return inbetween
+			for _, rt := range returns {
+				if rt == ret {
+					continue
+				}
+				if varDecl.Pos() <= rt.Pos() && rt.Pos() <= returnVar.Pos() {
+					r.AppendImprovement(tpl.DeclareNeeded)
+				}
+			}
+		}
+	}
 }
 
 func examInvertIf(pkg *astrav.Package, r *extypes.Response) {
