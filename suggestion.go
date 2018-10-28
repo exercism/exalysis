@@ -31,8 +31,8 @@ var exercisePkgs = map[string]extypes.SuggestionFunc{
 }
 
 //GetSuggestions selects the package suggestion routine and returns the suggestions
-func GetSuggestions() (string, string) {
-	folder := astrav.NewFolder(".")
+func GetSuggestions(path string) (string, string) {
+	folder := astrav.NewFolder(path)
 	_, err := folder.ParseFolder()
 	if err != nil {
 		log.Fatal(err)
