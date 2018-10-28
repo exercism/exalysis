@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/atotto/clipboard"
+	"github.com/tehsphinx/clipboard"
 	"github.com/tehsphinx/exalysis"
 )
 
@@ -17,7 +17,7 @@ func main() {
 	flag.Parse()
 	exalysis.LintMinConfidence = *minConfidence
 
-	sugg, approval := exalysis.GetSuggestions()
+	sugg, approval := exalysis.GetSuggestions(".")
 
 	fmt.Println("\n" + sugg)
 	fmt.Print("\n\n" + approval)

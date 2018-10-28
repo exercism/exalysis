@@ -18,6 +18,8 @@ github.com/stretchr/testify v1.2.2 h1:bSDNvY7ZPG5RlJ8otE/7V6gMiyenm9RtJ7IUVIAoJ1
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/tehsphinx/astrav v0.0.0-20181028182221-d69485d92374 h1:7R2CPZpyjuXNU1llsJuXVCHhaeajtcdfYpq9koqTKS0=
 github.com/tehsphinx/astrav v0.0.0-20181028182221-d69485d92374/go.mod h1:nOyPKhDavRtkQmdp+ljFJ8aNAPAilrCycVEAgsFverU=
+github.com/tehsphinx/clipboard v0.1.3 h1:yvpiEuRmCzuCHscbKKveUjaSGIpsgIayMoUmQxaFr8Y=
+github.com/tehsphinx/clipboard v0.1.3/go.mod h1:mHVLI8BgutQPdEYIx/saoBHBqoZIYSu/oTydcL5VfBQ=
 github.com/tehsphinx/dbg v0.0.0-20180912080624-6ae3be1fde4a h1:An4JM6FGIm6VrD89WG9XirMuT1qNS1KzLgA0DcXoRkU=
 github.com/tehsphinx/dbg v0.0.0-20180912080624-6ae3be1fde4a/go.mod h1:0lc75gUc5PIEHuvMfdbFQqjEGKFkP+V7XBa75j6s91c=
 golang.org/x/sys v0.0.0-20180909124046-d0be0721c37e h1:o3PsSEY8E4eXWkXrIP9YJALUkVZqzHJT5DOasTyn8Vs=
