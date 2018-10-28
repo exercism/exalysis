@@ -123,13 +123,13 @@ func testRuneLoop(pkg *astrav.Package, r *extypes.Response) {
 	ranges := pkg.FindFirstByName("Score").FindByNodeType(astrav.NodeTypeRangeStmt)
 	for _, rng := range ranges {
 		l := rng.(*astrav.RangeStmt)
-		if l.Value == nil {
-			if l.Key != nil {
+		if l.Value() == nil {
+			if l.Key() != nil {
 				r.AppendImprovement(tpl.LoopRuneNotByte)
 			}
 		} else {
 			var isByte bool
-			for _, ident := range rng.FindIdentByName(l.Value.(*ast.Ident).Name) {
+			for _, ident := range rng.FindIdentByName(l.Value().(*astrav.Ident).Name) {
 				if ident.IsValueType("byte") {
 					isByte = true
 				}
