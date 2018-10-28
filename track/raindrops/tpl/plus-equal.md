@@ -1,0 +1,1 @@
+- Did you know: go supports the `speech += "Plang"` syntax.
