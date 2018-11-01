@@ -30,6 +30,8 @@ var suggestTests = []struct {
 	{path: "./solutions/9", suggestion: tpl.ExtensiveFor, expected: true},
 	{path: "./solutions/10", suggestion: tpl.ExtensiveFor, expected: true},
 	{path: "./solutions/11", suggestion: tpl.ExtensiveFor, expected: false},
+	{path: "./solutions/12", suggestion: tpl.StringsBuilder, expected: true},
+	{path: "./solutions/13", suggestion: tpl.RemoveExtraBool, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {
