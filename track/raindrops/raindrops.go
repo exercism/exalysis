@@ -160,6 +160,6 @@ func examTooManyConcats(pkg *astrav.Package, r *extypes.Response) {
 func examStringsBuilder(pkg *astrav.Package, r *extypes.Response) {
 	builder := pkg.FindByName("Builder")
 	if builder != nil {
-		r.AppendImprovement(tpl.StringsBuilder)
+		r.AppendImprovement(tpl.StringsBuilder.Format("strings.Builder"))
 	}
 }
