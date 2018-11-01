@@ -12,6 +12,7 @@ import (
 
 	"github.com/tehsphinx/clipboard"
 	"github.com/tehsphinx/exalysis"
+	"github.com/tehsphinx/exalysis/exam"
 )
 
 var (
@@ -21,7 +22,7 @@ var (
 
 func main() {
 	flag.Parse()
-	exalysis.LintMinConfidence = *minConfidence
+	exam.LintMinConfidence = *minConfidence
 
 	if *watch {
 		watchClipboard()
