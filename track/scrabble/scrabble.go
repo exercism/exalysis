@@ -11,6 +11,8 @@ import (
 
 //Suggest builds suggestions for the exercise solution
 func Suggest(pkg *astrav.Package, r *extypes.Response) {
+	addSpeedComment = getAddSpeedComment()
+
 	for _, tf := range exFuncs {
 		tf(pkg, r)
 	}
@@ -184,10 +186,14 @@ func testMapInFunc(pkg *astrav.Package, r *extypes.Response) {
 	}
 }
 
-var speedCommentAdded bool
+var addSpeedComment func(r *extypes.Response)
 
-func addSpeedComment(r *extypes.Response) {
-	if !speedCommentAdded {
+func getAddSpeedComment() func(r *extypes.Response) {
+	var speedCommentAdded bool
+	return func(r *extypes.Response) {
+		if speedCommentAdded {
+			return
+		}
 		speedCommentAdded = true
 		r.AppendOutro(gtpl.Benchmarking)
 	}
