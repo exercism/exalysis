@@ -35,7 +35,7 @@ func examLoopMap(pkg *astrav.Package, r *extypes.Response) {
 			continue
 		}
 		if strings.HasPrefix(ident.ValueType().String(), "map") {
-			r.AppendImprovement(tpl.LoopMap)
+			r.AppendTodo(tpl.LoopMap)
 			return
 		}
 	}

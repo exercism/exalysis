@@ -49,7 +49,8 @@ func examDeclareWhenNeeded(pkg *astrav.Package, r *extypes.Response) {
 			// variable not declared in the same block as the return statement
 			if varDecl.IsNodeType(astrav.NodeTypeAssignStmt) {
 				if !returnVar.NextParentByType(astrav.NodeTypeBlockStmt).Contains(varDecl) {
-					r.AppendImprovement(tpl.DeclareNeeded)
+					r.AppendImprovement(tpl.DeclareNeeded.Format(returnVar.Name))
+					return
 				}
 			}
 
@@ -59,7 +60,8 @@ func examDeclareWhenNeeded(pkg *astrav.Package, r *extypes.Response) {
 					continue
 				}
 				if varDecl.Pos() <= rt.Pos() && rt.Pos() <= returnVar.Pos() {
-					r.AppendImprovement(tpl.DeclareNeeded)
+					r.AppendImprovement(tpl.DeclareNeeded.Format(returnVar.Name))
+					return
 				}
 			}
 		}
