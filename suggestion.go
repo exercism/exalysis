@@ -43,8 +43,10 @@ func GetSuggestions(path string) (string, string) {
 	var r = extypes.NewResponse()
 	addGreeting(r, pkgName, folder.StudentName())
 
-	files := folder.GetRawFiles()
-	examRes := exam.All(files, r, pkgName)
+	examRes, err := exam.All(folder, r, pkgName)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	if suggFunc != nil {
 		suggFunc(pkg, r)
@@ -70,7 +72,7 @@ func addGreeting(r *extypes.Response, pkg, student string) {
 	}
 }
 
-func rating(r *extypes.Response, examRes exam.Result, pkgName string) string {
+func rating(r *extypes.Response, examRes *exam.Result, pkgName string) string {
 	rating := aurora.Gray("Rating Suggestion\n").String()
 	rating += fmt.Sprintf("Todos:\t\t%d\n", aurora.Red(r.LenTodos()))
 	rating += fmt.Sprintf("Suggestions:\t%d\n", aurora.Brown(r.LenImprovements()))
@@ -81,7 +83,7 @@ func rating(r *extypes.Response, examRes exam.Result, pkgName string) string {
 	return rating
 }
 
-func approval(r *extypes.Response, examRes exam.Result, pkgName string) aurora.Value {
+func approval(r *extypes.Response, examRes *exam.Result, pkgName string) aurora.Value {
 	gofmt := examRes.GoFmt
 	golint := examRes.GoLint
 

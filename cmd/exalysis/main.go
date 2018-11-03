@@ -18,6 +18,7 @@ import (
 var (
 	minConfidence = flag.Float64("min_confidence", 0.8, "golint: minimum confidence of a problem to print it")
 	watch         = flag.Bool("watch", false, "watch starts exalysis to watch the clipboard for `exercism download ...` commands")
+	outputAnswer  = flag.Bool("output", false, "outputs the answer to the student. Only applies to watch mode where the answer is usually suppressed")
 )
 
 func main() {
@@ -56,11 +57,13 @@ func watchClipboard() {
 			continue
 		}
 
-		fmt.Println("<--------- Exalysis --------->")
+		fmt.Printf("<-- Exalysis: %s -->\n", path)
 
 		sugg, approval := exalysis.GetSuggestions(path)
 
-		fmt.Println("\n" + sugg)
+		if *outputAnswer {
+			fmt.Println("\n" + sugg)
+		}
 		fmt.Print("\n\n" + approval)
 		if err := clipboard.WriteAll(sugg); err != nil {
 			log.Println(err)
