@@ -23,6 +23,12 @@ var suggestTests = []struct {
 	{path: "./solutions/3", suggestion: tpl.Increase, expected: true},
 	{path: "./solutions/4", suggestion: tpl.InvertIf, expected: true},
 	{path: "./solutions/5", suggestion: tpl.InvertIf, expected: false},
+	{path: "./solutions/1", suggestion: tpl.DeclareNeeded, expected: false},
+	{path: "./solutions/2", suggestion: tpl.DeclareNeeded, expected: true},
+	{path: "./solutions/3", suggestion: tpl.DeclareNeeded, expected: false},
+	{path: "./solutions/4", suggestion: tpl.DeclareNeeded, expected: false},
+	{path: "./solutions/5", suggestion: tpl.DeclareNeeded, expected: true},
+	{path: "./solutions/6", suggestion: tpl.DeclareNeeded, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {

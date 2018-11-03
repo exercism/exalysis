@@ -11,6 +11,8 @@ import (
 
 //Suggest builds suggestions for the exercise solution
 func Suggest(pkg *astrav.Package, r *extypes.Response) {
+	addSpeedComment = getAddSpeedComment()
+
 	for _, tf := range exFuncs {
 		tf(pkg, r)
 	}
@@ -123,13 +125,13 @@ func testRuneLoop(pkg *astrav.Package, r *extypes.Response) {
 	ranges := pkg.FindFirstByName("Score").FindByNodeType(astrav.NodeTypeRangeStmt)
 	for _, rng := range ranges {
 		l := rng.(*astrav.RangeStmt)
-		if l.Value == nil {
-			if l.Key != nil {
+		if l.Value() == nil {
+			if l.Key() != nil {
 				r.AppendImprovement(tpl.LoopRuneNotByte)
 			}
 		} else {
 			var isByte bool
-			for _, ident := range rng.FindIdentByName(l.Value.(*ast.Ident).Name) {
+			for _, ident := range rng.FindIdentByName(l.Value().(*astrav.Ident).Name) {
 				if ident.IsValueType("byte") {
 					isByte = true
 				}
@@ -184,10 +186,14 @@ func testMapInFunc(pkg *astrav.Package, r *extypes.Response) {
 	}
 }
 
-var speedCommentAdded bool
+var addSpeedComment func(r *extypes.Response)
 
-func addSpeedComment(r *extypes.Response) {
-	if !speedCommentAdded {
+func getAddSpeedComment() func(r *extypes.Response) {
+	var speedCommentAdded bool
+	return func(r *extypes.Response) {
+		if speedCommentAdded {
+			return
+		}
 		speedCommentAdded = true
 		r.AppendOutro(gtpl.Benchmarking)
 	}
