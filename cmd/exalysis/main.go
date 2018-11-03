@@ -19,11 +19,13 @@ var (
 	minConfidence = flag.Float64("min_confidence", 0.8, "golint: minimum confidence of a problem to print it")
 	watch         = flag.Bool("watch", false, "watch starts exalysis to watch the clipboard for `exercism download ...` commands")
 	outputAnswer  = flag.Bool("output", false, "outputs the answer to the student. Only applies to watch mode where the answer is usually suppressed")
+	bench         = flag.Bool("bench", false, "runs the benchmarks and outputs the result")
 )
 
 func main() {
 	flag.Parse()
 	exam.LintMinConfidence = *minConfidence
+	exam.Benchmarks = *bench
 
 	if *watch {
 		watchClipboard()
