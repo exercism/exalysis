@@ -7,12 +7,15 @@ import (
 
 	"github.com/logrusorgru/aurora"
 	"github.com/pmezard/go-difflib/difflib"
+	"github.com/tehsphinx/astrav"
 	"github.com/tehsphinx/exalysis/extypes"
 	"github.com/tehsphinx/exalysis/gtpl"
 )
 
 //GoFmt runs gofmt on provided go files and adds suggestions to the response
-func GoFmt(files map[string][]byte, r *extypes.Response, pkgName string) bool {
+func GoFmt(folder *astrav.Folder, r *extypes.Response, pkgName string) bool {
+	files := folder.GetRawFiles()
+
 	resFmt := fmtCode(files)
 	if resFmt == "" {
 		fmt.Println(aurora.Gray("gofmt:\t\t"), aurora.Green("OK"))

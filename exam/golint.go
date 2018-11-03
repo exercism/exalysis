@@ -6,6 +6,7 @@ import (
 
 	"github.com/golang/lint"
 	"github.com/logrusorgru/aurora"
+	"github.com/tehsphinx/astrav"
 	"github.com/tehsphinx/exalysis/extypes"
 	"github.com/tehsphinx/exalysis/gtpl"
 )
@@ -16,7 +17,8 @@ var (
 )
 
 //GoLint runs golint on provided go files and adds suggestions to the response
-func GoLint(files map[string][]byte, r *extypes.Response, pkgName string) bool {
+func GoLint(folder *astrav.Folder, r *extypes.Response, pkgName string) bool {
+	files := folder.GetRawFiles()
 	resLint := lintCode(files)
 	if resLint == "" {
 		fmt.Println(aurora.Gray("golint:\t\t"), aurora.Green("OK"))

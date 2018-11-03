@@ -1,17 +1,37 @@
 package exam
 
-import "github.com/tehsphinx/exalysis/extypes"
+import (
+	"os"
+
+	"github.com/tehsphinx/astrav"
+	"github.com/tehsphinx/exalysis/extypes"
+)
 
 //Result contains the result if running all examinations
 type Result struct {
 	GoLint bool
 	GoFmt  bool
+	GoTest bool
 }
 
 //All runs all examinations contained in this package and returns the result
-func All(files map[string][]byte, r *extypes.Response, pkgName string) Result {
-	return Result{
-		GoLint: GoLint(files, r, pkgName),
-		GoFmt:  GoFmt(files, r, pkgName),
+func All(folder *astrav.Folder, r *extypes.Response, pkgName string) (res *Result, err error) {
+	dir, err := os.Getwd()
+	if err != nil {
+		return nil, err
 	}
+	if err := os.Chdir(folder.GetPath()); err != nil {
+		return nil, err
+	}
+	defer func() {
+		if r := os.Chdir(dir); r != nil {
+			err = r
+		}
+	}()
+
+	return &Result{
+		GoLint: GoLint(folder, r, pkgName),
+		GoFmt:  GoFmt(folder, r, pkgName),
+		GoTest: GoTest(folder, r, pkgName),
+	}, err
 }
