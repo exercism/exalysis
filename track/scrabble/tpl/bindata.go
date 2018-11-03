@@ -8,8 +8,8 @@
 // maprune.md (195B)
 // move-map.md (148B)
 // regex.md (387B)
-// slice-rune-conversion.md (188B)
-// try-switch.md (92B)
+// slice-rune-conversion.md (217B)
+// try-switch.md (296B)
 // type-conversion.md (149B)
 // unicode-loop.md (99B)
 // unicode.md (123B)
@@ -96,7 +96,7 @@ func challengeMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "challenge.md", size: 138, mode: os.FileMode(420), modTime: time.Unix(1540113017, 0)}
+	info := bindataFileInfo{name: "challenge.md", size: 138, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x45, 0x40, 0xf2, 0xdc, 0x18, 0xcd, 0xd9, 0x8d, 0xee, 0xd2, 0x1b, 0x29, 0x63, 0x73, 0x5d, 0xb5, 0x8c, 0x25, 0x1a, 0x53, 0xc7, 0x9f, 0x97, 0xd5, 0xe7, 0xf, 0xb, 0x75, 0x81, 0xfd, 0x62, 0x43}}
 	return a, nil
 }
@@ -116,7 +116,7 @@ func flattenMapMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "flatten-map.md", size: 191, mode: os.FileMode(420), modTime: time.Unix(1540118151, 0)}
+	info := bindataFileInfo{name: "flatten-map.md", size: 191, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x39, 0xcb, 0xb8, 0x4c, 0xe6, 0x7b, 0x62, 0x58, 0x7d, 0x6f, 0xcd, 0xaf, 0xb4, 0x71, 0x92, 0x24, 0xe7, 0x0, 0x72, 0x34, 0xbc, 0x42, 0xef, 0x1d, 0x3d, 0x5a, 0x8e, 0x22, 0x8a, 0x6c, 0x79, 0x92}}
 	return a, nil
 }
@@ -136,7 +136,7 @@ func goRoutinesMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "go-routines.md", size: 129, mode: os.FileMode(420), modTime: time.Unix(1540032141, 0)}
+	info := bindataFileInfo{name: "go-routines.md", size: 129, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xda, 0x30, 0x9a, 0x4e, 0x53, 0x1c, 0xb2, 0x9, 0xa5, 0x94, 0x2b, 0xb5, 0x49, 0x3b, 0x85, 0x6b, 0x97, 0x91, 0x2c, 0x8f, 0xca, 0xba, 0x39, 0x6c, 0xe9, 0x76, 0xe9, 0x59, 0x11, 0x82, 0x60, 0x48}}
 	return a, nil
 }
@@ -156,7 +156,7 @@ func ifsToSwitchMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "ifs-to-switch.md", size: 75, mode: os.FileMode(420), modTime: time.Unix(1538428401, 0)}
+	info := bindataFileInfo{name: "ifs-to-switch.md", size: 75, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xa4, 0x86, 0x72, 0xff, 0x80, 0xc8, 0xab, 0x94, 0x30, 0x68, 0x2b, 0xeb, 0x8a, 0x7c, 0x94, 0xc0, 0xd3, 0x8, 0xe6, 0xb8, 0x75, 0x6e, 0xb3, 0x39, 0x8c, 0xd7, 0x4d, 0x2f, 0x2, 0x9d, 0xc4, 0xc9}}
 	return a, nil
 }
@@ -176,7 +176,7 @@ func loopRuneNotByteMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "loop-rune-not-byte.md", size: 152, mode: os.FileMode(420), modTime: time.Unix(1538236752, 0)}
+	info := bindataFileInfo{name: "loop-rune-not-byte.md", size: 152, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x80, 0x86, 0x33, 0xbb, 0x93, 0xb2, 0x6a, 0x28, 0x25, 0x18, 0x75, 0x64, 0x3a, 0xe2, 0x56, 0x8b, 0x2, 0xc, 0xda, 0x34, 0x4d, 0x5d, 0xc8, 0x66, 0xe2, 0x7c, 0xbc, 0xe6, 0xeb, 0x34, 0xb6, 0x23}}
 	return a, nil
 }
@@ -216,7 +216,7 @@ func moveMapMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "move-map.md", size: 148, mode: os.FileMode(420), modTime: time.Unix(1538248324, 0)}
+	info := bindataFileInfo{name: "move-map.md", size: 148, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xb9, 0x1d, 0x8f, 0xd7, 0x76, 0xf7, 0x90, 0xb3, 0x24, 0x4f, 0x51, 0xd9, 0xdc, 0xf, 0x48, 0xb9, 0xaf, 0xb2, 0x32, 0xb5, 0xfd, 0x6e, 0x73, 0xda, 0xb0, 0xa6, 0x9d, 0xc1, 0x2, 0x18, 0xd6, 0x27}}
 	return a, nil
 }
@@ -236,12 +236,12 @@ func regexMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "regex.md", size: 387, mode: os.FileMode(420), modTime: time.Unix(1540112734, 0)}
+	info := bindataFileInfo{name: "regex.md", size: 387, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xa7, 0x24, 0xd8, 0xe0, 0x7a, 0xa, 0x71, 0xe8, 0x95, 0xba, 0xe4, 0xd9, 0x7e, 0x75, 0xd5, 0xb3, 0x12, 0xe1, 0x24, 0xea, 0x43, 0x19, 0x9c, 0x97, 0x98, 0xe7, 0x58, 0x84, 0x8b, 0xd4, 0x5c, 0x93}}
 	return a, nil
 }
 
-var _sliceRuneConversionMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x34\x8e\x51\x6a\xc3\x40\x0c\x44\xff\x7b\x8a\x39\x40\xbb\x07\x30\xf4\x16\xfd\x29\x21\xb0\x62\xa3\xd8\x82\x8d\x14\x24\xd9\x89\x09\xb9\x7b\xb0\x49\xfe\x86\xe1\xf1\x66\x7e\xf0\x6f\x33\xc8\x19\xcd\x74\x61\x4f\xd1\x11\x84\x48\xdf\x82\x68\x1a\x08\xf5\x70\xf4\x59\xb9\x22\x0d\x39\xb1\xa2\x9b\x5d\x61\x0b\x3b\x24\x0b\xfe\x26\x09\x48\x40\x2d\xa1\xdc\x38\x82\x7c\x05\xc5\x8e\x6d\x9a\x9d\x24\x7c\xbd\xad\x37\xe9\x1d\x34\xa7\x5d\x28\xa5\x51\xef\x2b\x9a\x33\x25\x63\x5b\x89\x01\xf5\x6c\x0e\xd1\x13\xdf\xbf\xf7\x0a\xc3\x2f\x9c\x74\xe4\xcf\xaf\x47\x29\xe5\x59\x5f\x01\x00\x00\xff\xff\x83\xec\xfc\x2d\xbc\x00\x00\x00")
+var _sliceRuneConversionMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x2c\x8d\x41\x4a\x03\x41\x10\x45\xf7\x7d\x8a\x77\x00\x35\xfb\x80\xb7\x70\x23\x22\x74\x31\x56\x92\x86\xb6\x2a\x54\xd7\x24\x0c\xe2\xdd\xa5\x33\xee\xfe\xe2\xbf\xf7\x9e\x79\xf7\x15\x09\x65\x71\xbb\x69\x64\xb3\x33\xc2\xc8\x98\xa3\x59\x3a\x42\xfd\xf8\x8c\xd5\xb4\x92\x4e\x5e\xd4\xe8\xee\x57\xfc\xa6\x41\xcb\x17\xde\x2e\x6d\xd0\x06\xe6\x89\xe9\xa2\x63\x48\x6c\xc8\x78\xdc\xa6\xe6\xf1\x14\xca\xbf\xf5\xde\x7a\x47\xd6\xf4\x6f\xc9\xb6\x48\xef\x1b\x4b\xa8\xa4\x32\x2b\xe3\x48\x81\x5a\x6b\x81\x93\x07\xed\x89\xe0\xf8\x4a\x88\x9d\x95\xbb\xc7\x17\x3f\x05\xe0\x70\x20\x66\xd6\x4f\xe4\x76\xdd\xe1\x02\xbf\x3b\xfd\x17\x00\x00\xff\xff\x05\xa5\xff\x9a\xd9\x00\x00\x00")
 
 func sliceRuneConversionMdBytes() ([]byte, error) {
 	return bindataRead(
@@ -256,12 +256,12 @@ func sliceRuneConversionMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "slice-rune-conversion.md", size: 188, mode: os.FileMode(420), modTime: time.Unix(1540125149, 0)}
-	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xf, 0xc3, 0x7, 0x7e, 0x26, 0x1e, 0x96, 0x98, 0x11, 0xb3, 0x84, 0x4d, 0x1e, 0x2e, 0x26, 0xf4, 0xdc, 0x52, 0x54, 0xac, 0x9d, 0xe1, 0xe2, 0x54, 0x2d, 0x2e, 0x94, 0xf3, 0x56, 0x81, 0x5e, 0xe8}}
+	info := bindataFileInfo{name: "slice-rune-conversion.md", size: 217, mode: os.FileMode(420), modTime: time.Unix(1541252693, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xa5, 0x5f, 0x2e, 0xc8, 0xd1, 0x16, 0x43, 0x67, 0x95, 0xad, 0x8f, 0x6a, 0x47, 0x2, 0x0, 0xd8, 0x1f, 0xb2, 0xe8, 0x5d, 0x85, 0xb6, 0x61, 0x1, 0x91, 0x97, 0x1b, 0x51, 0x64, 0xcc, 0x55, 0xf1}}
 	return a, nil
 }
 
-var _trySwitchMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x14\xc8\xd1\x09\x83\x21\x0c\x04\xe0\x55\x6e\x81\x0e\xd2\x2d\x0c\xfe\x89\x3d\xb0\x51\x4c\x44\xdc\xbe\xf4\xf5\x7b\xe1\x6d\xb8\x63\x43\x96\x62\x4f\xd8\x58\x60\x62\x07\xbd\x41\x50\xe2\x30\xeb\xa7\x80\x1e\xa9\xf2\x60\xd8\x5f\xbf\x32\x0b\x0e\x7b\x07\xbd\x2e\x95\x50\xc4\x54\x7d\x10\x6c\x4e\x63\x15\xcf\x7e\x7f\x01\x00\x00\xff\xff\x0e\x2b\xc4\xd7\x5c\x00\x00\x00")
+var _trySwitchMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x24\x8e\xbd\x6e\xc3\x30\x0c\x84\xf7\x3c\xc5\x6d\x6d\x07\xc5\x7b\xe6\x2e\x1d\xda\xa5\x63\x51\x20\xb4\x42\x5b\x44\x65\x52\x10\xe9\x18\x7e\xfb\xc2\xc9\x7a\x7f\xdf\x25\x7c\x4c\xd8\x6d\x05\x75\xc6\xda\x30\x59\x87\x04\x56\x17\x9d\x41\xb8\xfa\x26\x91\xcb\x15\xa2\x1e\x4c\x37\xd8\x74\xa8\x0b\xb5\x2b\x36\xa9\x15\xa2\xb9\x33\x39\xc3\x1b\xf3\x0d\x2e\xb3\xca\x24\x99\x34\xea\x0e\x51\x9c\xa2\x88\xa3\x51\x0f\xc9\x6b\xa5\x8e\x4c\xce\x67\x7c\x59\xf0\x05\xef\xc6\xae\x2f\x81\x85\x49\x11\x85\x02\x4f\x1c\xfb\xe3\xce\xcc\xca\x9d\x6a\xdd\x31\x91\x07\xf7\x23\xa2\x58\xa8\xf9\xb1\x3c\xdb\x05\xa7\x9f\xef\x47\x01\x77\x3f\xe3\x93\xda\xef\x6b\x89\x68\x7e\x19\x86\x42\x5e\xba\xe5\x3f\x8e\x73\xb6\x65\x18\xab\xcd\x43\x33\x0f\x1f\x9e\x88\x74\xf7\xb4\x50\x4b\x5b\x91\x5c\x92\x78\x8a\xc2\x69\xe4\x08\xee\x69\xa3\x3d\x85\xa5\xb1\x93\x1e\x9e\xa6\xd9\xde\xfe\x03\x00\x00\xff\xff\x7b\xf3\xcf\xd7\x28\x01\x00\x00")
 
 func trySwitchMdBytes() ([]byte, error) {
 	return bindataRead(
@@ -276,8 +276,8 @@ func trySwitchMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "try-switch.md", size: 92, mode: os.FileMode(420), modTime: time.Unix(1538428428, 0)}
-	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x8e, 0x85, 0x1, 0xc4, 0xba, 0x97, 0x80, 0x68, 0xeb, 0x66, 0x93, 0x9, 0xec, 0xcd, 0x71, 0x81, 0xed, 0x27, 0x77, 0x59, 0x88, 0x5a, 0xf0, 0x2f, 0x64, 0xe6, 0x20, 0x98, 0x62, 0x54, 0xea, 0xbb}}
+	info := bindataFileInfo{name: "try-switch.md", size: 296, mode: os.FileMode(420), modTime: time.Unix(1541252713, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xd1, 0x4a, 0x23, 0xc2, 0x2b, 0x77, 0x87, 0xfd, 0x27, 0xcf, 0x57, 0x81, 0xd4, 0xb9, 0x27, 0x55, 0x5c, 0xf3, 0x30, 0xa6, 0xb9, 0x3c, 0xda, 0x9e, 0x8f, 0x26, 0x4f, 0x4c, 0xe5, 0x5e, 0x82, 0xae}}
 	return a, nil
 }
 
@@ -296,7 +296,7 @@ func typeConversionMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "type-conversion.md", size: 149, mode: os.FileMode(420), modTime: time.Unix(1538428428, 0)}
+	info := bindataFileInfo{name: "type-conversion.md", size: 149, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x7c, 0xe, 0xb2, 0x9, 0xcf, 0xb0, 0x4b, 0x6d, 0x24, 0x44, 0xae, 0x6e, 0xb8, 0xae, 0xe9, 0x6e, 0x32, 0x98, 0x1a, 0x86, 0x8f, 0x3, 0xfb, 0x58, 0xdd, 0x0, 0xc4, 0xa, 0xf, 0x96, 0xad, 0xfa}}
 	return a, nil
 }
@@ -316,7 +316,7 @@ func unicodeLoopMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "unicode-loop.md", size: 99, mode: os.FileMode(420), modTime: time.Unix(1538428428, 0)}
+	info := bindataFileInfo{name: "unicode-loop.md", size: 99, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x6, 0xcb, 0xa2, 0x9, 0xd4, 0x29, 0x1d, 0xf2, 0x29, 0x96, 0xf6, 0x79, 0x74, 0x43, 0xc3, 0x92, 0xab, 0x87, 0x97, 0x57, 0xa4, 0x70, 0xcf, 0x1f, 0x53, 0x5, 0x2a, 0xac, 0x8f, 0x54, 0xd8, 0x38}}
 	return a, nil
 }

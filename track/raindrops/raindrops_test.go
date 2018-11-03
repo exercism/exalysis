@@ -20,6 +20,16 @@ var suggestTests = []struct {
 	{path: "./solutions/1", suggestion: tpl.ConcatNotNeeded, expected: false},
 	{path: "./solutions/2", suggestion: tpl.ConcatNotNeeded, expected: true},
 	{path: "./solutions/3", suggestion: tpl.StringsBuilder, expected: true},
+	{path: "./solutions/3", suggestion: tpl.Itoa, expected: false},
+	{path: "./solutions/4", suggestion: tpl.PlusEqual, expected: true},
+	{path: "./solutions/5", suggestion: tpl.Itoa, expected: true},
+	{path: "./solutions/6", suggestion: tpl.ExtensiveFor, expected: true},
+	{path: "./solutions/6", suggestion: tpl.PlusEqual, expected: true},
+	{path: "./solutions/7", suggestion: tpl.LoopMap, expected: true},
+	{path: "./solutions/8", suggestion: tpl.ExtensiveFor, expected: true},
+	{path: "./solutions/9", suggestion: tpl.ExtensiveFor, expected: true},
+	{path: "./solutions/10", suggestion: tpl.ExtensiveFor, expected: true},
+	{path: "./solutions/11", suggestion: tpl.ExtensiveFor, expected: false},
 }
 
 func Test_Suggest(t *testing.T) {

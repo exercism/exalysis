@@ -8,8 +8,10 @@
 // response/questions.md (79B)
 // response/todo.md (73B)
 // tools/not_formatted.md (172B)
-// tools/not_linted.md (141B)
+// tools/not_linted.md (149B)
+// tools/pass_tests.md (152B)
 // topic/benchmarking.md (1.304kB)
+// topic/pprof-allocations.md (2.069kB)
 // topic/regex.md (1.428kB)
 
 package gtpl
@@ -94,7 +96,7 @@ func responseCommentMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "response/comment.md", size: 21, mode: os.FileMode(420), modTime: time.Unix(1538311404, 0)}
+	info := bindataFileInfo{name: "response/comment.md", size: 21, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x95, 0xff, 0xaf, 0xf3, 0x2f, 0x3f, 0xad, 0x81, 0x55, 0xf4, 0xd, 0x9a, 0x98, 0x2d, 0x83, 0xef, 0x3e, 0xf5, 0x1c, 0x7a, 0xe8, 0x9, 0x36, 0x2e, 0xab, 0xeb, 0x7e, 0x6a, 0x9, 0xbe, 0x23, 0x4f}}
 	return a, nil
 }
@@ -114,7 +116,7 @@ func responseGreetingMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "response/greeting.md", size: 6, mode: os.FileMode(420), modTime: time.Unix(1538247638, 0)}
+	info := bindataFileInfo{name: "response/greeting.md", size: 6, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xb6, 0x4d, 0xb8, 0x95, 0xfc, 0x5c, 0x3e, 0x1, 0x38, 0xee, 0x81, 0xa5, 0xe7, 0x8, 0xfb, 0xde, 0xf5, 0x17, 0x32, 0x9d, 0xa, 0xbd, 0x7f, 0xc2, 0xa0, 0x1d, 0x87, 0xea, 0xd1, 0xb, 0x32, 0xdb}}
 	return a, nil
 }
@@ -134,7 +136,7 @@ func responseImprovementMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "response/improvement.md", size: 33, mode: os.FileMode(420), modTime: time.Unix(1538247678, 0)}
+	info := bindataFileInfo{name: "response/improvement.md", size: 33, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x24, 0x47, 0x5, 0x78, 0x1d, 0x7e, 0x8f, 0xa1, 0x3e, 0x6, 0x5b, 0x34, 0xee, 0x69, 0x7b, 0x7, 0xb3, 0xb8, 0xa1, 0xc5, 0xfc, 0xf7, 0x39, 0xa2, 0x81, 0xe6, 0x2b, 0x55, 0x94, 0xe8, 0x66, 0xcb}}
 	return a, nil
 }
@@ -154,7 +156,7 @@ func responseNewcomer_greetingMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "response/newcomer_greeting.md", size: 66, mode: os.FileMode(420), modTime: time.Unix(1538247651, 0)}
+	info := bindataFileInfo{name: "response/newcomer_greeting.md", size: 66, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xb3, 0xa7, 0x40, 0x9e, 0xd3, 0xbd, 0x95, 0x71, 0x56, 0x20, 0xff, 0xff, 0xf4, 0xe5, 0xa9, 0x84, 0x38, 0x78, 0xa2, 0xf, 0xd6, 0x63, 0xe2, 0xec, 0xee, 0xdb, 0x80, 0x3c, 0xf1, 0x3b, 0x59, 0xa1}}
 	return a, nil
 }
@@ -174,7 +176,7 @@ func responsePraiseMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "response/praise.md", size: 15, mode: os.FileMode(420), modTime: time.Unix(1538247701, 0)}
+	info := bindataFileInfo{name: "response/praise.md", size: 15, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x59, 0xcb, 0x83, 0x60, 0x69, 0x93, 0xba, 0xce, 0x32, 0xd9, 0xbc, 0xd8, 0x1b, 0x64, 0x86, 0xeb, 0x1c, 0xba, 0x31, 0x65, 0x69, 0x34, 0x6d, 0xfc, 0xbb, 0xf3, 0x4c, 0x12, 0x6d, 0x4e, 0xf, 0x23}}
 	return a, nil
 }
@@ -194,7 +196,7 @@ func responseQuestionsMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "response/questions.md", size: 79, mode: os.FileMode(420), modTime: time.Unix(1538258778, 0)}
+	info := bindataFileInfo{name: "response/questions.md", size: 79, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xa2, 0x9d, 0x81, 0x1f, 0x6c, 0x35, 0xc9, 0x79, 0xe6, 0xd6, 0xd0, 0xb7, 0x8a, 0x8d, 0x9e, 0xeb, 0x21, 0x6, 0x3e, 0x9b, 0x33, 0x60, 0xbe, 0xda, 0x27, 0xd2, 0xc, 0x5b, 0x59, 0x38, 0x86, 0x8b}}
 	return a, nil
 }
@@ -214,7 +216,7 @@ func responseTodoMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "response/todo.md", size: 73, mode: os.FileMode(420), modTime: time.Unix(1538247691, 0)}
+	info := bindataFileInfo{name: "response/todo.md", size: 73, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xa9, 0x52, 0x39, 0xc9, 0xcb, 0x75, 0x93, 0x60, 0xe8, 0x21, 0x22, 0x7b, 0xc0, 0x66, 0xed, 0x94, 0x3f, 0xd1, 0xef, 0x2, 0x3e, 0xf8, 0xf1, 0xfd, 0x19, 0x67, 0x7c, 0xdc, 0x7b, 0x4e, 0x6b, 0x7a}}
 	return a, nil
 }
@@ -234,12 +236,12 @@ func toolsNot_formattedMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tools/not_formatted.md", size: 172, mode: os.FileMode(420), modTime: time.Unix(1538247822, 0)}
+	info := bindataFileInfo{name: "tools/not_formatted.md", size: 172, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xc8, 0x5b, 0xc0, 0xcc, 0x1, 0xe8, 0xee, 0xa1, 0xfb, 0x8b, 0xf3, 0xc5, 0xd0, 0x8d, 0x7c, 0xd7, 0xca, 0x3f, 0xdc, 0x20, 0xd4, 0xf3, 0x4e, 0x6c, 0x13, 0x3c, 0x85, 0x56, 0x79, 0xf5, 0x9f, 0xf8}}
 	return a, nil
 }
 
-var _toolsNot_lintedMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x1c\xcd\xd1\xa9\xc3\x30\x0c\x05\xd0\x55\xee\x02\x2f\x7b\xbc\xff\x0e\x10\x11\xab\x8e\x48\xac\x5b\x24\xb9\xe0\xed\x4b\xfb\x7f\xe0\xfc\xe1\x60\x53\x64\x89\x37\x89\x96\x30\x47\x27\x24\x14\x6f\x8d\x05\x1b\x2f\x46\x89\x17\x8a\xa8\x53\x71\x70\x8c\xe9\x56\x6b\xc3\x43\x2e\x85\xe0\x26\x2f\x48\x61\xef\xbc\xcd\x6b\x87\x78\x43\x4c\x87\x15\xe8\x58\x9c\xf1\x4b\x36\xfc\x17\x4e\x49\x24\x87\x22\x67\xef\x9a\x65\xf4\xc4\x93\xf1\x65\xdb\x27\x00\x00\xff\xff\x46\x97\x84\x90\x8d\x00\x00\x00")
+var _toolsNot_lintedMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x1c\xcd\xc1\x0d\xc2\x30\x0c\x40\xd1\x3b\x53\xfc\x05\xe8\x1e\xdc\x19\xa0\x56\x63\xd2\xa8\x8d\x8d\x1c\x07\xa9\xdb\x23\xb8\x3f\xe9\xdd\xd9\xbc\x28\x23\xc5\x8a\x44\x19\x34\xa3\x3a\x12\xca\x47\xe3\xa2\xf5\xb7\x47\x8a\x25\xe9\xe4\xae\x6c\xde\xfb\xb4\x96\xd7\xc2\x53\x0e\x45\x38\xdd\x0f\x24\x59\xab\x9f\xcd\x72\x45\xac\x10\xd3\x68\x89\x1b\x97\xcf\xf8\x27\x0b\xb7\x47\xb2\xcb\xc0\x4d\xf1\xa0\x7b\x28\x63\xd6\xaa\x23\x9b\xdb\xe0\xe5\xf1\xe3\xcb\x37\x00\x00\xff\xff\x8d\xe8\x81\x19\x95\x00\x00\x00")
 
 func toolsNot_lintedMdBytes() ([]byte, error) {
 	return bindataRead(
@@ -254,8 +256,28 @@ func toolsNot_lintedMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tools/not_linted.md", size: 141, mode: os.FileMode(420), modTime: time.Unix(1538211717, 0)}
-	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xe7, 0xb, 0x57, 0x16, 0x13, 0x63, 0x6c, 0x7e, 0xf1, 0xbe, 0x8f, 0x7d, 0xfe, 0xbb, 0x7f, 0x9c, 0x2a, 0x3c, 0xe3, 0x8a, 0xd0, 0xd4, 0x10, 0xd2, 0x3c, 0x48, 0xda, 0x2b, 0x3c, 0x6e, 0x8b, 0xf5}}
+	info := bindataFileInfo{name: "tools/not_linted.md", size: 149, mode: os.FileMode(420), modTime: time.Unix(1541092677, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xea, 0xf5, 0x6f, 0x39, 0x88, 0x7e, 0xc4, 0xf2, 0x6b, 0x8b, 0xfe, 0xd0, 0xf2, 0x49, 0xe1, 0x3c, 0xd2, 0x71, 0x69, 0xe3, 0x91, 0xa6, 0xa9, 0xa3, 0xbb, 0x23, 0x68, 0xcf, 0x2c, 0xc5, 0x2e, 0x2b}}
+	return a, nil
+}
+
+var _toolsPass_testsMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x44\xcc\xb1\x0d\x02\x31\x10\x44\xd1\x9c\x2a\xa6\x01\xae\x05\x12\x12\xca\xb0\xb8\xb1\x6c\x61\x79\xd1\xce\x2e\x70\xdd\xa3\x3b\x02\xd2\xaf\x99\x77\x46\xce\x6a\x1e\x39\x4b\x70\x6c\x88\xd6\x05\xd9\xc8\xe8\x36\xb1\x1a\x85\x69\x81\x67\x91\x10\x8d\x08\x2a\xb4\xe0\xda\x57\x6c\x96\xf0\x9c\xff\x7c\x39\xdd\xea\x51\x8b\xf3\x78\x29\x9d\x68\xf6\x46\xd8\x6e\xbe\xf8\xe3\xf9\xa1\xdf\xbb\x88\x4a\x0e\x54\x27\xf7\x41\xd1\x03\xd5\x1c\xad\xcf\xd0\xf2\x0d\x00\x00\xff\xff\xff\xef\xf8\x21\x98\x00\x00\x00")
+
+func toolsPass_testsMdBytes() ([]byte, error) {
+	return bindataRead(
+		_toolsPass_testsMd,
+		"tools/pass_tests.md",
+	)
+}
+
+func toolsPass_testsMd() (*asset, error) {
+	bytes, err := toolsPass_testsMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tools/pass_tests.md", size: 152, mode: os.FileMode(420), modTime: time.Unix(1541097999, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xc6, 0x9f, 0xc2, 0x79, 0x52, 0x79, 0xaf, 0xba, 0xe3, 0x4f, 0xce, 0x8a, 0x9, 0xdc, 0xda, 0xce, 0x1d, 0xab, 0x26, 0xe4, 0x17, 0xd2, 0x98, 0x98, 0x78, 0xf9, 0x12, 0x4d, 0x35, 0x73, 0x88, 0x72}}
 	return a, nil
 }
 
@@ -274,8 +296,28 @@ func topicBenchmarkingMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "topic/benchmarking.md", size: 1304, mode: os.FileMode(420), modTime: time.Unix(1538251558, 0)}
+	info := bindataFileInfo{name: "topic/benchmarking.md", size: 1304, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xe6, 0xf2, 0x64, 0x5f, 0x67, 0xaa, 0x9b, 0x79, 0xf2, 0x39, 0x77, 0x24, 0x9, 0xdc, 0x3b, 0x93, 0x1c, 0xbe, 0x61, 0xa8, 0xed, 0x6d, 0x7c, 0x99, 0x86, 0x52, 0xd2, 0xa1, 0xb3, 0x4c, 0x91, 0x90}}
+	return a, nil
+}
+
+var _topicPprofAllocationsMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x84\x56\x4d\x8f\xe4\x34\x10\xbd\xfb\x57\xd4\x0d\x76\xa4\xa4\x85\x10\x97\x91\x38\xb0\x88\x15\x1c\x58\x21\x58\x69\x0f\x08\x29\x15\xa7\x92\x78\xc7\x76\x45\x76\x79\x32\xfd\xef\x51\xd9\x49\xf7\x0c\x08\x71\x8b\x3a\xf5\xf5\x5e\xbd\x57\x69\xd3\x75\x9d\x79\x78\x78\xd8\xb6\xc4\xf3\x23\xfc\xe0\x3d\x5b\x14\xc7\x31\x3f\x3c\x3c\x18\xf3\x5b\xe2\xd9\x79\x17\x17\x70\x19\x10\xd6\xb2\x10\xe4\x32\x7e\x21\x2b\x80\x71\x02\x59\x29\x11\x60\x22\x08\x18\xaf\xb0\xf1\x4e\x69\x2e\x1e\x76\xbc\x66\x10\x86\xad\xe6\x13\x2c\x0c\xb8\x6d\xde\x1d\xb5\x7b\xf8\xc0\xde\xf3\xae\x85\x7f\x81\xdd\x79\x0f\x66\xa2\x6c\x93\x1b\x09\x10\x9e\x29\x5d\xc1\xbb\xe0\x84\x26\xd8\x30\x09\xf0\x0c\x4e\x7a\x63\x3e\xad\x04\x23\x66\x97\x61\xe6\x74\x54\xd7\x22\x4b\x6d\xb5\x24\x0c\x59\x27\x1d\x2a\x9c\xa1\x87\x4f\xb7\xf9\xbe\x85\xc9\xcd\x33\x25\x8a\xa2\xf5\xb3\xe3\xa8\x55\x65\xa5\x33\x1a\x84\xd9\x3f\x9a\x0e\xfe\x4c\x25\x8a\x0b\x74\xc6\xfd\xf5\xf5\x2a\xb2\xe5\xc7\xcb\x65\x61\x8f\x71\xe9\x39\x2d\x97\xed\x69\xb9\x1c\x71\x97\x9a\x7f\x79\xa7\xa9\x91\x04\x34\xfa\x7f\x73\x23\xc9\x45\x5f\xbd\x4e\xae\x8f\x60\x39\x04\x8c\xd3\x3d\x73\xf4\xbc\xf4\xaf\xd3\x4f\xd8\xdd\xc2\xdd\x09\xfb\x5d\x23\xe7\x4d\x89\x1b\x50\x97\x61\x2c\xce\x0b\x24\xb7\xac\x02\x2e\x0a\x57\xe4\x0b\x57\xd0\x76\x45\x17\xeb\x3e\x2d\x46\xd0\x15\x58\x4b\x39\xd3\x64\x76\x27\x2b\x0c\x47\x18\x1c\x3c\x71\x82\x2f\x25\xcb\x8d\x37\x17\x6b\x31\xa1\x14\x5c\x44\xdf\xc3\x67\x6a\x3b\x2d\x99\x40\x56\x97\x21\xf2\xae\x6a\xf0\xcc\x4f\x30\x11\x6d\x94\xee\x33\x18\xbc\x6b\x4e\x37\xc2\x25\x81\xe5\x89\x7a\x63\x3e\xb8\x94\x05\x76\x82\x48\x34\x69\x01\x9b\x08\x45\x15\x12\x28\x70\xba\x9e\xf2\xaa\x1d\x75\xf4\x89\x5b\xbf\x7d\x55\xd1\xa5\x12\xa3\x8a\x63\xa4\x68\xd7\x80\xe9\x29\x3f\x1a\x33\x0c\x83\x51\x3c\x94\x05\xba\x67\xe8\xba\xfa\x16\xfa\xf3\x29\x50\x80\xae\x0b\x14\x4e\xe9\x06\x0a\x3d\x17\x79\xf3\x63\x42\xa1\xef\xbf\xa9\xb5\xcc\x67\x82\x15\x9f\x75\xa8\xe1\x08\x1d\xa0\x26\x2a\x68\xcb\x51\xd0\xd5\x29\xfe\x73\x68\x17\x9f\x29\x8b\x5b\x14\x99\x13\xa8\x94\xbf\x96\xe5\xb9\x4c\xd3\x96\x37\x27\x0e\x6f\xf9\x6e\xa0\xda\xe6\x8f\x11\xda\x68\x1f\x79\x57\xf6\x54\xfe\xc7\x8e\xee\x35\x63\x66\x9d\xe1\x67\xf5\xc7\xde\x06\x91\xeb\x46\x90\x37\xb2\x6e\x76\xf6\x9f\xed\x73\x0f\xe6\xbd\x92\x96\x45\x0d\xd9\x84\xb1\x92\xdf\xd4\x37\x90\x57\xde\x01\xc1\xbb\x5c\xbd\x8a\xde\x03\x3e\xa3\xf3\x38\x7a\xba\x57\x50\xae\x2c\x17\x5f\xef\x46\x3c\x69\xab\xaa\x40\x81\x7d\x45\x01\x65\x5a\x78\x3b\xb9\xb2\x1c\x72\x09\x94\x72\x05\xd1\x9a\x0a\x6f\xdf\x55\x11\xd6\x27\xe8\x6c\x09\x6d\x06\x4e\xa2\x85\x83\x2a\xd8\xd8\x12\x8a\x47\x3d\x20\x96\x7d\x09\xb1\xaf\x9b\x52\x98\xe8\x33\x83\x5d\xc9\x3e\xa9\x4e\xec\x5a\xd5\x06\xf4\x82\x56\xfc\x15\x0e\x35\x52\x3e\x47\x50\xea\x15\x5d\x28\x76\xd5\xbb\x95\x9a\xc4\xda\xe5\xab\x57\xf1\x5c\xd0\xa0\xf0\x87\xa3\xa8\x11\x7c\x22\x7d\x9b\x68\x29\x1e\x13\xd0\xcb\x96\x28\x57\x3b\xea\xb0\x84\xc9\xae\xba\x96\xeb\x4d\xf0\xf0\x53\x14\x4a\xf5\xb2\xd1\x0b\x86\xcd\x53\xdd\xd9\x5c\xa2\x55\x77\x40\xc4\x40\x1a\x0e\x3b\x46\x65\xe9\xb5\x72\x1e\xa1\xa9\xa0\x6e\xe0\xcc\xf8\x88\x81\x9a\x12\x3e\x55\x57\xa8\x27\xb9\xc8\x56\xa4\x6e\xa8\xe2\xde\x2b\x8e\xe1\x75\xca\x00\x3b\xea\x81\x2d\x71\x3a\x8e\x3c\xca\xbf\x78\xe9\xe1\x3d\xcd\x9c\xda\x88\xde\x45\xca\x2d\xee\xb4\x33\x9d\xfc\xd5\x81\xb5\x73\x26\xba\x11\x79\xbe\xd4\x46\x67\xc2\xd4\xc3\xef\x14\x28\x8c\x94\x5a\x29\x95\x65\x35\x7c\xd5\xcb\xed\x5b\x52\x55\x60\xee\xa6\xee\xe1\x0f\x86\x89\xe3\x57\x52\x4f\x97\xc7\x14\xda\xb5\xd0\x86\x99\x9e\x29\xa1\x87\x5f\x69\xc1\xf1\x2a\x04\x23\x55\x33\x9e\x3d\x55\x78\x08\xd9\xc5\xc5\x37\x18\xf5\x9b\x71\x50\x83\x19\x0c\xbd\x90\x2d\x35\x10\x66\xda\x41\x56\x2e\xb9\x92\xe2\x02\xa9\x27\xcc\x8f\x9e\xf3\xf1\x1d\x3b\xd6\x12\x28\xd6\x7d\x29\x58\xc2\x7c\x55\x57\xbb\xfa\x39\x5c\x28\xd6\xdb\x01\xd1\x59\x82\xc9\x61\xfb\x62\xdd\x2d\xfd\x5a\xf9\xb1\x29\xbf\x37\xc3\x36\xcd\x43\xe3\xf0\x76\x00\x8f\xdc\xba\x9f\xac\x3e\x72\x02\x98\x61\x9b\x66\x68\xc7\x65\xd8\x69\x3c\x92\x78\xa3\xe6\xfe\x31\xf1\x9e\x29\xb5\x24\x9d\x4e\x7f\x3c\x2b\x55\x41\xf7\x46\xff\x10\xfc\x1d\x00\x00\xff\xff\x80\xd8\x13\x05\x15\x08\x00\x00")
+
+func topicPprofAllocationsMdBytes() ([]byte, error) {
+	return bindataRead(
+		_topicPprofAllocationsMd,
+		"topic/pprof-allocations.md",
+	)
+}
+
+func topicPprofAllocationsMd() (*asset, error) {
+	bytes, err := topicPprofAllocationsMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "topic/pprof-allocations.md", size: 2069, mode: os.FileMode(420), modTime: time.Unix(1540752064, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xfd, 0xc5, 0xa6, 0x4b, 0x96, 0x41, 0xeb, 0x7c, 0x23, 0xb7, 0xb8, 0x27, 0xb9, 0x2e, 0x6c, 0x12, 0x53, 0x30, 0xe, 0xaa, 0xba, 0xdc, 0x9e, 0x71, 0xd6, 0xe6, 0xd4, 0x73, 0x7d, 0xa3, 0xe9, 0xb0}}
 	return a, nil
 }
 
@@ -294,7 +336,7 @@ func topicRegexMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "topic/regex.md", size: 1428, mode: os.FileMode(420), modTime: time.Unix(1540109607, 0)}
+	info := bindataFileInfo{name: "topic/regex.md", size: 1428, mode: os.FileMode(420), modTime: time.Unix(1540126605, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x9e, 0x65, 0x27, 0x6c, 0x15, 0xa4, 0xd8, 0xf4, 0xcf, 0xfd, 0x84, 0xc2, 0xc5, 0xd7, 0xd9, 0xf3, 0x64, 0xd4, 0x77, 0x98, 0xe, 0x3c, 0xd2, 0x6b, 0x8e, 0xb9, 0xbc, 0xec, 0xc6, 0x97, 0x65, 0x67}}
 	return a, nil
 }
@@ -408,7 +450,11 @@ var _bindata = map[string]func() (*asset, error){
 
 	"tools/not_linted.md": toolsNot_lintedMd,
 
+	"tools/pass_tests.md": toolsPass_testsMd,
+
 	"topic/benchmarking.md": topicBenchmarkingMd,
+
+	"topic/pprof-allocations.md": topicPprofAllocationsMd,
 
 	"topic/regex.md": topicRegexMd,
 }
@@ -466,10 +512,12 @@ var _bintree = &bintree{nil, map[string]*bintree{
 	"tools": &bintree{nil, map[string]*bintree{
 		"not_formatted.md": &bintree{toolsNot_formattedMd, map[string]*bintree{}},
 		"not_linted.md":    &bintree{toolsNot_lintedMd, map[string]*bintree{}},
+		"pass_tests.md":    &bintree{toolsPass_testsMd, map[string]*bintree{}},
 	}},
 	"topic": &bintree{nil, map[string]*bintree{
-		"benchmarking.md": &bintree{topicBenchmarkingMd, map[string]*bintree{}},
-		"regex.md":        &bintree{topicRegexMd, map[string]*bintree{}},
+		"benchmarking.md":      &bintree{topicBenchmarkingMd, map[string]*bintree{}},
+		"pprof-allocations.md": &bintree{topicPprofAllocationsMd, map[string]*bintree{}},
+		"regex.md":             &bintree{topicRegexMd, map[string]*bintree{}},
 	}},
 }}
 

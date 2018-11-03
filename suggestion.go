@@ -2,25 +2,17 @@ package exalysis
 
 import (
 	"fmt"
-	"go/format"
 	"log"
-	"strings"
 
-	"github.com/golang/lint"
 	"github.com/logrusorgru/aurora"
-	"github.com/pmezard/go-difflib/difflib"
 	"github.com/tehsphinx/astrav"
+	"github.com/tehsphinx/exalysis/exam"
 	"github.com/tehsphinx/exalysis/extypes"
 	"github.com/tehsphinx/exalysis/gtpl"
 	"github.com/tehsphinx/exalysis/track/hamming"
 	"github.com/tehsphinx/exalysis/track/raindrops"
 	"github.com/tehsphinx/exalysis/track/scrabble"
 	"github.com/tehsphinx/exalysis/track/twofer"
-)
-
-var (
-	//LintMinConfidence sets the min confidence for linting
-	LintMinConfidence float64
 )
 
 var exercisePkgs = map[string]extypes.SuggestionFunc{
@@ -31,8 +23,8 @@ var exercisePkgs = map[string]extypes.SuggestionFunc{
 }
 
 //GetSuggestions selects the package suggestion routine and returns the suggestions
-func GetSuggestions() (string, string) {
-	folder := astrav.NewFolder(".")
+func GetSuggestions(path string) (string, string) {
+	folder := astrav.NewFolder(path)
 	_, err := folder.ParseFolder()
 	if err != nil {
 		log.Fatal(err)
@@ -51,98 +43,16 @@ func GetSuggestions() (string, string) {
 	var r = extypes.NewResponse()
 	addGreeting(r, pkgName, folder.StudentName())
 
-	files := folder.GetRawFiles()
-	fmtOk := checkFmt(files, r, pkgName)
-	lintOk := checkLint(files, r, pkgName)
+	examRes, err := exam.All(folder, r, pkgName)
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	if suggFunc != nil {
 		suggFunc(pkg, r)
 	}
 
-	return r.GetAnswerString(), rating(r, fmtOk, lintOk)
-}
-
-func checkFmt(files map[string][]byte, r *extypes.Response, pkgName string) bool {
-	resFmt := fmtCode(files)
-	if resFmt == "" {
-		fmt.Println(aurora.Gray("gofmt:\t\t"), aurora.Green("OK"))
-		return true
-	}
-
-	fmt.Println(aurora.Gray("gofmt:\t\t"), aurora.Red("FAIL"))
-	fmt.Println(resFmt)
-	if pkgName == "twofer" || pkgName == "hamming" {
-		r.AppendImprovement(gtpl.NotFormatted)
-		return true
-	} else {
-		r.AppendTodo(gtpl.NotFormatted)
-	}
-
-	return false
-}
-
-func checkLint(files map[string][]byte, r *extypes.Response, pkgName string) bool {
-	resLint := lintCode(files)
-	if resLint == "" {
-		fmt.Println(aurora.Gray("golint:\t\t"), aurora.Green("OK"))
-		return true
-	}
-
-	fmt.Println(aurora.Gray("golint:\t\t"), aurora.Red("FAIL"))
-	fmt.Println(resLint)
-	if pkgName == "twofer" || pkgName == "hamming" {
-		r.AppendImprovement(gtpl.NotLinted)
-		return true
-	} else {
-		r.AppendTodo(gtpl.NotLinted)
-	}
-
-	return false
-}
-
-func lintCode(files map[string][]byte) string {
-	l := lint.Linter{}
-	ps, err := l.LintFiles(files)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	var lintRes string
-	for _, p := range ps {
-		if p.Confidence < LintMinConfidence {
-			continue
-		}
-		lintRes += fmt.Sprintf("%s: %s\n\t%s\n\tdoc: %s\n", p.Category, p.Text, p.Position.String(), p.Link)
-	}
-	return lintRes
-}
-
-func fmtCode(files map[string][]byte) string {
-	for _, file := range files {
-		f, err := format.Source(file)
-		if err != nil {
-			return fmt.Sprintf("code fails to format with error: %s\n", err)
-		}
-		if string(f) != strings.Replace(string(file), "\r\n", "\n", -1) {
-			return getDiff(file, f)
-		}
-	}
-	return ""
-}
-
-func getDiff(current, formatted []byte) string {
-	diff := difflib.UnifiedDiff{
-		A:        difflib.SplitLines(string(current)),
-		B:        difflib.SplitLines(string(formatted)),
-		FromFile: "Current",
-		ToFile:   "Formatted",
-		Context:  0,
-	}
-	text, err := difflib.GetUnifiedDiffString(diff)
-	if err != nil {
-		return fmt.Sprintf("error while diffing strings: %s", err)
-	}
-	return text
+	return r.GetAnswerString(), rating(r, examRes, pkgName)
 }
 
 func getExercisePkg(folder *astrav.Folder) (*astrav.Package, extypes.SuggestionFunc) {
@@ -162,18 +72,30 @@ func addGreeting(r *extypes.Response, pkg, student string) {
 	}
 }
 
-func rating(r *extypes.Response, gofmt, golint bool) string {
+func rating(r *extypes.Response, examRes *exam.Result, pkgName string) string {
 	rating := aurora.Gray("Rating Suggestion\n").String()
 	rating += fmt.Sprintf("Todos:\t\t%d\n", aurora.Red(r.LenTodos()))
 	rating += fmt.Sprintf("Suggestions:\t%d\n", aurora.Brown(r.LenImprovements()))
 	rating += fmt.Sprintf("Comments:\t%d\n", aurora.Green(r.LenComments()))
 
-	approve := approval(r, gofmt, golint)
+	approve := approval(r, examRes, pkgName)
 	rating += fmt.Sprintf("Suggestion:\t%s\n", approve)
 	return rating
 }
 
-func approval(r *extypes.Response, gofmt, golint bool) aurora.Value {
+func approval(r *extypes.Response, examRes *exam.Result, pkgName string) aurora.Value {
+	gofmt := examRes.GoFmt
+	golint := examRes.GoLint
+
+	// don't be so strict on the first exercises
+	switch pkgName {
+	case "twofer":
+		gofmt = true
+		golint = true
+	case "hamming":
+		golint = true
+	}
+
 	if !gofmt {
 		return aurora.Red("NO APPROVAL")
 	}

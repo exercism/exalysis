@@ -10,5 +10,6 @@ var (
 	RuneToByte         = gtpl.NewStringTemplate("rune-to-byte.md", MustAsset)
 	MultiStringConv    = gtpl.NewStringTemplate("multiple-string-conversions.md", MustAsset)
 	Increase           = gtpl.NewStringTemplate("increase.md", MustAsset)
+	DeclareNeeded      = gtpl.NewFormatTemplate("declare-when-needed.md", MustAsset)
 	InvertIf           = gtpl.NewStringTemplate("invert-if.md", MustAsset)
 )
