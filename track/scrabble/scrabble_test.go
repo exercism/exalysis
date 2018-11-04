@@ -34,7 +34,8 @@ var suggestTests = []struct {
 	{path: "./solutions/6", suggestion: tpl.Challenge, expected: true},
 	{path: "./solutions/7", suggestion: tpl.FlattenMap, expected: false},
 	{path: "./solutions/8", suggestion: tpl.SliceRuneConv, expected: true},
-	{path: "./solutions/8", suggestion: tpl.TrySwitch, expected: true},
+	{path: "./solutions/8", suggestion: tpl.TrySwitch, expected: false},
+	{path: "./solutions/9", suggestion: tpl.FlattenMap, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {

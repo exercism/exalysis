@@ -2,6 +2,7 @@ package scrabble
 
 import (
 	"go/ast"
+	"reflect"
 
 	"github.com/tehsphinx/astrav"
 	"github.com/tehsphinx/exalysis/extypes"
@@ -24,11 +25,25 @@ var exFuncs = []extypes.SuggestionFunc{
 	testMapInFunc,
 	testFlattenMap,
 	testMapRuneInt,
+	testSliceRuneConv,
 	testToLowerUpper("ToLower"),
 	testToLowerUpper("ToUpper"),
 	testTrySwitch,
 	testIfElseToSwitch,
 	testRuneLoop,
+}
+
+func testSliceRuneConv(pkg *astrav.Package, r *extypes.Response) {
+	calls := pkg.FindByNodeType(astrav.NodeTypeCallExpr)
+	for _, call := range calls {
+		if reflect.TypeOf(call.(*astrav.CallExpr).Fun).String() != "*ast.ArrayType" {
+			continue
+		}
+
+		if call.(*astrav.CallExpr).NodeName().Name == "rune" {
+			r.AppendImprovement(tpl.SliceRuneConv)
+		}
+	}
 }
 
 func testRegex(pkg *astrav.Package, r *extypes.Response) {
@@ -76,8 +91,9 @@ func testToLowerUpper(fnName string) extypes.SuggestionFunc {
 }
 
 func testFlattenMap(pkg *astrav.Package, r *extypes.Response) {
-	loopCount := len(pkg.FindByNodeType(astrav.NodeTypeForStmt))
-	loopCount += len(pkg.FindByNodeType(astrav.NodeTypeRangeStmt))
+	entryFn := pkg.FindFirstByName("Score")
+	loopCount := len(entryFn.FindNodeTypeInCallTree(astrav.NodeTypeForStmt))
+	loopCount += len(entryFn.FindNodeTypeInCallTree(astrav.NodeTypeRangeStmt))
 	if 1 < loopCount {
 		addSpeedComment(r)
 		r.AppendImprovement(tpl.FlattenMap)
