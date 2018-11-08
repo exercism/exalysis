@@ -132,9 +132,9 @@ func (s *Response) todoIntro() gtpl.Template {
 }
 
 func (s *Response) improvementIntro() gtpl.Template {
-	adj := "one thought"
+	adj := "is one thought"
 	if 1 < len(s.improvement) {
-		adj = "some thoughts"
+		adj = "are some thoughts"
 	}
 	return gtpl.Improvement.Format(adj)
 }
