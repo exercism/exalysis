@@ -26,6 +26,14 @@ var exFuncs = []extypes.SuggestionFunc{
 	examFmt,
 	examComments,
 	examConditional,
+	examStringsJoin,
+}
+
+func examStringsJoin(pkg *astrav.Package, r *extypes.Response) {
+	node := pkg.FindFirstByName("Join")
+	if node != nil {
+		r.AppendImprovement(tpl.StringsJoin)
+	}
 }
 
 func examFmt(pkg *astrav.Package, r *extypes.Response) {
@@ -41,9 +49,27 @@ func examFmt(pkg *astrav.Package, r *extypes.Response) {
 		return
 	}
 
-	fmtSprintf := pkg.FindFirstByName("Sprintf")
-	if fmtSprintf != nil {
-		if bytes.Contains(fmtSprintf.Parent().GetSource(), []byte("%v")) {
+	var spfCount int
+	nodes = pkg.FindByName("Sprintf")
+	for _, fmtSprintf := range nodes {
+		if !fmtSprintf.IsNodeType(astrav.NodeTypeSelectorExpr) {
+			continue
+		}
+
+		spfCount++
+		if 1 < spfCount {
+			r.AppendImprovement(tpl.MinimalConditional)
+		}
+
+		bLit := fmtSprintf.Parent().FindFirstByNodeType(astrav.NodeTypeBasicLit)
+		if bLit != nil && bytes.Contains(bLit.GetSource(), []byte("%v")) {
+			r.AppendImprovement(tpl.UseStringPH)
+			break
+		} else if bLit != nil {
+			continue
+		}
+
+		if bytes.Contains(pkg.FindFirstByName("ShareWith").GetSource(), []byte("%v")) {
 			r.AppendImprovement(tpl.UseStringPH)
 		}
 	}
