@@ -6,7 +6,7 @@
 // loop-map.md (484B)
 // many-loops.md (146B)
 // plus-equal.md (59B)
-// remove-extra-bool.md (153B)
+// remove-extra-bool.md (166B)
 // strings-builder.md (238B)
 
 package tpl
@@ -91,7 +91,7 @@ func concatNotNeededMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "concat-not-needed.md", size: 168, mode: os.FileMode(420), modTime: time.Unix(1540760598, 0)}
+	info := bindataFileInfo{name: "concat-not-needed.md", size: 168, mode: os.FileMode(420), modTime: time.Unix(1541844199, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x7e, 0xff, 0xdf, 0xb, 0x87, 0x21, 0x84, 0xc4, 0x5e, 0x22, 0xf3, 0xa1, 0x52, 0xfa, 0x73, 0x41, 0xa, 0xa0, 0x96, 0xe9, 0x66, 0x76, 0x49, 0xa8, 0xef, 0x81, 0xcc, 0x7d, 0x24, 0x4c, 0x62, 0xa4}}
 	return a, nil
 }
@@ -111,7 +111,7 @@ func extensiveForLoopMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "extensive-for-loop.md", size: 156, mode: os.FileMode(420), modTime: time.Unix(1540752081, 0)}
+	info := bindataFileInfo{name: "extensive-for-loop.md", size: 156, mode: os.FileMode(420), modTime: time.Unix(1541844199, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x1c, 0x23, 0x7, 0xfd, 0x4c, 0x31, 0x4f, 0xc1, 0x4e, 0xc2, 0xa0, 0xb4, 0x9e, 0x56, 0x59, 0xd9, 0xf, 0x15, 0x84, 0x37, 0x23, 0x54, 0xff, 0x59, 0x76, 0x4c, 0xb2, 0x31, 0xeb, 0x84, 0x97, 0x5b}}
 	return a, nil
 }
@@ -131,7 +131,7 @@ func itoaMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "itoa.md", size: 88, mode: os.FileMode(420), modTime: time.Unix(1540752081, 0)}
+	info := bindataFileInfo{name: "itoa.md", size: 88, mode: os.FileMode(420), modTime: time.Unix(1541844199, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x89, 0xf7, 0xe0, 0x3, 0xe6, 0xf8, 0xe1, 0xef, 0x9c, 0xe4, 0x48, 0x3f, 0x87, 0x61, 0xb3, 0xba, 0x9a, 0x5e, 0x6f, 0x40, 0xfb, 0x29, 0xd8, 0x6e, 0x94, 0x77, 0x26, 0xd7, 0x25, 0xca, 0x27, 0xa6}}
 	return a, nil
 }
@@ -151,7 +151,7 @@ func loopMapMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "loop-map.md", size: 484, mode: os.FileMode(420), modTime: time.Unix(1540752081, 0)}
+	info := bindataFileInfo{name: "loop-map.md", size: 484, mode: os.FileMode(420), modTime: time.Unix(1541844199, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xec, 0x70, 0xf, 0xed, 0xf7, 0x1a, 0xcc, 0xa2, 0xbd, 0x8c, 0x8e, 0x29, 0x71, 0xc7, 0x60, 0x8c, 0x58, 0x15, 0x8f, 0x9e, 0xa1, 0x76, 0x37, 0x85, 0xb8, 0xa3, 0xd4, 0x82, 0xd7, 0x52, 0xe2, 0x6d}}
 	return a, nil
 }
@@ -191,12 +191,12 @@ func plusEqualMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "plus-equal.md", size: 59, mode: os.FileMode(420), modTime: time.Unix(1540752081, 0)}
+	info := bindataFileInfo{name: "plus-equal.md", size: 59, mode: os.FileMode(420), modTime: time.Unix(1541844199, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x41, 0xff, 0x90, 0xf5, 0x14, 0xc3, 0x56, 0xc5, 0x52, 0x26, 0x40, 0xf6, 0x6b, 0xf4, 0x9a, 0xd0, 0x49, 0x11, 0xdd, 0xf, 0x3a, 0xff, 0xee, 0x91, 0x4, 0xf6, 0xd5, 0xa4, 0x33, 0x69, 0x63, 0xc0}}
 	return a, nil
 }
 
-var _removeExtraBoolMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x54\xcd\x31\x12\x82\x30\x10\x85\xe1\xde\x53\xbc\xc6\x52\xee\x63\xc7\x9a\x3c\xcc\x8e\x21\xc9\x64\x37\x28\xb7\x77\x06\x2a\x0e\xf0\x7f\xff\x03\xcf\x3a\x20\x9d\x18\xa6\xe5\x0d\x29\xe0\xcf\xbb\x60\x93\xae\xf2\xca\xc4\x7c\xb7\x19\x5e\x11\x12\xc3\x07\xdf\x44\x67\x87\x94\x1d\x75\x81\x27\x22\x88\xd1\x20\xad\x65\x65\x9c\x0e\x2e\xd4\x91\x23\xb4\x98\x53\x22\x6e\x67\xa9\xcb\x49\xa9\x81\x6b\xf3\x1d\x52\x22\x3a\xd7\xba\xf1\x70\xae\xdb\xe9\x1f\x00\x00\xff\xff\xb6\x38\x7b\x11\x99\x00\x00\x00")
+var _removeExtraBoolMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x54\xce\x3d\xb2\xc2\x30\x0c\x04\xe0\xfe\x9d\x62\x9b\x57\x92\xfb\xd0\x45\xd8\x0b\xd6\xe0\xd8\x19\x49\x0e\xe4\xf6\x0c\x49\x45\xff\xed\xcf\x05\xd7\x3e\x20\x46\x0c\xd7\xf6\x80\x34\xf0\x1d\x26\xd8\xc4\x54\x6e\x95\x98\xff\x7d\x46\x74\xa4\xc2\xf4\xc4\xab\x30\x0a\x0d\xd2\x76\xf4\x3b\xa2\x10\x49\x9c\x0e\x59\xd7\xaa\xcc\xd3\xd1\x97\xfa\xa8\x19\xda\x3c\x28\x19\x7f\x67\x54\x4f\xee\x61\xdf\x21\x75\x78\x68\xad\xe0\xb2\xc6\x0e\x69\x19\xc6\xa5\x6f\x3c\xd0\xef\x87\xe9\x13\x00\x00\xff\xff\xbb\xd1\x4d\xdd\xa6\x00\x00\x00")
 
 func removeExtraBoolMdBytes() ([]byte, error) {
 	return bindataRead(
@@ -211,8 +211,8 @@ func removeExtraBoolMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "remove-extra-bool.md", size: 153, mode: os.FileMode(420), modTime: time.Unix(1540798089, 0)}
-	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x83, 0x94, 0x0, 0x9a, 0x5d, 0xbc, 0x83, 0xb5, 0xb2, 0x18, 0xcd, 0x49, 0xd5, 0xe3, 0x65, 0x78, 0x54, 0x99, 0xa1, 0x1c, 0xce, 0x34, 0xfa, 0x6, 0x39, 0x91, 0xe2, 0xe1, 0x2d, 0xab, 0xc2, 0x57}}
+	info := bindataFileInfo{name: "remove-extra-bool.md", size: 166, mode: os.FileMode(420), modTime: time.Unix(1541844199, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xd7, 0x3, 0x4a, 0x24, 0x28, 0xf2, 0x42, 0xa3, 0xbf, 0xd8, 0x3f, 0xb5, 0x1d, 0x6, 0xcf, 0xb9, 0xc0, 0x15, 0x3c, 0x57, 0x70, 0xe3, 0x9a, 0x33, 0xaf, 0x97, 0x2b, 0xab, 0x8c, 0xc5, 0xff, 0x0}}
 	return a, nil
 }
 
@@ -231,7 +231,7 @@ func stringsBuilderMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "strings-builder.md", size: 238, mode: os.FileMode(420), modTime: time.Unix(1540797684, 0)}
+	info := bindataFileInfo{name: "strings-builder.md", size: 238, mode: os.FileMode(420), modTime: time.Unix(1541844199, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x3b, 0x3c, 0xa9, 0x70, 0x7b, 0x7c, 0xf9, 0x4f, 0x22, 0x37, 0xdc, 0x73, 0x1f, 0x54, 0xf2, 0x85, 0xbc, 0x96, 0xdc, 0xa3, 0x5e, 0xdf, 0x19, 0xe9, 0x5d, 0x64, 0x64, 0xee, 0x32, 0xd1, 0x8f, 0xff}}
 	return a, nil
 }
