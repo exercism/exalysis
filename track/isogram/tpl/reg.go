@@ -7,6 +7,7 @@ import "github.com/tehsphinx/exalysis/gtpl"
 //Templates to be used in the response of suggester
 var (
 	Unicode             = gtpl.NewFormatTemplate("unicode.md", MustAsset)
+	UnicodeLoop         = gtpl.NewFormatTemplate("unicode-loop.md", MustAsset)
 	RegexInFunc         = gtpl.NewStringTemplate("regex-in-func.md", MustAsset)
 	MustCompile         = gtpl.NewStringTemplate("mustcompile.md", MustAsset)
 	JustReturn          = gtpl.NewStringTemplate("just-return.md", MustAsset)

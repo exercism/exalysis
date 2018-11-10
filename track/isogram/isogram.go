@@ -2,27 +2,87 @@ package isogram
 
 import (
 	"go/ast"
-
-	"github.com/tehsphinx/exalysis/gtpl"
+	"go/token"
 
 	"github.com/tehsphinx/astrav"
 	"github.com/tehsphinx/exalysis/extypes"
-	"github.com/tehsphinx/exalysis/track/scrabble/tpl"
+	"github.com/tehsphinx/exalysis/gtpl"
+	"github.com/tehsphinx/exalysis/track/isogram/tpl"
 )
 
 //Suggest builds suggestions for the exercise solution
 func Suggest(pkg *astrav.Package, r *extypes.Response) {
+	addSpeedComment = getAddSpeedComment()
+
 	for _, tf := range exFuncs {
 		tf(pkg, r)
 	}
 }
 
 var exFuncs = []extypes.SuggestionFunc{
-	testToLowerUpper("ToLower"),
-	testToLowerUpper("ToUpper"),
+	examRegexCompileInFunc,
+	examToLowerUpper("ToLower"),
+	examToLowerUpper("ToUpper"),
+	examJustReturn,
+	examNonExistingMapValue,
 }
 
-func testToLowerUpper(fnName string) extypes.SuggestionFunc {
+func examNonExistingMapValue(pkg *astrav.Package, r *extypes.Response) {
+	nodes := pkg.FindByNodeType(astrav.NodeTypeIndexExpr)
+	for _, node := range nodes {
+		parent := node.Parent()
+		if !parent.IsNodeType(astrav.NodeTypeAssignStmt) {
+			continue
+		}
+
+		assign := parent.ChildrenByNodeType(astrav.NodeTypeIdent)
+		if len(assign) < 2 {
+			continue
+		}
+
+		r.AppendComment(tpl.NonExistingMapValue)
+	}
+}
+
+func examJustReturn(pkg *astrav.Package, r *extypes.Response) {
+	nodes := pkg.FindByToken(token.BREAK)
+	if len(nodes) == 0 {
+		return
+	}
+
+	for _, node := range nodes {
+		ifStmt := node.NextParentByType(astrav.NodeTypeIfStmt)
+		if ifStmt == nil {
+			continue
+		}
+		boolVar := ifStmt.FindByValueType("bool")
+		if boolVar == nil {
+			continue
+		}
+
+		r.AppendImprovement(tpl.JustReturn)
+		break
+	}
+}
+
+func examRegexCompileInFunc(pkg *astrav.Package, r *extypes.Response) {
+	main := pkg.FindFirstByName("IsIsogram")
+	regComp := pkg.FindFirstByName("Compile")
+	if regComp != nil && main.Contains(regComp) {
+		r.AppendTodo(tpl.RegexInFunc)
+		r.AppendTodo(tpl.MustCompile)
+		r.AppendTodo(tpl.IsLetter)
+		return
+	}
+
+	regComp = pkg.FindFirstByName("MustCompile")
+	if regComp != nil && main.Contains(regComp) {
+		r.AppendTodo(tpl.RegexInFunc)
+		r.AppendTodo(tpl.IsLetter)
+	}
+}
+
+func examToLowerUpper(fnName string) extypes.SuggestionFunc {
 	return func(pkg *astrav.Package, r *extypes.Response) {
 		fns := pkg.FindByName(fnName)
 		for _, fn := range fns {
@@ -41,10 +101,14 @@ func testToLowerUpper(fnName string) extypes.SuggestionFunc {
 	}
 }
 
-var speedCommentAdded bool
+var addSpeedComment func(r *extypes.Response)
 
-func addSpeedComment(r *extypes.Response) {
-	if !speedCommentAdded {
+func getAddSpeedComment() func(r *extypes.Response) {
+	var speedCommentAdded bool
+	return func(r *extypes.Response) {
+		if speedCommentAdded {
+			return
+		}
 		speedCommentAdded = true
 		r.AppendOutro(gtpl.Benchmarking)
 	}
