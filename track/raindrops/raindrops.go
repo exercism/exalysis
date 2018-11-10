@@ -19,10 +19,30 @@ var exFuncs = []extypes.SuggestionFunc{
 	examLoopMap,
 	examManyLoops,
 	examStringsBuilder,
+	examBytesBuffer,
 	examItoa,
 	examExtensiveForLoop,
 	examPlusEqual,
 	examTooManyConcats,
+	examRemoveExtraBool,
+}
+
+func examRemoveExtraBool(pkg *astrav.Package, r *extypes.Response) {
+	nodes := pkg.FindByValueType("bool")
+	for _, node := range nodes {
+		if !node.IsNodeType(astrav.NodeTypeIdent) {
+			continue
+		}
+		if ifParent := node.NextParentByType(astrav.NodeTypeIfStmt); ifParent == nil {
+			continue
+		} else if ifParent.Level()+2 < node.Level() {
+			continue
+		}
+
+		name := node.(*astrav.Ident).Name
+		r.AppendImprovement(tpl.RemoveExtraBool.Format(name))
+		break
+	}
 }
 
 func examLoopMap(pkg *astrav.Package, r *extypes.Response) {
@@ -161,5 +181,12 @@ func examStringsBuilder(pkg *astrav.Package, r *extypes.Response) {
 	builder := pkg.FindByName("Builder")
 	if builder != nil {
 		r.AppendImprovement(tpl.StringsBuilder.Format("strings.Builder"))
+	}
+}
+
+func examBytesBuffer(pkg *astrav.Package, r *extypes.Response) {
+	buffer := pkg.FindByName("Buffer")
+	if buffer != nil {
+		r.AppendImprovement(tpl.StringsBuilder.Format("bytes.Buffer"))
 	}
 }
