@@ -8,6 +8,7 @@
 // regex-in-func.md (502B)
 // unicode-loop.md (99B)
 // unicode.md (123B)
+// universal-isletter.md (123B)
 
 package tpl
 
@@ -236,6 +237,26 @@ func unicodeMd() (*asset, error) {
 	return a, nil
 }
 
+var _universalIsletterMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x1c\xcb\x41\x0a\xc2\x40\x0c\x05\xd0\xbd\xa7\xf8\x17\xb0\xe7\x50\xf0\x10\x0d\x33\x5f\x3b\x18\x92\x92\x64\x8a\xbd\xbd\xd0\xf5\xe3\xdd\x71\xfa\x84\x04\xe1\xa6\x27\xf8\x6b\x3a\xfb\xb0\x0f\x6a\x23\x72\x67\x1b\xa2\x68\x9b\x44\xc2\xc8\xce\x8e\xb7\xc7\x85\xc5\xac\x5c\xf0\x90\x83\x10\xa8\xfb\x17\x52\x58\xa7\x8d\xe6\x9d\xcb\x33\x5f\xac\x62\xac\x57\xb8\x09\xa6\x8d\x83\x91\xa2\xf0\xbd\x86\xdb\xf2\x0f\x00\x00\xff\xff\x49\x3b\xc6\x1c\x7b\x00\x00\x00")
+
+func universalIsletterMdBytes() ([]byte, error) {
+	return bindataRead(
+		_universalIsletterMd,
+		"universal-isletter.md",
+	)
+}
+
+func universalIsletterMd() (*asset, error) {
+	bytes, err := universalIsletterMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "universal-isletter.md", size: 123, mode: os.FileMode(420), modTime: time.Unix(1541952594, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x63, 0x3b, 0x48, 0x16, 0xb9, 0xdf, 0xa4, 0x39, 0x14, 0xdf, 0x22, 0xd4, 0xb6, 0x40, 0x1, 0xf4, 0xf, 0x22, 0x50, 0x6d, 0x9b, 0xf3, 0x32, 0x70, 0x90, 0x8, 0x95, 0x8c, 0xf5, 0xf1, 0xe2, 0x51}}
+	return a, nil
+}
+
 // Asset loads and returns the asset for the given name.
 // It returns an error if the asset could not be found or
 // could not be loaded.
@@ -342,6 +363,8 @@ var _bindata = map[string]func() (*asset, error){
 	"unicode-loop.md": unicodeLoopMd,
 
 	"unicode.md": unicodeMd,
+
+	"universal-isletter.md": universalIsletterMd,
 }
 
 // AssetDir returns the file names below a certain
@@ -393,6 +416,7 @@ var _bintree = &bintree{nil, map[string]*bintree{
 	"regex-in-func.md":         &bintree{regexInFuncMd, map[string]*bintree{}},
 	"unicode-loop.md":          &bintree{unicodeLoopMd, map[string]*bintree{}},
 	"unicode.md":               &bintree{unicodeMd, map[string]*bintree{}},
+	"universal-isletter.md":    &bintree{universalIsletterMd, map[string]*bintree{}},
 }}
 
 // RestoreAsset restores an asset under the given directory.
