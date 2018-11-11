@@ -14,4 +14,5 @@ var (
 	NonExistingMapValue = gtpl.NewStringTemplate("nonexisting-map-value.md", MustAsset)
 	IsLetter            = gtpl.NewStringTemplate("isletter.md", MustAsset)
 	IfContinue          = gtpl.NewStringTemplate("if-continue.md", MustAsset)
+	UniversalIsLetter   = gtpl.NewStringTemplate("universal-isletter.md", MustAsset)
 )
