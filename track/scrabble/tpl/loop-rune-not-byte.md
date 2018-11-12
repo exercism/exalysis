@@ -1,2 +1,1 @@
-- Iterating over a `string` will provice `rune`s which is a complete character and can 
-consist of **multiple** bytes. Try using runes instead of bytes.
+- Iterating over a string produces runes. A rune represents a Unicode character and can consist of **multiple** bytes. Try using runes instead of bytes.

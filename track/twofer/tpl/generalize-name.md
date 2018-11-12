@@ -1,2 +1,1 @@
-- I see you hardcoded the names `Alice` and `Bob`. It would be nice if the `ShareWith` function would work 
-for every potential name so I can also insert my own name.
+- I see you referenced the names `Alice` and `Bob` directly in your code. This is OK, but it would be better if the `ShareWith` function worked with any name supplied to it. See if you can figure out how to change your code to make this work.

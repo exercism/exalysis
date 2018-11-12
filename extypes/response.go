@@ -12,8 +12,8 @@ func NewResponse() *Response {
 }
 
 //Response implements a response object. A response object is returned by the
-//suggestor after examining a students solutions. It can produce a complete
-//answer string to be replied to the student on exercism.
+//suggestor after examining a student's solutions. It can produce a complete
+//answer string to be replied to the student on Exercism.
 type Response struct {
 	// the following slices make up the answer in the order given here
 	greeting    []gtpl.Template
@@ -60,7 +60,7 @@ func (s *Response) AppendOutro(template gtpl.Template) {
 	s.outro = append(s.outro, template)
 }
 
-//GetAnswerString returns the answer as a string to be used on exercism
+//GetAnswerString returns the answer as a string to be used on Exercism
 func (s *Response) GetAnswerString() string {
 	var answ string
 	for _, t := range s.greeting {
@@ -112,7 +112,7 @@ func (s *Response) praise() gtpl.Template {
 	)
 	switch {
 	case l == 0:
-		adj = "perfect"
+		adj = "perfect! Great job"
 	case l < 3:
 		adj = "very good"
 	case l < 6:

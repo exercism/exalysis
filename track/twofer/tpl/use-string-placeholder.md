@@ -1,4 +1,1 @@
-- every value type can be formatted with the place-holder `%%v`. One of Go's strengths is the type system.
-You have the advantages of Go's type system in formatting as well if you use the correct placeholder for 
-each type. A strings placeholder is `%%s`. The type specific placeholders also offer more options for 
-formatting that type. For example the placeholder for floats `%%f` can also specify the precision: `%%.2f`.
+- Tip: any type of value in Go can be printed using the format character `%%v`. However, there's also a different format for each type (for example `%s` for strings). The type specific formats also offer more options for formatting that type. For example the format `%%f`, for `float` values, can also specify the precision: `%%.2f`.
