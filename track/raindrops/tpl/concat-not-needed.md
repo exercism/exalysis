@@ -1,2 +1,1 @@
-- You could check your usage of `+=` in regards to where it is really needed. If the target variable is 
-guaranteed to be empty a simple `=` does the job and is faster.
+- You're using `+=` to append to an empty variable; in this case you can use just `=` instead.
