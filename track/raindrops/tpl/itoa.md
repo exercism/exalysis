@@ -1,1 +1,1 @@
-- Have a look at `strconv.Itoa` for the idiomatic way to transform an `int` to `string`.
+- `strconv.Itoa` is the idiomatic way to transform an `int` to `string`, and it's very efficient.

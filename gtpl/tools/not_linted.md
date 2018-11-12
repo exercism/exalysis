@@ -1,2 +1,1 @@
-- code standards in go are very important to the community. Take a look at `golint` and run it on your code. 
-It has one or more suggestions for you.
+- There's a tool called `golint` which will examine your code for common problems and style issues. Try running `golint` on your code; it will make some useful suggestions for you.
