@@ -3,6 +3,7 @@ module github.com/tehsphinx/exalysis
 require (
 	github.com/atotto/clipboard v0.1.0 // indirect
 	github.com/golang/lint v0.0.0-20180702182130-06c8688daad7
+	github.com/kevinburke/go-bindata v3.12.0+incompatible
 	github.com/logrusorgru/aurora v0.0.0-20181002194514-a7b3b318ed4e
 	github.com/pmezard/go-difflib v1.0.0
 	github.com/stretchr/testify v1.2.2
