@@ -1,1 +1,1 @@
-- You could have a look at `unicode.%[1]s` to replace `strings.%[1]s` in the loop to increase speed
+- Have a look at using `unicode.%[1]s` to replace `strings.%[1]s` in the `for` loop to increase speed!

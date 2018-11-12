@@ -1,1 +1,1 @@
-- Check out the `switch` statement to use instead the many `if` statements.
+- Try a `switch` statement instead of several `if` statements.

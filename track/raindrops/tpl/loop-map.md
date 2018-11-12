@@ -1,5 +1,1 @@
-- The iteration order of maps in go is not fix. This is due to the nature of hash maps: inserting items 
-creates an arbitrary order by definition. To help developers realize this with their test data even if the 
-test data is the same every time go's developers intentionally added some randomizition to the iteration of 
-maps in go. For more information and an example read the `Iteration order` section of the 
-[go maps in action](https://blog.golang.org/go-maps-in-action) article.
+- Using a map is a perfectly natural idea in this kind of situation. However, be careful: because maps are implemented as hash tables, the order of their keys is not guaranteed. In fact, when you iterate over the keys of a map, you will get them in a different, random order each time. So in this situation, a map is not the right choice (try a slice instead). See the `Iteration order` section of this article for more information: [Go maps in action](https://blog.golang.org/go-maps-in-action).

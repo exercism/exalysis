@@ -1,2 +1,1 @@
-- I see you are using a `for` loop that is doing more than really needed. Can you improve on that?
-You could loop only the necessary cases `3`, `5` and `7`?
+- I see you are using a `for` loop that is doing more than really necessary. Can you improve on that? Try dealing only with the cases `3`, `5` and `7`.
