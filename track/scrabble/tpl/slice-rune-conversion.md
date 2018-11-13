@@ -1,7 +1,6 @@
-- You are converting a string into a `[]rune` to then loop over it. This is not necessary as looping over a 
-string will automatically create runes: 
-  ```
+- I noticed you're converting a string into a `[]rune` to then loop over it. Actually, using `range` with a string can return runes directly:
+  ```go
   for i, r := range word {
-    // r is of type rune
+    // r is a rune
   }
   ```

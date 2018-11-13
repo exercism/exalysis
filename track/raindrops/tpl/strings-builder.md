@@ -1,3 +1,1 @@
-- I see you are using a `%s`. In this exercise that seems a bit overkill and `+=` actually 
-consumes ~2.5 times less memory and is a bit faster. You can run the `benchmarks` as described in the 
-exercise instructions and try it yourself. 
+- I see you are using a `%s` here. That works, but it's probably overkill for this exercise. The string append operator `+=` is faster and uses less memory. You can run the benchmarks as described in the exercise instructions, and check that for yourself.

@@ -2,16 +2,22 @@
 
 [![Build Status](https://travis-ci.org/tehsphinx/exalysis.svg?branch=master)](https://travis-ci.org/tehsphinx/exalysis)
 
-Exalysis is a tool ment for mentors of the [exercism](https://exercism.io) go track.
+Exalysis is a tool designed to help mentors of the [Exercism](https://Exercism.io) Go track. It will automatically run the tests on a student's solution, check `gofmt` and `golint`, and make some helpful suggestions for the student based on static analysis of the code for common errors and patterns.
+
+It's not perfect: you should check Exalysis's suggestions before sending them to the student, and add your own notes if necessary, but it can dramatically speed up the process of mentoring by automating these repetitive tasks.
 
 ## Status
-This is a prove of concept. I use it to mentor and enhance/extend it as I go.
+
+This is a proof of concept. I use it to mentor, and enhance/extend it as I go.
 
 ***Exercise implementations:***
 - TwoFer
 - Hamming
 - Raindrops
-- Scrabble Score 
+- Scrabble Score
+- Isogram
+
+Exalysis will do its format, lint, and test checks on any solution, but specific suggestions have so far been implemented for only the exercises above. If you'd like to add support for a new exercise, please submit a PR! (See 'Contributions' below.)
 
 ## Installation
 
@@ -23,26 +29,22 @@ go install github.com/tehsphinx/exalysis/cmd/exalysis
 
 ### Watch mode
 
-The watch mode you can start from anywhere:
+To start Exalysis in watch mode, run this command:
 
 ```
-~/ > exalysis --watch
+exalysis -watch
 ```
 
-or execute the source code directly:
+When you copy an Exercism download command to the clipboard, Exalysis will detect this and do the following:
 
-```
-path to cmd/exalysis > go run main.go --watch
-```
+- Download exercise and run tests, lint checks, and so on
+- Analyse the code and make suggestions for improvement
 
-Now exalysis does all automatically as soon as it detects a exercism download command in the clipboard:
-- Detect and get `exercism download --uuid=...` command from clipboard
-- Download exercise and load its code
-- Examine code and add answer to student to clipboard
+The output of Exalysis is automatically copied to the clipboard, so all you need to do is paste into the comment box on the Exercism site and review your answer.
 
 ### Single exercise examination
 
-Start it from the folder the exercise to be mentored was downloaded to. It checks code in the current directory.
+With no arguments, the `exalysis` command will analyse the solution in the current directory and write its suggestions to the standard output.
 
 ```
 exalysis
@@ -50,35 +52,30 @@ exalysis
 
 ## Features
 
-- Autodetect the exercise from the package name and the student's name from the current path.
+- Auto-detect the exercise from the package name and the student's name from the current path.
 - Run a list of tools to check the code and output the result. See supported tools below.
 - Check supported exercises for special patterns and create todos, suggestions and comments based on that.
 - Sometimes adds an entire block packed with knowledge about a certain topic.
-- Outputs a complete answer ready to be pasted into exercism. The answer is already in the clipboard when the tool finishes.
+- Outputs a complete answer ready to be pasted into Exercism. The answer is already in the clipboard when the tool finishes.
 - Provides a suggestion to the mentor whether to approve or not.
 
 ## My Typical Workflow
-- Start exalysis in `watch` mode.
-- Split screen 2/3 exercism, 1/3 terminal.
-- Filter exercism by a certain exercise. For me mentoring the same exercise a few times is much more effective then constantly switching contexts.
-- Start mentoring a solution and copy the download command.
-- Wait for exalysis to run on in the terminal. It will put the answer to be pasted in the clipboard.
-- Paste the answer to the student on exercism and validate what it says against the students solution.
-- Adjust the answer and submit/approve.
 
-**Warning!** The tool is **not** to be used without examining the code and trying to figure out how to 
-best help the student. The output should not be used without checking it! There might be false positives 
-or missing suggestions or simply too much information for the student to handle at once.
+1. Start exalysis in `-watch` mode.
+1. Split screen 2/3 Exercism, 1/3 terminal.
+1. Filter Exercism by a certain exercise. For me mentoring the same exercise a few times is much more effective then constantly switching contexts.
+1. Start mentoring a solution and copy the download command.
+1. Wait for Exalysis to run on in the terminal. It will put the answer to be pasted in the clipboard.
+1. Paste the answer to the student on Exercism and validate what it says against the student's solution.
+1. Adjust the answer and submit/approve.
+
+**Warning!** The tool is **not** to be used without examining the code and trying to figure out how to best help the student. The output should not be used without checking it! There might be false positives or missing suggestions or simply too much information for the student to handle at once.
 
 ## Contribution
-Any contribution is welcome as long as it complies with the code of conduct of [exercism](https://exercism.io) 
-and the mentoring guidelines!
+Any contribution is welcome as long as it complies with the code of conduct of [Exercism](https://Exercism.io) and the mentoring guidelines.
 
-1) You can open an issue if you find a false positive that you think will happen more than once and 
-should be fixed. The same with suggestions you think are missing.
+- You can open an issue if you find a false positive that you think will happen more than once and should be fixed. The same with suggestions you think are missing.
 
-2) One very simple way to contribute is to add samples for a case that is not covered yet, 
-add the comment that should be shown to the student and add a test for it. That could be done for an 
-already supported exercise or one that is not supported yet. The existing test structure is a good sample.
+- One very simple way to contribute is to add samples for a case that is not covered yet, add the comment that should be shown to the student and add a test for it. That could be done for an already supported exercise or one that is not supported yet. The existing test structure is a good sample.
 
-3) There are still many exercises to be implemented. If anyone feels he's up for it that would be much appreciated.
+- There are still many exercises to be implemented. If you're up for implementing a new exercise, that would be much appreciated.

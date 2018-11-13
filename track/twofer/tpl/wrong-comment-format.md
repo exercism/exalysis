@@ -1,1 +1,1 @@
-- The comment describing the %s should have the correct format. For details you can check the section below.
+- The comment describing the %s isn't quite in the standard format. The section on comments below may help you fix this.

@@ -1,2 +1,1 @@
-- You are creating a static map inside the `Score` function. Try moving this code outside the function 
-so it is created only once with the package.
+- You're creating the map inside the `Score` function. Since the map never changes, try moving this code outside the function. That way, it's only initialized once, when the package is loaded.
