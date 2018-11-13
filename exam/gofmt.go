@@ -1,9 +1,9 @@
 package exam
 
 import (
+	"bytes"
 	"fmt"
 	"go/format"
-	"strings"
 
 	"github.com/logrusorgru/aurora"
 	"github.com/pmezard/go-difflib/difflib"
@@ -35,11 +35,12 @@ func GoFmt(folder *astrav.Folder, r *extypes.Response, pkgName string) bool {
 
 func fmtCode(files map[string][]byte) string {
 	for _, file := range files {
+		file = bytes.Replace(file, []byte{'\r', '\n'}, []byte{'\n'}, -1)
 		f, err := format.Source(file)
 		if err != nil {
 			return fmt.Sprintf("code fails to format with error: %s\n", err)
 		}
-		if string(f) != strings.Replace(string(file), "\r\n", "\n", -1) {
+		if string(f) != string(file) && string(f) != string(append(file, '\n')) {
 			return getDiff(file, f)
 		}
 	}
