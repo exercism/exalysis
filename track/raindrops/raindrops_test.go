@@ -41,6 +41,7 @@ var suggestTests = []struct {
 	{path: "./solutions/12", suggestion: tpl.StringsBuilder, expected: true},
 	{path: "./solutions/12", suggestion: tpl.RemoveExtraBool, expected: true},
 	{path: "./solutions/13", suggestion: tpl.RemoveExtraBool, expected: true},
+	{path: "./solutions/14", suggestion: tpl.FmtPrint, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {
