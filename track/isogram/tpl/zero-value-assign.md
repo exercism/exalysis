@@ -1,1 +1,1 @@
-- creating a variable with its [zero value](https://golang.org/ref/spec#The_zero_value) is usually done with a declaration (`var foundLetters string`) rather than an assignment: `foundLetters := ""`
+- If you're declaring a variable which can be initialized with its [zero value](https://golang.org/ref/spec#The_zero_value), then `var s string` is more idiomatic than an assignment: `s := ""`.

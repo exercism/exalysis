@@ -1,3 +1,1 @@
-- Go developers try to avoid unnessary identations as they make code hard to read. There is a blog post about 
-the topic called ["Allign the happy path to the left edge"](https://medium.com/@matryer/line-of-sight-in-code-186dd7cdea88).
-If you invert your if and use the `continue` keyword you can loose one indentation level in the for loop.
+- You could make the function more readable by inverting the condition of the `if` checking for letters. In the if you can use the `continue` keyword to jump ahead to the next loop iteration. The rest of the loop can then be outdented. A Go proverb says ["The happy path is left-aligned"](https://medium.com/@matryer/line-of-sight-in-code-186dd7cdea88), meaning the normal flow of control follows the left-hand margin, and only exceptional or error cases are indented.
