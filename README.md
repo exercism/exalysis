@@ -22,7 +22,7 @@ Exalysis will do its format, lint, and test checks on any solution, but specific
 ## Installation
 
 ```
-go install github.com/tehsphinx/exalysis/cmd/exalysis
+go get github.com/tehsphinx/exalysis/cmd/exalysis
 ```
 
 ## Usage
