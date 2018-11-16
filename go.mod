@@ -11,3 +11,5 @@ require (
 	golang.org/x/lint v0.0.0-20181026193005-c67002cb31c3
 	golang.org/x/tools v0.0.0-20180910180008-18207bb12d3a // indirect
 )
+
+replace golang.org/x/lint => github.com/golang/lint v0.0.0-20180702182130-06c8688daad7
