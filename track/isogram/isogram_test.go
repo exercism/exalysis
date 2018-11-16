@@ -17,12 +17,24 @@ var suggestTests = []struct {
 	expected   bool
 }{
 	{path: "./solutions/1", suggestion: tpl.Unicode, expected: true},
+	{path: "./solutions/1", suggestion: tpl.IfContinue, expected: false},
 	{path: "./solutions/2", suggestion: tpl.Unicode, expected: true},
 	{path: "./solutions/2", suggestion: tpl.RegexInFunc, expected: true},
 	{path: "./solutions/2", suggestion: tpl.MustCompile, expected: true},
 	{path: "./solutions/2", suggestion: tpl.JustReturn, expected: true},
 	{path: "./solutions/2", suggestion: tpl.NonExistingMapValue, expected: true},
 	{path: "./solutions/2", suggestion: tpl.IsLetter, expected: true},
+	{path: "./solutions/2", suggestion: tpl.IfContinue, expected: false},
+	{path: "./solutions/3", suggestion: tpl.IsLetter, expected: true},
+	{path: "./solutions/3", suggestion: tpl.IfContinue, expected: false},
+	{path: "./solutions/4", suggestion: tpl.IfContinue, expected: true},
+	{path: "./solutions/5", suggestion: tpl.NonExistingMapValue, expected: false},
+	{path: "./solutions/5", suggestion: tpl.UniversalIsLetter, expected: true},
+	{path: "./solutions/5", suggestion: tpl.IfContinue, expected: false},
+	{path: "./solutions/6", suggestion: tpl.UniversalIsLetter, expected: true},
+	{path: "./solutions/6", suggestion: tpl.ZeroValueAssign, expected: true},
+	{path: "./solutions/6", suggestion: tpl.IfContinue, expected: false},
+	{path: "./solutions/7", suggestion: tpl.UniversalIsLetter, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {

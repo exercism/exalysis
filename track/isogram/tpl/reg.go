@@ -13,4 +13,7 @@ var (
 	JustReturn          = gtpl.NewStringTemplate("just-return.md", MustAsset)
 	NonExistingMapValue = gtpl.NewStringTemplate("nonexisting-map-value.md", MustAsset)
 	IsLetter            = gtpl.NewStringTemplate("isletter.md", MustAsset)
+	IfContinue          = gtpl.NewStringTemplate("if-continue.md", MustAsset)
+	UniversalIsLetter   = gtpl.NewStringTemplate("universal-isletter.md", MustAsset)
+	ZeroValueAssign     = gtpl.NewStringTemplate("zero-value-assign.md", MustAsset)
 )

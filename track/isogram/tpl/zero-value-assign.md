@@ -1,0 +1,1 @@
+- If you're declaring a variable which can be initialized with its [zero value](https://golang.org/ref/spec#The_zero_value), then `var s string` is more idiomatic than an assignment: `s := ""`.
