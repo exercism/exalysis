@@ -11,11 +11,12 @@ It's not perfect: you should check Exalysis's suggestions before sending them to
 This is a proof of concept. I use it to mentor, and enhance/extend it as I go.
 
 ***Exercise implementations:***
-- TwoFer
+- Two Fer
 - Hamming
 - Raindrops
 - Scrabble Score
 - Isogram
+- Difference of Squares
 
 Exalysis will do its format, lint, and test checks on any solution, but specific suggestions have so far been implemented for only the exercises above. If you'd like to add support for a new exercise, please submit a PR! (See 'Contributions' below.)
 
