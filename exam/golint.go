@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/golang/lint"
 	"github.com/logrusorgru/aurora"
 	"github.com/tehsphinx/astrav"
 	"github.com/tehsphinx/exalysis/extypes"
 	"github.com/tehsphinx/exalysis/gtpl"
+	"golang.org/x/lint"
 )
 
 var (
