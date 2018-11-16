@@ -16,5 +16,4 @@ var (
 	IfContinue          = gtpl.NewStringTemplate("if-continue.md", MustAsset)
 	UniversalIsLetter   = gtpl.NewStringTemplate("universal-isletter.md", MustAsset)
 	ZeroValueAssign     = gtpl.NewStringTemplate("zero-value-assign.md", MustAsset)
-	LeftAlign           = gtpl.NewStringTemplate("left-align.md", MustAsset)
 )

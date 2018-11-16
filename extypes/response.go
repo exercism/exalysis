@@ -31,32 +31,50 @@ func (s *Response) SetGreeting(template gtpl.Template) {
 
 //AppendGreeting adds a greeting template
 func (s *Response) AppendGreeting(template gtpl.Template) {
+	if exists(s.greeting, template) {
+		return
+	}
 	s.greeting = append(s.greeting, template)
 }
 
 //AppendIntro adds an intro template
 func (s *Response) AppendIntro(template gtpl.Template) {
+	if exists(s.intro, template) {
+		return
+	}
 	s.intro = append(s.intro, template)
 }
 
 //AppendTodo adds a task to the list to be done before approval
 func (s *Response) AppendTodo(template gtpl.Template) {
+	if exists(s.todo, template) {
+		return
+	}
 	s.todo = append(s.todo, template)
 }
 
 //AppendImprovement adds a optional improvement to the response that can be made
 //by the student to improve the solution.
 func (s *Response) AppendImprovement(template gtpl.Template) {
+	if exists(s.improvement, template) {
+		return
+	}
 	s.improvement = append(s.improvement, template)
 }
 
 //AppendComment adds a thought or comment to the response
 func (s *Response) AppendComment(template gtpl.Template) {
+	if exists(s.comment, template) {
+		return
+	}
 	s.comment = append(s.comment, template)
 }
 
 //AppendOutro adds an outro template
 func (s *Response) AppendOutro(template gtpl.Template) {
+	if exists(s.outro, template) {
+		return
+	}
 	s.outro = append(s.outro, template)
 }
 
@@ -225,4 +243,13 @@ func (s *Response) HasTemplate(tpl gtpl.Template) bool {
 func (s *Response) HasSuggestion(tpl gtpl.Template) bool {
 	_, ok := s.GetSuggestion(tpl)
 	return ok
+}
+
+func exists(tpls []gtpl.Template, tpl gtpl.Template) bool {
+	for _, t := range tpls {
+		if t.ID() == tpl.ID() {
+			return true
+		}
+	}
+	return false
 }
