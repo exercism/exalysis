@@ -18,8 +18,8 @@ github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZb
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/stretchr/testify v1.2.2 h1:bSDNvY7ZPG5RlJ8otE/7V6gMiyenm9RtJ7IUVIAoJ1w=
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
-github.com/tehsphinx/astrav v0.0.0-20181110120756-b1949977aadc h1:sOYM4TktG+TUZfmlqoYmiof6yw3QJGvb29oKPvij7ls=
-github.com/tehsphinx/astrav v0.0.0-20181110120756-b1949977aadc/go.mod h1:nOyPKhDavRtkQmdp+ljFJ8aNAPAilrCycVEAgsFverU=
+github.com/tehsphinx/astrav v0.0.0-20181116181047-6860dca49288 h1:VGfXoPq472fJARU/Adsnj1m1HJdZxpZSVkrwCj/zKRA=
+github.com/tehsphinx/astrav v0.0.0-20181116181047-6860dca49288/go.mod h1:nOyPKhDavRtkQmdp+ljFJ8aNAPAilrCycVEAgsFverU=
 github.com/tehsphinx/clipboard v0.1.3 h1:yvpiEuRmCzuCHscbKKveUjaSGIpsgIayMoUmQxaFr8Y=
 github.com/tehsphinx/clipboard v0.1.3/go.mod h1:mHVLI8BgutQPdEYIx/saoBHBqoZIYSu/oTydcL5VfBQ=
 github.com/tehsphinx/dbg v0.0.0-20180912080624-6ae3be1fde4a h1:An4JM6FGIm6VrD89WG9XirMuT1qNS1KzLgA0DcXoRkU=

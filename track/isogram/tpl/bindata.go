@@ -3,7 +3,6 @@
 // if-continue.md (469B)
 // isletter.md (149B)
 // just-return.md (149B)
-// left-align.md (403B)
 // mustcompile.md (168B)
 // nonexisting-map-value.md (363B)
 // regex-in-func.md (306B)
@@ -94,7 +93,7 @@ func ifContinueMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "if-continue.md", size: 469, mode: os.FileMode(420), modTime: time.Unix(1542198473, 0)}
+	info := bindataFileInfo{name: "if-continue.md", size: 469, mode: os.FileMode(420), modTime: time.Unix(1542385105, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xb3, 0x35, 0x4d, 0x3a, 0xf6, 0xd2, 0x48, 0xa8, 0xc3, 0x8b, 0xd9, 0xf8, 0xba, 0x5e, 0x97, 0xdd, 0x63, 0x84, 0x92, 0x4a, 0x88, 0x4f, 0xf7, 0x66, 0x3d, 0x4d, 0x7b, 0xbd, 0xa6, 0x63, 0xbf, 0xac}}
 	return a, nil
 }
@@ -114,7 +113,7 @@ func isletterMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "isletter.md", size: 149, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
+	info := bindataFileInfo{name: "isletter.md", size: 149, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xe2, 0xaf, 0x44, 0x1e, 0xa4, 0x7a, 0xc6, 0x72, 0x18, 0xce, 0xaa, 0x7a, 0x37, 0x4b, 0xd1, 0x1d, 0x91, 0xc7, 0x54, 0x39, 0x39, 0x8a, 0x5d, 0x16, 0x21, 0xfe, 0xcd, 0x8, 0x7d, 0x7f, 0x97, 0x45}}
 	return a, nil
 }
@@ -134,28 +133,8 @@ func justReturnMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "just-return.md", size: 149, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
+	info := bindataFileInfo{name: "just-return.md", size: 149, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x7e, 0xeb, 0x6f, 0x3a, 0xd2, 0x67, 0x7e, 0x8a, 0xa3, 0x96, 0xa3, 0xef, 0x59, 0x43, 0x54, 0x4c, 0xd5, 0xad, 0xa2, 0xfa, 0x3f, 0xe, 0xb, 0x6b, 0x1f, 0x3c, 0xa, 0x5b, 0xd3, 0x21, 0xdb, 0xa0}}
-	return a, nil
-}
-
-var _leftAlignMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x34\x90\xb1\xb2\xe3\x20\x0c\x45\xfb\xfd\x8a\x3b\xa9\x93\xfc\xc3\x56\x3b\xdb\x6f\xb3\x9d\x65\x10\x81\x17\x2c\x31\x42\x24\xf1\xdf\xbf\xc1\x79\xe9\x6c\x38\xe2\x1c\xb8\xe0\xbf\x0e\x04\x1d\x35\x62\xa3\x3b\xc3\x33\x23\x0d\x09\x5e\x54\xb0\xa9\x31\x8c\x29\xd2\x5a\x19\xeb\x8e\x22\x0f\x36\x2f\x72\x3b\xb8\xa0\x12\xcb\x01\x6a\x3a\x16\x96\x92\x16\x84\xcc\xe1\x3e\x91\xa4\x86\xca\xee\x6c\xfd\x8a\xbf\x72\x10\x25\x61\x9f\x42\x12\x8c\xfe\xb6\x2d\x41\xc5\x8b\x0c\x5e\x70\xe7\xfd\xa9\x16\xe1\x8a\xaf\xb1\x35\x50\x66\x3a\xfe\x26\x27\xfc\x72\x54\xd5\x86\xe2\x6c\x34\xbd\x57\xfc\xcb\x33\xb0\xfb\xa7\xe0\xd8\x9f\xa7\x7b\x66\xc1\xca\xd0\xe1\x91\xc5\x39\x5e\xf1\x1b\x7f\x14\xcd\xf4\xc1\xb6\xa2\xd3\xde\x71\x9a\xe3\x99\x5a\xdb\xd1\xc8\x33\x4a\x47\xe5\xe4\x17\xaa\xe5\x26\x1c\x4f\x67\x6c\x4c\xf2\xb9\xae\xa8\x6d\x54\x91\xaa\x3e\xa7\x6e\x66\x9b\x56\x24\xad\x55\x9f\xfd\xad\x9f\xd3\x99\x64\x3e\xa6\xdd\x8a\x9c\x31\xbf\x55\xea\x0e\x7e\x05\x6e\x33\x9a\x2a\xd4\xc0\x66\x6a\x08\xd4\xb9\x83\x8c\x51\xe4\x27\xf3\xd7\x77\x00\x00\x00\xff\xff\xbd\xab\x1e\xea\x93\x01\x00\x00")
-
-func leftAlignMdBytes() ([]byte, error) {
-	return bindataRead(
-		_leftAlignMd,
-		"left-align.md",
-	)
-}
-
-func leftAlignMd() (*asset, error) {
-	bytes, err := leftAlignMdBytes()
-	if err != nil {
-		return nil, err
-	}
-
-	info := bindataFileInfo{name: "left-align.md", size: 403, mode: os.FileMode(420), modTime: time.Unix(1542198429, 0)}
-	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xf5, 0x83, 0x3f, 0x7e, 0x39, 0x83, 0x46, 0x51, 0x24, 0x15, 0xd0, 0x4e, 0xd9, 0xe0, 0x2f, 0x8b, 0x48, 0x30, 0x82, 0x9a, 0x81, 0xff, 0xd4, 0xb6, 0x40, 0xfb, 0xc4, 0x3c, 0x11, 0xb2, 0x2a, 0x6d}}
 	return a, nil
 }
 
@@ -174,7 +153,7 @@ func mustcompileMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "mustcompile.md", size: 168, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
+	info := bindataFileInfo{name: "mustcompile.md", size: 168, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x75, 0xb2, 0x40, 0x36, 0x90, 0xb3, 0x55, 0x4e, 0x7b, 0xa1, 0xe1, 0x86, 0xd4, 0x8f, 0x22, 0xe9, 0x1a, 0x8f, 0x1e, 0x8c, 0x8a, 0xf2, 0x6e, 0x83, 0xf0, 0xfe, 0x6f, 0x3a, 0xd0, 0x94, 0x91, 0x52}}
 	return a, nil
 }
@@ -194,7 +173,7 @@ func nonexistingMapValueMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "nonexisting-map-value.md", size: 363, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
+	info := bindataFileInfo{name: "nonexisting-map-value.md", size: 363, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x38, 0x96, 0x40, 0xaf, 0x50, 0x71, 0xf8, 0xb4, 0x46, 0x2b, 0x44, 0xb9, 0x33, 0x79, 0x86, 0xca, 0x7c, 0xe3, 0x2c, 0x42, 0x8e, 0x16, 0x32, 0xb9, 0x38, 0x93, 0xd0, 0x0, 0xdf, 0x68, 0x52, 0x8d}}
 	return a, nil
 }
@@ -214,7 +193,7 @@ func regexInFuncMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "regex-in-func.md", size: 306, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
+	info := bindataFileInfo{name: "regex-in-func.md", size: 306, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x10, 0x2d, 0x3a, 0xb5, 0xec, 0x9c, 0x27, 0xe3, 0x9b, 0x18, 0xc4, 0xb4, 0xc5, 0xc1, 0xc8, 0xe5, 0x60, 0xc3, 0x82, 0xe7, 0x4f, 0x21, 0x7f, 0x3c, 0xd0, 0x3d, 0xcf, 0x3, 0x6d, 0xc2, 0xe4, 0xa9}}
 	return a, nil
 }
@@ -234,7 +213,7 @@ func unicodeLoopMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "unicode-loop.md", size: 103, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
+	info := bindataFileInfo{name: "unicode-loop.md", size: 103, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x1e, 0xa5, 0x51, 0x64, 0x0, 0xb1, 0xd3, 0x26, 0x5, 0xea, 0xf3, 0xfe, 0x57, 0x9e, 0x43, 0x38, 0x9c, 0x11, 0xa9, 0xba, 0x40, 0xd7, 0x78, 0xae, 0x1d, 0xf1, 0x9f, 0x19, 0xae, 0x18, 0x79, 0x9f}}
 	return a, nil
 }
@@ -254,7 +233,7 @@ func unicodeMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "unicode.md", size: 127, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
+	info := bindataFileInfo{name: "unicode.md", size: 127, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x48, 0x3f, 0xbd, 0x68, 0xbb, 0xb3, 0x91, 0x0, 0xb8, 0xf1, 0xdc, 0x38, 0xff, 0xf9, 0x77, 0x62, 0x3c, 0x1c, 0x43, 0xb6, 0x67, 0x89, 0xb, 0xc1, 0x9c, 0x8c, 0x75, 0x90, 0x68, 0x6c, 0x42, 0xb1}}
 	return a, nil
 }
@@ -274,7 +253,7 @@ func universalIsletterMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "universal-isletter.md", size: 99, mode: os.FileMode(420), modTime: time.Unix(1542198500, 0)}
+	info := bindataFileInfo{name: "universal-isletter.md", size: 99, mode: os.FileMode(420), modTime: time.Unix(1542385105, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x98, 0xad, 0x50, 0xcd, 0xe2, 0x4d, 0x41, 0x36, 0x7c, 0x6a, 0x1f, 0x7f, 0x7f, 0x91, 0x4f, 0x2e, 0x9f, 0xf7, 0x26, 0xf, 0x81, 0x69, 0xbd, 0x45, 0xe9, 0xd0, 0x91, 0xcf, 0x2d, 0x3e, 0x57, 0xdd}}
 	return a, nil
 }
@@ -294,7 +273,7 @@ func zeroValueAssignMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "zero-value-assign.md", size: 194, mode: os.FileMode(420), modTime: time.Unix(1542198537, 0)}
+	info := bindataFileInfo{name: "zero-value-assign.md", size: 194, mode: os.FileMode(420), modTime: time.Unix(1542385105, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x48, 0x84, 0xf, 0x44, 0x91, 0xaa, 0xe6, 0x45, 0x4d, 0xd, 0xe6, 0x49, 0xfb, 0xce, 0x42, 0xe7, 0x91, 0xfb, 0xf4, 0xee, 0x97, 0x75, 0x6a, 0xa3, 0xad, 0xf0, 0xaf, 0x2b, 0x1, 0xdb, 0xd2, 0xab}}
 	return a, nil
 }
@@ -396,8 +375,6 @@ var _bindata = map[string]func() (*asset, error){
 
 	"just-return.md": justReturnMd,
 
-	"left-align.md": leftAlignMd,
-
 	"mustcompile.md": mustcompileMd,
 
 	"nonexisting-map-value.md": nonexistingMapValueMd,
@@ -457,7 +434,6 @@ var _bintree = &bintree{nil, map[string]*bintree{
 	"if-continue.md":           &bintree{ifContinueMd, map[string]*bintree{}},
 	"isletter.md":              &bintree{isletterMd, map[string]*bintree{}},
 	"just-return.md":           &bintree{justReturnMd, map[string]*bintree{}},
-	"left-align.md":            &bintree{leftAlignMd, map[string]*bintree{}},
 	"mustcompile.md":           &bintree{mustcompileMd, map[string]*bintree{}},
 	"nonexisting-map-value.md": &bintree{nonexistingMapValueMd, map[string]*bintree{}},
 	"regex-in-func.md":         &bintree{regexInFuncMd, map[string]*bintree{}},

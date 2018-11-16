@@ -30,10 +30,11 @@ var suggestTests = []struct {
 	{path: "./solutions/4", suggestion: tpl.IfContinue, expected: true},
 	{path: "./solutions/5", suggestion: tpl.NonExistingMapValue, expected: false},
 	{path: "./solutions/5", suggestion: tpl.UniversalIsLetter, expected: true},
+	{path: "./solutions/5", suggestion: tpl.IfContinue, expected: false},
 	{path: "./solutions/6", suggestion: tpl.UniversalIsLetter, expected: true},
 	{path: "./solutions/6", suggestion: tpl.ZeroValueAssign, expected: true},
+	{path: "./solutions/6", suggestion: tpl.IfContinue, expected: false},
 	{path: "./solutions/7", suggestion: tpl.UniversalIsLetter, expected: true},
-	{path: "./solutions/7", suggestion: tpl.LeftAlign, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {

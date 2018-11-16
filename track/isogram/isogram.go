@@ -3,6 +3,7 @@ package isogram
 import (
 	"go/ast"
 	"go/token"
+	"strings"
 
 	"github.com/tehsphinx/astrav"
 	"github.com/tehsphinx/exalysis/extypes"
@@ -25,6 +26,70 @@ var exFuncs = []extypes.SuggestionFunc{
 	examToLowerUpper("ToUpper"),
 	examJustReturn,
 	examNonExistingMapValue,
+	examUniversalIsLetter,
+	examIfContinueIsLetter,
+	examZeroValueAssign,
+}
+
+func examZeroValueAssign(pkg *astrav.Package, r *extypes.Response) {
+	nodes := pkg.FindByNodeType(astrav.NodeTypeAssignStmt)
+	for _, node := range nodes {
+		ident := node.ChildByNodeType(astrav.NodeTypeIdent)
+		b := node.ChildByNodeType(astrav.NodeTypeBasicLit)
+		if b == nil || ident == nil {
+			continue
+		}
+		bLit := b.(*astrav.BasicLit)
+
+		switch ident.ValueType().String() {
+		case "string":
+			if bLit.Value == `""` {
+				r.AppendImprovement(tpl.ZeroValueAssign)
+			}
+		case "bool":
+			if bLit.Value == `false` {
+				r.AppendImprovement(tpl.ZeroValueAssign)
+			}
+		case "int", "int8", "int16", "int32", "int64", "uint", "uint8", "uint16", "uint32", "uint64":
+			if bLit.Value == `0` {
+				r.AppendImprovement(tpl.ZeroValueAssign)
+			}
+		}
+	}
+}
+
+func examIfContinueIsLetter(pkg *astrav.Package, r *extypes.Response) {
+	node := pkg.FindFirstByName("IsLetter")
+	if node == nil {
+		return
+	}
+
+	ifNode := node.NextParentByType(astrav.NodeTypeIfStmt)
+	if ifNode == nil {
+		return
+	}
+	contNodes := ifNode.FindByToken(token.CONTINUE)
+	retNodes := ifNode.FindByNodeType(astrav.NodeTypeReturnStmt)
+	ifNodes := ifNode.FindByNodeType(astrav.NodeTypeIfStmt)
+
+	if len(contNodes)+len(retNodes) == 0 {
+		r.AppendImprovement(tpl.IfContinue)
+	} else if len(contNodes) == 0 && len(ifNodes) != 0 {
+		r.AppendImprovement(tpl.IfContinue)
+	}
+}
+
+func examUniversalIsLetter(pkg *astrav.Package, r *extypes.Response) {
+	nodes := pkg.FindByNodeType(astrav.NodeTypeBasicLit)
+	for _, node := range nodes {
+		bLit := node.(*astrav.BasicLit)
+		if strings.Contains(bLit.Value, "-") {
+			r.AppendImprovement(tpl.UniversalIsLetter)
+		}
+		if strings.Contains(bLit.Value, "a") && bLit.IsValueType("rune") {
+			r.AppendImprovement(tpl.UniversalIsLetter)
+		}
+	}
 }
 
 func examNonExistingMapValue(pkg *astrav.Package, r *extypes.Response) {
@@ -40,7 +105,9 @@ func examNonExistingMapValue(pkg *astrav.Package, r *extypes.Response) {
 			continue
 		}
 
-		r.AppendComment(tpl.NonExistingMapValue)
+		if assign[0].IsValueType("bool") {
+			r.AppendComment(tpl.NonExistingMapValue)
+		}
 	}
 }
 
@@ -71,13 +138,16 @@ func examRegexCompileInFunc(pkg *astrav.Package, r *extypes.Response) {
 	if regComp != nil && main.Contains(regComp) {
 		r.AppendTodo(tpl.RegexInFunc)
 		r.AppendTodo(tpl.MustCompile)
+	}
+	if regComp != nil {
 		r.AppendTodo(tpl.IsLetter)
-		return
 	}
 
 	regComp = pkg.FindFirstByName("MustCompile")
 	if regComp != nil && main.Contains(regComp) {
 		r.AppendTodo(tpl.RegexInFunc)
+	}
+	if regComp != nil {
 		r.AppendTodo(tpl.IsLetter)
 	}
 }
