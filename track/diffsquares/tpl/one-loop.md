@@ -1,0 +1,1 @@
+- You could try to calculate `SquareOfSum` without a loop. I know this is a mathematical issue. There is a formula for the sum of the numbers `1` to `n`: `n*(n+1)/2`.
