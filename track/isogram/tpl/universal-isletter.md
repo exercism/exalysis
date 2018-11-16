@@ -1,0 +1,1 @@
+- Have a look at `unicode.IsLetter` for a flexible, general way to identify non-letter characters.
