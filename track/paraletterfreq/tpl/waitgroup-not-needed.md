@@ -1,0 +1,1 @@
+- You are using a `sync.WaitGroup` here that is not really needed. Can you check and remove it?
