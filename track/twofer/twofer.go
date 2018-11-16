@@ -133,7 +133,8 @@ func checkComment(cGroup astrav.Node, r *extypes.Response, commentType, name str
 		r.AppendImprovement(tpl.MissingComment.Format(strPack.typeString))
 		addCommentFormat(r)
 	} else {
-		c := strings.TrimSpace(strings.Replace(cGroup.Children()[0].(*astrav.Comment).Text, "/", "", 2))
+		text := cGroup.Children()[0].(*astrav.Comment).Text
+		c := strings.TrimSpace(strings.Replace(strings.Replace(text, "/*", "", 1), "//", "", 1))
 
 		if strings.Contains(c, strPack.stubString) {
 			addStub(r)

@@ -31,6 +31,9 @@ var suggestTests = []struct {
 	{path: "./solutions/6", suggestion: tpl.UseStringPH, expected: true},
 	{path: "./solutions/6", suggestion: tpl.MinimalConditional, expected: true},
 	{path: "./solutions/7", suggestion: tpl.StringsJoin, expected: true},
+	{path: "./solutions/8", suggestion: tpl.MissingComment, expected: true},
+	{path: "./solutions/9", suggestion: tpl.MissingComment, expected: true},
+	{path: "./solutions/10", suggestion: tpl.WrongCommentFormat, expected: false},
 }
 
 func Test_Suggest(t *testing.T) {
