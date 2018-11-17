@@ -1,0 +1,1 @@
+- You are using a `sync.WaitGroup` here that is not really needed. On the receiving side of the channel do not loop over the channel but rather over the input `texts`. That way you know when you received all of the results.

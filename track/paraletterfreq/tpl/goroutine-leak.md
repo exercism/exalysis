@@ -1,0 +1,1 @@
+- You are creating a `goroutine` the has no abort condition and will therefore never be closed. This is a socalled 'goroutine leak', where a new goroutine is started every time the function is called -- but never closed.

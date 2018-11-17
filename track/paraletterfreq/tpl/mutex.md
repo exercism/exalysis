@@ -1,0 +1,1 @@
+- You are using a mutex to syncronize your `map` writes. Because there are many writes this is rather slow. Try using a channel to 'pipe' the result of the original `Frequency` function to a loop that combines the `FreqMaps`.

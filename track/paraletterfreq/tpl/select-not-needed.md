@@ -1,0 +1,1 @@
+- You are using a `select` with only one case and no other code in a `for` loop. You can remove the `select` as it is not needed.

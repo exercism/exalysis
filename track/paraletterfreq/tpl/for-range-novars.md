@@ -1,0 +1,1 @@
+- By the way, a shorter way to write your merging loop is just `for range texts {...}`.
