@@ -1,0 +1,1 @@
+- If you just want to square a number, you can use the expression `n * n` rather than calling `math.Pow`.
