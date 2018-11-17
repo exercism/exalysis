@@ -1,0 +1,1 @@
+- To create a floating point number you can use `2.0` instead of `float64(2)`. If it is clear to go that you are trying to create a float then `2` is enough. When does go know you want a float? For example if you use it as a parameter in a function call that expects a float or if you assign it to a variable that is already a float.
