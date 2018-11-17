@@ -1,0 +1,1 @@
+- You could try to calculate `SumOfSquares` without a loop. I know this is a mathematical issue: there is a formula for the sum of squares for the numbers `1` to `n`. You can look it up.

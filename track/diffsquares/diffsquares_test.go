@@ -16,10 +16,21 @@ var suggestTests = []struct {
 	suggestion gtpl.Template
 	expected   bool
 }{
-	{path: "./solutions/1", suggestion: tpl.OneLoop, expected: true},
+	{path: "./solutions/1", suggestion: tpl.SquareSumLoop, expected: true},
+	{path: "./solutions/1", suggestion: tpl.SumSquareLoop, expected: true},
 	{path: "./solutions/1", suggestion: tpl.CalcRangeCondition, expected: true},
-	{path: "./solutions/2", suggestion: tpl.OneLoop, expected: true},
+	{path: "./solutions/2", suggestion: tpl.SquareSumLoop, expected: true},
+	{path: "./solutions/2", suggestion: tpl.SumSquareLoop, expected: true},
 	{path: "./solutions/2", suggestion: tpl.CalcRangeCondition, expected: false},
+	{path: "./solutions/3", suggestion: tpl.MathPow, expected: true},
+	{path: "./solutions/4", suggestion: tpl.SumSquareLoop, expected: true},
+	{path: "./solutions/4", suggestion: tpl.SquareSumLoop, expected: true},
+	{path: "./solutions/4", suggestion: tpl.MathPow, expected: true},
+	{path: "./solutions/5", suggestion: tpl.Dry, expected: true},
+	{path: "./solutions/6", suggestion: tpl.SquareSumLoop, expected: true},
+	{path: "./solutions/6", suggestion: tpl.SumSquareLoop, expected: true},
+	{path: "./solutions/6", suggestion: tpl.MathPow, expected: true},
+	{path: "./solutions/6", suggestion: tpl.BasicFloat64, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {
