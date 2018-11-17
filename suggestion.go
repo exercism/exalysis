@@ -9,6 +9,7 @@ import (
 	"github.com/tehsphinx/exalysis/exam"
 	"github.com/tehsphinx/exalysis/extypes"
 	"github.com/tehsphinx/exalysis/gtpl"
+	"github.com/tehsphinx/exalysis/track/grains"
 	"github.com/tehsphinx/exalysis/track/hamming"
 	"github.com/tehsphinx/exalysis/track/isogram"
 	"github.com/tehsphinx/exalysis/track/raindrops"
@@ -22,6 +23,7 @@ var exercisePkgs = map[string]extypes.SuggestionFunc{
 	"raindrops": raindrops.Suggest,
 	"scrabble":  scrabble.Suggest,
 	"isogram":   isogram.Suggest,
+	"grains":    grains.Suggest,
 }
 
 //GetSuggestions selects the package suggestion routine and returns the suggestions

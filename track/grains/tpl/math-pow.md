@@ -1,0 +1,1 @@
+- You are working with `math.Pow` here. If you want to go for speed you can gain a lot by switching to bit shifting here. The operator for left shifting is `<<` or there are also functions in the `bits` package, e.g. `bits.RotateLeft64`.
