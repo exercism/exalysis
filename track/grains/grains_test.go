@@ -19,8 +19,10 @@ var suggestTests = []struct {
 	{path: "./solutions/1", suggestion: tpl.BitsRotate64, expected: true},
 	{path: "./solutions/1", suggestion: tpl.BitsRotate, expected: true},
 	{path: "./solutions/1", suggestion: tpl.StaticTotalNice, expected: true},
+	{path: "./solutions/1", suggestion: tpl.ErrorFormatted, expected: false},
 	{path: "./solutions/2", suggestion: tpl.MathPow, expected: true},
 	{path: "./solutions/2", suggestion: tpl.StaticTotal, expected: true},
+	{path: "./solutions/2", suggestion: tpl.ErrorFormatted, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {

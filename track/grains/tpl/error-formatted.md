@@ -1,0 +1,1 @@
+- If you return a less intelligent error message (meaning not formatted message like `errors.New("illegal square")`) the `BenchmarkSquare` will be a lot faster. Crazy, huh?
