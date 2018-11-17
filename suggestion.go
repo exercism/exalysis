@@ -13,6 +13,7 @@ import (
 	"github.com/tehsphinx/exalysis/extypes"
 	"github.com/tehsphinx/exalysis/gtpl"
 	"github.com/tehsphinx/exalysis/track/diffsquares"
+	"github.com/tehsphinx/exalysis/track/grains"
 	"github.com/tehsphinx/exalysis/track/hamming"
 	"github.com/tehsphinx/exalysis/track/isogram"
 	"github.com/tehsphinx/exalysis/track/luhn"
@@ -23,14 +24,15 @@ import (
 )
 
 var exercisePkgs = map[string]extypes.SuggestionFunc{
-	"twofer":      twofer.Suggest,
-	"hamming":     hamming.Suggest,
-	"raindrops":   raindrops.Suggest,
-	"scrabble":    scrabble.Suggest,
-	"isogram":     isogram.Suggest,
 	"diffsquares": diffsquares.Suggest,
+	"grains":      grains.Suggest,
+	"hamming":     hamming.Suggest,
+	"isogram":     isogram.Suggest,
 	"luhn":        luhn.Suggest,
 	"letter":      paraletterfreq.Suggest,
+	"raindrops":   raindrops.Suggest,
+	"scrabble":    scrabble.Suggest,
+	"twofer":      twofer.Suggest,
 }
 
 //GetSuggestions selects the package suggestion routine and returns the suggestions

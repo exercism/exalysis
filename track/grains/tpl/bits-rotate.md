@@ -1,0 +1,1 @@
+- Did you know there is a `bits.RotateLeft64`? That way you don't need the conversion to `uint64`.

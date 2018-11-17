@@ -1,0 +1,1 @@
+- Nicely done returning a static number for the `Total` function!

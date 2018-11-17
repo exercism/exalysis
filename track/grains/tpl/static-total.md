@@ -1,0 +1,1 @@
+- You are calculating the total number of grains which is totally legit! You could return a static number as it is the same every time. In this case the value is equal to the maximum a `uint64` can hold and for these values there are constants in the `math` package: Here you could use `math.MaxUint64`.
