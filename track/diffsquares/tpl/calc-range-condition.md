@@ -1,1 +1,1 @@
-- You could improve the speed of the range loop: The condition needs to be checked on every loop and it shouldn't contain calculations that can be avoided. In this case `%s` is calculated every time.
+- Here's one way to improve the speed of the `range` loop: the condition needs to be checked on every loop, and it shouldn't contain calculations that can be avoided. In this case `%s` is calculated every time.

@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/tehsphinx/exalysis.svg?branch=master)](https://travis-ci.org/tehsphinx/exalysis)
 
-Exalysis is a tool designed to help mentors of the [Exercism](https://Exercism.io) Go track. It will automatically run the tests on a student's solution, check `gofmt` and `golint`, and make some helpful suggestions for the student based on static analysis of the code for common errors and patterns.
+Exalysis is a tool designed to help mentors of the [Exercism](https://Exercism.io) Go track. It will automatically run the tests on a student's solution, check `gofmt` and `golint`, and make some helpful suggestions for the student based on static analysis of the code for common errors and patterns (see [sample Exalysis output](sample.md)).
 
 It's not perfect: you should check Exalysis's suggestions before sending them to the student, and add your own notes if necessary, but it can dramatically speed up the process of mentoring by automating these repetitive tasks.
 
