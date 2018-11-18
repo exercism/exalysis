@@ -21,7 +21,9 @@ var exFuncs = []extypes.SuggestionFunc{
 func examOneLoop(pkg *astrav.Package, r *extypes.Response) {
 	loops := len(pkg.FindByNodeType(astrav.NodeTypeForStmt))
 	loops += len(pkg.FindByNodeType(astrav.NodeTypeRangeStmt))
-	r.AppendBlockSuggestion(tpl.OneLoop)
+	if 1 < loops {
+		r.AppendBlockSuggestion(tpl.OneLoop)
+	}
 }
 
 func examRegexCompileInFunc(pkg *astrav.Package, r *extypes.Response) {
