@@ -30,10 +30,13 @@ var exercisePkgs = map[string]extypes.SuggestionFunc{
 
 //GetSuggestions selects the package suggestion routine and returns the suggestions
 func GetSuggestions(path string) (string, string) {
+	var r = extypes.NewResponse()
 	folder := astrav.NewFolder(path)
 	_, err := folder.ParseFolder()
 	if err != nil {
-		log.Fatal(err)
+		addGreeting(r, "", "there")
+		r.AppendTodo(gtpl.Compile)
+		return r.GetAnswerString(), ""
 	}
 
 	var pkgName string
@@ -46,9 +49,7 @@ func GetSuggestions(path string) (string, string) {
 		fmt.Println(aurora.Sprintf(aurora.Gray("Exercism package found: %s"), aurora.Green(pkgName)))
 	}
 
-	var r = extypes.NewResponse()
 	addGreeting(r, pkgName, folder.StudentName())
-
 	examRes, err := exam.All(folder, r, pkgName)
 	if err != nil {
 		log.Fatal(err)

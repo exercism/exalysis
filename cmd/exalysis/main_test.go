@@ -26,7 +26,20 @@ func TestHappyPath(t *testing.T) {
 	cmd.Dir = "./testdata/happypath"
 	output, err := cmd.CombinedOutput()
 	if err != nil {
-		log.Fatal(err)
+		t.Fatalf("%s: %s", err, output)
 	}
 	assert.Regexp(t, "Welcome to Exercism", string(output))
+}
+
+func TestCompileError(t *testing.T) {
+	if err := build(); err != nil {
+		t.Fatal(err)
+	}
+	cmd := exec.Command("../../" + exePath)
+	cmd.Dir = "./testdata/compile_error"
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("%s: %s", err, output)
+	}
+	assert.Regexp(t, "does not compile", string(output))
 }

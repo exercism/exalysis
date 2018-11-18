@@ -7,6 +7,7 @@
 // response/praise.md (15B)
 // response/questions.md (79B)
 // response/todo.md (73B)
+// tools/compile.md (229B)
 // tools/not_formatted.md (176B)
 // tools/not_linted.md (181B)
 // tools/pass_tests.md (213B)
@@ -96,7 +97,7 @@ func responseCommentMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "response/comment.md", size: 21, mode: os.FileMode(420), modTime: time.Unix(1541678095, 0)}
+	info := bindataFileInfo{name: "response/comment.md", size: 21, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x95, 0xff, 0xaf, 0xf3, 0x2f, 0x3f, 0xad, 0x81, 0x55, 0xf4, 0xd, 0x9a, 0x98, 0x2d, 0x83, 0xef, 0x3e, 0xf5, 0x1c, 0x7a, 0xe8, 0x9, 0x36, 0x2e, 0xab, 0xeb, 0x7e, 0x6a, 0x9, 0xbe, 0x23, 0x4f}}
 	return a, nil
 }
@@ -116,7 +117,7 @@ func responseGreetingMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "response/greeting.md", size: 6, mode: os.FileMode(420), modTime: time.Unix(1541678095, 0)}
+	info := bindataFileInfo{name: "response/greeting.md", size: 6, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xb6, 0x4d, 0xb8, 0x95, 0xfc, 0x5c, 0x3e, 0x1, 0x38, 0xee, 0x81, 0xa5, 0xe7, 0x8, 0xfb, 0xde, 0xf5, 0x17, 0x32, 0x9d, 0xa, 0xbd, 0x7f, 0xc2, 0xa0, 0x1d, 0x87, 0xea, 0xd1, 0xb, 0x32, 0xdb}}
 	return a, nil
 }
@@ -136,7 +137,7 @@ func responseImprovementMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "response/improvement.md", size: 33, mode: os.FileMode(420), modTime: time.Unix(1541678095, 0)}
+	info := bindataFileInfo{name: "response/improvement.md", size: 33, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x24, 0x47, 0x5, 0x78, 0x1d, 0x7e, 0x8f, 0xa1, 0x3e, 0x6, 0x5b, 0x34, 0xee, 0x69, 0x7b, 0x7, 0xb3, 0xb8, 0xa1, 0xc5, 0xfc, 0xf7, 0x39, 0xa2, 0x81, 0xe6, 0x2b, 0x55, 0x94, 0xe8, 0x66, 0xcb}}
 	return a, nil
 }
@@ -156,7 +157,7 @@ func responseNewcomer_greetingMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "response/newcomer_greeting.md", size: 66, mode: os.FileMode(420), modTime: time.Unix(1541678095, 0)}
+	info := bindataFileInfo{name: "response/newcomer_greeting.md", size: 66, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xb3, 0xa7, 0x40, 0x9e, 0xd3, 0xbd, 0x95, 0x71, 0x56, 0x20, 0xff, 0xff, 0xf4, 0xe5, 0xa9, 0x84, 0x38, 0x78, 0xa2, 0xf, 0xd6, 0x63, 0xe2, 0xec, 0xee, 0xdb, 0x80, 0x3c, 0xf1, 0x3b, 0x59, 0xa1}}
 	return a, nil
 }
@@ -176,7 +177,7 @@ func responsePraiseMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "response/praise.md", size: 15, mode: os.FileMode(420), modTime: time.Unix(1541678095, 0)}
+	info := bindataFileInfo{name: "response/praise.md", size: 15, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x59, 0xcb, 0x83, 0x60, 0x69, 0x93, 0xba, 0xce, 0x32, 0xd9, 0xbc, 0xd8, 0x1b, 0x64, 0x86, 0xeb, 0x1c, 0xba, 0x31, 0x65, 0x69, 0x34, 0x6d, 0xfc, 0xbb, 0xf3, 0x4c, 0x12, 0x6d, 0x4e, 0xf, 0x23}}
 	return a, nil
 }
@@ -196,7 +197,7 @@ func responseQuestionsMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "response/questions.md", size: 79, mode: os.FileMode(420), modTime: time.Unix(1541678095, 0)}
+	info := bindataFileInfo{name: "response/questions.md", size: 79, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xa2, 0x9d, 0x81, 0x1f, 0x6c, 0x35, 0xc9, 0x79, 0xe6, 0xd6, 0xd0, 0xb7, 0x8a, 0x8d, 0x9e, 0xeb, 0x21, 0x6, 0x3e, 0x9b, 0x33, 0x60, 0xbe, 0xda, 0x27, 0xd2, 0xc, 0x5b, 0x59, 0x38, 0x86, 0x8b}}
 	return a, nil
 }
@@ -216,8 +217,28 @@ func responseTodoMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "response/todo.md", size: 73, mode: os.FileMode(420), modTime: time.Unix(1541678095, 0)}
+	info := bindataFileInfo{name: "response/todo.md", size: 73, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xa9, 0x52, 0x39, 0xc9, 0xcb, 0x75, 0x93, 0x60, 0xe8, 0x21, 0x22, 0x7b, 0xc0, 0x66, 0xed, 0x94, 0x3f, 0xd1, 0xef, 0x2, 0x3e, 0xf8, 0xf1, 0xfd, 0x19, 0x67, 0x7c, 0xdc, 0x7b, 0x4e, 0x6b, 0x7a}}
+	return a, nil
+}
+
+var _toolsCompileMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x3c\x8e\x31\x4e\xc5\x40\x0c\x44\x7b\x4e\x31\x54\x34\x1f\xae\xf0\x1b\x1a\x0a\x4a\x0e\xe0\x6c\x9c\x64\x85\x63\x47\xde\x59\xd0\xde\x1e\x25\x12\xbf\x1c\x8d\x66\xde\x7b\xc5\x97\x2f\x91\xec\x2e\x54\x1b\x37\x70\xab\x0d\x2d\xac\xb3\x86\x63\x0e\x6d\xf0\x20\x4a\xec\x47\x35\x45\x89\x4c\x2d\xb4\xf1\x86\xf7\x3a\x63\x44\x47\x76\x07\x37\x05\xb5\xb1\xdd\xf1\x29\x63\xd2\xab\x90\x52\xea\xac\x4e\x31\x1b\x68\x7d\xda\x2b\xa9\x33\xc4\x51\xfd\xfc\x33\xa5\x3e\x50\x77\x7c\x2c\xe7\xea\x25\x15\x9b\xfc\x54\x5f\xc1\x8c\x3e\x99\x62\x55\xf2\xcc\x23\x7a\xe2\xc8\x58\x53\x76\x30\xfe\x9d\x6e\x17\xac\x88\x43\xec\x57\x46\x83\xb4\x6f\xec\x8a\x25\x12\x9b\xda\xf1\xfc\xf4\x17\x00\x00\xff\xff\x15\x59\x6b\x94\xe5\x00\x00\x00")
+
+func toolsCompileMdBytes() ([]byte, error) {
+	return bindataRead(
+		_toolsCompileMd,
+		"tools/compile.md",
+	)
+}
+
+func toolsCompileMd() (*asset, error) {
+	bytes, err := toolsCompileMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tools/compile.md", size: 229, mode: os.FileMode(420), modTime: time.Unix(1542556899, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x21, 0x51, 0x8f, 0x7e, 0xbe, 0x46, 0x22, 0xaf, 0x24, 0x5c, 0xe6, 0xb5, 0x90, 0x7e, 0x57, 0x7d, 0xf5, 0x14, 0xc6, 0x77, 0x88, 0x6e, 0x23, 0x80, 0xf, 0x3c, 0x87, 0x9c, 0x9, 0x10, 0xe9, 0x6f}}
 	return a, nil
 }
 
@@ -236,7 +257,7 @@ func toolsNot_formattedMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tools/not_formatted.md", size: 176, mode: os.FileMode(420), modTime: time.Unix(1542045703, 0)}
+	info := bindataFileInfo{name: "tools/not_formatted.md", size: 176, mode: os.FileMode(420), modTime: time.Unix(1542542807, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xe9, 0xa2, 0xe4, 0xd9, 0xba, 0xd1, 0xfd, 0x6c, 0xd3, 0xbb, 0xcd, 0x81, 0x85, 0x67, 0x9d, 0x98, 0x84, 0xda, 0x41, 0xdc, 0xcd, 0x80, 0x1a, 0xf8, 0x30, 0x4d, 0xe1, 0xd1, 0x18, 0x3b, 0x46, 0x7d}}
 	return a, nil
 }
@@ -256,7 +277,7 @@ func toolsNot_lintedMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tools/not_linted.md", size: 181, mode: os.FileMode(420), modTime: time.Unix(1542045703, 0)}
+	info := bindataFileInfo{name: "tools/not_linted.md", size: 181, mode: os.FileMode(420), modTime: time.Unix(1542542807, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xe1, 0x67, 0x32, 0x60, 0x91, 0x57, 0x58, 0x7c, 0xdc, 0xec, 0x38, 0x61, 0x3, 0x13, 0xa0, 0x15, 0x8f, 0x36, 0x1a, 0xfd, 0x9f, 0xac, 0xa9, 0xde, 0x91, 0x3, 0x72, 0xdf, 0xc4, 0x4d, 0xc6, 0x5c}}
 	return a, nil
 }
@@ -276,7 +297,7 @@ func toolsPass_testsMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tools/pass_tests.md", size: 213, mode: os.FileMode(420), modTime: time.Unix(1542045703, 0)}
+	info := bindataFileInfo{name: "tools/pass_tests.md", size: 213, mode: os.FileMode(420), modTime: time.Unix(1542542807, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x51, 0xca, 0x40, 0x67, 0x87, 0x1c, 0xb9, 0xb1, 0xce, 0x40, 0x8a, 0x49, 0x83, 0x22, 0xba, 0x32, 0x78, 0xc1, 0x60, 0xff, 0x17, 0x1b, 0xc0, 0x36, 0xa2, 0xfe, 0xd0, 0x60, 0x1f, 0xf1, 0xf8, 0x47}}
 	return a, nil
 }
@@ -296,7 +317,7 @@ func topicBenchmarkingMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "topic/benchmarking.md", size: 1635, mode: os.FileMode(420), modTime: time.Unix(1542044672, 0)}
+	info := bindataFileInfo{name: "topic/benchmarking.md", size: 1635, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x4e, 0xee, 0x59, 0xb9, 0x81, 0x2a, 0x96, 0x24, 0xf0, 0xf8, 0xc1, 0xe2, 0x76, 0x7b, 0x64, 0x68, 0x9, 0x81, 0xd0, 0x9f, 0x57, 0x9, 0x62, 0x90, 0x10, 0x4c, 0x15, 0x14, 0x97, 0x34, 0xa3, 0x7a}}
 	return a, nil
 }
@@ -316,7 +337,7 @@ func topicPprofAllocationsMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "topic/pprof-allocations.md", size: 1900, mode: os.FileMode(420), modTime: time.Unix(1542044672, 0)}
+	info := bindataFileInfo{name: "topic/pprof-allocations.md", size: 1900, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x6, 0x38, 0x5, 0x7a, 0xca, 0xbc, 0x82, 0x60, 0xe2, 0xc, 0xc7, 0x5f, 0x7d, 0x3f, 0x83, 0xa, 0x6d, 0x26, 0x60, 0xab, 0x1c, 0x6b, 0x52, 0x1d, 0x15, 0x9b, 0xc8, 0xc, 0xf, 0x22, 0x38, 0x25}}
 	return a, nil
 }
@@ -336,7 +357,7 @@ func topicRegexMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "topic/regex.md", size: 1209, mode: os.FileMode(420), modTime: time.Unix(1542044672, 0)}
+	info := bindataFileInfo{name: "topic/regex.md", size: 1209, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xb2, 0xa0, 0xf6, 0x4c, 0x4f, 0x5e, 0x68, 0xa6, 0xdf, 0x62, 0xa7, 0xe7, 0x1b, 0x50, 0xaf, 0xb6, 0x68, 0x7c, 0x8e, 0xc8, 0x9a, 0x40, 0xfd, 0x98, 0x73, 0x93, 0xce, 0xf5, 0x24, 0x34, 0x8c, 0xd7}}
 	return a, nil
 }
@@ -446,6 +467,8 @@ var _bindata = map[string]func() (*asset, error){
 
 	"response/todo.md": responseTodoMd,
 
+	"tools/compile.md": toolsCompileMd,
+
 	"tools/not_formatted.md": toolsNot_formattedMd,
 
 	"tools/not_linted.md": toolsNot_lintedMd,
@@ -510,6 +533,7 @@ var _bintree = &bintree{nil, map[string]*bintree{
 		"todo.md":              &bintree{responseTodoMd, map[string]*bintree{}},
 	}},
 	"tools": &bintree{nil, map[string]*bintree{
+		"compile.md":       &bintree{toolsCompileMd, map[string]*bintree{}},
 		"not_formatted.md": &bintree{toolsNot_formattedMd, map[string]*bintree{}},
 		"not_linted.md":    &bintree{toolsNot_lintedMd, map[string]*bintree{}},
 		"pass_tests.md":    &bintree{toolsPass_testsMd, map[string]*bintree{}},
