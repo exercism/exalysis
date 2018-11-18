@@ -81,3 +81,9 @@ Any contribution is welcome as long as it complies with the code of conduct of [
 - One very simple way to contribute is to add samples for a case that is not covered yet, add the comment that should be shown to the student and add a test for it. That could be done for an already supported exercise or one that is not supported yet. The existing test structure is a good sample.
 
 - There are still many exercises to be implemented. If you're up for implementing a new exercise, that would be much appreciated.
+
+## Discussion
+
+There's a channel on the Exercism Team Slack for discussion, development, and questions about Exalysis: [#track-go-exalysis](https://exercism-team.slack.com/messages/CE6EMAFEZ).
+
+If you're not already on this Slack, email mentoring@exercism.io to request an invite.
