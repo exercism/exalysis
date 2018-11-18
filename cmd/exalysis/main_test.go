@@ -1,7 +1,7 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"os/exec"
 	"testing"
 
@@ -13,7 +13,7 @@ const exePath = "./exalysis"
 func build() error {
 	out, err := exec.Command("go", "build", "-o", exePath, "main.go").CombinedOutput()
 	if err != nil {
-		log.Fatalf("failed to build: %v\n%v", err, string(out))
+		return fmt.Errorf("failed to build: %s\n%s", err, out)
 	}
 	return nil
 }
