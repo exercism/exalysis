@@ -3,3 +3,5 @@
     - Visual Studio Code has [great Go support](https://code.visualstudio.com/docs/languages/go)
 
     - Vim also has a [fantastic Go extension](https://github.com/fatih/vim-go)
+
+    - [Jetbrains Goland](https://www.jetbrains.com/go/) is an entire IDE for Go
