@@ -257,7 +257,11 @@ func toolsNot_formattedMd() (*asset, error) {
 		return nil, err
 	}
 
+<<<<<<< HEAD
 	info := bindataFileInfo{name: "tools/not_formatted.md", size: 354, mode: os.FileMode(420), modTime: time.Unix(1542628451, 0)}
+=======
+	info := bindataFileInfo{name: "tools/not_formatted.md", size: 354, mode: os.FileMode(420), modTime: time.Unix(1542540514, 0)}
+>>>>>>> More tweaks
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xea, 0x5c, 0xf5, 0x28, 0x4d, 0x86, 0x30, 0x8, 0x28, 0x99, 0xc0, 0x75, 0xb9, 0x45, 0x20, 0xe3, 0x34, 0x28, 0x5a, 0x3b, 0xc2, 0x2e, 0x5c, 0xcf, 0x3d, 0xfc, 0x4a, 0x35, 0xb1, 0xf3, 0x4a, 0x6a}}
 	return a, nil
 }
@@ -277,7 +281,11 @@ func toolsNot_lintedMd() (*asset, error) {
 		return nil, err
 	}
 
+<<<<<<< HEAD
 	info := bindataFileInfo{name: "tools/not_linted.md", size: 523, mode: os.FileMode(420), modTime: time.Unix(1542628451, 0)}
+=======
+	info := bindataFileInfo{name: "tools/not_linted.md", size: 523, mode: os.FileMode(420), modTime: time.Unix(1542540514, 0)}
+>>>>>>> More tweaks
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x5a, 0xc8, 0xf2, 0x8a, 0x23, 0x4f, 0xa3, 0x6d, 0xed, 0x67, 0x8a, 0xdb, 0x78, 0x68, 0x80, 0xc1, 0x58, 0xf3, 0xc6, 0xdb, 0x2a, 0x71, 0x35, 0xae, 0x86, 0x86, 0x7, 0x8, 0x12, 0x5f, 0x5, 0x9}}
 	return a, nil
 }
@@ -297,7 +305,11 @@ func toolsPass_testsMd() (*asset, error) {
 		return nil, err
 	}
 
+<<<<<<< HEAD
 	info := bindataFileInfo{name: "tools/pass_tests.md", size: 497, mode: os.FileMode(420), modTime: time.Unix(1542628451, 0)}
+=======
+	info := bindataFileInfo{name: "tools/pass_tests.md", size: 497, mode: os.FileMode(420), modTime: time.Unix(1542540514, 0)}
+>>>>>>> More tweaks
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xe2, 0xe1, 0xfb, 0x58, 0x97, 0x9d, 0xf6, 0x8f, 0x28, 0x7c, 0x49, 0xbc, 0xaa, 0x8e, 0xdb, 0xd5, 0x51, 0xb3, 0x40, 0xb, 0xcc, 0x46, 0x87, 0xb5, 0xda, 0xf7, 0x34, 0xa3, 0x26, 0xc8, 0xff, 0x9b}}
 	return a, nil
 }
