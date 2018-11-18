@@ -12,6 +12,7 @@ var (
 	Comment          = NewFormatTemplate("response/comment.md", MustAsset)
 	Questions        = NewStringTemplate("response/questions.md", MustAsset)
 
+	Compile      = NewStringTemplate("tools/compile.md", MustAsset)
 	PassTests    = NewStringTemplate("tools/pass_tests.md", MustAsset)
 	NotLinted    = NewStringTemplate("tools/not_linted.md", MustAsset)
 	NotFormatted = NewStringTemplate("tools/not_formatted.md", MustAsset)
