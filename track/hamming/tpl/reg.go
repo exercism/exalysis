@@ -12,4 +12,5 @@ var (
 	Increase           = gtpl.NewStringTemplate("increase.md", MustAsset)
 	DeclareNeeded      = gtpl.NewFormatTemplate("declare-when-needed.md", MustAsset)
 	InvertIf           = gtpl.NewStringTemplate("invert-if.md", MustAsset)
+	NoErrMsg           = gtpl.NewStringTemplate("no-error-msg.md", MustAsset)
 )

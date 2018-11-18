@@ -19,12 +19,35 @@ func Suggest(pkg *astrav.Package, r *extypes.Response) {
 }
 
 var exFuncs = []extypes.SuggestionFunc{
+	examNoErrorMsg,
 	examInvertIf,
 	examRuneToByte,
 	examMultipleStringConversions,
 	examIncrease,
 	examErrorMessage,
 	examDeclareWhenNeeded,
+}
+
+func examNoErrorMsg(pkg *astrav.Package, r *extypes.Response) {
+	nodes := pkg.FindByName("New")
+	for _, node := range nodes {
+		if !node.IsNodeType(astrav.NodeTypeSelectorExpr) {
+			continue
+		}
+		selExpr := node.(*astrav.SelectorExpr)
+		if selExpr.PackageName().Name != "errors" {
+			continue
+		}
+
+		bLit := selExpr.Parent().FindFirstByNodeType(astrav.NodeTypeBasicLit)
+		if bLit == nil {
+			continue
+		}
+
+		if bLit.(*astrav.BasicLit).Value == `""` {
+			r.AppendTodo(tpl.NoErrMsg)
+		}
+	}
 }
 
 func examDeclareWhenNeeded(pkg *astrav.Package, r *extypes.Response) {

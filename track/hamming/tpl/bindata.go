@@ -5,6 +5,7 @@
 // increase.md (84B)
 // invert-if.md (372B)
 // multiple-string-conversions.md (339B)
+// no-error-msg.md (177B)
 // rune-to-byte.md (438B)
 
 package tpl
@@ -89,7 +90,7 @@ func declareWhenNeededMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "declare-when-needed.md", size: 174, mode: os.FileMode(420), modTime: time.Unix(1542045703, 0)}
+	info := bindataFileInfo{name: "declare-when-needed.md", size: 174, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xde, 0x10, 0xef, 0xa, 0x40, 0xc, 0xd6, 0xac, 0x38, 0x6b, 0xb5, 0xfa, 0x4b, 0x81, 0x3a, 0xbf, 0x8a, 0xb3, 0xab, 0x8c, 0x87, 0xfb, 0xac, 0x8b, 0xc6, 0x5a, 0x3e, 0x97, 0xa9, 0x6f, 0xb4, 0x28}}
 	return a, nil
 }
@@ -109,7 +110,7 @@ func errorMessageFormatMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "error-message-format.md", size: 293, mode: os.FileMode(420), modTime: time.Unix(1542045703, 0)}
+	info := bindataFileInfo{name: "error-message-format.md", size: 293, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xbe, 0x7f, 0x45, 0x90, 0x5c, 0xb6, 0x8, 0xcf, 0x7b, 0x67, 0x26, 0x6d, 0x20, 0xfb, 0x24, 0x7e, 0xa5, 0x3, 0xaa, 0x5b, 0x59, 0xfd, 0xa7, 0x66, 0x46, 0xab, 0x7f, 0xa5, 0xf0, 0xda, 0x8b, 0x3b}}
 	return a, nil
 }
@@ -129,7 +130,7 @@ func increaseMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "increase.md", size: 84, mode: os.FileMode(420), modTime: time.Unix(1542045703, 0)}
+	info := bindataFileInfo{name: "increase.md", size: 84, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x5f, 0xe2, 0xf7, 0x48, 0xf5, 0xc0, 0xb2, 0x14, 0xa3, 0x57, 0xa5, 0x6f, 0xe2, 0xd7, 0x59, 0xbc, 0xd7, 0x76, 0xf4, 0xd8, 0x42, 0x36, 0xae, 0x7d, 0xdc, 0x64, 0x4f, 0xb4, 0xb, 0x4f, 0xf2, 0x50}}
 	return a, nil
 }
@@ -149,7 +150,7 @@ func invertIfMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "invert-if.md", size: 372, mode: os.FileMode(420), modTime: time.Unix(1542045703, 0)}
+	info := bindataFileInfo{name: "invert-if.md", size: 372, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x34, 0xbc, 0xb5, 0x3e, 0xcc, 0x39, 0x92, 0xe9, 0x34, 0xe8, 0xd8, 0x6d, 0x28, 0x26, 0x38, 0x4d, 0xef, 0x95, 0xd, 0xb1, 0x77, 0xb1, 0xf0, 0x19, 0xc8, 0xf2, 0x1c, 0xf9, 0x96, 0x7f, 0xd4, 0x59}}
 	return a, nil
 }
@@ -169,8 +170,28 @@ func multipleStringConversionsMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "multiple-string-conversions.md", size: 339, mode: os.FileMode(420), modTime: time.Unix(1542045703, 0)}
+	info := bindataFileInfo{name: "multiple-string-conversions.md", size: 339, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x6, 0xda, 0x64, 0x95, 0x4e, 0xf8, 0xe9, 0x3b, 0x4d, 0xdf, 0x7a, 0x5f, 0xbe, 0x10, 0x11, 0xb8, 0x1e, 0xbc, 0xd5, 0x1d, 0x52, 0xa2, 0x75, 0x9d, 0x7a, 0x67, 0x94, 0xd5, 0xe0, 0xd6, 0xbd, 0xab}}
+	return a, nil
+}
+
+var _noErrorMsgMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x64\x8d\xc1\xad\xc3\x30\x0c\x43\xef\x7f\x0a\x0e\xf0\x9b\x35\x7a\xed\xa1\x03\x44\x88\x89\xd8\xa8\x23\x05\x92\x90\xa2\xdb\x17\xf6\xb5\x27\x02\xe4\x23\x79\xc3\xa3\x53\x82\x28\x06\xb5\x84\x1d\x2d\x91\x95\xa0\xbb\x39\x0e\x46\xc8\xce\x05\xcf\x4a\x44\x8a\x16\xf1\x82\x75\x86\x2b\x8a\x31\x66\xab\xca\x45\xc8\x00\xb6\x17\xd2\x65\xe3\x3f\x0e\x8a\x36\xdd\xd1\x14\x77\xfb\x9d\x44\x8b\x69\x9a\xf6\x0f\xb2\x0e\x32\xd9\xfb\xd4\x4a\x14\x5e\xec\x76\xd2\xf1\xae\x32\x0e\xce\x93\xca\xb2\xfc\x7d\x03\x00\x00\xff\xff\x01\x3b\x83\x1f\xb1\x00\x00\x00")
+
+func noErrorMsgMdBytes() ([]byte, error) {
+	return bindataRead(
+		_noErrorMsgMd,
+		"no-error-msg.md",
+	)
+}
+
+func noErrorMsgMd() (*asset, error) {
+	bytes, err := noErrorMsgMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "no-error-msg.md", size: 177, mode: os.FileMode(420), modTime: time.Unix(1542547051, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xf8, 0x70, 0xd7, 0xe8, 0x50, 0xd0, 0x86, 0x48, 0x39, 0xb3, 0xa9, 0xfc, 0x4, 0x57, 0x4, 0xc0, 0xf1, 0x1a, 0xe7, 0x24, 0x2b, 0xf6, 0x12, 0x9d, 0xd3, 0xe1, 0x59, 0xbd, 0x9f, 0xd3, 0x36, 0x18}}
 	return a, nil
 }
 
@@ -189,7 +210,7 @@ func runeToByteMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "rune-to-byte.md", size: 438, mode: os.FileMode(420), modTime: time.Unix(1542045703, 0)}
+	info := bindataFileInfo{name: "rune-to-byte.md", size: 438, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x2e, 0xee, 0xf4, 0xd3, 0x9e, 0xe5, 0x8b, 0xa5, 0xce, 0x99, 0x42, 0x91, 0x43, 0x5c, 0x4e, 0xb4, 0x8, 0x95, 0x17, 0x3, 0x9f, 0xe6, 0x48, 0xec, 0x2e, 0x1a, 0xad, 0x2, 0x32, 0x5b, 0x29, 0xd}}
 	return a, nil
 }
@@ -295,6 +316,8 @@ var _bindata = map[string]func() (*asset, error){
 
 	"multiple-string-conversions.md": multipleStringConversionsMd,
 
+	"no-error-msg.md": noErrorMsgMd,
+
 	"rune-to-byte.md": runeToByteMd,
 }
 
@@ -344,6 +367,7 @@ var _bintree = &bintree{nil, map[string]*bintree{
 	"increase.md":                    &bintree{increaseMd, map[string]*bintree{}},
 	"invert-if.md":                   &bintree{invertIfMd, map[string]*bintree{}},
 	"multiple-string-conversions.md": &bintree{multipleStringConversionsMd, map[string]*bintree{}},
+	"no-error-msg.md":                &bintree{noErrorMsgMd, map[string]*bintree{}},
 	"rune-to-byte.md":                &bintree{runeToByteMd, map[string]*bintree{}},
 }}
 
