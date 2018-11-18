@@ -36,7 +36,7 @@ func GetSuggestions(path string) (string, string) {
 	if err != nil {
 		addGreeting(r, "", "there")
 		r.AppendTodo(gtpl.Compile)
-		return r.GetAnswerString(), ""
+		return r.GetAnswerString(), rating(r, nil, "")
 	}
 
 	var pkgName string
@@ -91,8 +91,11 @@ func rating(r *extypes.Response, examRes *exam.Result, pkgName string) string {
 }
 
 func approval(r *extypes.Response, examRes *exam.Result, pkgName string) aurora.Value {
-	gofmt := examRes.GoFmt
-	golint := examRes.GoLint
+	var gofmt, golint bool
+	if examRes != nil {
+		gofmt = examRes.GoFmt
+		golint = examRes.GoLint
+	}
 
 	// don't be so strict on the first exercises
 	switch pkgName {
