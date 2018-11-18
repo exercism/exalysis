@@ -1,0 +1,1 @@
+- To compile a static regex, it's a good idea to use `MustCompile()`. This will cause the program to panic if the regex is invalid, so you'll know about it right away.

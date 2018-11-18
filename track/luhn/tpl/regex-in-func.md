@@ -1,0 +1,1 @@
+- Regular expressions in Go work a little differently from other languages. For better performance, a regex is compiled before it's used. Right now, you're compiling the regex inside your function, but it only needs to be compiled once. If the regex is static you can move the compilation to package level.
