@@ -12,6 +12,7 @@ import (
 	"github.com/tehsphinx/exalysis/track/diffsquares"
 	"github.com/tehsphinx/exalysis/track/hamming"
 	"github.com/tehsphinx/exalysis/track/isogram"
+	"github.com/tehsphinx/exalysis/track/luhn"
 	"github.com/tehsphinx/exalysis/track/raindrops"
 	"github.com/tehsphinx/exalysis/track/scrabble"
 	"github.com/tehsphinx/exalysis/track/twofer"
@@ -24,6 +25,7 @@ var exercisePkgs = map[string]extypes.SuggestionFunc{
 	"scrabble":    scrabble.Suggest,
 	"isogram":     isogram.Suggest,
 	"diffsquares": diffsquares.Suggest,
+	"luhn":        luhn.Suggest,
 }
 
 //GetSuggestions selects the package suggestion routine and returns the suggestions

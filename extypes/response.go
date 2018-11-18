@@ -21,6 +21,7 @@ type Response struct {
 	todo        []gtpl.Template
 	improvement []gtpl.Template
 	comment     []gtpl.Template
+	blocksugg   []gtpl.Template
 	outro       []gtpl.Template
 }
 
@@ -70,6 +71,15 @@ func (s *Response) AppendComment(template gtpl.Template) {
 	s.comment = append(s.comment, template)
 }
 
+//AppendBlockSuggestion adds a block suggestion to the response.
+//It is counted as an improvement.
+func (s *Response) AppendBlockSuggestion(template gtpl.Template) {
+	if exists(s.blocksugg, template) {
+		return
+	}
+	s.blocksugg = append(s.blocksugg, template)
+}
+
 //AppendOutro adds an outro template
 func (s *Response) AppendOutro(template gtpl.Template) {
 	if exists(s.outro, template) {
@@ -104,10 +114,15 @@ func (s *Response) GetAnswerString() string {
 		}
 		suggsAdded = true
 	}
-
 	if len(s.comment) != 0 {
 		answ += s.commentIntro().TplString()
 		for _, t := range s.comment {
+			answ += t.TplString()
+		}
+		suggsAdded = true
+	}
+	if len(s.blocksugg) != 0 {
+		for _, t := range s.blocksugg {
 			answ += t.TplString()
 		}
 		suggsAdded = true
@@ -125,7 +140,7 @@ func (s *Response) GetAnswerString() string {
 
 func (s *Response) praise() gtpl.Template {
 	var (
-		l   = len(s.todo)*2 + len(s.improvement)
+		l   = 2*len(s.todo) + len(s.improvement) + 2*len(s.blocksugg)
 		adj string
 	)
 	switch {
@@ -171,7 +186,7 @@ func (s *Response) commentIntro() gtpl.Template {
 
 //LenSuggestions returns the amount of suggestions added
 func (s *Response) LenSuggestions() int {
-	return len(s.todo) + len(s.improvement)
+	return len(s.todo) + len(s.improvement) + len(s.blocksugg)
 }
 
 //LenTodos returns the amount of todos added
@@ -181,7 +196,7 @@ func (s *Response) LenTodos() int {
 
 //LenImprovements returns the amount of improvement suggestions added
 func (s *Response) LenImprovements() int {
-	return len(s.improvement)
+	return len(s.improvement) + len(s.blocksugg)
 }
 
 //LenComments returns the amount of comments added
@@ -224,6 +239,11 @@ func (s *Response) GetSuggestion(tpl gtpl.Template) (gtpl.Template, bool) {
 		}
 	}
 	for _, t := range s.comment {
+		if t.ID() == tpl.ID() {
+			return t, true
+		}
+	}
+	for _, t := range s.blocksugg {
 		if t.ID() == tpl.ID() {
 			return t, true
 		}
