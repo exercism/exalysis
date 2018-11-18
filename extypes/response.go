@@ -205,10 +205,8 @@ func (s *Response) GetTemplate(tpl gtpl.Template) (gtpl.Template, bool) {
 	if t, ok := s.GetSuggestion(tpl); ok {
 		return t, ok
 	}
-	for _, t := range s.outro {
-		if t.ID() == tpl.ID() {
-			return t, true
-		}
+	if t, ok := s.GetOutro(tpl); ok {
+		return t, ok
 	}
 	return nil, false
 }
@@ -233,6 +231,16 @@ func (s *Response) GetSuggestion(tpl gtpl.Template) (gtpl.Template, bool) {
 	return nil, false
 }
 
+//GetOutro returns requested template by id from the outro section
+func (s *Response) GetOutro(tpl gtpl.Template) (gtpl.Template, bool) {
+	for _, t := range s.outro {
+		if t.ID() == tpl.ID() {
+			return t, true
+		}
+	}
+	return nil, false
+}
+
 //HasTemplate uses GetTemplate to search for a template but only returns if it was found or not
 func (s *Response) HasTemplate(tpl gtpl.Template) bool {
 	_, ok := s.GetTemplate(tpl)
@@ -242,6 +250,12 @@ func (s *Response) HasTemplate(tpl gtpl.Template) bool {
 //HasSuggestion uses GetSuggestion to search for a template but only returns if it was found or not
 func (s *Response) HasSuggestion(tpl gtpl.Template) bool {
 	_, ok := s.GetSuggestion(tpl)
+	return ok
+}
+
+//HasOutro uses GetOutro to search for a template but only returns if it was found or not
+func (s *Response) HasOutro(tpl gtpl.Template) bool {
+	_, ok := s.GetOutro(tpl)
 	return ok
 }
 
