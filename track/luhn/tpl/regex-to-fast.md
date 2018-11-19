@@ -1,6 +1,6 @@
 
 ---
-Your solution with `regex` is very readable and totally fine. `regex` is very powerful but slow. If things can be done manually with reasonable effort the extra work is often worth it. Here is a step-by-step guide to a faster solution:
+Your solution with `regexp` is very readable and totally fine. Regular expressions are very powerful, but usually slow. If things can be done manually with reasonable effort the extra work is often worth it. Here is a step-by-step guide to a faster solution:
 
 1. First, eliminate the regular expression by moving the logic into the loop:
 
