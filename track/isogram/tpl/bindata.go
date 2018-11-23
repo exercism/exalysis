@@ -93,11 +93,7 @@ func ifContinueMd() (*asset, error) {
 		return nil, err
 	}
 
-<<<<<<< HEAD
-	info := bindataFileInfo{name: "if-continue.md", size: 459, mode: os.FileMode(420), modTime: time.Unix(1542628451, 0)}
-=======
-	info := bindataFileInfo{name: "if-continue.md", size: 459, mode: os.FileMode(420), modTime: time.Unix(1542540514, 0)}
->>>>>>> More tweaks
+	info := bindataFileInfo{name: "if-continue.md", size: 459, mode: os.FileMode(420), modTime: time.Unix(1542985381, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x48, 0xf8, 0x25, 0x76, 0x1c, 0x2a, 0x2e, 0x83, 0xa7, 0xc2, 0xa0, 0xba, 0xf1, 0xf8, 0x8b, 0xaf, 0xd9, 0x1b, 0x90, 0x2a, 0x22, 0xfc, 0x77, 0x6c, 0x94, 0xa0, 0xa6, 0xaf, 0x26, 0xf5, 0x61, 0x74}}
 	return a, nil
 }

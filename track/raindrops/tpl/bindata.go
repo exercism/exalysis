@@ -91,11 +91,7 @@ func concatNotNeededMd() (*asset, error) {
 		return nil, err
 	}
 
-<<<<<<< HEAD
-	info := bindataFileInfo{name: "concat-not-needed.md", size: 301, mode: os.FileMode(420), modTime: time.Unix(1542628451, 0)}
-=======
-	info := bindataFileInfo{name: "concat-not-needed.md", size: 301, mode: os.FileMode(420), modTime: time.Unix(1542540514, 0)}
->>>>>>> More tweaks
+	info := bindataFileInfo{name: "concat-not-needed.md", size: 301, mode: os.FileMode(420), modTime: time.Unix(1542985381, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x84, 0x34, 0x1d, 0xd7, 0x94, 0x48, 0x3d, 0xcb, 0xc8, 0xd5, 0x26, 0x58, 0x20, 0xf8, 0x89, 0x5b, 0x9e, 0xfd, 0x4, 0x90, 0x36, 0xaa, 0x31, 0x8f, 0xa4, 0xce, 0xb2, 0x4a, 0x74, 0x31, 0xc3, 0xb2}}
 	return a, nil
 }
@@ -135,11 +131,7 @@ func itoaMd() (*asset, error) {
 		return nil, err
 	}
 
-<<<<<<< HEAD
-	info := bindataFileInfo{name: "itoa.md", size: 159, mode: os.FileMode(420), modTime: time.Unix(1542628451, 0)}
-=======
-	info := bindataFileInfo{name: "itoa.md", size: 159, mode: os.FileMode(420), modTime: time.Unix(1542540514, 0)}
->>>>>>> More tweaks
+	info := bindataFileInfo{name: "itoa.md", size: 159, mode: os.FileMode(420), modTime: time.Unix(1542985381, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xfa, 0x63, 0x11, 0x5, 0x6f, 0xcb, 0xb3, 0x64, 0xd5, 0x7f, 0xcd, 0x8c, 0x0, 0xf3, 0xc9, 0xb0, 0x2e, 0x6a, 0x8c, 0x7b, 0x40, 0x73, 0x79, 0x2d, 0x99, 0xa2, 0xd8, 0x0, 0x36, 0x63, 0xe, 0x37}}
 	return a, nil
 }
