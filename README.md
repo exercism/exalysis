@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/tehsphinx/exalysis.svg?branch=master)](https://travis-ci.org/tehsphinx/exalysis)
 
-Exalysis is a tool designed to help mentors of the [Exercism](https://Exercism.io) Go track. It will automatically run the tests on a student's solution, check `gofmt` and `golint`, and make some helpful suggestions for the student based on static analysis of the code for common errors and patterns.
+Exalysis is a tool designed to help mentors of the [Exercism](https://Exercism.io) Go track. It will automatically run the tests on a student's solution, check `gofmt` and `golint`, and make some helpful suggestions for the student based on static analysis of the code for common errors and patterns (see [sample Exalysis output](sample.md)).
 
 It's not perfect: you should check Exalysis's suggestions before sending them to the student, and add your own notes if necessary, but it can dramatically speed up the process of mentoring by automating these repetitive tasks.
 
@@ -82,3 +82,9 @@ Any contribution is welcome as long as it complies with the code of conduct of [
 - One very simple way to contribute is to add samples for a case that is not covered yet, add the comment that should be shown to the student and add a test for it. That could be done for an already supported exercise or one that is not supported yet. The existing test structure is a good sample.
 
 - There are still many exercises to be implemented. If you're up for implementing a new exercise, that would be much appreciated.
+
+## Discussion
+
+There's a channel on the Exercism Team Slack for discussion, development, and questions about Exalysis: [#track-go-exalysis](https://exercism-team.slack.com/messages/CE6EMAFEZ).
+
+If you're not already on this Slack, email mentoring@exercism.io to request an invite.

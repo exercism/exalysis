@@ -1,1 +1,1 @@
-- You're using `+=` to append to an empty variable; in this case you can use just `=` instead.
+- When you use `+=` to append to an empty variable, you could replace it with just `=` instead. But where you have several almost identical cases, some programmers would prefer to keep the code the same for each case, even if that's not quite optimal: readability beats performance, most of the time.
