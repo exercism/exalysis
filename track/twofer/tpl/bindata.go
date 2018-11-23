@@ -152,11 +152,7 @@ func missingCommentMd() (*asset, error) {
 		return nil, err
 	}
 
-<<<<<<< HEAD
-	info := bindataFileInfo{name: "missing-comment.md", size: 121, mode: os.FileMode(420), modTime: time.Unix(1542628451, 0)}
-=======
-	info := bindataFileInfo{name: "missing-comment.md", size: 121, mode: os.FileMode(420), modTime: time.Unix(1542540514, 0)}
->>>>>>> More tweaks
+	info := bindataFileInfo{name: "missing-comment.md", size: 121, mode: os.FileMode(420), modTime: time.Unix(1542985381, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x4, 0x25, 0x36, 0xe4, 0xde, 0x35, 0xd6, 0x99, 0x90, 0xef, 0xb2, 0x2d, 0x89, 0x9e, 0x17, 0x2c, 0xa5, 0xdb, 0x26, 0x10, 0xe8, 0xb3, 0xee, 0x54, 0x94, 0xab, 0x7, 0xa1, 0xa5, 0x43, 0xfb, 0xa6}}
 	return a, nil
 }
@@ -236,11 +232,7 @@ func useStringPlaceholderMd() (*asset, error) {
 		return nil, err
 	}
 
-<<<<<<< HEAD
-	info := bindataFileInfo{name: "use-string-placeholder.md", size: 331, mode: os.FileMode(420), modTime: time.Unix(1542628451, 0)}
-=======
-	info := bindataFileInfo{name: "use-string-placeholder.md", size: 331, mode: os.FileMode(420), modTime: time.Unix(1542540514, 0)}
->>>>>>> More tweaks
+	info := bindataFileInfo{name: "use-string-placeholder.md", size: 331, mode: os.FileMode(420), modTime: time.Unix(1542985381, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x62, 0x87, 0x67, 0x67, 0x0, 0xf3, 0x60, 0xfa, 0x61, 0x1b, 0x26, 0x92, 0x70, 0x9b, 0x6e, 0x8b, 0xd8, 0x81, 0x73, 0x77, 0x46, 0x4d, 0x9e, 0x1f, 0x35, 0x12, 0xeb, 0x71, 0x6f, 0x39, 0xa2, 0x28}}
 	return a, nil
 }
