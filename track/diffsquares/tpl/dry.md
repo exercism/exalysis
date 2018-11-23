@@ -1,1 +1,1 @@
-- You could simplify your `Difference` function by having it call `SumOfSquares` and `SquareOfSums`, instead of repeating that code. That is not slower provided you use the mathematical formulas in those functions.
+- You could simplify your `Difference` function by having it call `SumOfSquares` and `SquareOfSums`, instead of repeating that code.
