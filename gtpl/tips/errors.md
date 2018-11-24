@@ -1,0 +1,1 @@
+- Are you tired of writing `if err != nil` after every operation which can return an error? If so, you might find this blog post enjoyable and enlightening: [Errors are Values](https://blog.golang.org/errors-are-values). It has some great techniques for making your Go code more readable, while still robustly handling errors.

@@ -43,3 +43,16 @@ func TestCompileError(t *testing.T) {
 	}
 	assert.Regexp(t, "does not compile", string(output))
 }
+
+func TestTip(t *testing.T) {
+	if err := build(); err != nil {
+		t.Fatal(err)
+	}
+	cmd := exec.Command("../../" + exePath)
+	cmd.Dir = "./testdata/happypath"
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("%s: %s", err, output)
+	}
+	assert.Regexp(t, "may interest you", string(output))
+}

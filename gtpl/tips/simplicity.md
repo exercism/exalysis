@@ -1,0 +1,1 @@
+- Go is often described as a simple language. It's not; it just seems that way. In this talk, Rob Pike explains how Go's simplicity hides a great deal of complexity, and that both the simplicity and complexity are part of the design: [Simplicity is Complicated](https://youtu.be/rFejpH_tAHM)
