@@ -1,0 +1,1 @@
+- Did you know that when you solve problems on Exercism you're doing "test-driven development" (TDD)? What is TDD anyway, and why does it matter? There's a nice blog post by Pierre Prinetti about the TDD workflow, with a step-by-step example: [Test-Driven Development in Go](https://medium.com/@pierreprinetti/test-driven-development-in-go-baeab5adb468)

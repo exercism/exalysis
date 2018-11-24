@@ -22,6 +22,7 @@ type Response struct {
 	improvement []gtpl.Template
 	comment     []gtpl.Template
 	blocksugg   []gtpl.Template
+	tip         []gtpl.Template
 	outro       []gtpl.Template
 }
 
@@ -80,6 +81,11 @@ func (s *Response) AppendBlockSuggestion(template gtpl.Template) {
 	s.blocksugg = append(s.blocksugg, template)
 }
 
+//AppendTip adds a random, context-free tip.
+func (s *Response) AppendTip(template gtpl.Template) {
+	s.tip = append(s.tip, template)
+}
+
 //AppendOutro adds an outro template
 func (s *Response) AppendOutro(template gtpl.Template) {
 	if exists(s.outro, template) {
@@ -127,7 +133,12 @@ func (s *Response) GetAnswerString() string {
 		}
 		suggsAdded = true
 	}
-
+	if len(s.tip) != 0 {
+		answ += s.tipIntro().TplString()
+		for _, t := range s.tip {
+			answ += t.TplString()
+		}
+	}
 	if suggsAdded {
 		s.AppendOutro(gtpl.Questions)
 	}
@@ -182,6 +193,10 @@ func (s *Response) commentIntro() gtpl.Template {
 		adj = fmt.Sprintf("Some %sthoughts", further)
 	}
 	return gtpl.Comment.Format(adj)
+}
+
+func (s *Response) tipIntro() gtpl.Template {
+	return gtpl.Tip.Format()
 }
 
 //LenSuggestions returns the amount of suggestions added

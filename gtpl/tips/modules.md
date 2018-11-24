@@ -1,0 +1,1 @@
+- You might be aware of "Go modules', but not quite sure what they are or how to use them. Go core team member Russ Cox has written a series of blog posts explaining how modules work, and what problems they solve, which you might find interesting: [Go += Package Versioning](https://research.swtch.com/vgo-intro)
