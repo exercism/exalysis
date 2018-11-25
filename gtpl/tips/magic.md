@@ -1,0 +1,1 @@
+- If you're interested in learning some powerful, elegant, and simple techniques of Go programming, watch this great talk by Mat Ryer called [Idiomatic Go Tricks](https://youtu.be/yeetIgNeIkc). Mat says "Go deliberately has no magic built into the language, but magic things happen when it is used correctly."

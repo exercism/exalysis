@@ -1,0 +1,1 @@
+- Concurrency is often mentioned as one of the things Go does really well. But what actually is it, how does it relate to parallelism, and how do we use Go to solve problems in a concurrent way? Rob Pike's talk entitled [Concurrency is not Parallelism](https://youtu.be/cN_DpYBzKso) explains.

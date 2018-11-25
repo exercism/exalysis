@@ -3,6 +3,8 @@ package exalysis
 import (
 	"fmt"
 	"log"
+	"math/rand"
+	"time"
 
 	"github.com/logrusorgru/aurora"
 	"github.com/tehsphinx/astrav"
@@ -58,7 +60,7 @@ func GetSuggestions(path string) (string, string) {
 	if suggFunc != nil {
 		suggFunc(pkg, r)
 	}
-
+	addTip(r)
 	return r.GetAnswerString(), rating(r, examRes, pkgName)
 }
 
@@ -76,6 +78,14 @@ func addGreeting(r *extypes.Response, pkg, student string) {
 	switch pkg {
 	case "twofer":
 		r.AppendGreeting(gtpl.NewcomerGreeting)
+	}
+}
+
+func addTip(r *extypes.Response) {
+	if r.LenImprovements() < 3 {
+		rand.Seed(time.Now().UnixNano())
+		t := rand.Intn(len(gtpl.Tips))
+		r.AppendTip(gtpl.Tips[t])
 	}
 }
 
