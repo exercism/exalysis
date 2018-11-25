@@ -1,0 +1,1 @@
+- Have you heard of [Go proverbs](https://go-proverbs.github.io/)? These are a collection of sayings which neatly express some important ideas about Go ("Clear is better than clever" is one of my favourites). You can watch Rob Pike explain them in a talk entitled [Go Proverbs](https://youtu.be/PAAkCSZUG1c).

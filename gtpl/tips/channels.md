@@ -1,0 +1,1 @@
+- Channels and goroutines are a really neat feature of Go. They let us build surprisingly powerful, simple abstractions without using a special library, or even the standard library: they're built into the language. This talk by Bill Kennedy explores [The Behavior of Channels](https://youtu.be/zDCKZn4-dck)
