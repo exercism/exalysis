@@ -23,6 +23,7 @@ var (
 
 	Tips = []StringTemplate{
 		NewStringTemplate("tips/advanced_tests.md", MustAsset),
+		NewStringTemplate("tips/awesome_go.md", MustAsset),
 		NewStringTemplate("tips/channels.md", MustAsset),
 		NewStringTemplate("tips/community.md", MustAsset),
 		NewStringTemplate("tips/concurrency.md", MustAsset),
