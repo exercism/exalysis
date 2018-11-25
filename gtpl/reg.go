@@ -31,6 +31,7 @@ var (
 		NewStringTemplate("tips/effective.md", MustAsset),
 		NewStringTemplate("tips/errors.md", MustAsset),
 		NewStringTemplate("tips/font.md", MustAsset),
+		NewStringTemplate("tips/go-perfbook.md", MustAsset),
 		NewStringTemplate("tips/magic.md", MustAsset),
 		NewStringTemplate("tips/modules.md", MustAsset),
 		NewStringTemplate("tips/proverbs.md", MustAsset),
