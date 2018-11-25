@@ -17,6 +17,7 @@
 // tips/effective.md (387B)
 // tips/errors.md (327B)
 // tips/font.md (321B)
+// tips/go-perfbook.md (425B)
 // tips/magic.md (310B)
 // tips/modules.md (313B)
 // tips/proverbs.md (309B)
@@ -437,6 +438,26 @@ func tipsFontMd() (*asset, error) {
 
 	info := bindataFileInfo{name: "tips/font.md", size: 321, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x97, 0x8f, 0x74, 0x46, 0xc2, 0x20, 0x76, 0xd3, 0xe0, 0x69, 0xf4, 0xe0, 0xf, 0x87, 0x3d, 0x13, 0x7a, 0xc4, 0x65, 0xf0, 0xf1, 0xdf, 0xcf, 0xd2, 0x4f, 0x37, 0xc9, 0x91, 0x2c, 0xb4, 0x34, 0x8e}}
+	return a, nil
+}
+
+var _tipsGoPerfbookMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x4c\x90\xc1\x8a\xd5\x40\x10\x45\xf7\x7e\xc5\x65\x56\x0a\x33\xc9\xde\x8d\x20\xc2\xc3\x95\x4b\x11\x71\x51\xe9\x54\xd2\xe5\x4b\x77\xc5\xaa\xea\x09\x79\x5f\x2f\x1d\x11\x66\xd9\x5c\xce\xe1\x74\xbd\xe0\xe9\x6b\x45\x64\xc6\x2b\x79\xa0\xd0\x6f\x35\x89\x13\xba\x20\x91\xb3\x3f\x5f\x9b\xcb\x83\x41\x75\x86\xef\xcc\x73\x1f\x09\xbb\xe9\x6a\x54\x20\x8e\xaa\x01\x42\xd2\x9a\xd8\xea\xf0\x84\xcf\x2d\x20\xdd\xaa\xce\x30\x32\xfe\xe7\xc2\x91\xb9\x62\x67\x5b\xd4\x0a\xd5\xc4\x9d\x4d\x26\x21\x89\xb6\x67\x1c\x99\x02\xc1\x29\x57\xf9\xd3\xd8\x91\xa8\xe2\x60\x34\x67\x84\xe2\x30\x09\xc6\x2b\xdb\x09\x5e\x16\x49\xc2\x35\x70\xd3\xff\x19\xfe\x09\x3f\xbf\x77\x55\x5d\xaf\xd0\x6f\x7b\x48\x91\x47\x7f\xde\x14\x49\x67\xfe\xf5\x3e\x47\xec\xfe\x71\x1c\x57\x89\xdc\xa6\x21\x69\x19\xe7\xd5\x4e\xbf\xcb\xb8\xea\x4b\xef\x9a\x54\xef\xe3\xb4\xe9\x34\x16\xf2\x60\x1b\xdf\xc4\x0e\x65\xfe\xd0\x83\x09\x8b\x31\x43\xeb\x26\x95\xd1\x09\x4c\x27\xbe\x50\x11\xaa\xb8\x5d\x3a\x1c\x12\x19\x9b\x86\xf7\x53\x35\xe7\xa5\x6d\x08\xd9\xfd\x4a\x0b\x4a\x21\xc9\x07\xfc\xd0\x86\x22\x6b\x0e\x6c\x72\xbf\x3e\x19\x76\xc2\xb5\x70\xc7\x22\x73\xc1\xa9\xcd\x9c\xb7\x65\x78\xf7\x37\x00\x00\xff\xff\x28\x6f\x4f\xec\xa9\x01\x00\x00")
+
+func tipsGoPerfbookMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsGoPerfbookMd,
+		"tips/go-perfbook.md",
+	)
+}
+
+func tipsGoPerfbookMd() (*asset, error) {
+	bytes, err := tipsGoPerfbookMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/go-perfbook.md", size: 425, mode: os.FileMode(420), modTime: time.Unix(1543142499, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xfb, 0xe, 0xbb, 0xe0, 0xbe, 0x91, 0xf9, 0xb8, 0x7, 0x4b, 0xad, 0x7d, 0x28, 0x4, 0xf6, 0xad, 0xd3, 0x6e, 0x93, 0xc8, 0xea, 0xbf, 0x31, 0xac, 0x73, 0x85, 0x9d, 0x62, 0x96, 0x4d, 0xcd, 0xb9}}
 	return a, nil
 }
 
@@ -865,6 +886,8 @@ var _bindata = map[string]func() (*asset, error){
 
 	"tips/font.md": tipsFontMd,
 
+	"tips/go-perfbook.md": tipsGoPerfbookMd,
+
 	"tips/magic.md": tipsMagicMd,
 
 	"tips/modules.md": tipsModulesMd,
@@ -957,6 +980,7 @@ var _bintree = &bintree{nil, map[string]*bintree{
 		"effective.md":      &bintree{tipsEffectiveMd, map[string]*bintree{}},
 		"errors.md":         &bintree{tipsErrorsMd, map[string]*bintree{}},
 		"font.md":           &bintree{tipsFontMd, map[string]*bintree{}},
+		"go-perfbook.md":    &bintree{tipsGoPerfbookMd, map[string]*bintree{}},
 		"magic.md":          &bintree{tipsMagicMd, map[string]*bintree{}},
 		"modules.md":        &bintree{tipsModulesMd, map[string]*bintree{}},
 		"proverbs.md":       &bintree{tipsProverbsMd, map[string]*bintree{}},
