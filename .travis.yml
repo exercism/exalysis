@@ -13,5 +13,5 @@ install:
 - go mod download
 
 script:
-- go build .
-- go test -cover ./...
+- go build -o ./exalysis cmd/exalysis/*.go
+- go test -cover -tags=testing ./...
