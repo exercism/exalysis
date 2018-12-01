@@ -14,7 +14,7 @@ import (
 // GolangCILint runs GolangCI-Lint on provided go files and adds suggestions to the response.
 // This runs a lot of linters. Goal is to cover a lot for now. Later individual linters can be run
 // directly and disabled in GolangCI-Linter.
-func GolangCILint(_ *astrav.Folder, r *extypes.Response, pkgName string) bool {
+func GolangCILint(_ *astrav.Folder, _ *extypes.Response, _ string) bool {
 	res, state, err := golangCILint()
 	if err != nil {
 		fmt.Println(aurora.Gray("golangci-lint:\t"), aurora.Brown("SKIPPED"), aurora.Gray("\t(is GolangCI-Lint installed?)"))
