@@ -1,7 +1,10 @@
 // Package raindrops converts ints into onomatopoeia depending on factors of that int.
 package raindrops
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
 // Convert takes an int and returns a string containing either the original int, or a series of sounds based on factors of that int.
 func Convert(n int) string {
@@ -16,7 +19,7 @@ func Convert(n int) string {
 		res = fmt.Sprintf("%sPlong", res)
 	}
 	if len(res) == 0 {
-		res = fmt.Sprintf("%d", n)
+		res = strconv.Itoa(n)
 	}
 
 	return res

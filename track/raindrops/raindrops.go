@@ -1,6 +1,7 @@
 package raindrops
 
 import (
+	"regexp"
 	"strings"
 
 	"github.com/tehsphinx/astrav"
@@ -8,7 +9,7 @@ import (
 	"github.com/tehsphinx/exalysis/track/raindrops/tpl"
 )
 
-//Suggest builds suggestions for the exercise solution
+// Suggest builds suggestions for the exercise solution
 func Suggest(pkg *astrav.Package, r *extypes.Response) {
 	for _, tf := range exFuncs {
 		tf(pkg, r)
@@ -25,6 +26,39 @@ var exFuncs = []extypes.SuggestionFunc{
 	examPlusEqual,
 	examTooManyConcats,
 	examRemoveExtraBool,
+	examFmtPrintf,
+	examFixStrings,
+}
+
+func examFixStrings(pkg *astrav.Package, r *extypes.Response) {
+	lits := pkg.FindByNodeType(astrav.NodeTypeBasicLit)
+	for _, lit := range lits {
+		if lit.ValueType() == nil || lit.ValueType().String() != "string" {
+			continue
+		}
+
+		occs := fmtPrintfRegex.FindAllString(lit.(*astrav.BasicLit).Value, -1)
+		if 1 < len(occs) {
+			r.AppendTodo(tpl.FixStrings)
+		}
+	}
+}
+
+var fmtPrintfRegex = regexp.MustCompile(`Pl.ng`)
+
+func examFmtPrintf(pkg *astrav.Package, r *extypes.Response) {
+	nodes := pkg.FindByName("Sprintf")
+	for _, node := range nodes {
+		lits := node.Parent().FindByNodeType(astrav.NodeTypeBasicLit)
+		for _, lit := range lits {
+			if lit.ValueType().String() != "string" {
+				continue
+			}
+			if fmtPrintfRegex.MatchString(lit.(*astrav.BasicLit).Value) {
+				r.AppendImprovement(tpl.FmtPrint)
+			}
+		}
+	}
 }
 
 func examRemoveExtraBool(pkg *astrav.Package, r *extypes.Response) {

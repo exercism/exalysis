@@ -1,0 +1,1 @@
+- Although this solution passes the tests, it's a little too tightly coupled to the specific cases. If you imagine what changes you'd have to make to add a new case, you can see this code would rapidly become difficult to maintain. Can you find a way to make it more flexible, but still simple? (Hint: you can append to strings using the `+=` operator.)
