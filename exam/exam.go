@@ -13,6 +13,7 @@ type Result struct {
 	GoFmt   bool
 	GoTest  bool
 	GoBench bool
+	GoVet   bool
 }
 
 // All runs all examinations contained in this package and returns the result
@@ -35,5 +36,6 @@ func All(folder *astrav.Folder, r *extypes.Response, pkgName string) (res *Resul
 		GoFmt:   GoFmt(folder, r, pkgName),
 		GoTest:  GoTest(folder, r, pkgName),
 		GoBench: GoBench(folder, r, pkgName),
+		GoVet:   GoVet(folder, r, pkgName),
 	}, err
 }
