@@ -36,8 +36,8 @@ func All(folder *astrav.Folder, r *extypes.Response, pkgName string) (res *Resul
 		GoLint:       GoLint(folder, r, pkgName),
 		GoFmt:        GoFmt(folder, r, pkgName),
 		GoTest:       GoTest(folder, r, pkgName),
-		GoBench:      GoBench(folder, r, pkgName),
 		GoVet:        GoVet(folder, r, pkgName),
 		GolangCILint: GolangCILint(folder, r, pkgName),
+		GoBench:      GoBench(folder, r, pkgName),
 	}, err
 }

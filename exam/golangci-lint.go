@@ -27,13 +27,13 @@ func GolangCILint(_ *astrav.Folder, _ *extypes.Response, _ string) bool {
 		return true
 	}
 
-	fmt.Println(aurora.Gray("v:\t"), aurora.Red("FAIL"))
+	fmt.Println(aurora.Gray("golangci-lint:\t"), aurora.Red("FAIL"))
 	fmt.Println(res)
 	return false
 }
 
 func golangCILint() (string, *os.ProcessState, error) {
-	cmd := exec.Command("golangci-lint", "run", "--disable", "govet,megacheck")
+	cmd := exec.Command("golangci-lint", "run", "--disable", "govet,megacheck", "--skip-files=_test.go$")
 
 	b, err := cmd.CombinedOutput()
 	if err != nil && !strings.HasPrefix(err.Error(), "exit status") {

@@ -44,4 +44,8 @@ func examRegexCompileInFunc(pkg *astrav.Package, r *extypes.Response) {
 	if regComp != nil {
 		r.AppendBlockSuggestion(tpl.RegexToFast)
 	}
+	regComp = pkg.FindFirstByName("MatchString")
+	if regComp != nil {
+		r.AppendBlockSuggestion(tpl.RegexToFast)
+	}
 }

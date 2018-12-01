@@ -21,8 +21,9 @@ var golangCILintTests = []struct {
 }{
 	{path: "./solutions/0", expected: false},
 	{path: "./solutions/1", expected: true, pkgName: "twofer"},
-	{path: "./solutions/2", expected: false, pkgName: "hamming"},
+	{path: "./solutions/2", expected: true, pkgName: "hamming"},
 	{path: "./solutions/3", expected: true},
+	{path: "./solutions/4", expected: false},
 }
 
 func TestGolangCILint(t *testing.T) {
