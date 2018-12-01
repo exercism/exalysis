@@ -35,6 +35,7 @@ var suggestTests = []struct {
 	{path: "./solutions/6", suggestion: tpl.ZeroValueAssign, expected: true},
 	{path: "./solutions/6", suggestion: tpl.IfContinue, expected: false},
 	{path: "./solutions/7", suggestion: tpl.UniversalIsLetter, expected: true},
+	{path: "./solutions/8", suggestion: tpl.TwoLoops, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {

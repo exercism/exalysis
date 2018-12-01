@@ -11,7 +11,7 @@ import (
 	"github.com/tehsphinx/exalysis/track/isogram/tpl"
 )
 
-//Suggest builds suggestions for the exercise solution
+// Suggest builds suggestions for the exercise solution
 func Suggest(pkg *astrav.Package, r *extypes.Response) {
 	addSpeedComment = getAddSpeedComment()
 
@@ -29,6 +29,16 @@ var exFuncs = []extypes.SuggestionFunc{
 	examUniversalIsLetter,
 	examIfContinueIsLetter,
 	examZeroValueAssign,
+	examTwoLoops,
+}
+
+func examTwoLoops(pkg *astrav.Package, r *extypes.Response) {
+	loops := pkg.FindByNodeType(astrav.NodeTypeRangeStmt)
+	loops = append(loops, pkg.FindByNodeType(astrav.NodeTypeForStmt)...)
+
+	if 1 < len(loops) {
+		r.AppendImprovement(tpl.TwoLoops)
+	}
 }
 
 func examZeroValueAssign(pkg *astrav.Package, r *extypes.Response) {
