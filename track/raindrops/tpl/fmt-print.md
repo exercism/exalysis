@@ -1,0 +1,1 @@
+- I see you are using `%s` to concatenate the strings. In this case it would probably make most sense to use the `+=` operator which is also faster.

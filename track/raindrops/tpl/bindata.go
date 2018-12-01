@@ -2,6 +2,8 @@
 // sources:
 // concat-not-needed.md (301B)
 // extensive-for-loop.md (152B)
+// fix-strings.md (354B)
+// fmt-print.md (149B)
 // itoa.md (159B)
 // loop-map.md (497B)
 // many-loops.md (169B)
@@ -91,7 +93,7 @@ func concatNotNeededMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "concat-not-needed.md", size: 301, mode: os.FileMode(420), modTime: time.Unix(1543061558, 0)}
+	info := bindataFileInfo{name: "concat-not-needed.md", size: 301, mode: os.FileMode(420), modTime: time.Unix(1543688235, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x84, 0x34, 0x1d, 0xd7, 0x94, 0x48, 0x3d, 0xcb, 0xc8, 0xd5, 0x26, 0x58, 0x20, 0xf8, 0x89, 0x5b, 0x9e, 0xfd, 0x4, 0x90, 0x36, 0xaa, 0x31, 0x8f, 0xa4, 0xce, 0xb2, 0x4a, 0x74, 0x31, 0xc3, 0xb2}}
 	return a, nil
 }
@@ -111,8 +113,48 @@ func extensiveForLoopMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "extensive-for-loop.md", size: 152, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
+	info := bindataFileInfo{name: "extensive-for-loop.md", size: 152, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x32, 0xd, 0x55, 0xa9, 0x7f, 0xa3, 0x9b, 0xad, 0x3a, 0xc7, 0xad, 0x71, 0x3e, 0x60, 0xed, 0x73, 0x16, 0x66, 0x4e, 0x28, 0xc3, 0x72, 0xb8, 0xcf, 0x62, 0xa0, 0x46, 0xeb, 0x7e, 0xa7, 0x83, 0x47}}
+	return a, nil
+}
+
+var _fixStringsMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x3c\xcf\x41\x4e\x03\x31\x0c\x05\xd0\x3d\xa7\xf8\xbb\x82\x28\x3d\x00\x12\x42\x88\x0d\xdc\xa2\x6e\xe2\x99\x58\x78\xe2\x68\xec\x30\xcc\xed\x51\x53\xa9\xab\x2c\x62\x3f\xff\xff\x82\x0f\x8d\x62\x7d\x2e\x88\x22\x0e\x37\xed\x21\x56\xd1\xc8\x9d\x1d\x51\x18\xc1\x1e\x7e\x84\xc4\xc1\x41\x50\x89\x50\x46\x98\x21\x64\x2e\xa1\x3b\x92\xf5\xa6\x9c\x11\x36\xe6\xbd\x71\x92\x49\x12\x12\x39\xfb\x09\xdf\x13\x76\xeb\x90\x85\x66\xa9\x8c\xad\x50\x20\x15\xaa\x33\xfb\xf5\xe3\x90\x51\xe8\xf7\x2a\x62\xa1\x9f\xf1\x52\xce\x20\x54\xde\x06\x71\x1c\xeb\x89\x2a\x9c\xf9\x16\x33\x59\x66\x6c\xd6\x35\x63\xa5\x26\x59\x77\x5c\x38\xd9\xc2\xc8\x32\x4d\x92\xba\xc6\xcd\x93\x1a\x24\xf5\x84\x4f\xaa\x43\x99\xa4\x5e\xe9\x8d\xf6\xfb\x3d\x09\x2c\xb6\x32\x26\xe5\x3f\xb9\x28\x1f\x71\xe9\x01\x0f\x51\x85\xcb\xd2\x94\xdf\xf1\xf8\x25\x35\x5e\xef\x39\xa8\x35\xae\xa3\xaf\xc7\x2a\x75\x76\x74\x97\x3a\x8f\xf6\xe7\xe7\xb7\x33\xac\xf1\x4a\x61\xeb\xe9\xe9\xe1\x3f\x00\x00\xff\xff\xbe\xa2\xb3\xac\x62\x01\x00\x00")
+
+func fixStringsMdBytes() ([]byte, error) {
+	return bindataRead(
+		_fixStringsMd,
+		"fix-strings.md",
+	)
+}
+
+func fixStringsMd() (*asset, error) {
+	bytes, err := fixStringsMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "fix-strings.md", size: 354, mode: os.FileMode(420), modTime: time.Unix(1543689752, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x37, 0x81, 0xb9, 0x3e, 0x40, 0xf9, 0xd1, 0xfe, 0x53, 0x94, 0xaf, 0x82, 0xc, 0xa9, 0xc6, 0xea, 0xe1, 0x80, 0x55, 0xfe, 0xec, 0x22, 0x4e, 0x89, 0xc, 0x6a, 0x53, 0x6d, 0x80, 0xc2, 0x63, 0x36}}
+	return a, nil
+}
+
+var _fmtPrintMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x24\xcc\xc1\xad\xc2\x30\x10\x04\xd0\xfb\xaf\x62\x2e\xff\x84\x48\x07\x14\x90\x2e\xbc\x31\x43\x6c\x91\x78\x23\xcf\x5a\x51\xba\x47\x88\x06\xde\x1d\x33\x44\xe2\xf2\x01\xeb\xc4\x50\x6d\x2b\xd2\xbf\x12\xc2\x91\xbd\x65\x0b\x36\x0b\x22\x0a\xa1\xe8\xb5\xad\x9a\x30\x37\x44\xa9\x42\x36\x11\x35\x70\xfa\xd8\x9e\x38\xba\x2f\xb6\x6c\x17\x76\x7b\x13\xbb\x2b\x20\x36\xf1\x4b\x0d\xfd\x88\x74\x7b\x24\xf8\xc1\x6e\xe1\x1d\x67\xa9\xb9\xa0\x0a\xb6\xc9\xf1\x32\x05\xfb\xf4\xf7\x09\x00\x00\xff\xff\xbf\x49\x0d\xaa\x95\x00\x00\x00")
+
+func fmtPrintMdBytes() ([]byte, error) {
+	return bindataRead(
+		_fmtPrintMd,
+		"fmt-print.md",
+	)
+}
+
+func fmtPrintMd() (*asset, error) {
+	bytes, err := fmtPrintMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "fmt-print.md", size: 149, mode: os.FileMode(420), modTime: time.Unix(1543688235, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xbe, 0x9e, 0x80, 0xb9, 0xf8, 0x59, 0xab, 0x19, 0x37, 0x20, 0xb1, 0xe0, 0x90, 0xd4, 0x8b, 0xf3, 0xe3, 0x7a, 0x1, 0x24, 0x77, 0xdd, 0x9d, 0x33, 0x81, 0x4d, 0x63, 0xaa, 0xab, 0x18, 0xa7, 0xfb}}
 	return a, nil
 }
 
@@ -131,7 +173,7 @@ func itoaMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "itoa.md", size: 159, mode: os.FileMode(420), modTime: time.Unix(1543061558, 0)}
+	info := bindataFileInfo{name: "itoa.md", size: 159, mode: os.FileMode(420), modTime: time.Unix(1543688235, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xfa, 0x63, 0x11, 0x5, 0x6f, 0xcb, 0xb3, 0x64, 0xd5, 0x7f, 0xcd, 0x8c, 0x0, 0xf3, 0xc9, 0xb0, 0x2e, 0x6a, 0x8c, 0x7b, 0x40, 0x73, 0x79, 0x2d, 0x99, 0xa2, 0xd8, 0x0, 0x36, 0x63, 0xe, 0x37}}
 	return a, nil
 }
@@ -151,7 +193,7 @@ func loopMapMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "loop-map.md", size: 497, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
+	info := bindataFileInfo{name: "loop-map.md", size: 497, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xf2, 0x87, 0x94, 0x54, 0x8d, 0xa8, 0xe7, 0xe2, 0x3d, 0xa2, 0x66, 0x67, 0x26, 0xac, 0x48, 0x5c, 0xa2, 0xca, 0xa2, 0x2, 0x2e, 0x81, 0x21, 0xbb, 0x6d, 0xe5, 0x60, 0xe, 0x79, 0xc2, 0x5a, 0xf6}}
 	return a, nil
 }
@@ -171,7 +213,7 @@ func manyLoopsMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "many-loops.md", size: 169, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
+	info := bindataFileInfo{name: "many-loops.md", size: 169, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x4, 0x10, 0x8a, 0x1d, 0x48, 0xb3, 0xce, 0xb3, 0xc1, 0x8f, 0x9b, 0xed, 0x8e, 0x3, 0x75, 0x69, 0x58, 0x13, 0xac, 0x82, 0x96, 0x62, 0xeb, 0xa2, 0x35, 0x19, 0x5d, 0x9f, 0xc8, 0xf6, 0x95, 0x13}}
 	return a, nil
 }
@@ -191,7 +233,7 @@ func plusEqualMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "plus-equal.md", size: 91, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
+	info := bindataFileInfo{name: "plus-equal.md", size: 91, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xff, 0x6e, 0xa5, 0xab, 0x70, 0x97, 0x6b, 0xc5, 0xd2, 0x61, 0x97, 0x1a, 0x5d, 0x5d, 0x50, 0x84, 0x27, 0x76, 0x9f, 0x3b, 0x34, 0xc2, 0x74, 0xd0, 0x46, 0x5a, 0x6c, 0xc7, 0xba, 0x97, 0xf6, 0xd8}}
 	return a, nil
 }
@@ -211,7 +253,7 @@ func removeExtraBoolMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "remove-extra-bool.md", size: 171, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
+	info := bindataFileInfo{name: "remove-extra-bool.md", size: 171, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xe8, 0x1c, 0x71, 0x70, 0xc8, 0x67, 0xc2, 0xd2, 0x2e, 0x79, 0x8e, 0x5a, 0x35, 0x95, 0xe8, 0x2b, 0x9b, 0xe2, 0x3f, 0xa4, 0x1c, 0xed, 0x23, 0xdc, 0x6e, 0x77, 0x9b, 0xc, 0xf6, 0x14, 0xa6, 0xce}}
 	return a, nil
 }
@@ -231,7 +273,7 @@ func stringsBuilderMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "strings-builder.md", size: 256, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
+	info := bindataFileInfo{name: "strings-builder.md", size: 256, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xd, 0xe9, 0x7c, 0xc6, 0xa0, 0xd4, 0xa4, 0x64, 0x66, 0x63, 0xd8, 0xa5, 0xa1, 0x63, 0x38, 0x6e, 0xc, 0xee, 0x15, 0xc9, 0x73, 0x77, 0xc9, 0xca, 0x1, 0xfd, 0x8a, 0xb3, 0x6, 0xf5, 0xfc, 0x2d}}
 	return a, nil
 }
@@ -331,6 +373,10 @@ var _bindata = map[string]func() (*asset, error){
 
 	"extensive-for-loop.md": extensiveForLoopMd,
 
+	"fix-strings.md": fixStringsMd,
+
+	"fmt-print.md": fmtPrintMd,
+
 	"itoa.md": itoaMd,
 
 	"loop-map.md": loopMapMd,
@@ -387,6 +433,8 @@ type bintree struct {
 var _bintree = &bintree{nil, map[string]*bintree{
 	"concat-not-needed.md":  &bintree{concatNotNeededMd, map[string]*bintree{}},
 	"extensive-for-loop.md": &bintree{extensiveForLoopMd, map[string]*bintree{}},
+	"fix-strings.md":        &bintree{fixStringsMd, map[string]*bintree{}},
+	"fmt-print.md":          &bintree{fmtPrintMd, map[string]*bintree{}},
 	"itoa.md":               &bintree{itoaMd, map[string]*bintree{}},
 	"loop-map.md":           &bintree{loopMapMd, map[string]*bintree{}},
 	"many-loops.md":         &bintree{manyLoopsMd, map[string]*bintree{}},
