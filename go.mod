@@ -9,7 +9,7 @@ require (
 	github.com/tehsphinx/astrav v0.0.0-20181118094509-a26c3f08c485
 	github.com/tehsphinx/clipboard v0.1.3
 	golang.org/x/lint v0.0.0-20181026193005-c67002cb31c3
-	golang.org/x/tools v0.0.0-20180910180008-18207bb12d3a // indirect
+	golang.org/x/tools v0.0.0-20181201035826-d0ca3933b724 // indirect
 )
 
 replace golang.org/x/lint => github.com/golang/lint v0.0.0-20180702182130-06c8688daad7
