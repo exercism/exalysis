@@ -11,6 +11,7 @@ git:
 install:
 - export GO111MODULE=on
 - go mod download
+- go install github.com/golangci/golangci-lint/cmd/golangci-lint
 
 script:
 - go build -o ./exalysis cmd/exalysis/*.go
