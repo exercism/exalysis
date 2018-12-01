@@ -19,6 +19,7 @@ var suggestTests = []struct {
 	{path: "./solutions/1", suggestion: tpl.ManyLoops, expected: true},
 	{path: "./solutions/1", suggestion: tpl.ConcatNotNeeded, expected: false},
 	{path: "./solutions/1", suggestion: tpl.RemoveExtraBool, expected: false},
+	{path: "./solutions/1", suggestion: tpl.FixStrings, expected: false},
 	{path: "./solutions/2", suggestion: tpl.ConcatNotNeeded, expected: true},
 	{path: "./solutions/2", suggestion: tpl.RemoveExtraBool, expected: false},
 	{path: "./solutions/3", suggestion: tpl.StringsBuilder, expected: true},
@@ -26,8 +27,11 @@ var suggestTests = []struct {
 	{path: "./solutions/3", suggestion: tpl.RemoveExtraBool, expected: false},
 	{path: "./solutions/4", suggestion: tpl.PlusEqual, expected: true},
 	{path: "./solutions/4", suggestion: tpl.RemoveExtraBool, expected: false},
+	{path: "./solutions/4", suggestion: tpl.FmtPrint, expected: false},
 	{path: "./solutions/5", suggestion: tpl.Itoa, expected: true},
 	{path: "./solutions/5", suggestion: tpl.RemoveExtraBool, expected: false},
+	{path: "./solutions/5", suggestion: tpl.FmtPrint, expected: false},
+	{path: "./solutions/5", suggestion: tpl.FixStrings, expected: false},
 	{path: "./solutions/6", suggestion: tpl.ExtensiveFor, expected: true},
 	{path: "./solutions/6", suggestion: tpl.PlusEqual, expected: true},
 	{path: "./solutions/6", suggestion: tpl.RemoveExtraBool, expected: false},
@@ -42,6 +46,8 @@ var suggestTests = []struct {
 	{path: "./solutions/12", suggestion: tpl.RemoveExtraBool, expected: true},
 	{path: "./solutions/13", suggestion: tpl.RemoveExtraBool, expected: true},
 	{path: "./solutions/14", suggestion: tpl.FmtPrint, expected: true},
+	{path: "./solutions/14", suggestion: tpl.Itoa, expected: false},
+	{path: "./solutions/15", suggestion: tpl.FixStrings, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {
