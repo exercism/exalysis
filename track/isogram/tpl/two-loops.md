@@ -1,0 +1,1 @@
+- You are comparing every letter in the string with every other letter. That is expensive. Can you think of a way to do this with just one loop?
