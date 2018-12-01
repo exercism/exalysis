@@ -4,7 +4,7 @@ package tpl
 
 import "github.com/tehsphinx/exalysis/gtpl"
 
-//Templates to be used in the response of suggester
+// Templates to be used in the response of suggester
 var (
 	ErrorMessageFormat = gtpl.NewStringTemplate("error-message-format.md", MustAsset)
 	RuneToByte         = gtpl.NewStringTemplate("rune-to-byte.md", MustAsset)
@@ -13,4 +13,5 @@ var (
 	DeclareNeeded      = gtpl.NewFormatTemplate("declare-when-needed.md", MustAsset)
 	InvertIf           = gtpl.NewStringTemplate("invert-if.md", MustAsset)
 	NoErrMsg           = gtpl.NewStringTemplate("no-error-msg.md", MustAsset)
+	ReturnZeroValue    = gtpl.NewStringTemplate("return-zero-value.md", MustAsset)
 )
