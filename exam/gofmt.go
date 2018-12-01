@@ -12,7 +12,7 @@ import (
 	"github.com/tehsphinx/exalysis/gtpl"
 )
 
-//GoFmt runs gofmt on provided go files and adds suggestions to the response
+// GoFmt runs gofmt on provided go files and adds suggestions to the response
 func GoFmt(folder *astrav.Folder, r *extypes.Response, pkgName string) bool {
 	files := folder.GetRawFiles()
 

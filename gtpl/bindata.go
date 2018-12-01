@@ -30,6 +30,7 @@
 // tools/not_formatted.md (435B)
 // tools/not_linted.md (523B)
 // tools/pass_tests.md (497B)
+// tools/race_condition.md (497B)
 // topic/benchmarking.md (1.635kB)
 // topic/pprof-allocations.md (1.9kB)
 // topic/regex.md (1.209kB)
@@ -696,7 +697,27 @@ func toolsPass_testsMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tools/pass_tests.md", size: 497, mode: os.FileMode(420), modTime: time.Unix(1543061558, 0)}
+	info := bindataFileInfo{name: "tools/pass_tests.md", size: 497, mode: os.FileMode(420), modTime: time.Unix(1543000598, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xe2, 0xe1, 0xfb, 0x58, 0x97, 0x9d, 0xf6, 0x8f, 0x28, 0x7c, 0x49, 0xbc, 0xaa, 0x8e, 0xdb, 0xd5, 0x51, 0xb3, 0x40, 0xb, 0xcc, 0x46, 0x87, 0xb5, 0xda, 0xf7, 0x34, 0xa3, 0x26, 0xc8, 0xff, 0x9b}}
+	return a, nil
+}
+
+var _toolsRace_conditionMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x54\x91\x31\x92\xdb\x30\x0c\x45\x7b\x9d\xe2\x77\x6e\x14\x1d\x20\xcd\x36\x69\xb6\x4a\x93\x14\x29\x61\x11\x0c\x39\xa6\x00\x0f\x00\x59\xd1\xed\x33\xa2\x3c\x76\xd2\x02\xe0\x7f\x0f\xe0\x17\xfc\x94\xac\x16\xab\x50\x70\xdb\x47\x44\xa9\x0e\xd7\xb6\x46\x55\x41\x52\x76\x88\x06\xee\xe4\x8e\x28\x8c\x60\x0f\x9f\xf0\xad\x26\xec\xba\xc2\x56\x79\x97\x3f\xf0\xdd\x90\x9e\x1d\x9a\xe7\x9a\x58\x82\x5a\xdb\xe1\xeb\x75\xa9\x01\x12\x54\x99\x75\xb9\x37\x0e\x7e\x51\x3e\x86\xcf\x7c\x3e\x31\xee\x30\x5f\x8d\x51\x74\x43\xe8\x31\xf4\xe0\xd3\x8a\xff\xb0\xcd\xd5\x79\x44\x66\x6e\xc8\xc6\x7c\x4c\x90\xdf\xb0\x30\xb2\x1a\x4a\x95\xf0\x69\x18\x00\xe0\x33\xbf\xc5\xba\x3e\x27\x6c\x85\xa5\x93\x4e\x9f\xe0\xf4\xff\xbe\x63\x6f\x2e\xb4\xa3\xd0\x83\xb1\x15\x8a\x8b\xe3\x26\xba\x09\xc8\x41\xb8\xe4\x56\xe7\x1b\x5b\x95\xdf\x3d\xf9\xf2\x15\x2a\x87\x1e\x9d\x27\xe2\x23\x6b\xe1\xa8\x0b\xfb\x08\x92\x84\x4c\xb5\x39\x34\x0a\x1b\x7a\x79\xc2\x0f\xdb\x8f\xbb\x49\x0f\x79\x29\xc6\xa6\x50\x43\x94\xbe\xd6\x31\x89\x2a\x20\x98\x6e\x3d\xc8\x99\x51\x73\xc7\xf5\xcc\x09\xbf\xfe\x75\x25\x18\xcd\x8c\x59\x25\xd5\xfe\x75\x6a\x5d\xe5\x89\xbe\x9b\x5e\x1b\x2f\xd3\xf0\x37\x00\x00\xff\xff\x80\xe3\x5d\x8b\xf1\x01\x00\x00")
+
+func toolsRace_conditionMdBytes() ([]byte, error) {
+	return bindataRead(
+		_toolsRace_conditionMd,
+		"tools/race_condition.md",
+	)
+}
+
+func toolsRace_conditionMd() (*asset, error) {
+	bytes, err := toolsRace_conditionMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tools/race_condition.md", size: 497, mode: os.FileMode(420), modTime: time.Unix(1543000598, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xe2, 0xe1, 0xfb, 0x58, 0x97, 0x9d, 0xf6, 0x8f, 0x28, 0x7c, 0x49, 0xbc, 0xaa, 0x8e, 0xdb, 0xd5, 0x51, 0xb3, 0x40, 0xb, 0xcc, 0x46, 0x87, 0xb5, 0xda, 0xf7, 0x34, 0xa3, 0x26, 0xc8, 0xff, 0x9b}}
 	return a, nil
 }
@@ -912,6 +933,8 @@ var _bindata = map[string]func() (*asset, error){
 
 	"tools/pass_tests.md": toolsPass_testsMd,
 
+	"tools/race_condition.md": toolsRace_conditionMd,
+
 	"topic/benchmarking.md": topicBenchmarkingMd,
 
 	"topic/pprof-allocations.md": topicPprofAllocationsMd,
@@ -991,10 +1014,11 @@ var _bintree = &bintree{nil, map[string]*bintree{
 		"tour.md":           &bintree{tipsTourMd, map[string]*bintree{}},
 	}},
 	"tools": &bintree{nil, map[string]*bintree{
-		"compile.md":       &bintree{toolsCompileMd, map[string]*bintree{}},
-		"not_formatted.md": &bintree{toolsNot_formattedMd, map[string]*bintree{}},
-		"not_linted.md":    &bintree{toolsNot_lintedMd, map[string]*bintree{}},
-		"pass_tests.md":    &bintree{toolsPass_testsMd, map[string]*bintree{}},
+		"compile.md":        &bintree{toolsCompileMd, map[string]*bintree{}},
+		"not_formatted.md":  &bintree{toolsNot_formattedMd, map[string]*bintree{}},
+		"not_linted.md":     &bintree{toolsNot_lintedMd, map[string]*bintree{}},
+		"pass_tests.md":     &bintree{toolsPass_testsMd, map[string]*bintree{}},
+		"race_condition.md": &bintree{toolsRace_conditionMd, map[string]*bintree{}},
 	}},
 	"topic": &bintree{nil, map[string]*bintree{
 		"benchmarking.md":      &bintree{topicBenchmarkingMd, map[string]*bintree{}},
