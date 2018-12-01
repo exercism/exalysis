@@ -27,6 +27,7 @@ var suggestTests = []struct {
 	{path: "./solutions/5", suggestion: tpl.RegexToFast, expected: true},
 	{path: "./solutions/6", suggestion: tpl.OneLoop, expected: false},
 	{path: "./solutions/6", suggestion: tpl.RegexToFast, expected: false},
+	{path: "./solutions/7", suggestion: tpl.RegexToFast, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {
