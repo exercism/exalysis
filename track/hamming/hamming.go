@@ -9,7 +9,7 @@ import (
 	"github.com/tehsphinx/exalysis/track/hamming/tpl"
 )
 
-//Suggest builds suggestions for the exercise solution
+// Suggest builds suggestions for the exercise solution
 func Suggest(pkg *astrav.Package, r *extypes.Response) {
 	addErrorMsgFormat = getAddErrorMsgFormat()
 
@@ -26,6 +26,30 @@ var exFuncs = []extypes.SuggestionFunc{
 	examIncrease,
 	examErrorMessage,
 	examDeclareWhenNeeded,
+	examReturnZeroValue,
+}
+
+func examReturnZeroValue(pkg *astrav.Package, r *extypes.Response) {
+	returns := pkg.FindByNodeType(astrav.NodeTypeReturnStmt)
+	for _, ret := range returns {
+		if ret.Children()[1].ValueType().String() != "error" {
+			continue
+		}
+		switch node := ret.Children()[0].(type) {
+		case *astrav.BasicLit:
+			if node.Value != "0" {
+				r.AppendComment(tpl.ReturnZeroValue)
+			}
+		case *astrav.UnaryExpr:
+			lit := node.FindFirstByNodeType(astrav.NodeTypeBasicLit)
+			if lit == nil {
+				continue
+			}
+			if lit.(*astrav.BasicLit).Value != "0" {
+				r.AppendComment(tpl.ReturnZeroValue)
+			}
+		}
+	}
 }
 
 func examNoErrorMsg(pkg *astrav.Package, r *extypes.Response) {
