@@ -6,6 +6,7 @@
 // mustcompile.md (168B)
 // nonexisting-map-value.md (363B)
 // regex-in-func.md (306B)
+// two-loops.md (145B)
 // unicode-loop.md (103B)
 // unicode.md (127B)
 // universal-isletter.md (99B)
@@ -193,8 +194,28 @@ func regexInFuncMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "regex-in-func.md", size: 306, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
+	info := bindataFileInfo{name: "regex-in-func.md", size: 306, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x10, 0x2d, 0x3a, 0xb5, 0xec, 0x9c, 0x27, 0xe3, 0x9b, 0x18, 0xc4, 0xb4, 0xc5, 0xc1, 0xc8, 0xe5, 0x60, 0xc3, 0x82, 0xe7, 0x4f, 0x21, 0x7f, 0x3c, 0xd0, 0x3d, 0xcf, 0x3, 0x6d, 0xc2, 0xe4, 0xa9}}
+	return a, nil
+}
+
+var _twoLoopsMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x2c\xcc\xb1\x11\xc2\x40\x0c\x44\xd1\x9c\x2a\xb6\x01\xdc\x02\x01\x2d\x90\x10\x6a\x60\xe1\x04\x46\xba\x39\xe9\x6c\xae\x7b\x06\x70\xba\x6f\xe7\xef\x71\xf6\x0e\x69\xc4\xc5\x5f\x55\x9a\xda\x1d\x5c\xd8\x06\x66\x66\xb2\x41\x0d\x59\x88\xc8\x1f\xad\x9a\x65\x73\xcf\xc2\xb6\xbd\x26\x9c\x8a\x24\x34\xc0\x77\xa5\x85\x2e\x9c\x70\x14\xc3\xf0\x8e\x2c\x6a\x4f\xf8\x0d\x82\x55\x06\xd2\x71\xf5\xef\x18\xff\xda\xa3\x47\xc2\x8d\x98\xdd\xeb\x61\xf7\x09\x00\x00\xff\xff\x01\xf2\x6f\xcb\x91\x00\x00\x00")
+
+func twoLoopsMdBytes() ([]byte, error) {
+	return bindataRead(
+		_twoLoopsMd,
+		"two-loops.md",
+	)
+}
+
+func twoLoopsMd() (*asset, error) {
+	bytes, err := twoLoopsMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "two-loops.md", size: 145, mode: os.FileMode(420), modTime: time.Unix(1542563342, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xd1, 0x29, 0x9f, 0x49, 0x9b, 0x59, 0x43, 0x42, 0xbe, 0x36, 0xa7, 0xf6, 0xc0, 0xa8, 0x8e, 0x78, 0x17, 0xbe, 0x45, 0x3c, 0xdf, 0xcf, 0xa3, 0xcb, 0xcd, 0x12, 0x5e, 0xab, 0x8f, 0xbe, 0x9b, 0xc9}}
 	return a, nil
 }
 
@@ -381,6 +402,8 @@ var _bindata = map[string]func() (*asset, error){
 
 	"regex-in-func.md": regexInFuncMd,
 
+	"two-loops.md": twoLoopsMd,
+
 	"unicode-loop.md": unicodeLoopMd,
 
 	"unicode.md": unicodeMd,
@@ -437,6 +460,7 @@ var _bintree = &bintree{nil, map[string]*bintree{
 	"mustcompile.md":           &bintree{mustcompileMd, map[string]*bintree{}},
 	"nonexisting-map-value.md": &bintree{nonexistingMapValueMd, map[string]*bintree{}},
 	"regex-in-func.md":         &bintree{regexInFuncMd, map[string]*bintree{}},
+	"two-loops.md":             &bintree{twoLoopsMd, map[string]*bintree{}},
 	"unicode-loop.md":          &bintree{unicodeLoopMd, map[string]*bintree{}},
 	"unicode.md":               &bintree{unicodeMd, map[string]*bintree{}},
 	"universal-isletter.md":    &bintree{universalIsletterMd, map[string]*bintree{}},

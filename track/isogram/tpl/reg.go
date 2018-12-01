@@ -4,7 +4,7 @@ package tpl
 
 import "github.com/tehsphinx/exalysis/gtpl"
 
-//Templates to be used in the response of suggester
+// Templates to be used in the response of suggester
 var (
 	Unicode             = gtpl.NewFormatTemplate("unicode.md", MustAsset)
 	UnicodeLoop         = gtpl.NewFormatTemplate("unicode-loop.md", MustAsset)
@@ -16,4 +16,5 @@ var (
 	IfContinue          = gtpl.NewStringTemplate("if-continue.md", MustAsset)
 	UniversalIsLetter   = gtpl.NewStringTemplate("universal-isletter.md", MustAsset)
 	ZeroValueAssign     = gtpl.NewStringTemplate("zero-value-assign.md", MustAsset)
+	TwoLoops            = gtpl.NewStringTemplate("two-loops.md", MustAsset)
 )
