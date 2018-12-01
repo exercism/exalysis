@@ -7,14 +7,15 @@ import (
 	"github.com/tehsphinx/exalysis/extypes"
 )
 
-//Result contains the result if running all examinations
+// Result contains the result if running all examinations
 type Result struct {
-	GoLint bool
-	GoFmt  bool
-	GoTest bool
+	GoLint  bool
+	GoFmt   bool
+	GoTest  bool
+	GoBench bool
 }
 
-//All runs all examinations contained in this package and returns the result
+// All runs all examinations contained in this package and returns the result
 func All(folder *astrav.Folder, r *extypes.Response, pkgName string) (res *Result, err error) {
 	dir, err := os.Getwd()
 	if err != nil {
@@ -30,8 +31,9 @@ func All(folder *astrav.Folder, r *extypes.Response, pkgName string) (res *Resul
 	}()
 
 	return &Result{
-		GoLint: GoLint(folder, r, pkgName),
-		GoFmt:  GoFmt(folder, r, pkgName),
-		GoTest: GoTest(folder, r, pkgName),
+		GoLint:  GoLint(folder, r, pkgName),
+		GoFmt:   GoFmt(folder, r, pkgName),
+		GoTest:  GoTest(folder, r, pkgName),
+		GoBench: GoBench(folder, r, pkgName),
 	}, err
 }

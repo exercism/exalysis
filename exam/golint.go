@@ -12,11 +12,11 @@ import (
 )
 
 var (
-	//LintMinConfidence sets the min confidence for linting
+	// LintMinConfidence sets the min confidence for linting
 	LintMinConfidence float64
 )
 
-//GoLint runs golint on provided go files and adds suggestions to the response
+// GoLint runs golint on provided go files and adds suggestions to the response
 func GoLint(folder *astrav.Folder, r *extypes.Response, pkgName string) bool {
 	files := folder.GetRawFiles()
 	resLint := lintCode(files)
