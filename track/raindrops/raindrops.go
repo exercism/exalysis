@@ -27,10 +27,10 @@ var exFuncs = []extypes.SuggestionFunc{
 	examTooManyConcats,
 	examRemoveExtraBool,
 	examFmtPrintf,
-	examFixStrings,
+	examAllCases,
 }
 
-func examFixStrings(pkg *astrav.Package, r *extypes.Response) {
+func examAllCases(pkg *astrav.Package, r *extypes.Response) {
 	lits := pkg.FindByNodeType(astrav.NodeTypeBasicLit)
 	for _, lit := range lits {
 		if lit.ValueType() == nil || lit.ValueType().String() != "string" {
@@ -39,8 +39,14 @@ func examFixStrings(pkg *astrav.Package, r *extypes.Response) {
 
 		occs := fmtPrintfRegex.FindAllString(lit.(*astrav.BasicLit).Value, -1)
 		if 1 < len(occs) {
-			r.AppendTodo(tpl.FixStrings)
+			r.AppendTodo(tpl.AllCases)
+			return
 		}
+	}
+
+	rets := pkg.FindByNodeType(astrav.NodeTypeReturnStmt)
+	if 6 < len(rets) {
+		r.AppendTodo(tpl.AllCases)
 	}
 }
 
