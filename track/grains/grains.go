@@ -6,7 +6,7 @@ import (
 	"github.com/tehsphinx/exalysis/track/twofer/tpl"
 )
 
-//Suggest builds suggestions for the exercise solution
+// Suggest builds suggestions for the exercise solution
 func Suggest(pkg *astrav.Package, r *extypes.Response) {
 	for _, tf := range exFuncs {
 		tf(pkg, r)
