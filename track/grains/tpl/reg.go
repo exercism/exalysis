@@ -4,7 +4,7 @@ package tpl
 
 import "github.com/tehsphinx/exalysis/gtpl"
 
-//Templates to be used in the response of suggester
+// Templates to be used in the response of suggester
 var (
 	BitsRotate64    = gtpl.NewStringTemplate("bits-rotate64.md", MustAsset)
 	BitsRotate      = gtpl.NewStringTemplate("bits-rotate.md", MustAsset)
