@@ -61,7 +61,7 @@ func examFmtPrintf(pkg *astrav.Package, r *extypes.Response) {
 				continue
 			}
 			if fmtPrintfRegex.MatchString(lit.(*astrav.BasicLit).Value) {
-				r.AppendImprovement(tpl.FmtPrint)
+				r.AppendImprovement(tpl.FmtPrint.Format("fmt.Sprintf"))
 			}
 		}
 	}

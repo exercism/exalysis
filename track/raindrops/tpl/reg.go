@@ -15,5 +15,5 @@ var (
 	LoopMap         = gtpl.NewStringTemplate("loop-map.md", MustAsset)
 	RemoveExtraBool = gtpl.NewFormatTemplate("remove-extra-bool.md", MustAsset)
 	FmtPrint        = gtpl.NewFormatTemplate("fmt-print.md", MustAsset)
-	AllCases        = gtpl.NewFormatTemplate("fix-strings.md", MustAsset)
+	AllCases        = gtpl.NewStringTemplate("fix-strings.md", MustAsset)
 )
