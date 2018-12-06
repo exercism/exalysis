@@ -5,6 +5,7 @@ import (
 	"log"
 	"math/rand"
 	"time"
+	"path"
 
 	"github.com/logrusorgru/aurora"
 	"github.com/tehsphinx/astrav"
@@ -31,9 +32,9 @@ var exercisePkgs = map[string]extypes.SuggestionFunc{
 }
 
 //GetSuggestions selects the package suggestion routine and returns the suggestions
-func GetSuggestions(path string) (string, string) {
+func GetSuggestions(codePath string) (string, string) {
 	var r = extypes.NewResponse()
-	folder := astrav.NewFolder(path)
+	folder := astrav.NewFolder(codePath)
 	_, err := folder.ParseFolder()
 	if err != nil {
 		addGreeting(r, "", "there")
@@ -43,13 +44,15 @@ func GetSuggestions(path string) (string, string) {
 
 	var pkgName string
 	pkg, suggFunc := getExercisePkg(folder)
-	if suggFunc == nil {
-		fmt.Println(aurora.Red("Current folder does not contain a known exercism solution!"))
-		fmt.Println(aurora.Gray("Running general code checks:"))
+	var msg string
+	if pkg == nil {
+		pkgName = path.Base(codePath)
+		msg = "I don't have any specific knowledge on the %q exercise, but I'll still run my general code checks on it:"
 	} else {
 		pkgName = pkg.Name
-		fmt.Println(aurora.Sprintf(aurora.Gray("Exercism package found: %s"), aurora.Green(pkgName)))
+		msg = "I know the %q exercise, so I'll try to make some specific suggestions about it, as well as the general code checks:"
 	}
+	fmt.Println(aurora.Sprintf(aurora.Gray(msg), aurora.Green(pkgName)))
 
 	addGreeting(r, pkgName, folder.StudentName())
 	examRes, err := exam.All(folder, r, pkgName)
