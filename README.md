@@ -62,6 +62,18 @@ exalysis
 - Outputs a complete answer ready to be pasted into Exercism. The answer is already in the clipboard when the tool finishes.
 - Provides a suggestion to the mentor whether to approve or not.
 
+## Tools
+
+Exalysis runs the following tools on each solution:
+
+- `golint`
+- `gofmt`
+- `go test`
+- `go test -race` (for exercises involving concurrency)
+- `go vet`
+- `golangci-lint`
+- `go test -bench` (when run with the `-bench` flag)
+
 ## My Typical Workflow
 
 1. Start exalysis in `-watch` mode.

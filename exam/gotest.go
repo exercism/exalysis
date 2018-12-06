@@ -60,28 +60,28 @@ func test() (string, *os.ProcessState) {
 
 func goTestRace(r *extypes.Response, pkgName string) bool {
 	if skipRace(pkgName) {
-		fmt.Println(aurora.Gray("go test --race:\t"), aurora.Brown("SKIPPED"))
+		fmt.Println(aurora.Gray("go test -race:\t"), aurora.Brown("SKIPPED"))
 		return true
 	}
 	res, state := testRace()
 
 	if state.Success() {
-		fmt.Println(aurora.Gray("go test --race:\t"), aurora.Green("OK"))
+		fmt.Println(aurora.Gray("go test -race:\t"), aurora.Green("OK"))
 		return true
 	}
 
-	fmt.Println(aurora.Gray("go test --race:\t"), aurora.Red("FAIL"))
+	fmt.Println(aurora.Gray("go test -race:\t"), aurora.Red("FAIL"))
 	fmt.Println(res)
 	r.AppendTodo(gtpl.RaceCondition)
 	return false
 }
 
 func testRace() (string, *os.ProcessState) {
-	cmd := exec.Command("go", "test", "--race")
+	cmd := exec.Command("go", "test", "-race")
 
 	b, err := cmd.CombinedOutput()
 	if err != nil {
-		log.Println("error running go test --race: ", err)
+		log.Println("error running go test -race: ", err)
 	}
 
 	return string(b), cmd.ProcessState
