@@ -16,7 +16,7 @@ Your solution with multiple loops is readable and totally fine. If you want to a
 
 At this point things should work again and be many times faster!
 
-- One last thing: We can replace `!unicode.IsDigit(r)` with `r < '0' || '9' < r` and we get another doubling of speed.
+- One last thing: We can replace `!unicode.IsDigit(r)` with `r < '0' || r > '9'` and we get another increase in speed. (However, calling `unicode.IsDigit` makes it slightly clearer what's going on. Usually, readability is more important than speed.)
 
   Note: with this step we can drop the conversion to `rune`. It works the same with `byte`.
 
