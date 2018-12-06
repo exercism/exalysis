@@ -85,7 +85,7 @@ func addGreeting(r *extypes.Response, pkg, student string) {
 }
 
 func addTip(r *extypes.Response) {
-	if r.LenImprovements() < 3 {
+	if r.LenSuggestions() < 3 {
 		rand.Seed(time.Now().UnixNano())
 		t := rand.Intn(len(gtpl.Tips))
 		r.AppendTip(gtpl.Tips[t])
