@@ -156,7 +156,7 @@ func (s *Response) praise() gtpl.Template {
 	)
 	switch {
 	case l == 0:
-		adj = "perfect! Great job"
+		adj = "excellent! Great job"
 	case l < 3:
 		adj = "very good"
 	case l < 6:
