@@ -54,5 +54,5 @@ func TestTip(t *testing.T) {
 	if err != nil {
 		t.Fatalf("%s: %s", err, output)
 	}
-	assert.Regexp(t, "may interest you", string(output))
+	assert.Regexp(t, "might find interesting", string(output))
 }
