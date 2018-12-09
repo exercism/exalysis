@@ -1,0 +1,1 @@
+- The [Unofficial Go FAQ](https://go101.org/article/unofficial-faq.html) is a great collection of questions and answers about Go, some of which are not found in the official documentation. It's well worth reading and keeping the link handy!

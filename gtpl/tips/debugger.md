@@ -1,0 +1,1 @@
+- At some point in your Go journey you'll find yourself needing to use a debugger. But what is a debugger and how does it work? Liz Rice's talk [A Debugger From Scratch](https://www.youtube.com/watch?v=ZrpkrMKYvqQ) walks you through the process of writing one in Go!

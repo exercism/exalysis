@@ -1,0 +1,1 @@
+- Go didn't just spring into existence; it descends from a long history of computer languages and concepts. Steve Francia's talk [Go: building on the shoulders of giants](https://www.youtube.com/watch?v=sX8r6zATHGU) outlines the history of Go, the people behind it, and the design decisions which make it what it is.

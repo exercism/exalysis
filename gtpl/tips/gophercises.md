@@ -1,0 +1,1 @@
+- If you're ready for a more challenging collection of exercises to solve in Go, [Gophercises](https://gophercises.com/) is a great resource. You can choose from a selection of interesting and varied projects, from a simple URL shortener to an AI bot for playing blackjack!

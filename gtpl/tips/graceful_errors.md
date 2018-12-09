@@ -1,0 +1,1 @@
+- [Don't Just Check Errors, Handle Them Gracefully](https://www.youtube.com/watch?v=lsBF58Q-DnY) is a fascinating talk by Dave Cheney about errors in Go, what to do with them, and how to make your errors more useful.

@@ -1,0 +1,1 @@
+- If you can't attend a local Go meetup (or even if you can), watching video talks online is a great way to learn about Go and be inspired. [GopherVids](http://gophervids.appspot.com/) is a search engine for Go talks which lets you search by speaker, title, or topic. Try it!
