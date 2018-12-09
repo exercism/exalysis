@@ -1,0 +1,1 @@
+- The official [Go blog](https://blog.golang.org) is full of fascinating and useful essays on features of Go. [Arrays, slices (and strings): The mechanics of 'append'](https://blog.golang.org/slices) is a particularly good one, explaining how arrays and slices work in Go, and how `append()` is implemented.

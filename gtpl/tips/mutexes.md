@@ -1,0 +1,1 @@
+- Channels are an incredibly powerful concept in concurrent programming, but they aren't the answer to everything. Sometimes you need to use a mutex, and [Dancing with Go's Mutexes](https://hackernoon.com/dancing-with-go-s-mutexes-92407ae927bf) is a great introduction to how to use mutexes, and when to choose them over channels.

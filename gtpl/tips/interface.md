@@ -1,0 +1,1 @@
+- Interfaces are one of the most powerful, useful, and unique features of Go. When you understand interfaces, you understand Go. Francesc Campoy gave a great talk at GopherChina 2017 called [Understanding the Interface](https://www.youtube.com/watch?v=F4wUrj6pmSI). Enjoy!

@@ -1,0 +1,1 @@
+- Go is fast and efficient, but at some point you'll probably encounter a performance bottleneck in your code. How can you find and fix problems like this? [Profiling Go](https://www.integralist.co.uk/posts/profiling-go/) explains some techniques and tools for profiling Go code and figuring out what's going on.

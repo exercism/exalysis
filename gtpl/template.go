@@ -1,6 +1,9 @@
 package gtpl
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 //Template defines a snippet template
 type Template interface {
@@ -14,6 +17,19 @@ func NewStringTemplate(id string, assetFunc func(string) []byte) StringTemplate 
 		id:      id,
 		content: string(assetFunc(id)),
 	}
+}
+
+//NewStringTemplateSlice returns a slice of templates generated from all assets
+//matching a given prefix (for example "tips/" to get all tips).
+func NewStringTemplateSlice(prefix string, assetFunc func(string) []byte) []StringTemplate {
+	var tpls = []StringTemplate{}
+	for _, n := range AssetNames() {
+		if !strings.HasPrefix(n, prefix) {
+			continue
+		}
+		tpls = append(tpls, NewStringTemplate(n, assetFunc))
+	}
+	return tpls
 }
 
 //StringTemplate is the standard template implementation

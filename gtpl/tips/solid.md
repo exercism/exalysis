@@ -1,0 +1,1 @@
+- Dave Cheney's [SOLID Go Design](https://dave.cheney.net/2016/08/20/solid-go-design) is a thoughtful essay on the principles of good software engineering in general, and how they apply to Go in particular, explaining how to design Go programs that are well engineered, decoupled, reusable, and above all responsive to change.
