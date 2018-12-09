@@ -1,0 +1,1 @@
+- At Gophercon 2018, Dave Cheney and Francesc Campoy gave a workshop on [Go Performance Tuning](https://github.com/davecheney/gophercon2018-performance-tuning-workshop) which will give you everything you need to diagnose and fix performance problems in your Go code: benchmarking, profiling, execution tracing, the garbage collector, and more.

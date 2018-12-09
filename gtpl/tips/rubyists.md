@@ -1,0 +1,1 @@
+- If you're coming to Go from a Ruby background, some things will make sense to you right away and others will be a little more puzzling. Hsing-Hui Hsu's [A Rubyist's (Poignant) Guide to Go](https://speakerdeck.com/somanyhs/go-northwest-2018-a-rubyists-poignant-guide-to-go?slide=13) is a great way to relate what you know from Ruby to what you're learning in Go.

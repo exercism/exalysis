@@ -1,0 +1,1 @@
+- Go is widely used for writing internet servers, but the internet can be a dangerous place. [So you want to expose Go on the internet](https://blog.gopheracademy.com/advent-2016/exposing-go-on-the-internet/) is an excellent guide to the things you need to think about when writing safe, reliable, and efficient servers in Go.

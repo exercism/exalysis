@@ -1,0 +1,1 @@
+- [Practical Go: Real world advice for writing maintainable Go programs](https://dave.cheney.net/practical-go/presentations/qcon-china.html) is a transcript of a talk by Dave Cheney about ways to do things in Go. How should you choose good names for variables? When, why, and how should you write comments? How should you organize your packages? Dave has the answers.
