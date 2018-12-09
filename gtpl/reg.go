@@ -21,25 +21,5 @@ var (
 
 	Benchmarking = NewStringTemplate("topic/benchmarking.md", MustAsset)
 	Regex        = NewStringTemplate("topic/regex.md", MustAsset)
-
-	Tips = []StringTemplate{
-		NewStringTemplate("tips/advanced_tests.md", MustAsset),
-		NewStringTemplate("tips/awesome_go.md", MustAsset),
-		NewStringTemplate("tips/channels.md", MustAsset),
-		NewStringTemplate("tips/community.md", MustAsset),
-		NewStringTemplate("tips/concurrency.md", MustAsset),
-		NewStringTemplate("tips/conduct.md", MustAsset),
-		NewStringTemplate("tips/effective.md", MustAsset),
-		NewStringTemplate("tips/errors.md", MustAsset),
-		NewStringTemplate("tips/font.md", MustAsset),
-		NewStringTemplate("tips/go-perfbook.md", MustAsset),
-		NewStringTemplate("tips/magic.md", MustAsset),
-		NewStringTemplate("tips/modules.md", MustAsset),
-		NewStringTemplate("tips/proverbs.md", MustAsset),
-		NewStringTemplate("tips/review.md", MustAsset),
-		NewStringTemplate("tips/simplicity.md", MustAsset),
-		NewStringTemplate("tips/tdd.md", MustAsset),
-		NewStringTemplate("tips/tests.md", MustAsset),
-		NewStringTemplate("tips/tour.md", MustAsset),
-	}
+	Tips         = NewStringTemplateSlice("tips/", MustAsset)
 )
