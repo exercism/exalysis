@@ -1,1 +1,1 @@
-- Rob Pike's talk [Go Concurrency Patterns](https://www.youtube.com/watch?v=LSzR0VEraWw) explains one of the most exciting features of Go: concurrency! What does it mean? What can it do? How do you use it? You'll find all the answers in this talk.
+- Rob Pike's talk [Go Concurrency Patterns](https://www.youtube.com/watch?v=f6kdp27TYZs) explains one of the most exciting features of Go: concurrency! What does it mean? What can it do? How do you use it? You'll find all the answers in this talk.
