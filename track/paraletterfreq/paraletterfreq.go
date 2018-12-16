@@ -20,6 +20,7 @@ var exFuncs = []extypes.SuggestionFunc{
 	examBufferSizeLen,
 	examSelect,
 	examGoroutineLeak,
+	examForRange,
 }
 
 func addConcurrencyNotFaster(_ *astrav.Package, r *extypes.Response) {
@@ -82,5 +83,17 @@ func examGoroutineLeak(pkg *astrav.Package, r *extypes.Response) {
 				r.AppendTodo(tpl.GoroutineLeak)
 			}
 		}
+	}
+}
+
+func examForRange(pkg *astrav.Package, r *extypes.Response) {
+	nodes := pkg.FindByNodeType(astrav.NodeTypeForStmt)
+	if len(nodes) == 0 {
+		return
+	}
+	mergeLoop := nodes[len(nodes)-1]
+	cond := mergeLoop.(*astrav.ForStmt).Cond()
+	if cond != nil {
+		r.AppendImprovement(tpl.ForRangeNoVars)
 	}
 }
