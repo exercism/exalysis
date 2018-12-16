@@ -18,6 +18,8 @@ var exFuncs = []extypes.SuggestionFunc{
 	examAddOne,
 	examWaitGroup,
 	examBufferSizeLen,
+	examSelect,
+	examGoroutines,
 }
 
 func addConcurrencyNotFaster(_ *astrav.Package, r *extypes.Response) {
@@ -57,6 +59,24 @@ func examBufferSizeLen(pkg *astrav.Package, r *extypes.Response) {
 		lenNode := node.FindFirstByName("len")
 		if lenNode != nil {
 			r.AppendImprovement(tpl.BufferSizeLen)
+		}
+	}
+}
+
+func examSelect(pkg *astrav.Package, r *extypes.Response) {
+	nodes := pkg.FindByNodeType(astrav.NodeTypeSelectStmt)
+	for _, node := range nodes {
+		if len(node.Children()) == 1 {
+			r.AppendImprovement(tpl.SelectNotNeeded)
+		}
+	}
+}
+
+func examGoroutines(pkg *astrav.Package, r *extypes.Response) {
+	nodes := pkg.FindByNodeType(astrav.NodeTypeSelectStmt)
+	for _, node := range nodes {
+		if len(node.Children()) == 1 {
+			r.AppendImprovement(tpl.SelectNotNeeded)
 		}
 	}
 }
