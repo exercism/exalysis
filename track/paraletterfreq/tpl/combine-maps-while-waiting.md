@@ -1,1 +1,1 @@
-- You are using a `sync.WaitGroup` here. You could move the receiving side of the channel into the main goroutine and get rid of the `WaitGroup`. Remember: You know how many elements you are expecting on the channel.
+- It looks like you wait until all results have been received from the goroutines before starting to merge them. In fact, you can (and should) start processing as soon as you receive the first result.
