@@ -9,26 +9,51 @@
 // response/tip.md (149B)
 // response/todo.md (73B)
 // tips/advanced_tests.md (395B)
+// tips/append.md (308B)
 // tips/awesome_go.md (390B)
+// tips/building.md (317B)
 // tips/channels.md (308B)
+// tips/channels2.md (399B)
 // tips/community.md (512B)
 // tips/concurrency.md (293B)
+// tips/concurrencypatterns.md (248B)
+// tips/concurrencypatterns2.md (322B)
 // tips/conduct.md (280B)
+// tips/context.md (375B)
+// tips/debugger.md (267B)
 // tips/effective.md (387B)
 // tips/errors.md (327B)
+// tips/faq.md (241B)
 // tips/font.md (321B)
 // tips/go-perfbook.md (425B)
+// tips/gophercises.md (274B)
+// tips/gophervids.md (276B)
+// tips/graceful_errors.md (217B)
+// tips/idiomatic.md (266B)
+// tips/interface.md (273B)
 // tips/magic.md (310B)
 // tips/modules.md (313B)
+// tips/mutexes.md (331B)
+// tips/nil.md (255B)
+// tips/performance.md (344B)
+// tips/pointers.md (288B)
+// tips/practical.md (368B)
+// tips/profiling.md (313B)
 // tips/proverbs.md (309B)
 // tips/review.md (417B)
+// tips/rubyists.md (364B)
+// tips/servers.md (327B)
+// tips/shades.md (445B)
 // tips/simplicity.md (292B)
+// tips/solid.md (327B)
 // tips/tdd.md (354B)
 // tips/tests.md (390B)
+// tips/tooling.md (240B)
 // tips/tour.md (273B)
 // tools/compile.md (229B)
 // tools/not_formatted.md (435B)
 // tools/not_linted.md (565B)
+// tools/not_vetted.md (434B)
 // tools/pass_tests.md (497B)
 // tools/race_condition.md (229B)
 // topic/benchmarking.md (1.635kB)
@@ -237,7 +262,7 @@ func responseTipMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "response/tip.md", size: 149, mode: os.FileMode(420), modTime: time.Unix(1544124510, 0)}
+	info := bindataFileInfo{name: "response/tip.md", size: 149, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xf4, 0xa2, 0x47, 0x61, 0xa7, 0xc1, 0xc8, 0x83, 0x60, 0x5d, 0xf, 0xf9, 0x89, 0x26, 0xd7, 0x2, 0x9f, 0xf1, 0xb4, 0x4, 0x3b, 0xe2, 0x60, 0xb2, 0xdc, 0x98, 0x56, 0xd7, 0x6e, 0xed, 0x2d, 0x44}}
 	return a, nil
 }
@@ -277,8 +302,28 @@ func tipsAdvanced_testsMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/advanced_tests.md", size: 395, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
+	info := bindataFileInfo{name: "tips/advanced_tests.md", size: 395, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x97, 0x14, 0xf0, 0x1a, 0x62, 0xde, 0x61, 0xf1, 0x46, 0xab, 0x47, 0x1d, 0x9, 0x29, 0xbb, 0x9d, 0x8b, 0x9, 0x17, 0x37, 0x6e, 0x4c, 0x4, 0x98, 0x32, 0x9c, 0x3e, 0x49, 0x3b, 0xdc, 0x4f, 0x4f}}
+	return a, nil
+}
+
+var _tipsAppendMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x74\xce\xb1\x6e\xf3\x30\x0c\x04\xe0\xfd\x7f\x8a\xdb\x92\x00\xf9\x9d\x3d\x5b\xa7\xbc\x40\xb7\xa0\x40\x58\x99\x92\x89\xca\xa4\x20\xca\x48\xfd\xf6\x85\x94\xae\x1d\x25\xdc\x1d\xbf\xff\x78\x5f\x18\x16\xa3\x04\xa1\x8c\xfb\xcd\xf0\x99\x2d\x7d\x1c\x97\xd6\x8a\x5f\x2f\x97\xfe\x9a\x92\x65\xd2\x34\x59\x4d\x27\x88\x23\x6e\x39\xc3\x22\x22\x79\x10\xa5\x26\x9a\x40\x3a\x63\x73\x8e\x5b\x06\xbb\xd3\xee\x30\x45\x64\x6a\x5b\x65\xef\xe1\x9b\x4d\xb8\xbf\xd5\x4a\xbb\x9f\xe1\x59\x02\x3b\x8e\xbd\xe5\xad\x8a\x26\x3f\x5d\x07\x65\xe5\xb0\x90\x4a\x18\x9d\x03\x95\xc2\x3a\x1f\xfe\xe4\x5c\x5e\x43\x43\x45\x28\x54\x9b\x84\x2d\x53\xcd\x3b\x92\xd9\x0c\x53\x3e\x83\xbf\x4b\x26\xd1\xae\x5c\xec\x09\x1a\x86\x01\xfe\x65\x3c\xad\x7e\x41\x14\x37\x3b\x8f\xef\x9e\x7a\xbc\x4e\x1f\x4f\x8f\xbe\x2d\x6b\xc9\xbc\xb2\x36\x9e\xa7\x7f\x3f\x01\x00\x00\xff\xff\x13\xfa\xee\xe6\x34\x01\x00\x00")
+
+func tipsAppendMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsAppendMd,
+		"tips/append.md",
+	)
+}
+
+func tipsAppendMd() (*asset, error) {
+	bytes, err := tipsAppendMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/append.md", size: 308, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xd9, 0x84, 0xcd, 0x8c, 0x99, 0x92, 0x11, 0x2d, 0x14, 0x10, 0x67, 0xea, 0xbc, 0x8a, 0xfd, 0x68, 0x4a, 0x24, 0xd9, 0x52, 0x95, 0xe2, 0x1d, 0xd4, 0x4b, 0x1b, 0xc2, 0x98, 0x79, 0x30, 0x7e, 0xc7}}
 	return a, nil
 }
 
@@ -297,8 +342,28 @@ func tipsAwesome_goMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/awesome_go.md", size: 390, mode: os.FileMode(420), modTime: time.Unix(1543142312, 0)}
+	info := bindataFileInfo{name: "tips/awesome_go.md", size: 390, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x8e, 0x47, 0xe6, 0x5c, 0xf0, 0x73, 0x56, 0x5, 0x89, 0x6e, 0x80, 0xc4, 0x4, 0x9a, 0x18, 0x7f, 0x1a, 0x1f, 0x42, 0xef, 0x2f, 0xa2, 0x87, 0x69, 0x7c, 0x37, 0xa, 0x35, 0x7f, 0xca, 0x9, 0x5d}}
+	return a, nil
+}
+
+var _tipsBuildingMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x4c\x90\xc1\x4a\x33\x41\x10\x84\xef\xff\x53\xd4\x2d\xbf\x10\x37\x37\x91\x88\x88\x17\xd7\xbb\x0a\x82\x78\x98\xcc\x74\x76\xda\xcc\x76\x2f\xd3\x3d\x59\xe3\xd3\xcb\xee\xc9\x53\x43\x17\x7c\xf5\x51\xd7\xe8\x15\x89\x93\x6c\x1c\x5f\xcd\x1c\x36\x55\x96\x01\x2c\xae\xa0\x6f\x36\x27\x89\x74\x07\x76\x24\xb2\x48\x92\x0c\xc7\xaa\x23\x02\x8a\xca\x80\xcc\xe6\x5a\x2f\xd0\x23\xa2\x8e\x53\x73\xaa\x28\x41\x86\x16\x06\x32\x04\x49\x88\x2a\x91\x26\xb7\x0e\x2f\x4e\x67\xc2\x53\x0d\x12\x39\x6c\x0c\x1e\xca\x09\x1f\xbd\xee\x71\x68\x5c\xd2\x52\xab\x02\xcf\x04\xcb\xda\x4a\xa2\x6a\x0b\x77\xe0\x20\x6e\x9f\xff\xb3\xfb\x64\xfb\xdd\x6e\x9e\xe7\xee\xa2\xcd\xdb\x81\xba\xa8\xe3\x6e\x0e\x1e\xf3\xc3\xf9\xde\xde\x6f\xeb\xcd\xcf\xe3\xeb\x73\xff\x76\x05\x6d\x5e\x58\xc8\x56\xdc\x1f\xc9\x5e\xb7\xeb\x6b\x22\x9d\x0a\xe1\x40\x99\x25\x81\x7d\xbb\xba\x2e\x49\x22\xe3\x41\x90\x28\xb2\xb1\x8a\x61\xce\x1c\x33\xc6\x70\xa2\x65\x85\x39\x07\x5f\x2e\x5b\xf7\xef\x37\x00\x00\xff\xff\x17\x6e\x3c\x8e\x3d\x01\x00\x00")
+
+func tipsBuildingMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsBuildingMd,
+		"tips/building.md",
+	)
+}
+
+func tipsBuildingMd() (*asset, error) {
+	bytes, err := tipsBuildingMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/building.md", size: 317, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x8b, 0x8e, 0x9a, 0x49, 0xa5, 0x58, 0x25, 0x84, 0xcc, 0x23, 0x4, 0x7e, 0xd0, 0x63, 0x46, 0x9a, 0xaf, 0xae, 0x47, 0xfa, 0x95, 0x30, 0x27, 0xaa, 0x6e, 0x3d, 0x70, 0xb7, 0xa, 0x83, 0x59, 0x48}}
 	return a, nil
 }
 
@@ -317,8 +382,28 @@ func tipsChannelsMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/channels.md", size: 308, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
+	info := bindataFileInfo{name: "tips/channels.md", size: 308, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x95, 0xec, 0x77, 0xbf, 0x1d, 0xb5, 0xb, 0xee, 0xb1, 0x76, 0x0, 0x55, 0xd4, 0x9f, 0xb4, 0x98, 0xff, 0x23, 0x47, 0x63, 0xaa, 0xf7, 0xc3, 0x18, 0xb0, 0x2e, 0x8f, 0x50, 0x1b, 0x68, 0xca, 0x2d}}
+	return a, nil
+}
+
+var _tipsChannels2Md = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x44\xcf\x31\x8f\xdb\x30\x0c\x05\xe0\xbd\xbf\xe2\x6d\x6d\x81\xd8\x4e\xba\x14\xe8\x52\x20\x1d\xbb\x16\xe8\x50\x74\xa0\x2d\xda\x22\x22\x93\x86\x28\x47\xf1\xbf\x3f\xd8\x77\xb9\x5b\x05\xbd\xc7\xf7\x35\xf8\x15\x49\x95\x93\x83\x32\x83\xe0\x32\x2f\x89\x21\x81\xe9\x84\x2a\x25\x62\xb0\xfd\xe5\x01\xd2\x80\xc5\x2a\xe7\x71\x4d\xd8\x7f\xc9\x40\x45\x4c\xbd\xc5\xdf\x48\x05\x37\xd1\x00\x1b\x51\xa2\xe8\xe4\x18\x48\x31\x3c\xbb\x83\x9d\x8e\x7c\xb4\x0a\x8f\xb6\xa6\x80\xcd\x56\xac\xce\x28\x91\xe7\x9f\xb8\x4a\x4a\xf8\xcd\xaa\x1c\xb6\xcf\x8e\xb4\x0e\x12\x8e\x04\xeb\x44\x93\xe8\x04\x76\xa7\x0d\xa6\xf8\xf7\x27\x32\xae\x1c\xe9\x2e\x96\xf7\x83\x4f\xc1\xff\x2f\xb1\x94\xc5\x7f\x74\x5d\xad\xb5\xa5\x1c\x48\x13\xf5\xde\x0e\x36\x77\x7d\xb2\xa9\xfb\x76\xbe\x7c\xef\x2e\xe7\xae\x44\x6e\xfa\xb7\x82\xc6\xc6\xe6\x39\xb3\x8d\x65\x4e\x5f\xc1\x8f\x25\x91\xa8\x83\xef\x9c\xb7\x83\x73\xac\x55\xe6\x80\x62\xb8\xa9\x55\x50\x6f\x6b\xf9\x00\x92\x83\xb0\x64\x9b\x32\xcd\x33\xe7\x57\xad\x47\xab\x7e\x44\x77\x77\xb1\x77\x2f\x44\x11\x64\x1c\x39\xb3\x16\xf8\xc0\x4a\x59\xcc\xdb\x4f\x2f\x01\x00\x00\xff\xff\x09\xa6\x33\x58\x8f\x01\x00\x00")
+
+func tipsChannels2MdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsChannels2Md,
+		"tips/channels2.md",
+	)
+}
+
+func tipsChannels2Md() (*asset, error) {
+	bytes, err := tipsChannels2MdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/channels2.md", size: 399, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x52, 0x1, 0x60, 0xf2, 0x67, 0x3b, 0x7d, 0xdd, 0x47, 0x1f, 0x42, 0x23, 0x6e, 0x65, 0xae, 0x6f, 0x5, 0xeb, 0xcd, 0xe0, 0xbb, 0x3f, 0x19, 0x6f, 0x8c, 0xe, 0x92, 0x4b, 0x6b, 0x20, 0xde, 0x3a}}
 	return a, nil
 }
 
@@ -337,7 +422,7 @@ func tipsCommunityMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/community.md", size: 512, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
+	info := bindataFileInfo{name: "tips/community.md", size: 512, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x8c, 0xfa, 0xd2, 0x3d, 0x77, 0x86, 0xfc, 0xe6, 0x94, 0x19, 0x7a, 0xde, 0x3, 0x14, 0xaf, 0x87, 0xd9, 0xb6, 0x22, 0x1c, 0x93, 0xd8, 0x93, 0x7d, 0xca, 0x91, 0x40, 0x9, 0x5f, 0x26, 0x35, 0x4f}}
 	return a, nil
 }
@@ -357,8 +442,48 @@ func tipsConcurrencyMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/concurrency.md", size: 293, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
+	info := bindataFileInfo{name: "tips/concurrency.md", size: 293, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x78, 0x4e, 0x11, 0xd4, 0x38, 0x63, 0xb5, 0x6e, 0x5a, 0x48, 0xd7, 0xcd, 0x4b, 0xe6, 0x7e, 0x4e, 0x93, 0xbe, 0xf0, 0x5, 0x4b, 0x76, 0x2f, 0x13, 0xcf, 0x91, 0x7d, 0x53, 0xb9, 0x92, 0x55, 0x84}}
+	return a, nil
+}
+
+var _tipsConcurrencypatternsMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x44\xcf\x31\x4b\xc4\x40\x10\xc5\xf1\xde\x4f\xf1\xac\x4e\x0b\x13\xb0\x50\x38\x90\x14\x16\x67\x79\x88\x20\xa7\x58\xcc\x6d\x26\x66\xc9\x66\x26\xec\xcc\xba\x97\x6f\x2f\xe7\x15\xb6\xff\x57\xfc\x78\x77\x78\xd5\x23\xf6\x71\xe2\x8d\xc1\x29\x4d\xf8\xdc\x29\x9e\x55\x42\xc9\x99\x25\xac\xd8\x93\x3b\x67\xb1\xaf\x9b\xd1\x7d\xb1\x6d\xdb\xd6\x5a\x9b\x55\x8b\x97\x23\x37\x41\xe7\xb6\x92\x87\xb1\xfb\x79\x1a\x1e\xa6\x7e\xb9\x7f\x7c\x3b\x7c\xd8\x2d\xf8\xb4\x24\x8a\x62\x50\x61\xe8\x00\x1f\x19\xb3\x9a\x83\x4f\x21\x7a\x94\x6f\x0c\x4c\x5e\x32\xdb\x79\xdd\xe9\x16\xe1\x1f\xbd\xc6\xfb\x48\x8e\x5e\xd9\x10\x1d\x33\x93\x74\x97\x14\x48\xce\xa5\xd7\x0e\x2f\x5a\xd1\x2b\x56\x2d\x28\xc6\x88\xde\xe1\xa0\x65\x93\x12\x86\x28\x3d\x28\xa5\x3f\x94\xc4\x2a\x67\x43\x14\xf8\x18\x2f\x27\x9b\xab\xdf\x00\x00\x00\xff\xff\x4f\x10\x33\x6b\xf8\x00\x00\x00")
+
+func tipsConcurrencypatternsMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsConcurrencypatternsMd,
+		"tips/concurrencypatterns.md",
+	)
+}
+
+func tipsConcurrencypatternsMd() (*asset, error) {
+	bytes, err := tipsConcurrencypatternsMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/concurrencypatterns.md", size: 248, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xe1, 0x98, 0x5, 0x61, 0xf1, 0xa1, 0xe0, 0xd, 0x91, 0xed, 0xb5, 0x6c, 0xb0, 0x80, 0xc7, 0xc0, 0xa, 0xfc, 0x6, 0x69, 0xc0, 0x8, 0xa4, 0x1c, 0xc, 0x1e, 0xac, 0xbc, 0x54, 0x85, 0x6c, 0xec}}
+	return a, nil
+}
+
+var _tipsConcurrencypatterns2Md = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x9c\xcf\xcd\x4a\xf4\x30\x14\x87\xf1\xfd\x7b\x15\xff\xdd\xbc\x03\xda\x82\x0b\x05\x41\x64\xb0\x30\xdb\xfa\x01\xa2\x83\x8b\x93\xe4\xd4\xc6\x69\x72\x4a\x72\xd2\xd8\xbb\x97\xee\x5c\x7b\x05\xcf\xef\xb9\xc4\xe9\xe0\x16\x8a\x96\x1d\x8e\x82\x07\x89\xb6\xa4\xc4\xd1\xae\xe8\x49\x95\x53\xcc\x1f\xff\x47\xd5\x39\xdf\xb6\x6d\xad\xb5\x59\xa5\x68\x31\xdc\x58\x09\x6d\x25\xb5\xe3\xfd\x72\xf7\xd8\x75\xb5\x72\x6f\x3a\xad\x7b\xf8\x0c\x82\x63\x25\x3f\xb1\x03\x7f\xcf\x93\x24\x52\x2f\x11\x32\xe0\x28\xbb\x0c\xfb\x2b\x32\x30\x69\x49\x9c\x41\xd1\x61\x94\x0a\x15\x94\xcc\xd0\x91\x03\x7c\x44\x62\x9a\x30\x27\xf9\x4c\x14\xf2\x05\xcc\xba\x29\x95\x29\x60\x62\x72\x78\xa6\xc0\x9c\x70\xf8\x0a\x14\x7d\x83\xd7\x0d\x04\x1d\x37\xc3\xa0\x9c\xb0\x4a\xd9\x2d\x0c\x32\x59\x92\x61\x87\x27\x31\xe8\xfd\x99\x77\x19\xa7\x3f\xef\x0e\xd7\x67\x37\x5f\xdd\xbc\xbc\xbd\xe7\x7d\xf3\xef\x27\x00\x00\xff\xff\x6b\xe7\xf7\xdc\x42\x01\x00\x00")
+
+func tipsConcurrencypatterns2MdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsConcurrencypatterns2Md,
+		"tips/concurrencypatterns2.md",
+	)
+}
+
+func tipsConcurrencypatterns2Md() (*asset, error) {
+	bytes, err := tipsConcurrencypatterns2MdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/concurrencypatterns2.md", size: 322, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x8, 0xd2, 0x5e, 0x61, 0xac, 0xf3, 0x1b, 0xaf, 0x19, 0x4, 0x86, 0x74, 0xd1, 0x38, 0xe7, 0xe5, 0x49, 0x41, 0xa1, 0xc6, 0x2c, 0x3d, 0x0, 0xcc, 0xe2, 0xa5, 0x58, 0xb4, 0x1e, 0x46, 0x9f, 0xa4}}
 	return a, nil
 }
 
@@ -377,8 +502,48 @@ func tipsConductMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/conduct.md", size: 280, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
+	info := bindataFileInfo{name: "tips/conduct.md", size: 280, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xe7, 0xff, 0x25, 0x2b, 0x1b, 0x51, 0x64, 0x64, 0x3b, 0xea, 0x7a, 0xba, 0x82, 0xc0, 0x1a, 0xaf, 0x59, 0xe7, 0x95, 0x61, 0x63, 0x10, 0xc2, 0x78, 0x6, 0x47, 0x14, 0xaa, 0x2a, 0x7b, 0xf3, 0x7c}}
+	return a, nil
+}
+
+var _tipsContextMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x74\x8f\x4f\xcb\xd3\x40\x10\x87\xef\x7e\x8a\xdf\xed\xf5\x85\x9a\x88\xe2\xa5\x20\x82\xc5\x14\x8b\x88\xa4\xfe\x83\x22\x76\xb2\xd9\x74\x17\x93\x99\xb0\x33\xeb\xb6\xfd\xf4\xd2\xf4\xe0\xe9\x3d\x0f\xf3\xfc\x9e\xe7\x05\x9a\x44\xec\xbc\x3a\x6c\x68\x9a\xe5\xf2\xa0\x38\xec\xb2\x5a\x23\xa9\xc9\xec\x7e\x3d\x0f\x66\xb3\xae\xeb\xba\x94\x52\x5d\x24\x5b\xee\x7c\xe5\x64\xaa\x5d\x20\x66\x3f\xd6\xdf\x36\xbf\xdf\x5f\x9b\xee\xbc\x7d\x75\xa5\xd7\xdd\xfc\xe6\x73\xdb\xb6\x3f\x77\xfb\xf2\x08\xf5\x29\x7a\x45\x54\x10\x86\xcc\x20\xee\x31\x90\xba\xc8\x64\x91\x4f\x88\x6c\x49\xfa\xec\x2c\x0a\xc3\x04\x5b\xa9\xf0\x91\x61\xc1\xc3\xcf\x51\xa5\xf7\x38\x7c\x0d\x1e\x1b\x61\xf3\x67\xc3\x17\x72\x7f\xe8\xe4\x9f\x56\x2a\x64\x2e\xbc\xfb\xfb\xf6\xd3\xfe\xda\xbe\xfc\xfe\x21\xd1\x8f\xf2\xb8\xfa\x1f\xe8\xcf\xf3\x48\x91\x75\x59\x38\xba\x3b\xf5\x88\xf9\x8e\xc5\x90\x64\x5a\x4e\x5b\x81\x1a\x71\x4f\xa9\xc7\x18\xbb\x44\xe9\xb2\x46\x09\x64\x88\xf6\xa0\x18\x24\xad\x10\xa4\xdc\x94\xb3\x7a\x44\x5b\x2d\x69\x2a\x93\x87\x0c\x0b\x22\xab\x1f\xf2\x08\x0b\x91\x4f\x8a\x68\x70\xc4\xe8\xe5\xf6\x8b\xac\xd5\xb3\x7f\x01\x00\x00\xff\xff\x14\xbd\xcc\x7c\x77\x01\x00\x00")
+
+func tipsContextMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsContextMd,
+		"tips/context.md",
+	)
+}
+
+func tipsContextMd() (*asset, error) {
+	bytes, err := tipsContextMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/context.md", size: 375, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x97, 0x11, 0xa, 0xd6, 0x6e, 0xf, 0x21, 0x49, 0xbd, 0x62, 0x27, 0xe, 0x91, 0xa6, 0x1c, 0x68, 0x17, 0x26, 0xcc, 0x68, 0x45, 0x5b, 0x1f, 0x72, 0x99, 0x8b, 0xe1, 0x5d, 0xc5, 0x75, 0x23, 0x95}}
+	return a, nil
+}
+
+var _tipsDebuggerMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x4c\x8f\xb1\x4e\xc4\x30\x10\x44\x7b\xbe\x62\xa8\x0e\x0a\x92\x1e\x09\x9d\x0e\x21\xae\x00\x0a\xa0\x02\x44\xe1\x4b\x36\xb1\x89\xe3\x0d\xbb\xeb\xb3\xc2\xd7\x23\x23\x21\x5d\x39\xf3\x34\xd2\x9b\x2b\xec\x0c\xca\x33\x61\xe1\x90\x0c\x21\x61\xe5\x2c\xd8\x33\xbe\x38\x4b\xa2\xb5\xe6\x4d\x8c\x18\x42\xea\xff\x98\x52\x1c\x90\x88\xfa\x90\x46\x18\x23\x2b\xc1\xa1\xa7\x43\x1e\x47\x92\x06\xb7\xd9\x50\xbc\x33\x04\x3d\xe9\xe1\x52\x0f\xcf\x05\x3d\x93\x22\x18\x0a\xcb\xb4\xc5\x63\xf8\xc1\x4b\xe8\x68\xa3\x30\x17\x27\x7c\xec\x70\xf7\xbf\xb8\x17\x9e\xf1\xda\x89\xb3\xce\x7f\x5e\x78\xb3\x45\xaf\xdb\xb6\x94\xd2\xac\x9c\x2d\x1f\xa8\xe9\x78\x6e\x4b\xc5\xdb\xe3\xcd\xbb\x2c\x93\x3c\x3d\xbc\x1d\xbf\x9f\x2f\x51\x5c\x9c\xb4\xda\xc2\xbc\x70\x1e\x3d\xcc\x13\x16\xe1\x8e\x54\xc1\x03\x8a\x04\xab\xfe\x9c\xa8\x7e\xde\xf3\xf9\xd9\x6f\x00\x00\x00\xff\xff\x91\xf4\x69\x66\x0b\x01\x00\x00")
+
+func tipsDebuggerMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsDebuggerMd,
+		"tips/debugger.md",
+	)
+}
+
+func tipsDebuggerMd() (*asset, error) {
+	bytes, err := tipsDebuggerMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/debugger.md", size: 267, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xb8, 0x1f, 0x4e, 0xac, 0xab, 0x46, 0x1d, 0x9f, 0xa9, 0x29, 0x14, 0xe4, 0xa6, 0x16, 0x84, 0x84, 0x87, 0x8c, 0x3e, 0x59, 0xee, 0x52, 0x76, 0x3d, 0xca, 0x97, 0x7, 0x56, 0xd0, 0x31, 0xca, 0xad}}
 	return a, nil
 }
 
@@ -397,7 +562,7 @@ func tipsEffectiveMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/effective.md", size: 387, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
+	info := bindataFileInfo{name: "tips/effective.md", size: 387, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xda, 0x5c, 0x18, 0x7, 0x3b, 0x9a, 0xe, 0xdf, 0xc3, 0x73, 0xdd, 0x3d, 0xd, 0xe2, 0xff, 0x37, 0x83, 0xca, 0xe6, 0x9, 0x67, 0xb8, 0xc9, 0x56, 0x4e, 0xc, 0x98, 0xf5, 0x84, 0x4e, 0x4d, 0x24}}
 	return a, nil
 }
@@ -417,8 +582,28 @@ func tipsErrorsMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/errors.md", size: 327, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
+	info := bindataFileInfo{name: "tips/errors.md", size: 327, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x8d, 0x2, 0xe0, 0xa7, 0x6, 0xa7, 0xc3, 0x4e, 0xb7, 0xa9, 0x54, 0x6d, 0x21, 0x72, 0x77, 0xbf, 0x41, 0x36, 0x21, 0xf8, 0x4e, 0xf6, 0x9, 0x95, 0xba, 0xcb, 0xbf, 0x32, 0xa5, 0x23, 0x80, 0x42}}
+	return a, nil
+}
+
+var _tipsFaqMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x3c\x8e\xb1\x4e\x04\x31\x0c\x44\x7b\xbe\x62\xa8\x00\x89\xdb\xe5\x5a\x3a\x1a\x4e\x94\x48\x50\x21\x0a\x93\x38\x1b\xeb\xb2\xf6\x6d\xe2\x68\xc5\xdf\xa3\x20\x44\xf7\x24\x3f\xcf\xcc\x01\x6f\x99\xf1\xf1\xae\x96\x92\x04\xa1\x82\x93\xe1\xf9\xe9\xf5\xf3\x36\xbb\x5f\xda\xe3\x3c\x2f\x76\x7c\x38\x4e\x56\x97\x99\xaa\x4b\x28\x3c\xf7\x7f\xf9\x90\x68\x9b\xb2\xaf\xe5\x0e\xd2\x40\x58\x2a\x93\x23\x58\x29\x1c\x5c\x4c\x61\x09\x5b\xe7\x36\xb8\x81\x34\x82\xb4\xed\x5c\x1b\xe8\xcb\xba\xe3\x64\xf7\x68\xb6\xf2\xf0\xf6\x2c\x21\x83\x2a\x43\xcd\x91\xac\x6b\x84\x28\x3c\x8f\xeb\xdf\xb6\x68\xa1\xaf\xac\x4e\x23\x70\xc2\x8b\xdf\x34\xec\x5c\x0a\x76\xab\x9e\x51\x99\xa2\xe8\xf2\x5b\x74\x66\xbe\x0c\x1e\xff\x45\xf4\x8c\x4c\x1a\xbf\xaf\xaf\x7e\x02\x00\x00\xff\xff\xe4\x44\x55\x2e\xf1\x00\x00\x00")
+
+func tipsFaqMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsFaqMd,
+		"tips/faq.md",
+	)
+}
+
+func tipsFaqMd() (*asset, error) {
+	bytes, err := tipsFaqMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/faq.md", size: 241, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xfc, 0xf7, 0xcd, 0x8c, 0x5c, 0x9f, 0x54, 0x8b, 0xc, 0x67, 0x7e, 0xbe, 0xf8, 0x72, 0x8, 0xc7, 0xc, 0x2e, 0xa6, 0x41, 0xd1, 0x2c, 0x72, 0x4b, 0xa5, 0x52, 0x26, 0x25, 0x76, 0xfa, 0x3a, 0xf8}}
 	return a, nil
 }
 
@@ -437,7 +622,7 @@ func tipsFontMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/font.md", size: 321, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
+	info := bindataFileInfo{name: "tips/font.md", size: 321, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x97, 0x8f, 0x74, 0x46, 0xc2, 0x20, 0x76, 0xd3, 0xe0, 0x69, 0xf4, 0xe0, 0xf, 0x87, 0x3d, 0x13, 0x7a, 0xc4, 0x65, 0xf0, 0xf1, 0xdf, 0xcf, 0xd2, 0x4f, 0x37, 0xc9, 0x91, 0x2c, 0xb4, 0x34, 0x8e}}
 	return a, nil
 }
@@ -457,8 +642,108 @@ func tipsGoPerfbookMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/go-perfbook.md", size: 425, mode: os.FileMode(420), modTime: time.Unix(1543142499, 0)}
+	info := bindataFileInfo{name: "tips/go-perfbook.md", size: 425, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xfb, 0xe, 0xbb, 0xe0, 0xbe, 0x91, 0xf9, 0xb8, 0x7, 0x4b, 0xad, 0x7d, 0x28, 0x4, 0xf6, 0xad, 0xd3, 0x6e, 0x93, 0xc8, 0xea, 0xbf, 0x31, 0xac, 0x73, 0x85, 0x9d, 0x62, 0x96, 0x4d, 0xcd, 0xb9}}
+	return a, nil
+}
+
+var _tipsGophercisesMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x4c\x8f\xb1\x4e\xf3\x40\x10\x84\xfb\xff\x29\xe6\xaf\x00\x29\xc4\x3d\x1d\x55\x14\x89\x0a\x89\x02\x21\x8a\xcd\x7a\x6c\x5f\x72\xbe\x3d\xed\x9e\x23\xfc\xf6\xc8\x08\x01\xed\x8c\x66\xe6\x9b\x7b\x1c\x07\xac\xb6\xdc\x38\xe1\x94\x7e\xc5\x60\x0e\xc1\x6c\x4e\xe8\x24\x39\xb3\x8c\xa9\x8c\x50\xcb\x99\xda\x92\x15\xd8\x00\x7e\xd0\x35\x05\x03\xcd\x10\x96\xaf\x44\x2a\x38\xd8\x0e\x6f\x07\xab\xd3\xb7\xf9\x7e\x3b\xb5\x56\xe3\xa1\xeb\xc6\x5f\x71\xaf\x36\x77\x77\x48\x01\xc1\xe8\x94\x06\x67\xd8\xe2\xca\x3d\x5e\x6d\x81\x4a\x81\x4e\x66\x41\x0c\x6e\x33\x04\xc1\x3f\xcb\xa9\x34\x3a\xa3\x6d\x4c\x52\x7a\x5c\xc5\x13\x7b\x54\xb7\x33\xb5\xc5\xee\x27\x94\xe6\x9a\x89\x97\xe7\x27\xc4\x64\xde\x58\xe8\x1b\xac\x14\x3c\x1e\x71\xb2\xf6\x75\xb4\x66\x59\xb7\xa6\x53\x16\xbd\x9c\x45\x2f\xff\xff\x7d\x06\x00\x00\xff\xff\x95\xa1\x0f\x74\x12\x01\x00\x00")
+
+func tipsGophercisesMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsGophercisesMd,
+		"tips/gophercises.md",
+	)
+}
+
+func tipsGophercisesMd() (*asset, error) {
+	bytes, err := tipsGophercisesMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/gophercises.md", size: 274, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xda, 0xb5, 0xa9, 0x2b, 0x61, 0xdb, 0x8, 0xd1, 0xc8, 0xb1, 0x4d, 0xdb, 0x48, 0x28, 0x98, 0x74, 0x96, 0x6a, 0xe6, 0xba, 0xec, 0x5c, 0x2a, 0xa0, 0x1e, 0x80, 0xfe, 0x50, 0x50, 0x33, 0x81, 0xe1}}
+	return a, nil
+}
+
+var _tipsGophervidsMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x3c\x8e\x31\x6e\xc3\x30\x0c\x45\xf7\x9e\xe2\x77\x6a\x02\xb8\xf6\xde\x0b\x04\xdd\x8b\x2e\x45\x07\x5a\x62\x2c\x22\x8a\x28\x50\xb4\x0d\xdf\xbe\x70\x5c\x64\xfd\x78\x78\xff\xbd\xe3\xf3\x8a\x4d\x67\x04\x2a\x6f\x0e\x72\xe7\x12\x41\xc8\x1a\x28\xe3\xa2\xb8\x33\xfb\x5c\x71\x52\x03\x2f\x5c\x20\x4f\xfc\xdc\x61\x25\x0f\x49\xca\x84\x45\x22\x2b\x9c\xf2\xad\x41\x4b\x96\xc2\x90\x06\xc2\x64\x4c\x8e\x95\x36\xb8\x22\x33\x59\x01\x8d\x3a\xfb\x6e\xa6\x12\x31\x32\xa4\xb4\x2a\xc6\xb1\xc7\xcf\x45\x6b\x62\xfb\x96\xd8\x7e\x4f\xc9\xbd\x7e\x0c\xc3\xf4\x98\x16\x89\xad\xa7\x5a\x5b\x55\xef\x83\xde\x87\xf3\xa1\x6f\x4c\x16\x12\xb8\x4c\xfb\xe3\x55\x6d\xf7\x1e\x15\x6b\x92\x90\x90\xd9\xdb\xa3\xf7\x9f\x1c\x37\xb4\xca\x74\x63\xeb\xe0\xe2\x99\x3b\xa8\xc1\xb5\x4a\xe8\xf1\x65\x1b\xc4\x5f\x5f\xfe\x02\x00\x00\xff\xff\x95\x48\xb0\x12\x14\x01\x00\x00")
+
+func tipsGophervidsMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsGophervidsMd,
+		"tips/gophervids.md",
+	)
+}
+
+func tipsGophervidsMd() (*asset, error) {
+	bytes, err := tipsGophervidsMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/gophervids.md", size: 276, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x20, 0xec, 0xf1, 0xaa, 0x53, 0xc4, 0x21, 0x4, 0x83, 0x42, 0xba, 0xcf, 0x2, 0x3f, 0x19, 0x56, 0xf6, 0xb6, 0x2f, 0x78, 0xa3, 0x37, 0x53, 0x62, 0x30, 0x6b, 0x5e, 0xb4, 0x59, 0xa, 0x6a, 0x3f}}
+	return a, nil
+}
+
+var _tipsGraceful_errorsMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x34\xce\xc1\x4a\xc5\x30\x10\x85\xe1\xbd\x4f\x71\x76\x2a\xf4\xb6\x2b\x41\x04\x11\xb4\x5a\x71\x27\xb8\x11\x71\x31\x4d\xa7\x26\x34\xc9\x48\x32\x69\xc8\xdb\x4b\x85\xbb\x3e\x1c\xbe\xff\x84\xaf\x51\xe2\xa5\xe2\xad\x64\xc5\x93\x65\xb3\xe1\x39\x25\x49\xb9\xc3\x2b\xc5\xc5\x33\x3e\x2c\x07\x4c\x89\x0c\xaf\xc5\xfb\xf6\x7d\x65\x55\x7f\xf3\xdd\x30\xd4\x5a\xfb\x26\x45\xcb\xcc\xbd\x91\x30\x54\x52\x63\x1f\xf6\x7b\x9f\x1f\x5f\x6e\x6e\xdf\x4f\x63\xfc\xbc\x86\xcb\x20\xac\x94\x8d\x8b\xa4\x2e\xfe\x40\xc9\x6f\x98\x1b\x46\xda\xf9\x00\x23\x37\xd0\x2c\x45\xc1\xff\x2e\x5c\xc4\x24\x1d\xaa\x25\x85\x0a\x16\x41\x75\x6a\xa1\x96\x43\x07\x8a\x0b\xac\xd4\x63\x08\xb4\x31\x9a\x94\x74\x3e\x06\x49\x8c\x92\x8f\xcc\xfe\xe2\x2f\x00\x00\xff\xff\x5b\xfa\x7d\xf7\xd9\x00\x00\x00")
+
+func tipsGraceful_errorsMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsGraceful_errorsMd,
+		"tips/graceful_errors.md",
+	)
+}
+
+func tipsGraceful_errorsMd() (*asset, error) {
+	bytes, err := tipsGraceful_errorsMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/graceful_errors.md", size: 217, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x19, 0x3, 0xaf, 0x99, 0xef, 0x36, 0xc2, 0xa1, 0x40, 0xb0, 0x77, 0x5f, 0x8, 0xe4, 0xd3, 0x22, 0xab, 0x25, 0x17, 0xc, 0xbf, 0xf9, 0x28, 0xe5, 0xee, 0x18, 0x16, 0x7d, 0xfb, 0x64, 0x3a, 0x3f}}
+	return a, nil
+}
+
+var _tipsIdiomaticMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x4c\xce\xc1\x4a\xc4\x40\x10\x04\xd0\xbb\x5f\x51\xec\x49\x61\x37\xb9\xfb\x03\x8b\xdf\x20\x1e\xda\x99\x49\xa6\xa1\xa7\x3b\x4c\x77\x36\x8c\x5f\x2f\x11\x14\xaf\x55\x45\xf1\x6e\xb8\xbc\x65\xb6\x46\xc1\xe9\x82\x64\xb9\x80\x15\x77\xc3\x62\x22\x76\x38\x08\x1e\xa4\x99\x7a\xbe\x22\x99\x3a\x7b\x14\x0d\x1c\x34\x60\x0b\xb2\xb1\xae\x88\xca\xba\xfa\x15\xbe\xa7\x0a\x72\x24\xda\x38\x48\xf8\xeb\x2c\x29\x75\xd3\xd1\xfc\x0a\xeb\x50\x6a\x67\x56\x7a\xb7\x8e\x07\x75\xa6\x4f\x29\x3e\xe1\xfd\x0f\x81\xbb\x7d\x3c\xd7\x88\xcd\x5f\xe7\x39\x37\x8e\xce\x93\xd7\xbd\x93\x0c\x7b\x4c\xc9\xda\xcc\xbf\xd3\xdb\x6a\x2f\xe0\x1f\x62\x23\x11\x24\x13\x29\x29\xd8\xf4\xa4\x05\x6f\x0e\x53\xf0\xbf\x67\x1c\x95\x53\xc5\xb0\x1d\x8d\x06\x16\xd6\x8c\xdd\xcb\xb2\xcb\xf4\xf4\x1d\x00\x00\xff\xff\x83\xee\xaa\x7a\x0a\x01\x00\x00")
+
+func tipsIdiomaticMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsIdiomaticMd,
+		"tips/idiomatic.md",
+	)
+}
+
+func tipsIdiomaticMd() (*asset, error) {
+	bytes, err := tipsIdiomaticMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/idiomatic.md", size: 266, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x2a, 0xec, 0x0, 0x8, 0xbf, 0x3c, 0x5b, 0xa8, 0x13, 0xf2, 0xc0, 0x61, 0xd8, 0x4f, 0xf7, 0x9a, 0xa0, 0x21, 0x50, 0xdb, 0xd2, 0xa7, 0x71, 0xee, 0x91, 0x4e, 0x87, 0x21, 0xbf, 0x21, 0x3d, 0x61}}
+	return a, nil
+}
+
+var _tipsInterfaceMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x5c\x8f\x31\x4b\xc4\x40\x10\x85\x7b\x7f\xc5\xb3\x53\x38\x13\x15\x51\x10\xc4\xe2\xf0\x8e\xab\xe5\xb0\x10\x8b\x71\x33\xc9\xe6\x4c\x66\xd6\xdd\xd9\x5b\xf2\xef\x25\x29\x52\x58\x4d\x31\xef\xfb\x78\xef\x06\x07\x31\x8e\x2d\x39\x4e\xa0\xc8\x50\x61\x68\x0b\xf3\x8c\x51\x93\x21\x68\xe1\xd8\xe6\x61\x83\x9c\x78\xb9\x24\x0d\xb2\xf4\xbf\x99\xd1\x32\x59\x8e\x9c\x66\x62\xaf\x15\x3e\x3c\x0b\x26\xcd\xc8\xd2\x70\x4c\x36\x47\xfb\xd5\xbf\xf9\xff\x9a\x91\x5d\x24\x71\x9c\x1c\xb6\x34\x06\x9d\xd0\xd1\x99\x41\xe8\x22\x93\xc1\x68\xf8\x01\x19\xf6\x1a\x3c\xc7\xad\xef\x85\x70\x7f\x7b\xf7\x04\x47\xc3\xc0\x0d\x3e\x8f\xab\xac\x97\x6e\x29\xbd\xce\xf9\xba\xf2\x66\x21\x3d\xd7\x75\x29\xa5\x9a\x34\x5b\xfe\xe6\xca\xe9\x58\x17\x32\xe7\x5f\xcf\x2f\xbb\x87\x72\x8c\xa7\xc7\x30\xbe\x1f\xae\x2b\xbc\xc9\x49\xa7\xcb\x8b\xbf\x00\x00\x00\xff\xff\x2a\x9e\x59\xdd\x11\x01\x00\x00")
+
+func tipsInterfaceMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsInterfaceMd,
+		"tips/interface.md",
+	)
+}
+
+func tipsInterfaceMd() (*asset, error) {
+	bytes, err := tipsInterfaceMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/interface.md", size: 273, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x83, 0xdd, 0xbb, 0xa2, 0x6c, 0xb9, 0x3e, 0x95, 0xf5, 0x80, 0x7f, 0x1c, 0xc0, 0x5f, 0x87, 0x58, 0x2d, 0x23, 0xe8, 0xbf, 0xf1, 0x99, 0xcd, 0xe, 0xb2, 0x43, 0xa4, 0xd6, 0x56, 0xd6, 0x10, 0x4a}}
 	return a, nil
 }
 
@@ -477,7 +762,7 @@ func tipsMagicMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/magic.md", size: 310, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
+	info := bindataFileInfo{name: "tips/magic.md", size: 310, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xa0, 0xa9, 0x26, 0x41, 0x13, 0x64, 0x26, 0x73, 0x50, 0x65, 0xae, 0x57, 0xcb, 0xa6, 0xb7, 0x25, 0x16, 0xb9, 0x77, 0x1a, 0x66, 0x9d, 0xf2, 0x74, 0x38, 0xf6, 0xe2, 0x13, 0x15, 0x0, 0x20, 0xe4}}
 	return a, nil
 }
@@ -497,8 +782,128 @@ func tipsModulesMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/modules.md", size: 313, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
+	info := bindataFileInfo{name: "tips/modules.md", size: 313, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x5f, 0xfe, 0x8c, 0xe2, 0x6e, 0x69, 0x3, 0xc7, 0xc2, 0x21, 0x5c, 0xb2, 0x43, 0x87, 0x5e, 0x71, 0x6a, 0x2, 0x4e, 0xa2, 0x26, 0x6d, 0xec, 0xd1, 0x80, 0x8, 0x8c, 0xa6, 0x94, 0x74, 0x16, 0xdf}}
+	return a, nil
+}
+
+var _tipsMutexesMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x34\x90\xb1\x6a\x33\x31\x10\x84\xfb\xff\x29\xa6\xf3\x1f\xf0\xd9\xc1\x04\x8c\xd3\x26\x90\x2a\x55\xca\x90\x62\xad\x5b\x4b\x22\xd6\xee\xb1\x5a\xf9\x72\x6f\x1f\x64\x3b\xdd\xc0\xe8\x13\xdf\xec\x80\x97\x44\x22\x7c\xae\x20\x63\x90\x20\x4b\x30\x1e\xf3\xf1\xbc\x60\xd2\x99\xed\xd4\xce\x08\x2a\x81\x27\x47\x96\x6b\x6c\x66\x2c\x8e\xc9\x34\x1a\x95\x92\x25\xae\x71\x6c\x0e\x4f\xbc\xf4\x6f\x64\x75\xcd\x20\xa9\x33\x1b\x5c\xc1\x17\xb6\xc5\x53\x96\xb8\xc1\x87\x16\xf6\x5c\xb8\x62\xd1\x06\x61\x1e\xfb\x8b\x56\x19\x84\xd2\x9c\x7f\xd6\x20\x19\xf1\xf9\x4a\x12\xb2\x44\xcc\xd9\x13\xde\x74\x55\xf1\xde\x5b\xae\x5f\xff\x93\xfb\x54\x9f\xb7\xdb\x44\xe1\x9b\x4d\x54\x65\x13\xb4\x6c\xc7\x1b\x31\x74\x62\x88\x3a\xd4\xa1\xdc\x88\xe1\xb0\x7b\x7a\xdc\x13\x1f\x76\xfb\xe3\xe9\x01\xb9\x82\x10\x8d\xa9\x2f\x72\xd3\xb1\x05\xcf\x2a\x5d\x23\xe9\xfc\x67\x73\x67\x6f\x36\x73\xe2\x6b\x1f\x92\x6a\xe5\xbe\xae\x40\x2f\x6c\x08\xf7\xf3\x6d\xfe\xfd\x06\x00\x00\xff\xff\x67\x97\x04\xbc\x4b\x01\x00\x00")
+
+func tipsMutexesMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsMutexesMd,
+		"tips/mutexes.md",
+	)
+}
+
+func tipsMutexesMd() (*asset, error) {
+	bytes, err := tipsMutexesMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/mutexes.md", size: 331, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xf7, 0x52, 0x12, 0x83, 0xa, 0xc5, 0x9b, 0x43, 0xbb, 0xd7, 0x95, 0xbb, 0x66, 0x80, 0xbc, 0x88, 0x3d, 0x0, 0x7e, 0x5d, 0xf0, 0x90, 0xfd, 0x22, 0x88, 0xb7, 0x75, 0x7d, 0x6b, 0xa5, 0xfa, 0x36}}
+	return a, nil
+}
+
+var _tipsNilMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x24\x8f\x41\x4b\xc3\x40\x10\x85\xef\xfe\x8a\x77\xab\x82\x4d\xc1\x93\x08\x92\x83\x50\x6f\xde\x44\x44\x84\x4e\x93\xd1\xac\xdd\xcc\x84\x9d\xd9\x6e\x37\xbf\x5e\x9a\x1c\xbf\xef\x1d\xde\x7b\x5b\x1c\x24\xc4\x03\x82\xc1\x74\x64\x1f\x82\xfc\xc2\x07\x72\x4c\x79\x9e\x23\xaf\x1a\xc2\x05\xaf\x3a\x0d\x9c\xac\xc1\xc7\x35\xee\x95\x0d\xc1\x31\x32\x49\xbb\xa8\xcd\xc2\x3f\x9a\x5a\xec\x13\x49\xc7\xd6\xe1\x85\xc6\x49\xeb\xc6\xe0\x14\x4f\xf8\x7a\x97\x9e\x93\x39\x49\x7f\xad\x79\x0b\xf1\xfb\x76\x70\x9f\xec\x69\xb7\x2b\xa5\x34\x55\xb3\xe7\x23\x37\x9d\x8e\xbb\x42\xde\x0d\xed\xf9\xb9\x8a\x7e\x3e\x5c\xe6\xed\xfe\xd1\xee\xc0\x97\x29\x52\x10\x03\x9f\x39\xd5\x75\x6c\xd5\xbc\x20\x0a\x89\x73\x0f\x57\x9c\x44\x0b\xe8\xa8\xd9\xd7\x77\xf7\x20\xe9\xf1\x97\xcd\x41\x88\xc1\x3d\x32\x46\x4d\xdc\xdc\xfc\x07\x00\x00\xff\xff\xae\x1f\xaf\x91\xff\x00\x00\x00")
+
+func tipsNilMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsNilMd,
+		"tips/nil.md",
+	)
+}
+
+func tipsNilMd() (*asset, error) {
+	bytes, err := tipsNilMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/nil.md", size: 255, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x47, 0x9b, 0xa8, 0x2f, 0xba, 0x94, 0xdb, 0xa4, 0xf7, 0xe8, 0xa0, 0x64, 0xa3, 0x9b, 0xbe, 0xe4, 0x95, 0x5b, 0xbb, 0x1d, 0x0, 0x1a, 0x5d, 0x24, 0x74, 0xe4, 0x9a, 0xc2, 0x43, 0xc, 0xdf, 0x8e}}
+	return a, nil
+}
+
+var _tipsPerformanceMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x4c\x8e\xb1\x6e\xeb\x30\x0c\x45\xf7\xf7\x15\x77\x7c\x05\xe2\xb8\xed\x54\x64\x2b\x52\x34\x6b\x87\x6e\x45\x07\x99\x66\x24\x22\x36\x29\xd0\xb2\x13\xff\x7d\x61\x01\x41\xbb\x49\xe4\x3d\xf7\xb0\xc1\x6b\xc1\xc9\x72\x62\x27\x53\x3c\x3f\x3e\xbd\xec\xf0\x16\x16\xc6\x31\xb1\xf2\x8a\xa0\x3d\xde\x3d\x28\xf1\x44\x38\x86\x31\xdb\x8a\xb8\xed\x03\xae\xe6\x97\x29\x59\x86\x29\xbe\x4e\x86\x0f\xf6\xb3\xf9\xb8\x65\xf1\x39\xab\x68\xfc\xfe\x9f\x4a\xc9\xd3\xa1\x6d\xa3\x94\x34\x77\x7b\xb2\xb1\xed\xc3\xc2\x54\xcb\xdb\x78\x17\x6f\xde\x26\xff\xf2\x4d\xa9\x7c\x73\x57\x3c\xe0\x9a\x84\x12\xae\x32\x0c\x88\xb2\x30\x56\x9b\xc1\x0b\xfb\x5a\x92\x68\xac\x5f\x65\xee\x51\x0c\xbd\x84\xa8\x36\x71\xbd\xfd\x2c\x37\xfc\x29\x46\x76\xeb\x06\x1e\x27\x88\x6e\x90\xe3\x64\x20\xeb\xf9\x80\x8e\x95\xd2\x18\xfc\x22\x1a\x77\x5b\xee\x2c\x43\x7d\xf2\x8d\x69\x2e\x62\x8a\xe2\x81\xea\xa8\x24\x46\x0c\xde\x85\xc8\x20\x1b\x06\xa6\x62\xbe\xab\xc2\xd1\x9c\xf7\xff\x7e\x02\x00\x00\xff\xff\xd3\xe8\xca\xcc\x58\x01\x00\x00")
+
+func tipsPerformanceMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsPerformanceMd,
+		"tips/performance.md",
+	)
+}
+
+func tipsPerformanceMd() (*asset, error) {
+	bytes, err := tipsPerformanceMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/performance.md", size: 344, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x8e, 0xeb, 0xfa, 0xc2, 0x74, 0xb8, 0x2d, 0x38, 0x6a, 0x2d, 0xfb, 0xd0, 0xcb, 0xaf, 0x1, 0x9f, 0xa4, 0xa4, 0xe2, 0x4d, 0x9a, 0xd0, 0xd1, 0xa2, 0x8a, 0xa8, 0x9d, 0x28, 0x95, 0x9a, 0x5a, 0xa1}}
+	return a, nil
+}
+
+var _tipsPointersMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x3c\xce\xcd\x4a\x03\x31\x14\xc5\xf1\xbd\x4f\x71\x76\x55\xf0\x4e\x62\x11\x2d\x6e\x44\x2c\xf8\x04\xae\xc4\x45\x66\xe6\xb6\x13\x8c\xf7\x86\x7c\xd4\xe6\xed\x25\x03\xed\x03\x9c\xf3\xfb\x13\xde\x12\xa3\x69\x45\xe4\x14\x03\x9f\x79\xc6\xd8\x10\xd5\x4b\xe1\x94\x5f\xb1\x57\xd9\x14\xfc\x69\x4a\xed\x1e\x7b\x77\x62\xbc\x2f\x2c\xdc\x36\x19\x63\xd0\x23\xa2\xe6\x82\xaf\x4f\x99\x39\xe5\xe2\x64\xc6\x87\x5e\xd7\xf0\x82\xc0\x39\xa3\x2c\x4e\xb0\xb3\xb6\xff\xcc\x19\x9a\xba\x98\xf0\xab\xc2\x0d\xa3\x9b\x7e\xbe\x6f\x97\x52\x62\x7e\x31\x66\x76\x27\x1e\xa6\x95\x18\x84\x8b\xd9\xda\x87\x67\x63\x1f\xcd\xf6\xc9\xd4\x2b\x42\x47\xa5\x0b\x42\x5e\xa8\x23\xd4\x11\xda\x59\x4b\x2b\x42\x9a\xa8\x23\xb4\x22\xd4\x91\x3b\xf8\x0c\x87\x91\x5d\x2d\xfe\x50\x43\x68\x98\x54\x26\x9f\x19\x3d\x7c\xe1\x10\x0f\x35\x80\xcf\x31\x38\x71\xc5\xab\x0c\x37\xff\x01\x00\x00\xff\xff\x8f\xbf\x7a\x6a\x20\x01\x00\x00")
+
+func tipsPointersMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsPointersMd,
+		"tips/pointers.md",
+	)
+}
+
+func tipsPointersMd() (*asset, error) {
+	bytes, err := tipsPointersMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/pointers.md", size: 288, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x30, 0x3d, 0x7c, 0xb8, 0x9a, 0x9c, 0xa3, 0x1e, 0xd3, 0x33, 0x47, 0x76, 0x5a, 0xd2, 0x9a, 0xa4, 0xad, 0x4e, 0x68, 0x1b, 0x4e, 0xd7, 0xc8, 0x3d, 0x28, 0xa5, 0x95, 0xe3, 0x18, 0x36, 0x6, 0x27}}
+	return a, nil
+}
+
+var _tipsPracticalMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x5c\xcf\x31\x4f\xf3\x40\x0c\xc6\xf1\xfd\xfd\x14\xcf\xf8\x22\xb5\xc9\xde\xa5\x03\x48\x65\x44\x2c\x0c\x88\xc1\xbd\xb8\x77\x56\x2f\x76\x38\xbb\x89\xc2\xa7\x47\xa9\xc4\x00\xe3\x33\xf8\x27\xff\xf7\x78\x7f\x69\x94\x42\x12\x55\x9c\xec\x80\x57\xa6\x8a\xc5\x5a\x1d\x40\xc3\x2c\x89\x71\xb1\x86\xa5\x49\x88\x66\x8c\x24\x1a\x24\x4a\xe7\xca\x38\x19\xa6\x66\xb9\xd1\xe8\x1f\xff\x4b\xc4\xe4\x87\xbe\x1f\x68\xe6\x2e\x15\x56\x5e\x3b\xe5\xe8\xa7\x1f\x7d\x9f\xad\x9f\x1a\x3b\x6b\x50\x88\xa9\xf7\x9f\xc9\x74\x9f\x8a\x28\x75\x25\xc6\xfa\x00\x71\x10\xa2\x91\x7a\x6a\x32\x05\xec\xb2\x6d\xaa\x57\x9c\x57\x3c\xd1\xcc\x78\xbc\xc3\xa0\xb3\xdd\x02\x0b\xad\x8e\x30\x0c\x86\x28\xa2\xd9\x21\x8a\x93\x75\x78\xb6\x05\x5e\xec\x56\x07\xac\x76\x43\x2a\x66\xce\xc8\x66\x03\x94\x46\xf6\x7b\xd2\x4c\x4d\xb6\x0c\x3f\xe2\xad\xb0\xee\xb0\x94\x75\x07\xd2\x01\xe5\xf7\xf9\xd6\xce\x48\x36\x8e\xac\xe1\xc7\xbf\xba\xb5\x4c\x2a\x5f\xbc\x8d\x86\x89\xd2\x95\xf2\x86\xde\xff\x2d\xe4\x88\xc2\x20\xf5\x85\x9b\x77\xff\xbe\x03\x00\x00\xff\xff\x72\x8b\xfe\x49\x70\x01\x00\x00")
+
+func tipsPracticalMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsPracticalMd,
+		"tips/practical.md",
+	)
+}
+
+func tipsPracticalMd() (*asset, error) {
+	bytes, err := tipsPracticalMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/practical.md", size: 368, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xeb, 0xd2, 0x3f, 0xbe, 0x51, 0xb6, 0x99, 0x29, 0x16, 0xdc, 0xe3, 0x96, 0x1f, 0x9a, 0x71, 0x16, 0x5f, 0x10, 0x57, 0x39, 0x5d, 0x71, 0xd7, 0x3e, 0x91, 0x9d, 0x20, 0x16, 0xaa, 0xf2, 0x9f, 0xe5}}
+	return a, nil
+}
+
+var _tipsProfilingMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x4c\x8f\x31\x4f\xc4\x30\x0c\x46\x77\x7e\xc5\xb7\x1d\x48\x5c\xbb\xb3\x30\x1e\x23\x3b\x62\x48\x53\xa7\xb5\x9a\xda\x21\x76\xd4\xbb\x7f\x8f\x2e\x80\xc4\xfa\xa4\xcf\xef\xf9\x8c\x8b\x82\x0d\x29\x98\x23\xc8\x0c\x4a\x89\x23\x93\xf8\x33\xa6\xe6\x08\x0e\xd3\x9d\x50\x94\xc5\x71\xd3\x76\xca\x19\xa5\xea\x14\xa6\x7c\x03\x49\xd4\x26\x4e\x15\x01\x85\x6a\xd2\xba\x07\x89\x84\x49\xdd\x33\x09\xc5\x0d\x2c\xf7\x55\x45\xd4\x99\x06\xbc\xe9\x81\x18\x3a\x42\x62\x99\xbb\x32\xf1\xb5\x9f\xcc\xb4\x1b\x32\x6f\x04\x5f\xd9\x5e\xf1\xf1\x5e\x35\x71\x66\x59\x70\xd1\xcf\xc7\xd5\xbd\xd8\xcb\x38\x1e\xc7\x31\xb0\x38\x2d\x35\x64\x36\x1f\xa2\x0e\x6d\x1b\x8b\x9a\xdb\x58\xfe\x16\xe7\x45\xc7\x27\xd0\xb5\xe4\xc0\x62\x3f\x3f\x38\xc5\x55\xf8\xab\x91\x75\xad\xab\x66\x43\xd2\x8a\xf2\xcf\xd3\x43\x7f\xb3\x96\x56\xef\x50\x9b\xe3\x58\x83\x9f\x0c\x8b\x76\x20\xc3\xc3\x77\x00\x00\x00\xff\xff\x85\x21\xb7\x7a\x39\x01\x00\x00")
+
+func tipsProfilingMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsProfilingMd,
+		"tips/profiling.md",
+	)
+}
+
+func tipsProfilingMd() (*asset, error) {
+	bytes, err := tipsProfilingMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/profiling.md", size: 313, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x89, 0xe1, 0xcb, 0x57, 0xe2, 0xde, 0x40, 0x6c, 0x37, 0xbc, 0x80, 0xa8, 0x8c, 0x41, 0xb9, 0x34, 0x5e, 0xe7, 0xc5, 0x21, 0x4c, 0xde, 0x90, 0xc2, 0xbd, 0x5e, 0xf8, 0xff, 0xc1, 0xd4, 0x6a, 0x51}}
 	return a, nil
 }
 
@@ -517,7 +922,7 @@ func tipsProverbsMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/proverbs.md", size: 309, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
+	info := bindataFileInfo{name: "tips/proverbs.md", size: 309, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xc, 0x7c, 0x3f, 0x1a, 0x96, 0xe3, 0x3a, 0x8b, 0x22, 0x33, 0x44, 0x2b, 0x2a, 0x93, 0x60, 0x71, 0xee, 0x75, 0x5e, 0x42, 0x67, 0xa6, 0xf6, 0xf6, 0xdc, 0x7f, 0x5e, 0x5e, 0xc5, 0x90, 0x37, 0x6a}}
 	return a, nil
 }
@@ -537,8 +942,68 @@ func tipsReviewMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/review.md", size: 417, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
+	info := bindataFileInfo{name: "tips/review.md", size: 417, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x50, 0xf1, 0x9, 0x7b, 0x48, 0x33, 0x88, 0x88, 0xa7, 0x11, 0xbb, 0x9d, 0x25, 0xc2, 0x6e, 0xd3, 0x26, 0xf2, 0x1a, 0xbb, 0x3b, 0xfa, 0x50, 0x6d, 0xca, 0x15, 0x29, 0x30, 0x87, 0x21, 0xf3, 0x26}}
+	return a, nil
+}
+
+var _tipsRubyistsMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x3c\x90\x41\x6b\xe3\x40\x0c\x85\xef\xfb\x2b\xde\x2d\x09\xec\xc4\x9b\xdd\xcb\x52\x28\xa5\xa7\xa4\xb7\xd2\x6b\xe9\x41\xb1\x95\xf1\xe0\xb1\x64\x46\x1a\x8c\xf3\xeb\x8b\x93\xd0\xb3\xa4\x4f\xef\x7d\x01\x6f\x17\x2c\x5a\x37\x85\xd1\xea\x98\x24\xc2\x15\x47\xc5\xa5\xe8\x08\xc2\x47\x3d\x2f\x38\x53\x3b\xc4\xa2\x55\xba\xdf\x30\x1d\x19\xde\x27\x89\x86\x39\xe5\x8c\x91\x06\x86\xb1\x18\xaf\x97\x8b\x56\x94\x14\x7b\x07\xcd\xb4\x80\xa4\x83\x7a\xcf\xe5\xb1\x7c\x66\x10\x72\x72\xcf\x8c\x51\x0b\x63\xaa\xd7\x6b\x4e\x12\xf7\x38\x59\x92\x18\x4e\x35\xe1\x64\x75\x63\xf8\x7c\xbd\x3d\x4f\xe6\x1b\xc3\xf6\x5d\x53\x14\x12\xdf\xe1\x58\x53\xc7\xf7\x90\x5f\xdb\xde\x7d\xb2\xa7\xa6\xb1\x89\x69\xe0\xd2\x71\x3b\xec\x5b\x1d\x1b\xd3\x91\x64\xe9\xad\x89\x1a\x44\x8b\xf7\x33\x9b\x87\xbf\x7f\x0e\xff\x03\x85\x72\xc7\x5a\x98\x1e\xd0\x10\x57\x66\x70\x0d\x51\x5f\x2c\xa7\x8e\x9f\x0f\xff\x76\x48\x06\x42\x2c\x4c\x8e\xb5\x8b\x2b\x0a\x67\x72\xc6\xdc\x93\xdf\x9a\x0e\xa2\xf3\xdd\xd4\xcd\x93\xeb\xcf\x68\xf5\x99\x99\x8a\xac\x46\x93\xe0\xa8\xfb\x5f\xdf\x01\x00\x00\xff\xff\x89\x45\xd8\xda\x6c\x01\x00\x00")
+
+func tipsRubyistsMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsRubyistsMd,
+		"tips/rubyists.md",
+	)
+}
+
+func tipsRubyistsMd() (*asset, error) {
+	bytes, err := tipsRubyistsMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/rubyists.md", size: 364, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x4d, 0xbf, 0xb0, 0xf, 0xfd, 0xa9, 0x1d, 0x1e, 0xb5, 0x88, 0xa6, 0x5a, 0x88, 0x8c, 0xb5, 0x33, 0x8d, 0xd6, 0x83, 0x2, 0x8b, 0xd8, 0x9f, 0xc4, 0xb8, 0x3b, 0x48, 0x57, 0x3e, 0xe, 0x7f, 0x3f}}
+	return a, nil
+}
+
+var _tipsServersMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x54\x90\x3d\x6e\xeb\x40\x0c\x06\xfb\x77\x8a\xaf\x7c\x01\x2c\x29\x49\x91\x22\x17\xf0\x01\x52\x06\x29\x28\xed\xa7\x15\x11\x99\x14\x76\x29\xcb\xbe\x7d\x20\xe7\x0f\x69\x49\x60\x86\xc3\x06\x47\x87\x56\x6c\x9a\x38\x5f\xb1\x56\x26\x8c\x5e\xb0\x15\x0d\xb5\x0c\xb5\x60\x31\x06\x2a\xcb\x99\xa5\x1e\xd0\xaf\x81\x98\xf8\xbb\x19\xc4\xd0\x13\x82\x24\x96\x59\x7c\xad\x58\x66\x19\xd8\xe2\xf5\xc5\x71\xf5\x15\x9b\x58\x20\x1c\xbc\x2c\x5e\xb9\x1b\xdd\xfe\x30\xde\xfe\x4f\x11\x4b\x7d\xee\xba\x7e\xf6\xdc\x66\x5f\x26\x16\x19\x24\xf1\x74\x6d\x07\x3f\x75\x92\xce\xb4\x68\x1e\xef\x1f\x9e\xba\x1b\x45\x2d\x37\xd9\x1b\xb7\x26\x26\x36\xdf\x9c\xee\x6e\x6f\x11\x03\x2f\x03\xe7\x99\x16\xc8\xab\x26\xee\xf2\xdd\x17\x93\x5a\xae\xb7\x9b\x8c\x4c\x9f\x63\xb5\x77\x48\xef\x6b\x60\x9b\x68\x3f\xe5\x55\x46\x1e\x50\x38\xab\xf4\x33\x0f\x10\x4b\xe0\x38\xea\xa0\x3b\xf6\xeb\x1d\x50\xc3\xd1\xdb\x7f\x1f\x01\x00\x00\xff\xff\xa0\x34\x4b\xed\x47\x01\x00\x00")
+
+func tipsServersMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsServersMd,
+		"tips/servers.md",
+	)
+}
+
+func tipsServersMd() (*asset, error) {
+	bytes, err := tipsServersMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/servers.md", size: 327, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xef, 0x1a, 0x52, 0xa0, 0xc7, 0x8b, 0xa0, 0xc0, 0x23, 0x45, 0x34, 0xb6, 0x29, 0x1c, 0xaf, 0x87, 0xf4, 0x79, 0x69, 0xa9, 0xa7, 0xcc, 0x51, 0x79, 0x3f, 0xc9, 0xe1, 0x22, 0xd2, 0xab, 0x98, 0xb}}
+	return a, nil
+}
+
+var _tipsShadesMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x34\x90\x3d\x6e\xdc\x40\x0c\x85\xfb\x9c\xe2\xa5\xb2\x0d\x48\xda\x34\x69\x72\x01\x1f\xc0\x45\x8a\x20\x05\x77\x86\x92\x08\x73\x48\x61\x7e\x56\xab\xdb\x07\x23\xc5\xd5\x0c\x01\x7e\xdf\x23\xde\x88\x3f\x3f\x7f\xe0\x63\xa5\xc8\x05\x3e\xe3\xdd\xff\xbe\xae\xb5\x6e\xbf\x6e\xb7\xc8\x8f\x32\x05\xf5\x16\x25\xa5\x66\x52\x8f\x29\x78\xba\x2d\x5e\xc3\x4a\x65\x24\x8b\x63\xf0\x94\xdc\xc6\x24\xa5\xd2\x27\x97\x51\x6c\x5c\x7c\x5c\x5c\xc9\x96\x9b\x58\xe4\xe7\xb4\xd6\xa4\x6f\x90\x02\xc2\xee\x16\x39\xcf\x4d\x11\x5c\x95\x43\x15\xb7\x9e\x59\x33\x6d\x65\xc0\x7f\xf1\x00\xb2\x88\xcb\x8c\x2f\x33\xc4\xf0\xee\x03\x3c\x2f\x46\x52\x38\xe2\x7e\x80\x9f\x1b\x67\x61\x0b\x0c\xe5\x07\x2b\xe6\xec\x09\x77\x5e\xc4\x8c\x33\xda\xb6\x53\x8e\x65\xc2\x87\x27\x3e\x73\x56\x2e\x8c\xc3\x1b\x12\x1d\x20\xcd\x4c\xf1\xc0\xa7\xf9\x8e\xd7\x66\xad\x5b\x1f\x94\x85\xee\xca\xe5\xfb\xdb\x80\x44\x76\x60\x17\x55\xdc\x19\xc6\x3b\xaa\x77\x7a\xc2\xef\x55\xf4\x12\x95\xd5\x9b\x46\x7b\xa9\x30\x0e\x5c\x0a\x65\xd1\x03\x5d\x0c\xa9\xd7\x3d\xc1\x1f\x9c\x3b\x7a\x7e\x86\x8e\xbd\xa8\x62\x16\x8b\xa8\xeb\x59\x4c\x2b\xdc\x5b\x51\x29\xb5\x2f\x46\xd9\x20\x56\xfd\x2c\x22\xf3\x7c\xe1\xa7\xac\x4a\xe2\x3e\xf4\x77\xfa\xf6\x2f\x00\x00\xff\xff\xd0\xe5\x30\x66\xbd\x01\x00\x00")
+
+func tipsShadesMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsShadesMd,
+		"tips/shades.md",
+	)
+}
+
+func tipsShadesMd() (*asset, error) {
+	bytes, err := tipsShadesMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/shades.md", size: 445, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x14, 0x2e, 0x9f, 0xcd, 0xa3, 0xe7, 0x25, 0x9e, 0xa4, 0x69, 0xed, 0xaa, 0x13, 0x94, 0x8e, 0xb9, 0x25, 0x35, 0x76, 0x9, 0x63, 0x6, 0x79, 0x9f, 0x8c, 0x86, 0x49, 0xaa, 0x55, 0xd6, 0x4f, 0xae}}
 	return a, nil
 }
 
@@ -557,8 +1022,28 @@ func tipsSimplicityMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/simplicity.md", size: 292, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
+	info := bindataFileInfo{name: "tips/simplicity.md", size: 292, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xd3, 0x22, 0xbb, 0xbf, 0xeb, 0x86, 0x7a, 0x3f, 0xe, 0x72, 0x8c, 0xf1, 0x96, 0x9f, 0x54, 0x49, 0x3a, 0xb8, 0x20, 0x10, 0xe5, 0x8a, 0x21, 0x93, 0xd4, 0xf7, 0xf1, 0xe8, 0x79, 0x84, 0x84, 0x22}}
+	return a, nil
+}
+
+var _tipsSolidMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x3c\x8e\x31\x4b\x03\x41\x10\x46\x7b\x7f\xc5\xd7\xa9\x90\xe4\x62\x0a\x11\x5b\x03\x22\x08\x16\x96\x62\x31\xb9\x9d\xec\x2e\x8c\x33\xcb\xce\xde\xc5\xfb\xf7\xb2\x17\xb0\x9b\xe2\xbd\x79\xdf\x16\x47\x9a\x19\x2f\x89\x95\x97\x5b\xc7\xd7\xe7\xc7\xfb\xdb\x11\xaf\x86\x23\x7b\x8e\xfa\x7d\x97\x5a\x2b\xfe\x3c\x0c\x81\x66\xde\x8d\x2b\xb7\x53\x6e\xc3\x61\xff\xf0\x38\xec\x9f\x86\xc3\x7e\x70\x93\x1c\xb6\xd1\xb6\x61\x75\xee\x91\x1d\x84\x96\x6c\x8a\xa9\x9d\x27\x01\xbb\xd3\x02\x53\xb4\xc4\x28\x35\xeb\x98\x8b\xb0\xc3\xce\x88\x66\x01\x6e\xe7\x76\xa1\xca\x60\x8d\x59\x99\x6b\xd6\x88\xac\x88\xac\x5c\x49\x36\x20\x0d\x48\x76\xe9\xfe\x02\x2a\x45\x16\x34\xeb\x2b\xb3\xa2\x50\x6d\x79\x9c\x84\xea\x06\xfc\x5b\x84\xb2\x76\x7d\xc5\x0d\xd7\x49\x1d\x2d\xd5\x62\xa5\x1f\x47\x4b\xd4\xd0\x6b\x17\x16\xf9\x4f\x72\xd8\x20\xf0\x68\x53\x91\x7e\x56\x9e\x9c\x4e\xc2\xd7\x36\x9d\x6c\x66\x90\x08\x2a\x7b\x31\xf5\x3c\x73\xff\x3e\x26\xd2\xc8\xbb\x9b\xbf\x00\x00\x00\xff\xff\x24\xf2\xa4\x1c\x47\x01\x00\x00")
+
+func tipsSolidMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsSolidMd,
+		"tips/solid.md",
+	)
+}
+
+func tipsSolidMd() (*asset, error) {
+	bytes, err := tipsSolidMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/solid.md", size: 327, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x55, 0x8d, 0xf1, 0xc8, 0x39, 0xad, 0xa7, 0x81, 0x61, 0x7f, 0xdb, 0xfa, 0xd0, 0x55, 0xa2, 0x9b, 0x8e, 0x9f, 0x24, 0x50, 0x63, 0x4, 0xa4, 0xc5, 0x3e, 0x80, 0xb4, 0x70, 0x11, 0xf6, 0x1d, 0x85}}
 	return a, nil
 }
 
@@ -577,7 +1062,7 @@ func tipsTddMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/tdd.md", size: 354, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
+	info := bindataFileInfo{name: "tips/tdd.md", size: 354, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x5c, 0xa4, 0x1d, 0xc1, 0xdf, 0xd9, 0x7b, 0xc4, 0xb1, 0x2c, 0xe5, 0x4e, 0x64, 0x82, 0xf1, 0xb2, 0x84, 0x66, 0xcc, 0xa9, 0x85, 0xc7, 0x43, 0x24, 0x68, 0x86, 0x49, 0x52, 0x78, 0x5d, 0xb5, 0x47}}
 	return a, nil
 }
@@ -597,8 +1082,28 @@ func tipsTestsMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/tests.md", size: 390, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
+	info := bindataFileInfo{name: "tips/tests.md", size: 390, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xa0, 0x87, 0x78, 0xaf, 0x12, 0xa4, 0x19, 0x44, 0x2, 0x1a, 0x35, 0xa4, 0x82, 0xde, 0xc1, 0x66, 0x5a, 0x55, 0xc3, 0xb, 0x21, 0x2c, 0x57, 0x3, 0x3d, 0x67, 0x9a, 0xc8, 0x11, 0x53, 0xdb, 0xe2}}
+	return a, nil
+}
+
+var _tipsToolingMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x2c\xce\xb1\x4e\xc3\x40\x10\x84\xe1\x9e\xa7\x98\x0e\x90\x20\xee\xe9\x00\x09\x97\x14\xa4\x43\x14\x1b\x7b\x73\x77\xc8\xde\xb1\x6e\xf7\x30\x7e\x7b\x94\x98\xfe\x1f\xcd\xf7\x88\x77\x53\xf0\x8c\xc8\x8a\x59\x6c\x43\xaa\x2a\x81\xc8\xc5\x92\x43\x4e\x6c\x81\x9e\x28\xbe\x17\x1c\xb5\xda\x03\x16\xae\x5a\xcf\x6d\x42\x90\x53\xb1\x84\xc8\x12\x18\x38\xab\x63\x2d\x91\xaf\xf1\x24\x96\x9a\x24\x3d\xe0\xad\x8a\x0d\xea\x03\x5e\x65\x5e\xb8\xdd\x3a\x3e\x7b\xe2\xf8\xbf\x2d\x86\xe7\x21\x0a\xed\xeb\x2e\x47\x2c\xfe\xd4\x75\x1b\x5b\xb4\xc3\x49\xbb\xf6\xf2\xcd\xe3\x2f\xfd\x63\xf3\xfb\x0b\x42\xf0\x53\x46\x25\x52\x2b\xa3\xee\xaf\xc5\xa2\x72\x6c\x83\xee\xc4\x9e\x57\x94\x43\x6c\x44\xe6\x8a\x20\x9a\x5f\x5a\x9d\x0f\x37\x7f\x01\x00\x00\xff\xff\xb3\xbd\xb7\x1b\xf0\x00\x00\x00")
+
+func tipsToolingMdBytes() ([]byte, error) {
+	return bindataRead(
+		_tipsToolingMd,
+		"tips/tooling.md",
+	)
+}
+
+func tipsToolingMd() (*asset, error) {
+	bytes, err := tipsToolingMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tips/tooling.md", size: 240, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x41, 0xe2, 0xd8, 0x1f, 0x25, 0x75, 0x3d, 0xc2, 0xaa, 0x86, 0x4c, 0xbf, 0xf6, 0xf0, 0x60, 0xd2, 0x14, 0x4f, 0x40, 0x7a, 0x97, 0x5e, 0x37, 0x48, 0x16, 0xa8, 0x64, 0xaf, 0x17, 0xd1, 0x86, 0xf3}}
 	return a, nil
 }
 
@@ -617,7 +1122,7 @@ func tipsTourMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tips/tour.md", size: 273, mode: os.FileMode(420), modTime: time.Unix(1543141850, 0)}
+	info := bindataFileInfo{name: "tips/tour.md", size: 273, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xff, 0xf3, 0xb4, 0x5b, 0xa9, 0x7c, 0x5f, 0xe1, 0x5a, 0xbc, 0x7d, 0xbc, 0x71, 0xe, 0xcc, 0xe4, 0x49, 0x81, 0x2f, 0xe2, 0x31, 0xc3, 0xb, 0xdf, 0x40, 0x72, 0xc2, 0x2b, 0x6, 0x3, 0xb4, 0x9d}}
 	return a, nil
 }
@@ -637,7 +1142,7 @@ func toolsCompileMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tools/compile.md", size: 229, mode: os.FileMode(420), modTime: time.Unix(1542628451, 0)}
+	info := bindataFileInfo{name: "tools/compile.md", size: 229, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x21, 0x51, 0x8f, 0x7e, 0xbe, 0x46, 0x22, 0xaf, 0x24, 0x5c, 0xe6, 0xb5, 0x90, 0x7e, 0x57, 0x7d, 0xf5, 0x14, 0xc6, 0x77, 0x88, 0x6e, 0x23, 0x80, 0xf, 0x3c, 0x87, 0x9c, 0x9, 0x10, 0xe9, 0x6f}}
 	return a, nil
 }
@@ -657,7 +1162,7 @@ func toolsNot_formattedMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tools/not_formatted.md", size: 435, mode: os.FileMode(420), modTime: time.Unix(1543061558, 0)}
+	info := bindataFileInfo{name: "tools/not_formatted.md", size: 435, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x6, 0x89, 0xfd, 0x40, 0x3d, 0x52, 0x7f, 0xe, 0xe0, 0x62, 0x69, 0x6b, 0x1a, 0x6b, 0x7d, 0x94, 0xd4, 0xe2, 0xd8, 0xb8, 0xca, 0xa2, 0xb2, 0x81, 0x59, 0xb3, 0xdb, 0xf, 0xe, 0x60, 0xae, 0xb4}}
 	return a, nil
 }
@@ -677,8 +1182,28 @@ func toolsNot_lintedMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tools/not_linted.md", size: 565, mode: os.FileMode(420), modTime: time.Unix(1543820142, 0)}
+	info := bindataFileInfo{name: "tools/not_linted.md", size: 565, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xb, 0x13, 0x14, 0xfc, 0x86, 0xf7, 0x0, 0x24, 0x6e, 0xc9, 0xaa, 0x35, 0xdd, 0x5e, 0x77, 0x92, 0xc4, 0x20, 0x6a, 0x9d, 0x96, 0xd8, 0x97, 0xd0, 0x60, 0x70, 0xce, 0x60, 0xce, 0x57, 0x26, 0x6}}
+	return a, nil
+}
+
+var _toolsNot_vettedMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x5c\x90\x31\x4f\xeb\x30\x14\x85\xf7\xf7\x2b\xce\xf6\x5a\xe9\xbd\x64\x6f\x07\x06\x90\x10\x73\x11\x0b\x42\xd4\xd8\x37\x8e\x55\xdb\xb7\xf2\xbd\x4e\xc8\xbf\x47\x4e\x5b\x09\xd8\x2c\xf9\xf8\xf3\x39\xdf\x7f\x3c\x04\x87\x85\x2b\x4e\x99\x67\x3c\x32\xac\xc9\x30\x55\x39\x19\x0d\xd6\xc4\xb8\xc0\x8e\x64\x4f\x2d\x53\x60\xd9\x11\x06\x2e\x10\x4e\x04\xcb\x29\x71\xc6\xb9\xf0\x47\xa4\x24\x77\x78\xd2\xbf\x02\x03\x5f\xc8\x28\x82\x23\x03\x65\x94\x9a\xf1\x7a\xf4\x8c\x89\xf4\xf8\xb6\x19\x55\xcf\xb2\xeb\x7b\xcf\xd1\x64\xdf\x71\xf1\xbd\x4d\xae\x9f\x48\xfb\x2d\x68\xa2\xb2\x40\x18\x3c\x28\xe5\x0e\xcf\x65\x41\x50\x70\xfe\xf6\x7d\xe6\x79\xb7\x76\xa0\x4f\x93\xce\x91\xfe\xe1\x0a\x87\xce\xfc\x3e\x50\xe9\x3c\x1f\xf7\xed\xd9\x1c\x62\x44\x32\x27\xba\xd4\xad\x42\x43\x8d\x90\xea\x3d\x89\x06\xce\xb2\x62\x16\xae\x1d\x0e\x2d\x40\x2e\x28\x17\xc1\xe6\x07\xfd\x25\x48\x35\x11\x07\xad\x2e\x30\xee\xd9\xd1\x76\x95\xd4\x76\xdd\x66\xdd\x40\xbf\xcc\x5d\xe6\x68\x48\xb4\x5e\x8a\x99\x68\x7f\xd5\xa9\x23\xc1\xb1\xad\x89\xb2\x9a\x56\xe6\x86\x28\xd7\x1a\x4d\x9d\x10\x61\xe4\xb9\x1d\x1d\x43\xc7\x20\xdd\x9f\xaf\x00\x00\x00\xff\xff\x49\x4a\xfd\x8f\xb2\x01\x00\x00")
+
+func toolsNot_vettedMdBytes() ([]byte, error) {
+	return bindataRead(
+		_toolsNot_vettedMd,
+		"tools/not_vetted.md",
+	)
+}
+
+func toolsNot_vettedMd() (*asset, error) {
+	bytes, err := toolsNot_vettedMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "tools/not_vetted.md", size: 434, mode: os.FileMode(420), modTime: time.Unix(1545065156, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x73, 0x2d, 0xf3, 0x4b, 0xe, 0x39, 0xaa, 0x5d, 0xef, 0x40, 0x82, 0x1e, 0x75, 0x3, 0x2, 0x9, 0x89, 0xb1, 0xfc, 0xb4, 0x91, 0xee, 0x72, 0xc6, 0x82, 0x63, 0xbc, 0xb9, 0x4, 0x96, 0xaf, 0xc4}}
 	return a, nil
 }
 
@@ -697,7 +1222,7 @@ func toolsPass_testsMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tools/pass_tests.md", size: 497, mode: os.FileMode(420), modTime: time.Unix(1543000598, 0)}
+	info := bindataFileInfo{name: "tools/pass_tests.md", size: 497, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xe2, 0xe1, 0xfb, 0x58, 0x97, 0x9d, 0xf6, 0x8f, 0x28, 0x7c, 0x49, 0xbc, 0xaa, 0x8e, 0xdb, 0xd5, 0x51, 0xb3, 0x40, 0xb, 0xcc, 0x46, 0x87, 0xb5, 0xda, 0xf7, 0x34, 0xa3, 0x26, 0xc8, 0xff, 0x9b}}
 	return a, nil
 }
@@ -717,7 +1242,7 @@ func toolsRace_conditionMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "tools/race_condition.md", size: 229, mode: os.FileMode(420), modTime: time.Unix(1544124510, 0)}
+	info := bindataFileInfo{name: "tools/race_condition.md", size: 229, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x9a, 0xc9, 0x64, 0x4d, 0xaf, 0xbc, 0xe6, 0x25, 0xf5, 0x61, 0xb4, 0x10, 0xa4, 0x70, 0x7b, 0x1, 0xac, 0x19, 0x66, 0x35, 0x9, 0x56, 0x5f, 0xea, 0xe2, 0xad, 0x34, 0x29, 0x4c, 0x98, 0xdd, 0x52}}
 	return a, nil
 }
@@ -891,37 +1416,85 @@ var _bindata = map[string]func() (*asset, error){
 
 	"tips/advanced_tests.md": tipsAdvanced_testsMd,
 
+	"tips/append.md": tipsAppendMd,
+
 	"tips/awesome_go.md": tipsAwesome_goMd,
 
+	"tips/building.md": tipsBuildingMd,
+
 	"tips/channels.md": tipsChannelsMd,
+
+	"tips/channels2.md": tipsChannels2Md,
 
 	"tips/community.md": tipsCommunityMd,
 
 	"tips/concurrency.md": tipsConcurrencyMd,
 
+	"tips/concurrencypatterns.md": tipsConcurrencypatternsMd,
+
+	"tips/concurrencypatterns2.md": tipsConcurrencypatterns2Md,
+
 	"tips/conduct.md": tipsConductMd,
+
+	"tips/context.md": tipsContextMd,
+
+	"tips/debugger.md": tipsDebuggerMd,
 
 	"tips/effective.md": tipsEffectiveMd,
 
 	"tips/errors.md": tipsErrorsMd,
 
+	"tips/faq.md": tipsFaqMd,
+
 	"tips/font.md": tipsFontMd,
 
 	"tips/go-perfbook.md": tipsGoPerfbookMd,
+
+	"tips/gophercises.md": tipsGophercisesMd,
+
+	"tips/gophervids.md": tipsGophervidsMd,
+
+	"tips/graceful_errors.md": tipsGraceful_errorsMd,
+
+	"tips/idiomatic.md": tipsIdiomaticMd,
+
+	"tips/interface.md": tipsInterfaceMd,
 
 	"tips/magic.md": tipsMagicMd,
 
 	"tips/modules.md": tipsModulesMd,
 
+	"tips/mutexes.md": tipsMutexesMd,
+
+	"tips/nil.md": tipsNilMd,
+
+	"tips/performance.md": tipsPerformanceMd,
+
+	"tips/pointers.md": tipsPointersMd,
+
+	"tips/practical.md": tipsPracticalMd,
+
+	"tips/profiling.md": tipsProfilingMd,
+
 	"tips/proverbs.md": tipsProverbsMd,
 
 	"tips/review.md": tipsReviewMd,
 
+	"tips/rubyists.md": tipsRubyistsMd,
+
+	"tips/servers.md": tipsServersMd,
+
+	"tips/shades.md": tipsShadesMd,
+
 	"tips/simplicity.md": tipsSimplicityMd,
+
+	"tips/solid.md": tipsSolidMd,
 
 	"tips/tdd.md": tipsTddMd,
 
 	"tips/tests.md": tipsTestsMd,
+
+	"tips/tooling.md": tipsToolingMd,
 
 	"tips/tour.md": tipsTourMd,
 
@@ -930,6 +1503,8 @@ var _bindata = map[string]func() (*asset, error){
 	"tools/not_formatted.md": toolsNot_formattedMd,
 
 	"tools/not_linted.md": toolsNot_lintedMd,
+
+	"tools/not_vetted.md": toolsNot_vettedMd,
 
 	"tools/pass_tests.md": toolsPass_testsMd,
 
@@ -994,29 +1569,54 @@ var _bintree = &bintree{nil, map[string]*bintree{
 		"todo.md":              &bintree{responseTodoMd, map[string]*bintree{}},
 	}},
 	"tips": &bintree{nil, map[string]*bintree{
-		"advanced_tests.md": &bintree{tipsAdvanced_testsMd, map[string]*bintree{}},
-		"awesome_go.md":     &bintree{tipsAwesome_goMd, map[string]*bintree{}},
-		"channels.md":       &bintree{tipsChannelsMd, map[string]*bintree{}},
-		"community.md":      &bintree{tipsCommunityMd, map[string]*bintree{}},
-		"concurrency.md":    &bintree{tipsConcurrencyMd, map[string]*bintree{}},
-		"conduct.md":        &bintree{tipsConductMd, map[string]*bintree{}},
-		"effective.md":      &bintree{tipsEffectiveMd, map[string]*bintree{}},
-		"errors.md":         &bintree{tipsErrorsMd, map[string]*bintree{}},
-		"font.md":           &bintree{tipsFontMd, map[string]*bintree{}},
-		"go-perfbook.md":    &bintree{tipsGoPerfbookMd, map[string]*bintree{}},
-		"magic.md":          &bintree{tipsMagicMd, map[string]*bintree{}},
-		"modules.md":        &bintree{tipsModulesMd, map[string]*bintree{}},
-		"proverbs.md":       &bintree{tipsProverbsMd, map[string]*bintree{}},
-		"review.md":         &bintree{tipsReviewMd, map[string]*bintree{}},
-		"simplicity.md":     &bintree{tipsSimplicityMd, map[string]*bintree{}},
-		"tdd.md":            &bintree{tipsTddMd, map[string]*bintree{}},
-		"tests.md":          &bintree{tipsTestsMd, map[string]*bintree{}},
-		"tour.md":           &bintree{tipsTourMd, map[string]*bintree{}},
+		"advanced_tests.md":       &bintree{tipsAdvanced_testsMd, map[string]*bintree{}},
+		"append.md":               &bintree{tipsAppendMd, map[string]*bintree{}},
+		"awesome_go.md":           &bintree{tipsAwesome_goMd, map[string]*bintree{}},
+		"building.md":             &bintree{tipsBuildingMd, map[string]*bintree{}},
+		"channels.md":             &bintree{tipsChannelsMd, map[string]*bintree{}},
+		"channels2.md":            &bintree{tipsChannels2Md, map[string]*bintree{}},
+		"community.md":            &bintree{tipsCommunityMd, map[string]*bintree{}},
+		"concurrency.md":          &bintree{tipsConcurrencyMd, map[string]*bintree{}},
+		"concurrencypatterns.md":  &bintree{tipsConcurrencypatternsMd, map[string]*bintree{}},
+		"concurrencypatterns2.md": &bintree{tipsConcurrencypatterns2Md, map[string]*bintree{}},
+		"conduct.md":              &bintree{tipsConductMd, map[string]*bintree{}},
+		"context.md":              &bintree{tipsContextMd, map[string]*bintree{}},
+		"debugger.md":             &bintree{tipsDebuggerMd, map[string]*bintree{}},
+		"effective.md":            &bintree{tipsEffectiveMd, map[string]*bintree{}},
+		"errors.md":               &bintree{tipsErrorsMd, map[string]*bintree{}},
+		"faq.md":                  &bintree{tipsFaqMd, map[string]*bintree{}},
+		"font.md":                 &bintree{tipsFontMd, map[string]*bintree{}},
+		"go-perfbook.md":          &bintree{tipsGoPerfbookMd, map[string]*bintree{}},
+		"gophercises.md":          &bintree{tipsGophercisesMd, map[string]*bintree{}},
+		"gophervids.md":           &bintree{tipsGophervidsMd, map[string]*bintree{}},
+		"graceful_errors.md":      &bintree{tipsGraceful_errorsMd, map[string]*bintree{}},
+		"idiomatic.md":            &bintree{tipsIdiomaticMd, map[string]*bintree{}},
+		"interface.md":            &bintree{tipsInterfaceMd, map[string]*bintree{}},
+		"magic.md":                &bintree{tipsMagicMd, map[string]*bintree{}},
+		"modules.md":              &bintree{tipsModulesMd, map[string]*bintree{}},
+		"mutexes.md":              &bintree{tipsMutexesMd, map[string]*bintree{}},
+		"nil.md":                  &bintree{tipsNilMd, map[string]*bintree{}},
+		"performance.md":          &bintree{tipsPerformanceMd, map[string]*bintree{}},
+		"pointers.md":             &bintree{tipsPointersMd, map[string]*bintree{}},
+		"practical.md":            &bintree{tipsPracticalMd, map[string]*bintree{}},
+		"profiling.md":            &bintree{tipsProfilingMd, map[string]*bintree{}},
+		"proverbs.md":             &bintree{tipsProverbsMd, map[string]*bintree{}},
+		"review.md":               &bintree{tipsReviewMd, map[string]*bintree{}},
+		"rubyists.md":             &bintree{tipsRubyistsMd, map[string]*bintree{}},
+		"servers.md":              &bintree{tipsServersMd, map[string]*bintree{}},
+		"shades.md":               &bintree{tipsShadesMd, map[string]*bintree{}},
+		"simplicity.md":           &bintree{tipsSimplicityMd, map[string]*bintree{}},
+		"solid.md":                &bintree{tipsSolidMd, map[string]*bintree{}},
+		"tdd.md":                  &bintree{tipsTddMd, map[string]*bintree{}},
+		"tests.md":                &bintree{tipsTestsMd, map[string]*bintree{}},
+		"tooling.md":              &bintree{tipsToolingMd, map[string]*bintree{}},
+		"tour.md":                 &bintree{tipsTourMd, map[string]*bintree{}},
 	}},
 	"tools": &bintree{nil, map[string]*bintree{
 		"compile.md":        &bintree{toolsCompileMd, map[string]*bintree{}},
 		"not_formatted.md":  &bintree{toolsNot_formattedMd, map[string]*bintree{}},
 		"not_linted.md":     &bintree{toolsNot_lintedMd, map[string]*bintree{}},
+		"not_vetted.md":     &bintree{toolsNot_vettedMd, map[string]*bintree{}},
 		"pass_tests.md":     &bintree{toolsPass_testsMd, map[string]*bintree{}},
 		"race_condition.md": &bintree{toolsRace_conditionMd, map[string]*bintree{}},
 	}},

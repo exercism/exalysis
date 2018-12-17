@@ -44,6 +44,20 @@ func TestCompileError(t *testing.T) {
 	assert.Contains(t, string(output), "does not compile")
 }
 
+func TestVetError(t *testing.T) {
+	if err := build(); err != nil {
+		t.Fatal(err)
+	}
+	cmd := exec.Command("../../" + exePath)
+	cmd.Dir = "./testdata/vet_error"
+	output, err := cmd.CombinedOutput()
+	if err != nil {
+		t.Fatalf("%s: %s", err, output)
+	}
+	assert.NotContains(t, string(output), "`golint`")
+	assert.Contains(t, string(output), "`go vet`")
+}
+
 func TestTip(t *testing.T) {
 	if err := build(); err != nil {
 		t.Fatal(err)

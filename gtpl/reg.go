@@ -17,6 +17,7 @@ var (
 	PassTests     = NewStringTemplate("tools/pass_tests.md", MustAsset)
 	RaceCondition = NewStringTemplate("tools/race_condition.md", MustAsset)
 	NotLinted     = NewStringTemplate("tools/not_linted.md", MustAsset)
+	NotVetted     = NewStringTemplate("tools/not_vetted.md", MustAsset)
 	NotFormatted  = NewStringTemplate("tools/not_formatted.md", MustAsset)
 
 	Benchmarking = NewStringTemplate("topic/benchmarking.md", MustAsset)

@@ -25,9 +25,9 @@ func GoVet(_ *astrav.Folder, r *extypes.Response, pkgName string) bool {
 	fmt.Println(res)
 
 	if pkgName == "twofer" || pkgName == "hamming" {
-		r.AppendImprovement(gtpl.NotLinted)
+		r.AppendImprovement(gtpl.NotVetted)
 	} else {
-		r.AppendTodo(gtpl.NotLinted)
+		r.AppendTodo(gtpl.NotVetted)
 	}
 
 	return false
