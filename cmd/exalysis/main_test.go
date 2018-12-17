@@ -28,7 +28,7 @@ func TestHappyPath(t *testing.T) {
 	if err != nil {
 		t.Fatalf("%s: %s", err, output)
 	}
-	assert.Regexp(t, "Welcome to Exercism", string(output))
+	assert.Contains(t, string(output), "Welcome to Exercism")
 }
 
 func TestCompileError(t *testing.T) {
@@ -41,7 +41,7 @@ func TestCompileError(t *testing.T) {
 	if err != nil {
 		t.Fatalf("%s: %s", err, output)
 	}
-	assert.Regexp(t, "does not compile", string(output))
+	assert.Contains(t, string(output), "does not compile")
 }
 
 func TestTip(t *testing.T) {
@@ -54,5 +54,5 @@ func TestTip(t *testing.T) {
 	if err != nil {
 		t.Fatalf("%s: %s", err, output)
 	}
-	assert.Regexp(t, "might find interesting", string(output))
+	assert.Contains(t, string(output), "might find interesting")
 }
