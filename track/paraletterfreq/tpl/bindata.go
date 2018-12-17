@@ -6,10 +6,10 @@
 // for-range-novars.md (284B)
 // goroutine-leak.md (391B)
 // mutex.md (824B)
+// range-chan.md (258B)
 // select-not-needed.md (185B)
 // waitgroup-add-one.md (201B)
 // waitgroup-not-needed.md (96B)
-// waitgroup-range-chan.md (292B)
 // waitgroup.md (264B)
 
 package tpl
@@ -199,6 +199,26 @@ func mutexMd() (*asset, error) {
 	return a, nil
 }
 
+var _rangeChanMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x4c\x8f\x41\x6e\x03\x31\x08\x45\xf7\x3d\xc5\xdf\xb5\x95\xd2\xdc\xa3\xfb\x1e\x20\xae\xe7\x27\xb6\x4a\xf0\xc8\xe0\x71\x73\xfb\x8a\x28\x1d\x65\x83\xe0\xc3\xe3\xc3\x07\x3e\xd5\x9c\x69\x41\x3b\xa3\xa4\xad\xea\x05\x5e\x88\xce\xcc\xba\xb1\xa3\x27\xbd\x10\x2d\xd2\xd0\x73\x49\xaa\x94\x03\x66\xa9\xb9\x60\x56\x11\xfc\x90\xeb\x03\x08\x7c\xa8\x57\x79\x1e\x46\x35\x64\x69\xc6\xe5\x80\x61\xc4\xe9\xdc\xfe\xf7\x3a\x7f\xdd\x4e\x78\x8b\x2a\xd8\xdd\xa7\xea\x3a\x1c\x26\x35\xf3\xfd\x88\xaf\x92\x1c\x33\xdd\x70\x6b\xe3\x55\x04\xd2\xda\xfa\xf0\x09\x65\xdb\xef\x5d\xee\xb0\xa5\x2b\xa1\xe3\xfa\xcd\x1e\x6f\x75\xda\x10\x37\x24\x8b\x6e\x27\x66\x84\xbb\x83\x1d\x5f\xfe\x02\x00\x00\xff\xff\xbb\x9a\x1d\xf6\x02\x01\x00\x00")
+
+func rangeChanMdBytes() ([]byte, error) {
+	return bindataRead(
+		_rangeChanMd,
+		"range-chan.md",
+	)
+}
+
+func rangeChanMd() (*asset, error) {
+	bytes, err := rangeChanMdBytes()
+	if err != nil {
+		return nil, err
+	}
+
+	info := bindataFileInfo{name: "range-chan.md", size: 258, mode: os.FileMode(420), modTime: time.Unix(1545057666, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xba, 0xde, 0x59, 0xaf, 0xd6, 0x50, 0x9e, 0x9, 0x8b, 0x18, 0xc5, 0xac, 0x47, 0x62, 0xf3, 0xe8, 0x45, 0x9f, 0x2d, 0x80, 0x38, 0xa1, 0xe3, 0xa8, 0x32, 0xf1, 0x34, 0x19, 0x99, 0x6e, 0x82, 0x34}}
+	return a, nil
+}
+
 var _selectNotNeededMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x44\xce\xc1\x6d\xc3\x30\x0c\x05\xd0\x7b\xa7\xf8\x03\xb4\xde\xa1\x63\xf4\x66\x5a\xfe\x8d\x88\x10\xa4\x41\x4a\x36\xbc\x7d\x90\x53\x06\x78\xc0\xfb\xc1\x5f\x4c\x48\x12\xb3\xd4\x1f\x10\xac\x45\x63\x1b\x2b\x2e\x1d\x1d\xe1\x76\x23\x9c\x68\x52\x84\xf8\x0e\x0f\xc4\xe8\x4c\xb4\xd8\x09\xf5\x37\xf9\x8f\x5c\x61\x11\xc7\x82\xdf\x82\xa0\x75\x71\xa7\x21\xd9\xa8\x27\x11\x07\x53\x86\x86\xe3\x52\x33\x6c\x16\xed\x89\xe9\x43\x0d\x82\x53\x6c\x12\x5a\x90\x53\xd4\x64\x33\x7e\x63\x74\x7e\x22\x5a\x98\xee\x6c\xac\x92\xbc\xd1\x99\x5c\xbe\x5e\x01\x00\x00\xff\xff\xb0\x1b\xff\x74\xb9\x00\x00\x00")
 
 func selectNotNeededMdBytes() ([]byte, error) {
@@ -256,26 +276,6 @@ func waitgroupNotNeededMd() (*asset, error) {
 
 	info := bindataFileInfo{name: "waitgroup-not-needed.md", size: 96, mode: os.FileMode(420), modTime: time.Unix(1544960802, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xda, 0x1a, 0xf8, 0xca, 0x95, 0x2a, 0x36, 0xb5, 0x8c, 0x92, 0x3c, 0x1f, 0xe2, 0x4f, 0xf9, 0x33, 0xa5, 0x7e, 0x9f, 0x4, 0x50, 0xb2, 0x54, 0xd3, 0x5e, 0xc4, 0x15, 0xaa, 0x9c, 0x45, 0x9f, 0xab}}
-	return a, nil
-}
-
-var _waitgroupRangeChanMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x4c\x8e\xc1\x4e\xc4\x30\x0c\x44\xef\x7c\xc5\xdc\xb8\x2c\xfd\x0d\xc4\x1d\x09\x71\xab\x69\x67\x37\x11\x5e\xa7\x8a\x9d\x2d\xfd\x7b\x64\xb4\x20\x2e\x51\x34\xf6\x3c\xbf\x27\xbc\xb7\x01\xe9\xc4\xf0\x6a\x17\x08\x66\x3f\x6c\x99\xde\xa4\xc6\x73\x6f\x63\x9b\x51\xd8\x89\x28\x12\xa8\x0e\x6b\x81\x4e\x51\x3d\x60\xe4\xca\x75\xc2\x8b\x79\x50\x56\xb4\x33\x8a\xdc\x12\x12\x85\xe8\x5c\x58\x6f\xec\xe8\x62\x17\xa2\xe5\x37\xf3\xa5\x88\x19\xf5\x84\xbd\xd4\xa5\x60\xaf\xaa\xf8\x24\xb7\x7b\x21\xeb\xc3\xa2\xea\xff\xe5\x3c\xbc\x68\x73\xae\x27\x0c\x27\xe6\x73\xfb\xe5\x06\xbf\xc2\xe7\x09\xaf\xe9\xb7\xcb\x81\xa3\x8d\x47\x55\x68\x6b\xdb\x1d\x94\xc9\xed\x4f\x68\xfd\x01\xbb\x5c\x09\x1b\xd7\x0f\xf6\xf4\xee\xf4\xa1\xe1\x10\xcf\x69\x27\xf6\x7c\xaa\x6d\x23\x7c\x7a\xf8\x0e\x00\x00\xff\xff\xbf\x93\x36\x06\x24\x01\x00\x00")
-
-func waitgroupRangeChanMdBytes() ([]byte, error) {
-	return bindataRead(
-		_waitgroupRangeChanMd,
-		"waitgroup-range-chan.md",
-	)
-}
-
-func waitgroupRangeChanMd() (*asset, error) {
-	bytes, err := waitgroupRangeChanMdBytes()
-	if err != nil {
-		return nil, err
-	}
-
-	info := bindataFileInfo{name: "waitgroup-range-chan.md", size: 292, mode: os.FileMode(420), modTime: time.Unix(1544960883, 0)}
-	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x1b, 0x69, 0xe0, 0x6a, 0x5c, 0x36, 0x4f, 0xf5, 0xac, 0x75, 0x7b, 0xa, 0x9, 0x4, 0x39, 0xc0, 0x8, 0xc6, 0x78, 0xc6, 0x43, 0xba, 0x4c, 0x75, 0xc5, 0xa9, 0x2a, 0xd2, 0xdf, 0x14, 0x8, 0xc2}}
 	return a, nil
 }
 
@@ -402,13 +402,13 @@ var _bindata = map[string]func() (*asset, error){
 
 	"mutex.md": mutexMd,
 
+	"range-chan.md": rangeChanMd,
+
 	"select-not-needed.md": selectNotNeededMd,
 
 	"waitgroup-add-one.md": waitgroupAddOneMd,
 
 	"waitgroup-not-needed.md": waitgroupNotNeededMd,
-
-	"waitgroup-range-chan.md": waitgroupRangeChanMd,
 
 	"waitgroup.md": waitgroupMd,
 }
@@ -460,10 +460,10 @@ var _bintree = &bintree{nil, map[string]*bintree{
 	"for-range-novars.md":           &bintree{forRangeNovarsMd, map[string]*bintree{}},
 	"goroutine-leak.md":             &bintree{goroutineLeakMd, map[string]*bintree{}},
 	"mutex.md":                      &bintree{mutexMd, map[string]*bintree{}},
+	"range-chan.md":                 &bintree{rangeChanMd, map[string]*bintree{}},
 	"select-not-needed.md":          &bintree{selectNotNeededMd, map[string]*bintree{}},
 	"waitgroup-add-one.md":          &bintree{waitgroupAddOneMd, map[string]*bintree{}},
 	"waitgroup-not-needed.md":       &bintree{waitgroupNotNeededMd, map[string]*bintree{}},
-	"waitgroup-range-chan.md":       &bintree{waitgroupRangeChanMd, map[string]*bintree{}},
 	"waitgroup.md":                  &bintree{waitgroupMd, map[string]*bintree{}},
 }}
 
