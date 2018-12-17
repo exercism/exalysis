@@ -130,6 +130,10 @@ func examExtensiveForLoop(pkg *astrav.Package, r *extypes.Response) {
 		}
 
 		// check if loop starts with 3
+		if loop.Init() == nil {
+			// Probably a condition-only loop
+			return
+		}
 		basicLit = loop.Init().FindFirstByNodeType(astrav.NodeTypeBasicLit)
 		if basicLit != nil {
 			if basicLit.(*astrav.BasicLit).Value != "3" {
@@ -139,6 +143,10 @@ func examExtensiveForLoop(pkg *astrav.Package, r *extypes.Response) {
 		}
 
 		// check if loop uses steps of 2: 3, 5, 7
+		if loop.Post() == nil {
+			// Probably a condition-only loop
+			return
+		}
 		if loop.Post().IsNodeType(astrav.NodeTypeIncDecStmt) {
 			r.AppendImprovement(tpl.ExtensiveFor)
 			return

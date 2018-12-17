@@ -49,6 +49,9 @@ var suggestTests = []struct {
 	{path: "./solutions/14", suggestion: tpl.Itoa, expected: false},
 	{path: "./solutions/15", suggestion: tpl.AllCases, expected: true},
 	{path: "./solutions/16", suggestion: tpl.AllCases, expected: true},
+	{path: "./solutions/17", suggestion: tpl.ManyLoops, expected: true},
+	{path: "./solutions/17", suggestion: tpl.Itoa, expected: true},
+	{path: "./solutions/17", suggestion: tpl.RemoveExtraBool, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {
