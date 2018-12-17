@@ -21,6 +21,7 @@ var exFuncs = []extypes.SuggestionFunc{
 	examSelect,
 	examGoroutineLeak,
 	examForRange,
+	examCombineWhileWaiting,
 }
 
 func addConcurrencyNotFaster(_ *astrav.Package, r *extypes.Response) {
@@ -87,13 +88,29 @@ func examGoroutineLeak(pkg *astrav.Package, r *extypes.Response) {
 }
 
 func examForRange(pkg *astrav.Package, r *extypes.Response) {
-	nodes := pkg.FindByNodeType(astrav.NodeTypeForStmt)
-	if len(nodes) == 0 {
+	loops := pkg.FindByNodeType(astrav.NodeTypeForStmt)
+	if len(loops) == 0 {
 		return
 	}
-	mergeLoop := nodes[len(nodes)-1]
+	mergeLoop := loops[len(loops)-1]
 	cond := mergeLoop.(*astrav.ForStmt).Cond()
 	if cond != nil {
 		r.AppendImprovement(tpl.ForRangeNoVars)
 	}
+}
+
+func examCombineWhileWaiting(pkg *astrav.Package, r *extypes.Response) {
+	loops := pkg.FindByNodeType(astrav.NodeTypeRangeStmt)
+	if len(loops) == 0 {
+		return
+	}
+	mergeLoop := loops[len(loops)-1]
+	for _, node := range mergeLoop.FindByNodeType(astrav.NodeTypeAssignStmt) {
+		token := node.(*astrav.AssignStmt).Tok.String()
+		if token == "+=" {
+			return
+		}
+	}
+	// They didn't update the map inside the merge loop
+	r.AppendImprovement(tpl.CombineMapsWhileWaiting)
 }
