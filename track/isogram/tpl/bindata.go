@@ -8,7 +8,7 @@
 // regex-in-func.md (306B)
 // two-loops.md (145B)
 // unicode-loop.md (103B)
-// unicode.md (301B)
+// unicode.md (302B)
 // universal-isletter.md (99B)
 // zero-value-assign.md (194B)
 
@@ -94,7 +94,7 @@ func ifContinueMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "if-continue.md", size: 459, mode: os.FileMode(420), modTime: time.Unix(1543061558, 0)}
+	info := bindataFileInfo{name: "if-continue.md", size: 459, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x48, 0xf8, 0x25, 0x76, 0x1c, 0x2a, 0x2e, 0x83, 0xa7, 0xc2, 0xa0, 0xba, 0xf1, 0xf8, 0x8b, 0xaf, 0xd9, 0x1b, 0x90, 0x2a, 0x22, 0xfc, 0x77, 0x6c, 0x94, 0xa0, 0xa6, 0xaf, 0x26, 0xf5, 0x61, 0x74}}
 	return a, nil
 }
@@ -194,7 +194,7 @@ func regexInFuncMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "regex-in-func.md", size: 306, mode: os.FileMode(420), modTime: time.Unix(1542132321, 0)}
+	info := bindataFileInfo{name: "regex-in-func.md", size: 306, mode: os.FileMode(420), modTime: time.Unix(1542198423, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x10, 0x2d, 0x3a, 0xb5, 0xec, 0x9c, 0x27, 0xe3, 0x9b, 0x18, 0xc4, 0xb4, 0xc5, 0xc1, 0xc8, 0xe5, 0x60, 0xc3, 0x82, 0xe7, 0x4f, 0x21, 0x7f, 0x3c, 0xd0, 0x3d, 0xcf, 0x3, 0x6d, 0xc2, 0xe4, 0xa9}}
 	return a, nil
 }
@@ -214,7 +214,7 @@ func twoLoopsMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "two-loops.md", size: 145, mode: os.FileMode(420), modTime: time.Unix(1542563342, 0)}
+	info := bindataFileInfo{name: "two-loops.md", size: 145, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
 	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xd1, 0x29, 0x9f, 0x49, 0x9b, 0x59, 0x43, 0x42, 0xbe, 0x36, 0xa7, 0xf6, 0xc0, 0xa8, 0x8e, 0x78, 0x17, 0xbe, 0x45, 0x3c, 0xdf, 0xcf, 0xa3, 0xcb, 0xcd, 0x12, 0x5e, 0xab, 0x8f, 0xbe, 0x9b, 0xc9}}
 	return a, nil
 }
@@ -239,7 +239,7 @@ func unicodeLoopMd() (*asset, error) {
 	return a, nil
 }
 
-var _unicodeMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x54\x8e\xc1\x6a\xeb\x30\x10\x45\xf7\xf9\x8a\xfb\x16\x0f\x5a\x48\x03\xfd\x96\xd2\x45\x29\x05\x8f\xad\x6b\x7b\x1a\x49\x63\x34\xa3\x45\xfe\xbe\x28\x25\x8b\x6e\x87\x73\xee\x99\x17\x7c\x58\xc7\x62\x3d\x27\x64\xb3\x2b\x24\xd0\x5d\xeb\x86\xa9\x57\x5d\x2c\xf1\xf2\xff\xf3\xf5\xcb\x27\x68\x75\x4d\x44\xec\xc4\xb4\x5a\x9b\x06\x7e\x8c\x6b\x50\x12\x6c\xc5\xe4\xd1\xb4\x6e\xfe\x10\x66\xae\xd6\x7e\x85\x81\x9e\x11\x06\xad\x4b\xa3\x38\xe1\x07\x99\x2e\xa7\x13\x00\x3c\xbd\x59\x61\x68\xa1\x43\x03\x45\xae\xf4\xbb\x35\xea\x10\x64\x8d\xc8\x04\xc5\x95\x6d\x8c\xb4\x11\xd4\x15\xb7\xf1\xb9\xe4\xfc\xb7\xfc\x08\xef\x52\xd3\x19\xb1\x5b\xdf\xf6\x0b\xde\x9d\x83\x6f\x98\xe9\x81\xef\x9e\xb6\xc2\x1a\x67\x48\x4d\x68\x2c\x2c\x33\xdb\x7d\x58\x66\xcd\x1a\x37\xcc\x94\x70\x1c\x6c\xab\xb5\x22\x75\xe1\xbf\xe7\xd3\x4f\x00\x00\x00\xff\xff\x57\x75\x4b\x35\x2d\x01\x00\x00")
+var _unicodeMd = []byte("\x1f\x8b\x08\x00\x00\x00\x00\x00\x00\xff\x74\x8e\x41\x4a\xc4\x40\x10\x45\xf7\x73\x8a\xef\x42\x50\x18\x07\x3c\x8b\xb8\x10\x11\x52\x49\xff\x24\xe5\x74\x77\x85\xae\xea\xc5\xdc\x5e\x7a\xc4\xa5\xdb\xe2\xbf\xf7\xea\x05\x1f\xd6\xb1\x58\xcf\x09\xd9\xec\x0a\x09\x74\xd7\xba\x61\xea\x55\x17\x4b\xbc\x3c\x7e\xbe\x7e\xf9\x04\xad\xae\x89\x88\x9d\x98\x56\x6b\xd3\x98\x1f\xe3\x1a\x94\x04\x5b\x31\x79\x34\xad\x9b\xff\x01\x33\x57\x6b\xbf\xc0\x98\x9e\x11\x06\xad\x4b\xa3\x38\xe1\x07\x99\x2e\xa7\x13\x00\x3c\xbd\x59\x61\x68\xa1\x43\x03\x45\xae\xf4\x3b\x35\xea\x10\x64\x8d\xc8\x04\xc5\x95\x6d\x48\xda\x08\xea\x8a\xdb\xf8\x5c\x72\xfe\xa7\xbc\x4b\x4d\x67\xc4\x6e\x7d\xdb\x2f\x78\x77\x0e\xa0\x61\xa6\x07\xbe\x7b\xda\x0a\x6b\x9c\x21\x35\xa1\xb1\xb0\xcc\x6c\x77\xb3\xcc\x9a\x35\x6e\x98\x29\xe1\x38\xd8\x56\x6b\x45\xea\xc2\x87\xe7\xd3\x4f\x00\x00\x00\xff\xff\xf3\x19\x15\x27\x2e\x01\x00\x00")
 
 func unicodeMdBytes() ([]byte, error) {
 	return bindataRead(
@@ -254,8 +254,8 @@ func unicodeMd() (*asset, error) {
 		return nil, err
 	}
 
-	info := bindataFileInfo{name: "unicode.md", size: 301, mode: os.FileMode(420), modTime: time.Unix(1544124510, 0)}
-	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0x8f, 0x0, 0x1e, 0xdf, 0x6, 0xc9, 0x39, 0x5a, 0xc0, 0x41, 0x32, 0x72, 0x9d, 0x5, 0xc4, 0x4b, 0xf0, 0x5c, 0x47, 0xc7, 0xa1, 0x9, 0x85, 0x40, 0xf0, 0x7f, 0xe3, 0x19, 0x55, 0xae, 0xc1, 0xf8}}
+	info := bindataFileInfo{name: "unicode.md", size: 302, mode: os.FileMode(420), modTime: time.Unix(1544959002, 0)}
+	a := &asset{bytes: bytes, info: info, digest: [32]uint8{0xc8, 0xfb, 0xfc, 0x9d, 0xbc, 0x6b, 0xe2, 0x59, 0xdc, 0xfb, 0xc9, 0x8b, 0x8f, 0x90, 0xea, 0x9f, 0xe3, 0xf4, 0xd0, 0x79, 0x13, 0xbf, 0x1e, 0x37, 0x49, 0xab, 0x34, 0x7, 0x23, 0xfa, 0xe3, 0xe7}}
 	return a, nil
 }
 
