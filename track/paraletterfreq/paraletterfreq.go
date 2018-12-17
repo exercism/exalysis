@@ -22,6 +22,7 @@ var exFuncs = []extypes.SuggestionFunc{
 	examGoroutineLeak,
 	examForRange,
 	examCombineWhileWaiting,
+	examMutex,
 }
 
 func addConcurrencyNotFaster(_ *astrav.Package, r *extypes.Response) {
@@ -113,4 +114,11 @@ func examCombineWhileWaiting(pkg *astrav.Package, r *extypes.Response) {
 	}
 	// They didn't update the map inside the merge loop
 	r.AppendImprovement(tpl.CombineMapsWhileWaiting)
+}
+
+func examMutex(pkg *astrav.Package, r *extypes.Response) {
+	mutexes := pkg.FindByValueType("sync.Mutex")
+	if len(mutexes) > 0 {
+		r.AppendImprovement(tpl.Mutex)
+	}
 }
