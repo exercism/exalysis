@@ -1,6 +1,8 @@
 package paraletterfreq
 
 import (
+	"strings"
+
 	"github.com/tehsphinx/astrav"
 	"github.com/tehsphinx/exalysis/extypes"
 	"github.com/tehsphinx/exalysis/track/paraletterfreq/tpl"
@@ -23,6 +25,7 @@ var exFuncs = []extypes.SuggestionFunc{
 	examForRange,
 	examCombineWhileWaiting,
 	examMutex,
+	examRangeChan,
 }
 
 func addConcurrencyNotFaster(_ *astrav.Package, r *extypes.Response) {
@@ -120,5 +123,14 @@ func examMutex(pkg *astrav.Package, r *extypes.Response) {
 	mutexes := pkg.FindByValueType("sync.Mutex")
 	if len(mutexes) > 0 {
 		r.AppendImprovement(tpl.Mutex)
+	}
+}
+
+func examRangeChan(pkg *astrav.Package, r *extypes.Response) {
+	for _, node := range pkg.FindByNodeType(astrav.NodeTypeRangeStmt) {
+		x := node.(*astrav.RangeStmt).X()
+		if strings.Contains(x.ValueType().String(), "chan") {
+			r.AppendImprovement(tpl.RangeChan)
+		}
 	}
 }

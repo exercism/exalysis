@@ -1,1 +1,0 @@
-- You are using a `sync.WaitGroup` here that is not really needed. Instead of having the receiver range over the channel, which will keep receiving until the channel is closed, use `for range texts`. That way you'll loop until you've received the same number of results as there were inputs.
