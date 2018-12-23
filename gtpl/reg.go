@@ -22,5 +22,6 @@ var (
 
 	Benchmarking = NewStringTemplate("topic/benchmarking.md", MustAsset)
 	Regex        = NewStringTemplate("topic/regex.md", MustAsset)
+	Hints        = NewStringTemplate("topic/hints.md", MustAsset)
 	Tips         = NewStringTemplateSlice("tips/", MustAsset)
 )

@@ -65,7 +65,7 @@ func GetSuggestions(codePath string) (string, string) {
 	if suggFunc != nil {
 		suggFunc(pkg, r)
 	}
-	addTip(r)
+	addTip(r, pkgName)
 	return r.GetAnswerString(), rating(r, examRes, pkgName)
 }
 
@@ -86,7 +86,13 @@ func addGreeting(r *extypes.Response, pkg, student string) {
 	}
 }
 
-func addTip(r *extypes.Response) {
+func addTip(r *extypes.Response, pkgName string) {
+	if pkgName == "twofer" {
+		// For the first exercise, give some useful hints about Exercism and the Go track.
+		r.AppendOutro(gtpl.Hints)
+		return
+	}
+	// For other exercises, give a randomly-selected tip.
 	if r.LenSuggestions() < 3 {
 		rand.Seed(time.Now().UnixNano())
 		t := rand.Intn(len(gtpl.Tips))
