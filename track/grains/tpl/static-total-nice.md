@@ -1,1 +1,1 @@
-- Nicely done returning a static number for the `Total` function!
+- Nicely done returning a constant expression for the `Total` function! Although you could calculate it by calling `Square` in a loop, that's unnecessarily slow, since you know in advance what the answer will be.

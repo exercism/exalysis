@@ -1,1 +1,1 @@
-- Did you know you can also do bit shifting with the `<<` operator: `1 << uint(i-1)`.
+- Did you know you can also do bit-shifting with the `<<` operator? For example, `1 << uint(i-1)`.
