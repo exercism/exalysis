@@ -25,6 +25,7 @@ var suggestTests = []struct {
 	{path: "./solutions/2", suggestion: tpl.ErrorFormatted, expected: true},
 	{path: "./solutions/3", suggestion: tpl.StaticTotal, expected: true},
 	{path: "./solutions/3", suggestion: tpl.MathPow, expected: true},
+	{path: "./solutions/3", suggestion: tpl.CheckError, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {

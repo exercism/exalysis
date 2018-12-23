@@ -12,4 +12,5 @@ var (
 	MathPow         = gtpl.NewStringTemplate("math-pow.md", MustAsset)
 	StaticTotal     = gtpl.NewStringTemplate("static-total.md", MustAsset)
 	ErrorFormatted  = gtpl.NewStringTemplate("error-formatted.md", MustAsset)
+	CheckError      = gtpl.NewStringTemplate("check-error.md", MustAsset)
 )
