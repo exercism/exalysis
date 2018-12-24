@@ -1,0 +1,1 @@
+- You are using a `sync.WaitGroup` where you `Add` one in every loop iteration. If you know from the beginning how many iterations there will be, just add that number right away: `wg.Add(len(texts))`.

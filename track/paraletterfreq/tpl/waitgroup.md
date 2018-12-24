@@ -1,0 +1,1 @@
+- You are using a `sync.WaitGroup` here. You could move the receiving side of the channel into the main goroutine and get rid of the `WaitGroup`. Remember: you know how many you're expecting to receive from the channel. When you've received them all, you're done.

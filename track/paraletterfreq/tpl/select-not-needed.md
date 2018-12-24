@@ -1,0 +1,1 @@
+- You are using a `select` with only one case and no other code in a `for` loop. As a channel receive operation will block until a value is available, the `select` is unnecessary here.

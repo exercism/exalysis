@@ -1,0 +1,1 @@
+- By the way, a shorter way to write your merging loop is just `for range texts {...}`. You probably know that `range` returns up to two values (index and element), and you can ignore either of them. If you ignore both of them, as here, you get a loop that executes once per element.
