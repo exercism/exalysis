@@ -38,6 +38,7 @@ var suggestTests = []struct {
 	{path: "./solutions/7", suggestion: tpl.NoErrMsg, expected: true},
 	{path: "./solutions/7", suggestion: tpl.ReturnZeroValue, expected: true},
 	{path: "./solutions/8", suggestion: tpl.ReturnZeroValue, expected: true},
+	{path: "./solutions/9", suggestion: tpl.NakedReturns, expected: true},
 }
 
 func Test_Suggest(t *testing.T) {
