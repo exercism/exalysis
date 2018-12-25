@@ -14,4 +14,5 @@ var (
 	InvertIf           = gtpl.NewStringTemplate("invert-if.md", MustAsset)
 	NoErrMsg           = gtpl.NewStringTemplate("no-error-msg.md", MustAsset)
 	ReturnZeroValue    = gtpl.NewStringTemplate("return-zero-value.md", MustAsset)
+	NakedReturns       = gtpl.NewStringTemplate("naked-returns.md", MustAsset)
 )

@@ -32,6 +32,11 @@ var exFuncs = []extypes.SuggestionFunc{
 func examReturnZeroValue(pkg *astrav.Package, r *extypes.Response) {
 	returns := pkg.FindFirstByName("Distance").FindByNodeType(astrav.NodeTypeReturnStmt)
 	for _, ret := range returns {
+		if len(ret.Children()) == 0 {
+			r.AppendImprovement(tpl.NakedReturns)
+			continue
+		}
+
 		if ret.Children()[1].ValueType().String() == "nil" {
 			continue
 		}
