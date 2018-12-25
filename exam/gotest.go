@@ -26,28 +26,28 @@ var skipRaceExercises = []string{
 }
 
 // GoTest runs `go test` on provided path and adds suggestions to the response
-func GoTest(_ *astrav.Folder, r *extypes.Response, pkgName string) bool {
-	succTest := goTest(r)
-	succTestRace := goTestRace(r, pkgName)
+func GoTest(_ *astrav.Folder, r *extypes.Response, pkgName string) (bool, error) {
+	succTest, err := goTest(r)
+	succTestRace := goTestRace(r, pkgName, err != nil)
 
-	return succTest && succTestRace
+	return succTest && succTestRace, err
 }
 
-func goTest(r *extypes.Response) bool {
-	res, state := test()
+func goTest(r *extypes.Response) (bool, error) {
+	res, state, err := test()
 
 	if state.Success() {
 		fmt.Println(aurora.Gray("go test:\t"), aurora.Green("OK"))
-		return true
+		return true, nil
 	}
 
 	fmt.Println(aurora.Gray("go test:\t"), aurora.Red("FAIL"))
 	fmt.Println(res)
 	r.AppendTodo(gtpl.PassTests)
-	return false
+	return false, err
 }
 
-func test() (string, *os.ProcessState) {
+func test() (string, *os.ProcessState, error) {
 	cmd := exec.Command("go", "test")
 
 	b, err := cmd.CombinedOutput()
@@ -55,11 +55,11 @@ func test() (string, *os.ProcessState) {
 		log.Println("error running go test: ", err)
 	}
 
-	return string(b), cmd.ProcessState
+	return string(b), cmd.ProcessState, err
 }
 
-func goTestRace(r *extypes.Response, pkgName string) bool {
-	if skipRace(pkgName) {
+func goTestRace(r *extypes.Response, pkgName string, skip bool) bool {
+	if skipRace(pkgName) || skip {
 		fmt.Println(aurora.Gray("go test -race:\t"), aurora.Brown("SKIPPED"))
 		return true
 	}

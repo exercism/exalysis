@@ -32,12 +32,14 @@ func All(folder *astrav.Folder, r *extypes.Response, pkgName string) (res *Resul
 		}
 	}()
 
-	return &Result{
+	test, errTest := GoTest(folder, r, pkgName)
+	res = &Result{
 		GoLint:       GoLint(folder, r, pkgName),
 		GoFmt:        GoFmt(folder, r, pkgName),
-		GoTest:       GoTest(folder, r, pkgName),
-		GoVet:        GoVet(folder, r, pkgName),
+		GoTest:       test,
+		GoVet:        GoVet(folder, r, pkgName, errTest != nil),
 		GolangCILint: GolangCILint(folder, r, pkgName),
-		GoBench:      GoBench(folder, r, pkgName),
-	}, err
+		GoBench:      GoBench(folder, r, pkgName, errTest != nil),
+	}
+	return res, err
 }

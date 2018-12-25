@@ -18,8 +18,8 @@ var (
 )
 
 // GoBench runs `go test` on provided path and adds suggestions to the response
-func GoBench(_ *astrav.Folder, r *extypes.Response, _ string) bool {
-	if !Benchmarks {
+func GoBench(_ *astrav.Folder, r *extypes.Response, _ string, skip bool) bool {
+	if !Benchmarks || skip {
 		fmt.Println(aurora.Gray("benchmarks:\t"), aurora.Brown("SKIPPED"))
 		return true
 	}

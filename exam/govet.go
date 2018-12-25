@@ -13,7 +13,12 @@ import (
 )
 
 // GoVet runs go vet on provided go files and adds suggestions to the response
-func GoVet(_ *astrav.Folder, r *extypes.Response, pkgName string) bool {
+func GoVet(_ *astrav.Folder, r *extypes.Response, pkgName string, skip bool) bool {
+	if skip {
+		fmt.Println(aurora.Gray("go vet:\t\t"), aurora.Brown("SKIPPED"))
+		return true
+	}
+
 	res, state := goVet()
 
 	if state.Success() {
