@@ -1,0 +1,1 @@
+- To see whether the result string has been modified, you check that its length is not zero. This is fine, but for better readability, try comparing the string itself with an empty string (`== ""`). This makes it clear that we're dealing with a string, rather than, for example, a slice or any other type of variable that has a `len()`.
