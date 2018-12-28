@@ -28,7 +28,7 @@ func TestHappyPath(t *testing.T) {
 	if err != nil {
 		t.Fatalf("%s: %s", err, output)
 	}
-	assert.Contains(t, string(output), "Welcome to Exercism")
+	assert.Contains(t, string(output), "This looks excellent!")
 }
 
 func TestCompileError(t *testing.T) {
