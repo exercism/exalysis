@@ -46,7 +46,7 @@ func TestGoBench(t *testing.T) {
 		}
 
 		r := extypes.NewResponse()
-		ok := GoBench(folder, r, test.pkgName)
+		ok := GoBench(folder, r, test.pkgName, false)
 
 		failMsg := fmt.Sprintf("test failed: %+v", test)
 		assert.Equal(t, test.expected, ok, failMsg)

@@ -46,7 +46,7 @@ func TestGoVet(t *testing.T) {
 		}
 
 		r := extypes.NewResponse()
-		ok := GoVet(folder, r, test.pkgName)
+		ok := GoVet(folder, r, test.pkgName, false)
 
 		failMsg := fmt.Sprintf("test failed: %+v", test)
 		assert.Equal(t, test.expected, ok, failMsg)
