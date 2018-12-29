@@ -241,19 +241,13 @@ func examBytesBuffer(pkg *astrav.Package, r *extypes.Response) {
 }
 
 func examCompareLen(pkg *astrav.Package, r *extypes.Response) {
-	// Find all function calls
-	for _, call := range pkg.FindByNodeType(astrav.NodeTypeCallExpr) {
-		nodeName := call.(*astrav.CallExpr).NodeName()
-		if nodeName == nil {
-			// not a builtin, so not 'len()'
+	// Find all function calls to 'len'
+	for _, node := range pkg.FindByName("len") {
+		if !node.IsNodeType(astrav.NodeTypeCallExpr) {
 			continue
 		}
-		if nodeName.NodeName().Name != "len" {
-			// not 'len()'
-			continue
-		}
-		identName := call.(*astrav.CallExpr).Children()[1].(*astrav.Ident).Name
-		if pkg.FindFirstIdentByName(identName).IsValueType("string") {
+
+		if node.Children()[1].IsValueType("string") {
 			r.AppendImprovement(tpl.CompareEmptyString)
 		}
 	}
