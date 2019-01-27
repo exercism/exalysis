@@ -17,10 +17,8 @@ var suggestTests = []struct {
 	expected   bool
 }{
 	{path: "./solutions/1", suggestion: tpl.ManyLoops, expected: true},
-	{path: "./solutions/1", suggestion: tpl.ConcatNotNeeded, expected: false},
 	{path: "./solutions/1", suggestion: tpl.RemoveExtraBool, expected: false},
 	{path: "./solutions/1", suggestion: tpl.AllCases, expected: false},
-	{path: "./solutions/2", suggestion: tpl.ConcatNotNeeded, expected: true},
 	{path: "./solutions/2", suggestion: tpl.RemoveExtraBool, expected: false},
 	{path: "./solutions/3", suggestion: tpl.StringsBuilder, expected: true},
 	{path: "./solutions/3", suggestion: tpl.Itoa, expected: false},

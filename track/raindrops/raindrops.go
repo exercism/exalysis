@@ -24,7 +24,6 @@ var exFuncs = []extypes.SuggestionFunc{
 	examItoa,
 	examExtensiveForLoop,
 	examPlusEqual,
-	examTooManyConcats,
 	examRemoveExtraBool,
 	examFmtPrintf,
 	examAllCases,
@@ -202,26 +201,6 @@ func examManyLoops(pkg *astrav.Package, r *extypes.Response) {
 
 	if 1 < count {
 		r.AppendTodo(tpl.ManyLoops)
-	}
-}
-
-func examTooManyConcats(pkg *astrav.Package, r *extypes.Response) {
-	var count int
-	ifs := pkg.FindByNodeType(astrav.NodeTypeIfStmt)
-	if len(ifs) < 4 {
-		return
-	}
-	for _, node := range ifs {
-		assign := node.FindFirstByNodeType(astrav.NodeTypeAssignStmt)
-		if assign == nil {
-			continue
-		}
-		if assign.(*astrav.AssignStmt).Tok.String() == "+=" {
-			count++
-		}
-	}
-	if 2 < count {
-		r.AppendImprovement(tpl.ConcatNotNeeded)
 	}
 }
 
