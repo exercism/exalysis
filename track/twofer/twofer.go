@@ -102,7 +102,7 @@ func examGeneralizeNames(pkg *astrav.Package, r *extypes.Response) {
 		contains = bytes.Contains(pkg.FindFirstByName("ShareWith").GetSource(), []byte("Bob"))
 	}
 	if contains {
-		r.AppendImprovement(tpl.GeneralizeName)
+		r.AppendTodo(tpl.GeneralizeName)
 	}
 }
 

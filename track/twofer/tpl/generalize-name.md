@@ -1,1 +1,1 @@
-- I see you referenced the names `Alice` and `Bob` directly in your code. This is OK, but it would be better if the `ShareWith` function worked with any name supplied to it. See if you can figure out how to change your code to make this work.
+- I see you referenced the names `Alice` and `Bob` directly in your code. This is a good first step! Can you make the `ShareWith` function work with any name supplied to it?
