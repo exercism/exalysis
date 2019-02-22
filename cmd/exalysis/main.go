@@ -87,7 +87,7 @@ func downloadExercise(cmdString string) (string, error) {
 	cmd := exec.Command(parts[0], parts[1:]...)
 	b, err := cmd.Output()
 	if err != nil {
-		return "", err
+		return "", fmt.Errorf("error executing: %s: %s", strings.Join(parts, " "), err)
 	}
 
 	path := strings.TrimSpace(string(b))
