@@ -36,6 +36,9 @@ func examReturnZeroValue(pkg *astrav.Package, r *extypes.Response) {
 			r.AppendImprovement(tpl.NakedReturns)
 			continue
 		}
+		if len(ret.Children()) < 2 {
+			continue
+		}
 
 		if ret.Children()[1].ValueType().String() == "nil" {
 			continue
@@ -169,6 +172,9 @@ func examIncrease(pkg *astrav.Package, r *extypes.Response) {
 	loop := pkg.FindFirstByNodeType(astrav.NodeTypeRangeStmt)
 	if loop == nil {
 		loop = pkg.FindFirstByNodeType(astrav.NodeTypeForStmt)
+	}
+	if loop == nil {
+		return
 	}
 	for _, node := range loop.FindByNodeType(astrav.NodeTypeBinaryExpr) {
 		if node.(*astrav.BinaryExpr).Op.String() == "+" {
