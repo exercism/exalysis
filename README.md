@@ -25,8 +25,8 @@ Exalysis will do its format, lint, and test checks on any solution, but specific
 ## Installation
 
 ```
-go get github.com/tehsphinx/exalysis
-go install github.com/tehsphinx/exalysis/cmd/exalysis
+GO111MODULE=on go get github.com/exercism/exalysis
+GO111MODULE=on go install github.com/exercism/exalysis/cmd/exalysis
 ```
 
 ## Usage
