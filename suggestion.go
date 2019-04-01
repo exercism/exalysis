@@ -9,17 +9,17 @@ import (
 
 	"github.com/logrusorgru/aurora"
 	"github.com/tehsphinx/astrav"
-	"github.com/tehsphinx/exalysis/exam"
-	"github.com/tehsphinx/exalysis/extypes"
-	"github.com/tehsphinx/exalysis/gtpl"
-	"github.com/tehsphinx/exalysis/track/diffsquares"
-	"github.com/tehsphinx/exalysis/track/hamming"
-	"github.com/tehsphinx/exalysis/track/isogram"
-	"github.com/tehsphinx/exalysis/track/luhn"
-	"github.com/tehsphinx/exalysis/track/paraletterfreq"
-	"github.com/tehsphinx/exalysis/track/raindrops"
-	"github.com/tehsphinx/exalysis/track/scrabble"
-	"github.com/tehsphinx/exalysis/track/twofer"
+	"github.com/exercism/exalysis/exam"
+	"github.com/exercism/exalysis/extypes"
+	"github.com/exercism/exalysis/gtpl"
+	"github.com/exercism/exalysis/track/diffsquares"
+	"github.com/exercism/exalysis/track/hamming"
+	"github.com/exercism/exalysis/track/isogram"
+	"github.com/exercism/exalysis/track/luhn"
+	"github.com/exercism/exalysis/track/paraletterfreq"
+	"github.com/exercism/exalysis/track/raindrops"
+	"github.com/exercism/exalysis/track/scrabble"
+	"github.com/exercism/exalysis/track/twofer"
 )
 
 var exercisePkgs = map[string]extypes.SuggestionFunc{

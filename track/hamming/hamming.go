@@ -5,8 +5,8 @@ import (
 	"unicode"
 
 	"github.com/tehsphinx/astrav"
-	"github.com/tehsphinx/exalysis/extypes"
-	"github.com/tehsphinx/exalysis/track/hamming/tpl"
+	"github.com/exercism/exalysis/extypes"
+	"github.com/exercism/exalysis/track/hamming/tpl"
 )
 
 // Suggest builds suggestions for the exercise solution

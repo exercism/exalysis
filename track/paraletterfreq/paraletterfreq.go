@@ -4,8 +4,8 @@ import (
 	"strings"
 
 	"github.com/tehsphinx/astrav"
-	"github.com/tehsphinx/exalysis/extypes"
-	"github.com/tehsphinx/exalysis/track/paraletterfreq/tpl"
+	"github.com/exercism/exalysis/extypes"
+	"github.com/exercism/exalysis/track/paraletterfreq/tpl"
 )
 
 //Suggest builds suggestions for the exercise solution

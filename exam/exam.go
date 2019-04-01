@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"github.com/tehsphinx/astrav"
-	"github.com/tehsphinx/exalysis/extypes"
+	"github.com/exercism/exalysis/extypes"
 )
 
 // Result contains the result if running all examinations

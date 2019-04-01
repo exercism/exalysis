@@ -5,10 +5,10 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/tehsphinx/exalysis/extypes"
-	"github.com/tehsphinx/exalysis/gtpl"
-	"github.com/tehsphinx/exalysis/testhelper"
-	"github.com/tehsphinx/exalysis/track/paraletterfreq/tpl"
+	"github.com/exercism/exalysis/extypes"
+	"github.com/exercism/exalysis/gtpl"
+	"github.com/exercism/exalysis/testhelper"
+	"github.com/exercism/exalysis/track/paraletterfreq/tpl"
 )
 
 var suggestTests = []struct {

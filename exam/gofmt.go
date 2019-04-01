@@ -8,8 +8,8 @@ import (
 	"github.com/logrusorgru/aurora"
 	"github.com/pmezard/go-difflib/difflib"
 	"github.com/tehsphinx/astrav"
-	"github.com/tehsphinx/exalysis/extypes"
-	"github.com/tehsphinx/exalysis/gtpl"
+	"github.com/exercism/exalysis/extypes"
+	"github.com/exercism/exalysis/gtpl"
 )
 
 // GoFmt runs gofmt on provided go files and adds suggestions to the response

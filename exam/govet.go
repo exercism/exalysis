@@ -8,8 +8,8 @@ import (
 
 	"github.com/logrusorgru/aurora"
 	"github.com/tehsphinx/astrav"
-	"github.com/tehsphinx/exalysis/extypes"
-	"github.com/tehsphinx/exalysis/gtpl"
+	"github.com/exercism/exalysis/extypes"
+	"github.com/exercism/exalysis/gtpl"
 )
 
 // GoVet runs go vet on provided go files and adds suggestions to the response

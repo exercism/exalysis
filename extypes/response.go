@@ -3,7 +3,7 @@ package extypes
 import (
 	"fmt"
 
-	"github.com/tehsphinx/exalysis/gtpl"
+	"github.com/exercism/exalysis/gtpl"
 )
 
 //NewResponse creates a new response

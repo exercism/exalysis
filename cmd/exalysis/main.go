@@ -11,8 +11,8 @@ import (
 	"time"
 
 	"github.com/tehsphinx/clipboard"
-	"github.com/tehsphinx/exalysis"
-	"github.com/tehsphinx/exalysis/exam"
+	"github.com/exercism/exalysis"
+	"github.com/exercism/exalysis/exam"
 )
 
 var (
