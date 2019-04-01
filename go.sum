@@ -2,6 +2,7 @@ github.com/atotto/clipboard v0.1.1 h1:WSoEbAS70E5gw8FbiqFlp69MGsB6dUb4l+0AGGLiVG
 github.com/atotto/clipboard v0.1.1/go.mod h1:ZY9tmq7sm5xIbd9bOK4onWV4S6X0u6GY7Vn0Yu86PYI=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
+github.com/golang/lint v0.0.0-20180702182130-06c8688daad7 h1:2hRPrmiwPrp3fQX967rNJIhQPtiGXdlQWAxKbKw3VHA=
 github.com/golang/lint v0.0.0-20180702182130-06c8688daad7/go.mod h1:tluoj9z5200jBnyusfRPU2LqT6J+DAorxEvtC7LHB+E=
 github.com/kevinburke/go-bindata v3.13.0+incompatible h1:hThDhUBH4KjTyhfXfOgacEPfFBNjltnzl/xzfLfrPoQ=
 github.com/kevinburke/go-bindata v3.13.0+incompatible/go.mod h1:/pEEZ72flUW2p0yi30bslSp9YqD9pysLxunQDdb2CPM=
@@ -19,10 +20,14 @@ github.com/stretchr/testify v1.2.2 h1:bSDNvY7ZPG5RlJ8otE/7V6gMiyenm9RtJ7IUVIAoJ1
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/tehsphinx/astrav v0.0.0-20181205091422-5bfb68544745 h1:UIw80S06cNcOebaULXc3IY/QWSGEzzvhCi0rk/Bcwjk=
 github.com/tehsphinx/astrav v0.0.0-20181205091422-5bfb68544745/go.mod h1:nOyPKhDavRtkQmdp+ljFJ8aNAPAilrCycVEAgsFverU=
+github.com/tehsphinx/astrav v0.1.0 h1:MqFxurmKxYssqeQkQupnXqqOqThK6TliiHlCwNZuq9E=
+github.com/tehsphinx/astrav v0.1.0/go.mod h1:nOyPKhDavRtkQmdp+ljFJ8aNAPAilrCycVEAgsFverU=
 github.com/tehsphinx/clipboard v0.1.3 h1:yvpiEuRmCzuCHscbKKveUjaSGIpsgIayMoUmQxaFr8Y=
 github.com/tehsphinx/clipboard v0.1.3/go.mod h1:mHVLI8BgutQPdEYIx/saoBHBqoZIYSu/oTydcL5VfBQ=
 github.com/tehsphinx/dbg v0.0.0-20180912080624-6ae3be1fde4a h1:An4JM6FGIm6VrD89WG9XirMuT1qNS1KzLgA0DcXoRkU=
 github.com/tehsphinx/dbg v0.0.0-20180912080624-6ae3be1fde4a/go.mod h1:0lc75gUc5PIEHuvMfdbFQqjEGKFkP+V7XBa75j6s91c=
+github.com/tehsphinx/exalysis v0.3.7 h1:fvFgPJPwUDMCS3afuyPyzcPGQTRAO7QJ0BGHjgayKJg=
+github.com/tehsphinx/exalysis v0.3.7/go.mod h1:NyvjetC4+Uq3I5LuNIJCM8n4cTFtI/refnCShj/9Xz8=
 golang.org/x/sys v0.0.0-20180909124046-d0be0721c37e h1:o3PsSEY8E4eXWkXrIP9YJALUkVZqzHJT5DOasTyn8Vs=
 golang.org/x/sys v0.0.0-20180909124046-d0be0721c37e/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
 golang.org/x/tools v0.0.0-20181214171254-3c39ce7b6105 h1:kFsnkWrmuEx8NF7fFPXVUvSHzRcmD/9TevF5wNmXizs=
