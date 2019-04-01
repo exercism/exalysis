@@ -11,4 +11,11 @@ require (
 	golang.org/x/lint v0.0.0-20181212231659-93c0bb5c8393
 )
 
+exclude (
+	github.com/tehsphinx/astrav v0.2.0
+	github.com/tehsphinx/astrav v0.2.1
+	github.com/tehsphinx/astrav v0.2.2
+	github.com/tehsphinx/astrav v0.2.3
+)
+
 replace golang.org/x/lint => github.com/golang/lint v0.0.0-20180702182130-06c8688daad7
