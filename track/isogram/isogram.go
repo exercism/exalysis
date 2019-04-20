@@ -1,14 +1,13 @@
 package isogram
 
 import (
-	"go/ast"
 	"go/token"
 	"strings"
 
-	"github.com/tehsphinx/astrav"
 	"github.com/exercism/exalysis/extypes"
 	"github.com/exercism/exalysis/gtpl"
 	"github.com/exercism/exalysis/track/isogram/tpl"
+	"github.com/tehsphinx/astrav"
 )
 
 // Suggest builds suggestions for the exercise solution
@@ -22,8 +21,8 @@ func Suggest(pkg *astrav.Package, r *extypes.Response) {
 
 var exFuncs = []extypes.SuggestionFunc{
 	examRegexCompileInFunc,
-	examToLowerUpper("ToLower"),
-	examToLowerUpper("ToUpper"),
+	examToLowerUpper("strings.ToLower"),
+	examToLowerUpper("strings.ToUpper"),
 	examJustReturn,
 	examNonExistingMapValue,
 	examUniversalIsLetter,
@@ -69,7 +68,7 @@ func examZeroValueAssign(pkg *astrav.Package, r *extypes.Response) {
 }
 
 func examIfContinueIsLetter(pkg *astrav.Package, r *extypes.Response) {
-	node := pkg.FindFirstByName("IsLetter")
+	node := pkg.FindFirstByName("unicode.IsLetter")
 	if node == nil {
 		return
 	}
@@ -144,7 +143,7 @@ func examJustReturn(pkg *astrav.Package, r *extypes.Response) {
 
 func examRegexCompileInFunc(pkg *astrav.Package, r *extypes.Response) {
 	main := pkg.FindFirstByName("IsIsogram")
-	regComp := pkg.FindFirstByName("Compile")
+	regComp := pkg.FindFirstByName("regexp.Compile")
 	if regComp != nil && main.Contains(regComp) {
 		r.AppendTodo(tpl.RegexInFunc)
 		r.AppendTodo(tpl.MustCompile)
@@ -153,7 +152,7 @@ func examRegexCompileInFunc(pkg *astrav.Package, r *extypes.Response) {
 		r.AppendTodo(tpl.IsLetter)
 	}
 
-	regComp = pkg.FindFirstByName("MustCompile")
+	regComp = pkg.FindFirstByName("regexp.MustCompile")
 	if regComp != nil && main.Contains(regComp) {
 		r.AppendTodo(tpl.RegexInFunc)
 	}
@@ -166,8 +165,7 @@ func examToLowerUpper(fnName string) extypes.SuggestionFunc {
 	return func(pkg *astrav.Package, r *extypes.Response) {
 		fns := pkg.FindByName(fnName)
 		for _, fn := range fns {
-			if f, ok := fn.(*astrav.SelectorExpr); !ok ||
-				f.X.(*ast.Ident).Name == "unicode" {
+			if _, ok := fn.(*astrav.SelectorExpr); !ok {
 				continue
 			}
 			addSpeedComment(r)

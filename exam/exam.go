@@ -3,8 +3,8 @@ package exam
 import (
 	"os"
 
-	"github.com/tehsphinx/astrav"
 	"github.com/exercism/exalysis/extypes"
+	"github.com/tehsphinx/astrav"
 )
 
 // Result contains the result if running all examinations

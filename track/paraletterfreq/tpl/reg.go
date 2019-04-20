@@ -4,7 +4,7 @@ package tpl
 
 import "github.com/exercism/exalysis/gtpl"
 
-//Templates to be used in the response of suggester
+// Templates to be used in the response of suggester
 var (
 	ConcurrencyNotFaster    = gtpl.NewStringTemplate("concurrency-not-faster.md", MustAsset)
 	WaitGroup               = gtpl.NewStringTemplate("waitgroup.md", MustAsset)

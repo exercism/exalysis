@@ -10,9 +10,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/tehsphinx/clipboard"
 	"github.com/exercism/exalysis"
 	"github.com/exercism/exalysis/exam"
+	"github.com/tehsphinx/clipboard"
 )
 
 var (

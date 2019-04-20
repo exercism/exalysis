@@ -4,7 +4,7 @@ package tpl
 
 import "github.com/exercism/exalysis/gtpl"
 
-//Templates to be used in the response of suggester
+// Templates to be used in the response of suggester
 var (
 	PlusUsed           = gtpl.NewStringTemplate("plus-used.md", MustAsset)
 	Stub               = gtpl.NewStringTemplate("stub.md", MustAsset)

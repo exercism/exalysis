@@ -2,13 +2,14 @@ package testhelper
 
 import (
 	"errors"
+	"net/http"
 
 	"github.com/tehsphinx/astrav"
 )
 
 // LoadFolder loads an example from given example folder
 func LoadFolder(exampleFolder string) (*astrav.Folder, map[string]*astrav.Package, error) {
-	folder := astrav.NewFolder(exampleFolder)
+	folder := astrav.NewFolder(http.Dir(exampleFolder), "")
 	pkgs, err := folder.ParseFolder()
 	return folder, pkgs, err
 }

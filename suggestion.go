@@ -4,11 +4,12 @@ import (
 	"fmt"
 	"log"
 	"math/rand"
+	"net/http"
 	"path"
+	"path/filepath"
+	"regexp"
 	"time"
 
-	"github.com/logrusorgru/aurora"
-	"github.com/tehsphinx/astrav"
 	"github.com/exercism/exalysis/exam"
 	"github.com/exercism/exalysis/extypes"
 	"github.com/exercism/exalysis/gtpl"
@@ -20,6 +21,8 @@ import (
 	"github.com/exercism/exalysis/track/raindrops"
 	"github.com/exercism/exalysis/track/scrabble"
 	"github.com/exercism/exalysis/track/twofer"
+	"github.com/logrusorgru/aurora"
+	"github.com/tehsphinx/astrav"
 )
 
 var exercisePkgs = map[string]extypes.SuggestionFunc{
@@ -33,15 +36,20 @@ var exercisePkgs = map[string]extypes.SuggestionFunc{
 	"letter":      paraletterfreq.Suggest,
 }
 
-//GetSuggestions selects the package suggestion routine and returns the suggestions
+// GetSuggestions selects the package suggestion routine and returns the suggestions
 func GetSuggestions(codePath string) (string, string) {
 	var r = extypes.NewResponse()
-	folder := astrav.NewFolder(codePath)
+	r, examRes, pkgName := getSuggestions(r, codePath)
+	return r.GetAnswerString(), rating(r, examRes, pkgName)
+}
+
+func getSuggestions(r *extypes.Response, codePath string) (*extypes.Response, *exam.Result, string) {
+	folder := astrav.NewFolder(http.Dir(codePath), "")
 	_, err := folder.ParseFolder()
 	if err != nil {
 		addGreeting(r, "", "there")
 		r.AppendTodo(gtpl.Compile)
-		return r.GetAnswerString(), rating(r, nil, "")
+		return r, nil, ""
 	}
 
 	var pkgName string
@@ -56,7 +64,7 @@ func GetSuggestions(codePath string) (string, string) {
 	}
 	fmt.Println(aurora.Sprintf(aurora.Gray(msg), aurora.Green(pkgName)))
 
-	addGreeting(r, pkgName, folder.StudentName())
+	addGreeting(r, pkgName, getStudentName(codePath))
 	examRes, err := exam.All(folder, r, pkgName)
 	if err != nil {
 		log.Fatal(err)
@@ -66,7 +74,22 @@ func GetSuggestions(codePath string) (string, string) {
 		suggFunc(pkg, r)
 	}
 	addTip(r, pkgName)
-	return r.GetAnswerString(), rating(r, examRes, pkgName)
+	return r, examRes, pkgName
+}
+
+var student = regexp.MustCompile("users/([^/]*)/go/")
+
+func getStudentName(codePath string) string {
+	absPath, err := filepath.Abs(codePath)
+	if err != nil {
+		return ""
+	}
+
+	submatch := student.FindStringSubmatch(absPath)
+	if 1 < len(submatch) {
+		return submatch[1]
+	}
+	return ""
 }
 
 func getExercisePkg(folder *astrav.Folder) (*astrav.Package, extypes.SuggestionFunc) {

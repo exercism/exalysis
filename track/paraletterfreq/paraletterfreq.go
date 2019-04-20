@@ -3,12 +3,12 @@ package paraletterfreq
 import (
 	"strings"
 
-	"github.com/tehsphinx/astrav"
 	"github.com/exercism/exalysis/extypes"
 	"github.com/exercism/exalysis/track/paraletterfreq/tpl"
+	"github.com/tehsphinx/astrav"
 )
 
-//Suggest builds suggestions for the exercise solution
+// Suggest builds suggestions for the exercise solution
 func Suggest(pkg *astrav.Package, r *extypes.Response) {
 	for _, tf := range exFuncs {
 		tf(pkg, r)
@@ -46,7 +46,7 @@ func examWaitGroup(pkg *astrav.Package, r *extypes.Response) {
 func examAddOne(pkg *astrav.Package, r *extypes.Response) {
 	nodes := pkg.FindByName("Add")
 	for _, node := range nodes {
-		bLit := node.Parent().FindFirstByNodeType(astrav.NodeTypeBasicLit)
+		bLit := node.NextParentByType(astrav.NodeTypeCallExpr).FindFirstByNodeType(astrav.NodeTypeBasicLit)
 		if bLit == nil {
 			continue
 		}

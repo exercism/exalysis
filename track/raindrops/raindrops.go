@@ -4,9 +4,9 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/tehsphinx/astrav"
 	"github.com/exercism/exalysis/extypes"
 	"github.com/exercism/exalysis/track/raindrops/tpl"
+	"github.com/tehsphinx/astrav"
 )
 
 // Suggest builds suggestions for the exercise solution
@@ -52,7 +52,7 @@ func examAllCases(pkg *astrav.Package, r *extypes.Response) {
 var fmtPrintfRegex = regexp.MustCompile(`Pl.ng`)
 
 func examFmtPrintf(pkg *astrav.Package, r *extypes.Response) {
-	nodes := pkg.FindByName("Sprintf")
+	nodes := pkg.FindByName("fmt.Sprintf")
 	for _, node := range nodes {
 		lits := node.Parent().FindByNodeType(astrav.NodeTypeBasicLit)
 		for _, lit := range lits {
@@ -163,12 +163,9 @@ func examExtensiveForLoop(pkg *astrav.Package, r *extypes.Response) {
 }
 
 func examItoa(pkg *astrav.Package, r *extypes.Response) {
-	itoa := pkg.FindFirstByName("Itoa")
+	itoa := pkg.FindFirstByName("strconv.Itoa")
 	if itoa != nil {
-		if itoa.IsNodeType(astrav.NodeTypeSelectorExpr) &&
-			itoa.(*astrav.SelectorExpr).PackageName().Name == "strconv" {
-			return
-		}
+		return
 	}
 
 	r.AppendImprovement(tpl.Itoa)

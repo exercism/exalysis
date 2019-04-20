@@ -4,13 +4,13 @@ import (
 	"go/ast"
 	"reflect"
 
-	"github.com/tehsphinx/astrav"
 	"github.com/exercism/exalysis/extypes"
 	"github.com/exercism/exalysis/gtpl"
 	"github.com/exercism/exalysis/track/scrabble/tpl"
+	"github.com/tehsphinx/astrav"
 )
 
-//Suggest builds suggestions for the exercise solution
+// Suggest builds suggestions for the exercise solution
 func Suggest(pkg *astrav.Package, r *extypes.Response) {
 	addSpeedComment = getAddSpeedComment()
 
@@ -26,8 +26,8 @@ var exFuncs = []extypes.SuggestionFunc{
 	testFlattenMap,
 	testMapRuneInt,
 	testSliceRuneConv,
-	testToLowerUpper("ToLower"),
-	testToLowerUpper("ToUpper"),
+	testToLowerUpper("strings.ToLower"),
+	testToLowerUpper("strings.ToUpper"),
 	testTrySwitch,
 	testIfElseToSwitch,
 	testRuneLoop,
@@ -40,16 +40,16 @@ func testSliceRuneConv(pkg *astrav.Package, r *extypes.Response) {
 			continue
 		}
 
-		if call.(*astrav.CallExpr).NodeName().Name == "rune" {
+		if call.(*astrav.CallExpr).NodeName() == "[]rune" {
 			r.AppendImprovement(tpl.SliceRuneConv)
 		}
 	}
 }
 
 func testRegex(pkg *astrav.Package, r *extypes.Response) {
-	rgx := pkg.FindFirstByName("Score").FindFirstByName("MustCompile")
+	rgx := pkg.FindFirstByName("Score").FindFirstByName("regexp.MustCompile")
 	if rgx == nil {
-		rgx = pkg.FindFirstByName("Score").FindFirstByName("Compile")
+		rgx = pkg.FindFirstByName("Score").FindFirstByName("regexp.Compile")
 	}
 
 	if rgx != nil &&
@@ -75,8 +75,7 @@ func testToLowerUpper(fnName string) extypes.SuggestionFunc {
 
 		fns := pkg.FindByName(fnName)
 		for _, fn := range fns {
-			if f, ok := fn.(*astrav.SelectorExpr); !ok ||
-				f.X.(*ast.Ident).Name == "unicode" {
+			if _, ok := fn.(*astrav.SelectorExpr); !ok {
 				continue
 			}
 			addSpeedComment(r)

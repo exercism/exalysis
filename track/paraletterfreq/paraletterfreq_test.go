@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	"github.com/exercism/exalysis/extypes"
 	"github.com/exercism/exalysis/gtpl"
 	"github.com/exercism/exalysis/testhelper"
 	"github.com/exercism/exalysis/track/paraletterfreq/tpl"
+	"github.com/stretchr/testify/assert"
 )
 
 var suggestTests = []struct {
@@ -58,7 +58,7 @@ func Test_Suggest(t *testing.T) {
 }
 
 /*
-More solutions to look through:
+TODO: More solutions to look through:
 
 https://exercism.io/mentor/solutions/01c8d3773ac941a1aba4ac40583c0b04
 https://exercism.io/mentor/solutions/6be812e536484fe8b4cf81dadc14e532

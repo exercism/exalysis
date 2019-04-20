@@ -4,9 +4,9 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/tehsphinx/astrav"
 	"github.com/exercism/exalysis/extypes"
 	"github.com/exercism/exalysis/track/hamming/tpl"
+	"github.com/tehsphinx/astrav"
 )
 
 // Suggest builds suggestions for the exercise solution
@@ -61,7 +61,7 @@ func examReturnZeroValue(pkg *astrav.Package, r *extypes.Response) {
 }
 
 func examNoErrorMsg(pkg *astrav.Package, r *extypes.Response) {
-	nodes := pkg.FindByName("New")
+	nodes := pkg.FindByName("errors.New")
 	for _, node := range nodes {
 		if !node.IsNodeType(astrav.NodeTypeSelectorExpr) {
 			continue
@@ -184,8 +184,8 @@ func examIncrease(pkg *astrav.Package, r *extypes.Response) {
 }
 
 func examErrorMessage(pkg *astrav.Package, r *extypes.Response) {
-	checkErrMessage(pkg.FindByName("New"), r)
-	checkErrMessage(pkg.FindByName("Errorf"), r)
+	checkErrMessage(pkg.FindByName("errors.New"), r)
+	checkErrMessage(pkg.FindByName("fmt.Errorf"), r)
 }
 
 func checkErrMessage(nodes []astrav.Node, r *extypes.Response) {

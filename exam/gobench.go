@@ -6,10 +6,10 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/logrusorgru/aurora"
-	"github.com/tehsphinx/astrav"
 	"github.com/exercism/exalysis/extypes"
 	"github.com/exercism/exalysis/gtpl"
+	"github.com/logrusorgru/aurora"
+	"github.com/tehsphinx/astrav"
 )
 
 var (

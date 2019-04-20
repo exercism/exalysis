@@ -6,12 +6,12 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/tehsphinx/astrav"
 	"github.com/exercism/exalysis/extypes"
 	"github.com/exercism/exalysis/track/twofer/tpl"
+	"github.com/tehsphinx/astrav"
 )
 
-//Suggest builds suggestions for the exercise solution
+// Suggest builds suggestions for the exercise solution
 func Suggest(pkg *astrav.Package, r *extypes.Response) {
 	addStub = getAddStub()
 	addCommentFormat = getAddCommentFormat()
@@ -50,7 +50,7 @@ func examFmt(pkg *astrav.Package, r *extypes.Response) {
 	}
 
 	var spfCount int
-	nodes = pkg.FindByName("Sprintf")
+	nodes = pkg.FindByName("fmt.Sprintf")
 	for _, fmtSprintf := range nodes {
 		if !fmtSprintf.IsNodeType(astrav.NodeTypeSelectorExpr) {
 			continue
