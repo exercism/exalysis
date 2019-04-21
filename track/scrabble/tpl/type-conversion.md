@@ -1,1 +1,1 @@
-- Don't do any type conversions you don't have to! You could work with type `rune` instead of `string` in the `for` loop. A rune literal uses single quotes, like this: `'A'`.
+- In order to avoid an unnecessary type conversion, you could work with type `rune` instead of `string` in the `for` loop. A rune literal uses single quotes, like this: `'A'`.
