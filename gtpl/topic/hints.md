@@ -4,9 +4,7 @@
 
 As this is likely your first Go exercise on Exercism, I thought I'd share a few tips that may be helpful.
 
-1. **Run the tests** one last time before submitting. Usually running just `go test` in the exercise directory is all you need to do here, unless there are special requirements which will be mentioned in the instructions for that exercise.
-
-    If you can't get all the tests to pass, feel free to submit the solution anyway and ask for help. Mentors will be happy to give you hints.
+1. **Run the tests** one last time before submitting. Usually running just `go test` in the exercise directory is all you need to do. If you can't get all the tests to pass, feel free to submit the solution anyway and ask for help. Mentors will be happy to give you hints.
 
 2. Ensure your **code is formatted** with `gofmt`. Most editors that support Go can be configured to do this automatically. If you're coming to Go from other languages, you may not be used to the idea that there's one, and only one, accepted way to format Go code, and it's the `gofmt` way. At first this may seem overly restrictive, but there are great advantages to standard formatting, not least that it avoids a lot of futile arguments about which is the best way to format Go code.
 
