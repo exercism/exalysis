@@ -131,8 +131,7 @@ func getExercisePkg(folder *astrav.Folder) (*astrav.Package, extypes.SuggestionF
 
 func addGreeting(r *extypes.Response, pkg, student string) {
 	r.SetGreeting(gtpl.Greeting.Format(student))
-	switch pkg {
-	case "twofer":
+	if pkg == "twofer" {
 		r.AppendGreeting(gtpl.NewcomerGreeting)
 	}
 }

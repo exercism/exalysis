@@ -6,17 +6,17 @@ import (
 	"path"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	"github.com/exercism/exalysis/extypes"
 	"github.com/exercism/exalysis/gtpl"
 	"github.com/exercism/exalysis/testhelper"
+	"github.com/stretchr/testify/assert"
 )
 
 var vetTests = []struct {
 	path       string
 	expected   bool
-	suggestion gtpl.Template
 	expectSugg bool
+	suggestion gtpl.Template
 	pkgName    string
 }{
 	{path: "./solutions/0", expected: false},

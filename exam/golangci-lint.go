@@ -6,9 +6,9 @@ import (
 	"os/exec"
 	"strings"
 
+	"github.com/exercism/exalysis/extypes"
 	"github.com/logrusorgru/aurora"
 	"github.com/tehsphinx/astrav"
-	"github.com/exercism/exalysis/extypes"
 )
 
 // GolangCILint runs GolangCI-Lint on provided go files and adds suggestions to the response.

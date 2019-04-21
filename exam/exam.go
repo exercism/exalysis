@@ -41,8 +41,8 @@ func All(folder *astrav.Folder, r *extypes.Response, pkgName string, analyze boo
 	if analyze {
 		resp = &extypes.Response{}
 	}
-	res.GoLint = GoLint(folder, resp, pkgName)
-	res.GoFmt = GoFmt(folder, resp, pkgName)
+	res.GoLint = GoLint(folder, resp)
+	res.GoFmt = GoFmt(folder, resp)
 	res.GoVet = GoVet(folder, r, pkgName, errTest != nil)
 	res.GolangCILint = GolangCILint(folder, r, pkgName)
 	res.GoBench = GoBench(folder, r, pkgName, errTest != nil)

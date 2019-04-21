@@ -1,0 +1,58 @@
+run:
+  skip-dirs:
+    - solutions
+
+linters-settings:
+  govet:
+    check-shadowing: true
+  golint:
+    min-confidence: 0.8
+  gocyclo:
+    min-complexity: 20
+  maligned:
+    suggest-new: true
+  dupl:
+    threshold: 100
+  depguard:
+    list-type: blacklist
+    include-go-root: false
+    packages:
+      # protect from pushing debug package to production
+      - github.com/tehsphinx/dbg
+  lll:
+    line-length: 150
+  nakedret:
+    max-func-lines: 10
+
+linters:
+  enable:
+    - golint
+    - unconvert
+    - dupl
+    - gocyclo
+    - goimports
+    - maligned
+    - depguard
+    - lll
+    - nakedret
+    - scopelint
+    - gocritic
+
+issues:
+  exclude-use-default: false
+
+  exclude-rules:
+    # Exclude some linters from running on tests files.
+    - path: _test\.go
+      linters:
+        - dupl
+
+  exclude:
+    # errcheck: Almost all programs ignore errors on these functions and in most cases it's ok
+    - Error return value of .((os\.)?std(out|err)\..*|.*Close|.*Flush|os\.Remove(All)?|.*printf?|os\.(Un)?Setenv). is not checked
+
+    # golint: False positive when tests are defined in package 'test'
+    - func name will be used as test\.Test.* by other packages, and that stutters; consider calling this
+
+    # govet: shadowing of err variable
+    - declaration of "err" shadows declaration at

@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
 	"github.com/exercism/exalysis/extypes"
 	"github.com/exercism/exalysis/gtpl"
 	"github.com/exercism/exalysis/testhelper"
 	"github.com/exercism/exalysis/track/luhn/tpl"
+	"github.com/stretchr/testify/assert"
 )
 
 var suggestTests = []struct {

@@ -15,8 +15,8 @@ import (
 var golangCILintTests = []struct {
 	path       string
 	expected   bool
-	suggestion gtpl.Template
 	expectSugg bool
+	suggestion gtpl.Template
 	pkgName    string
 }{
 	{path: "./solutions/0", expected: false},

@@ -17,7 +17,7 @@ var (
 )
 
 // GoLint runs golint on provided go files and adds suggestions to the response
-func GoLint(folder *astrav.Folder, r *extypes.Response, pkgName string) bool {
+func GoLint(folder *astrav.Folder, r *extypes.Response) bool {
 	files := folder.GetRawFiles()
 	resLint := lintCode(files)
 	if resLint == "" {
@@ -25,15 +25,14 @@ func GoLint(folder *astrav.Folder, r *extypes.Response, pkgName string) bool {
 		return true
 	}
 
-	fmt.Println(aurora.Gray("golint:\t\t"), aurora.Red("FAIL"))
-	fmt.Println(resLint)
-	if pkgName == "twofer" || pkgName == "hamming" {
-		r.AppendImprovementTpl(gtpl.NotLinted)
-	} else {
-		r.AppendTodoTpl(gtpl.NotLinted)
-	}
-
+	fmtOuput("golint", resLint, r)
 	return false
+}
+
+func fmtOuput(tool, result string, r *extypes.Response) {
+	fmt.Println(aurora.Gray(fmt.Sprintf("%s:\t\t", tool)), aurora.Red("FAIL"))
+	fmt.Println(result)
+	r.AppendTodoTpl(gtpl.NotLinted)
 }
 
 func lintCode(files map[string][]byte) string {
