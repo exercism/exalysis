@@ -1,1 +1,0 @@
-- Tip: any type of value in Go can be printed using the format character `%v`. However, there's also a different format for each type (for example `%s` for strings). The type specific formats also offer more options for formatting that type. For example the format `%f`, for `float` values, can also specify the precision: `%.2f`.

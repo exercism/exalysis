@@ -1,1 +1,0 @@
-- Please do not omit the error message. The standard `error` does not have a stack trace, meaning in Go the error message is the only thing telling the developer what happened.

@@ -5,7 +5,6 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
-	"path"
 	"path/filepath"
 	"regexp"
 	"time"
@@ -14,13 +13,11 @@ import (
 	"github.com/exercism/exalysis/extypes"
 	"github.com/exercism/exalysis/gtpl"
 	"github.com/exercism/exalysis/track/diffsquares"
-	"github.com/exercism/exalysis/track/hamming"
 	"github.com/exercism/exalysis/track/isogram"
 	"github.com/exercism/exalysis/track/luhn"
 	"github.com/exercism/exalysis/track/paraletterfreq"
 	"github.com/exercism/exalysis/track/raindrops"
 	"github.com/exercism/exalysis/track/scrabble"
-	"github.com/exercism/exalysis/track/twofer"
 	"github.com/exercism/go-analyzer/analyzer"
 	"github.com/exercism/go-analyzer/suggester/sugg"
 	"github.com/logrusorgru/aurora"
@@ -28,8 +25,8 @@ import (
 )
 
 var exercisePkgs = map[string]extypes.SuggestionFunc{
-	"twofer":      twofer.Suggest,
-	"hamming":     hamming.Suggest,
+	"twofer":      nil,
+	"hamming":     nil,
 	"raindrops":   raindrops.Suggest,
 	"scrabble":    scrabble.Suggest,
 	"isogram":     isogram.Suggest,
@@ -49,19 +46,19 @@ func GetSuggestions(codePath string) (string, string) {
 		return r.GetAnswerString(), rating(r, nil, "")
 	}
 
-	var pkgName string
+	// TODO: clean this up after all exercises are switched to the analyzer
+
+	var pkgName = folder.Pkg.Name()
+	analyze := pkgName == "twofer" || pkgName == "hamming"
+
 	pkg, suggFunc := getExercisePkg(folder)
 	var msg string
-	if pkg == nil {
-		pkgName = path.Base(codePath)
+	if pkg == nil && !analyze {
 		msg = "I don't have any specific knowledge on the %q exercise, but I'll still run my general code checks on it:"
 	} else {
-		pkgName = pkg.Name
 		msg = "I know the %q exercise, so I'll try to make some specific suggestions about it, as well as the general code checks:"
 	}
 	fmt.Println(aurora.Sprintf(aurora.Gray(msg), aurora.Green(pkgName)))
-
-	analyze := pkgName == "twofer" || pkgName == "hamming"
 
 	addGreeting(r, pkgName, getStudentName(codePath))
 	examRes, err := exam.All(folder, r, pkgName, analyze)
