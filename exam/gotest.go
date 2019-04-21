@@ -6,10 +6,10 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/logrusorgru/aurora"
-	"github.com/tehsphinx/astrav"
 	"github.com/exercism/exalysis/extypes"
 	"github.com/exercism/exalysis/gtpl"
+	"github.com/logrusorgru/aurora"
+	"github.com/tehsphinx/astrav"
 )
 
 var skipRaceExercises = []string{
@@ -43,7 +43,7 @@ func goTest(r *extypes.Response) (bool, error) {
 
 	fmt.Println(aurora.Gray("go test:\t"), aurora.Red("FAIL"))
 	fmt.Println(res)
-	r.AppendTodo(gtpl.PassTests)
+	r.AppendTodoTpl(gtpl.PassTests)
 	return false, err
 }
 
@@ -72,7 +72,7 @@ func goTestRace(r *extypes.Response, pkgName string, skip bool) bool {
 
 	fmt.Println(aurora.Gray("go test -race:\t"), aurora.Red("FAIL"))
 	fmt.Println(res)
-	r.AppendTodo(gtpl.RaceCondition)
+	r.AppendTodoTpl(gtpl.RaceCondition)
 	return false
 }
 

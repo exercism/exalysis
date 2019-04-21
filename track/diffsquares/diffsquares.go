@@ -1,9 +1,9 @@
 package diffsquares
 
 import (
-	"github.com/tehsphinx/astrav"
 	"github.com/exercism/exalysis/extypes"
 	"github.com/exercism/exalysis/track/diffsquares/tpl"
+	"github.com/tehsphinx/astrav"
 )
 
 //Suggest builds suggestions for the exercise solution
@@ -36,7 +36,7 @@ func examBasicFloat(pkg *astrav.Package, r *extypes.Response) {
 			continue
 		}
 		if child.IsValueType("float64") {
-			r.AppendImprovement(tpl.BasicFloat64)
+			r.AppendImprovementTpl(tpl.BasicFloat64)
 		}
 	}
 }
@@ -50,12 +50,12 @@ func examDry(pkg *astrav.Package, r *extypes.Response) {
 
 		nssq := node.FindFirstByName("SumOfSquares")
 		if nssq == nil {
-			r.AppendImprovement(tpl.Dry)
+			r.AppendImprovementTpl(tpl.Dry)
 		}
 
 		nsqs := node.FindFirstByName("SquareOfSum")
 		if nsqs == nil {
-			r.AppendImprovement(tpl.Dry)
+			r.AppendImprovementTpl(tpl.Dry)
 		}
 	}
 }
@@ -63,7 +63,7 @@ func examDry(pkg *astrav.Package, r *extypes.Response) {
 func examMathPow(pkg *astrav.Package, r *extypes.Response) {
 	node := pkg.FindFirstByName("Pow")
 	if node != nil {
-		r.AppendImprovement(tpl.MathPow)
+		r.AppendImprovementTpl(tpl.MathPow)
 	}
 }
 
@@ -75,11 +75,11 @@ func examLoops(pkg *astrav.Package, r *extypes.Response) {
 		switch f.(*astrav.FuncDecl).Name.Name {
 		case "SquareOfSum":
 			if len(nodes) != 0 {
-				r.AppendImprovement(tpl.SquareSumLoop)
+				r.AppendImprovementTpl(tpl.SquareSumLoop)
 			}
 		case "SumOfSquares":
 			if len(nodes) != 0 {
-				r.AppendImprovement(tpl.SumSquareLoop)
+				r.AppendImprovementTpl(tpl.SumSquareLoop)
 			}
 		}
 	}
@@ -94,7 +94,7 @@ func examCalcRangeCondition(pkg *astrav.Package, r *extypes.Response) {
 		}
 		binExpr := cond.FindByNodeType(astrav.NodeTypeBinaryExpr)
 		if len(binExpr) != 0 {
-			r.AppendImprovement(tpl.CalcRangeCondition.Format(binExpr[0].GetSourceString()))
+			r.AppendImprovementTpl(tpl.CalcRangeCondition.Format(binExpr[0].GetSourceString()))
 		}
 	}
 }

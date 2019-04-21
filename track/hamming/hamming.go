@@ -33,7 +33,7 @@ func examReturnZeroValue(pkg *astrav.Package, r *extypes.Response) {
 	returns := pkg.FindFirstByName("Distance").FindByNodeType(astrav.NodeTypeReturnStmt)
 	for _, ret := range returns {
 		if len(ret.Children()) == 0 {
-			r.AppendImprovement(tpl.NakedReturns)
+			r.AppendImprovementTpl(tpl.NakedReturns)
 			continue
 		}
 		if len(ret.Children()) < 2 {
@@ -46,7 +46,7 @@ func examReturnZeroValue(pkg *astrav.Package, r *extypes.Response) {
 		switch node := ret.Children()[0].(type) {
 		case *astrav.BasicLit:
 			if node.Value != "0" {
-				r.AppendComment(tpl.ReturnZeroValue)
+				r.AppendCommentTpl(tpl.ReturnZeroValue)
 			}
 		case *astrav.UnaryExpr:
 			lit := node.FindFirstByNodeType(astrav.NodeTypeBasicLit)
@@ -54,7 +54,7 @@ func examReturnZeroValue(pkg *astrav.Package, r *extypes.Response) {
 				continue
 			}
 			if lit.(*astrav.BasicLit).Value != "0" {
-				r.AppendComment(tpl.ReturnZeroValue)
+				r.AppendCommentTpl(tpl.ReturnZeroValue)
 			}
 		}
 	}
@@ -77,7 +77,7 @@ func examNoErrorMsg(pkg *astrav.Package, r *extypes.Response) {
 		}
 
 		if bLit.(*astrav.BasicLit).Value == `""` {
-			r.AppendTodo(tpl.NoErrMsg)
+			r.AppendTodoTpl(tpl.NoErrMsg)
 		}
 	}
 }
@@ -104,7 +104,7 @@ func examDeclareWhenNeeded(pkg *astrav.Package, r *extypes.Response) {
 			// variable not declared in the same block as the return statement
 			if varDecl.IsNodeType(astrav.NodeTypeAssignStmt) {
 				if !returnVar.NextParentByType(astrav.NodeTypeBlockStmt).Contains(varDecl) {
-					r.AppendImprovement(tpl.DeclareNeeded.Format(returnVar.Name))
+					r.AppendImprovementTpl(tpl.DeclareNeeded.Format(returnVar.Name))
 					return
 				}
 			}
@@ -115,7 +115,7 @@ func examDeclareWhenNeeded(pkg *astrav.Package, r *extypes.Response) {
 					continue
 				}
 				if varDecl.Pos() <= rt.Pos() && rt.Pos() <= returnVar.Pos() {
-					r.AppendImprovement(tpl.DeclareNeeded.Format(returnVar.Name))
+					r.AppendImprovementTpl(tpl.DeclareNeeded.Format(returnVar.Name))
 					return
 				}
 			}
@@ -135,7 +135,7 @@ func examInvertIf(pkg *astrav.Package, r *extypes.Response) {
 		}
 		condition := binExpr.(*astrav.BinaryExpr)
 		if loop != nil && condition != nil && condition.Op.String() == "==" {
-			r.AppendImprovement(tpl.InvertIf)
+			r.AppendImprovementTpl(tpl.InvertIf)
 		}
 	}
 }
@@ -145,7 +145,7 @@ func examRuneToByte(pkg *astrav.Package, r *extypes.Response) {
 	for _, node := range nodes {
 		for _, n := range node.Siblings() {
 			if n.ValueType().String() == "rune" {
-				r.AppendComment(tpl.RuneToByte)
+				r.AppendCommentTpl(tpl.RuneToByte)
 			}
 		}
 	}
@@ -164,7 +164,7 @@ func examMultipleStringConversions(pkg *astrav.Package, r *extypes.Response) {
 		}
 	}
 	if 1 < count {
-		r.AppendImprovement(tpl.MultiStringConv)
+		r.AppendImprovementTpl(tpl.MultiStringConv)
 	}
 }
 
@@ -178,7 +178,7 @@ func examIncrease(pkg *astrav.Package, r *extypes.Response) {
 	}
 	for _, node := range loop.FindByNodeType(astrav.NodeTypeBinaryExpr) {
 		if node.(*astrav.BinaryExpr).Op.String() == "+" {
-			r.AppendComment(tpl.Increase)
+			r.AppendCommentTpl(tpl.Increase)
 		}
 	}
 }
@@ -230,6 +230,6 @@ func getAddErrorMsgFormat() func(r *extypes.Response) {
 			return
 		}
 		added = true
-		r.AppendImprovement(tpl.ErrorMessageFormat)
+		r.AppendImprovementTpl(tpl.ErrorMessageFormat)
 	}
 }

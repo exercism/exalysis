@@ -18,7 +18,7 @@ type Result struct {
 }
 
 // All runs all examinations contained in this package and returns the result
-func All(folder *astrav.Folder, r *extypes.Response, pkgName string) (res *Result, err error) {
+func All(folder *astrav.Folder, r *extypes.Response, pkgName string, analyze bool) (res *Result, err error) {
 	dir, err := os.Getwd()
 	if err != nil {
 		return nil, err
@@ -34,12 +34,18 @@ func All(folder *astrav.Folder, r *extypes.Response, pkgName string) (res *Resul
 
 	test, errTest := GoTest(folder, r, pkgName)
 	res = &Result{
-		GoLint:       GoLint(folder, r, pkgName),
-		GoFmt:        GoFmt(folder, r, pkgName),
-		GoTest:       test,
-		GoVet:        GoVet(folder, r, pkgName, errTest != nil),
-		GolangCILint: GolangCILint(folder, r, pkgName),
-		GoBench:      GoBench(folder, r, pkgName, errTest != nil),
+		GoTest: test,
 	}
+
+	resp := r
+	if analyze {
+		resp = &extypes.Response{}
+	}
+	res.GoLint = GoLint(folder, resp, pkgName)
+	res.GoFmt = GoFmt(folder, resp, pkgName)
+	res.GoVet = GoVet(folder, r, pkgName, errTest != nil)
+	res.GolangCILint = GolangCILint(folder, r, pkgName)
+	res.GoBench = GoBench(folder, r, pkgName, errTest != nil)
+
 	return res, err
 }

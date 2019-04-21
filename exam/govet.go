@@ -6,10 +6,10 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/logrusorgru/aurora"
-	"github.com/tehsphinx/astrav"
 	"github.com/exercism/exalysis/extypes"
 	"github.com/exercism/exalysis/gtpl"
+	"github.com/logrusorgru/aurora"
+	"github.com/tehsphinx/astrav"
 )
 
 // GoVet runs go vet on provided go files and adds suggestions to the response
@@ -30,9 +30,9 @@ func GoVet(_ *astrav.Folder, r *extypes.Response, pkgName string, skip bool) boo
 	fmt.Println(res)
 
 	if pkgName == "twofer" || pkgName == "hamming" {
-		r.AppendImprovement(gtpl.NotVetted)
+		r.AppendImprovementTpl(gtpl.NotVetted)
 	} else {
-		r.AppendTodo(gtpl.NotVetted)
+		r.AppendTodoTpl(gtpl.NotVetted)
 	}
 
 	return false

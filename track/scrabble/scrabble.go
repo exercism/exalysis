@@ -41,7 +41,7 @@ func testSliceRuneConv(pkg *astrav.Package, r *extypes.Response) {
 		}
 
 		if call.(*astrav.CallExpr).NodeName() == "[]rune" {
-			r.AppendImprovement(tpl.SliceRuneConv)
+			r.AppendImprovementTpl(tpl.SliceRuneConv)
 		}
 	}
 }
@@ -59,8 +59,8 @@ func testRegex(pkg *astrav.Package, r *extypes.Response) {
 		lit := rgx.Parent().ChildByNodeType(astrav.NodeTypeBasicLit)
 		if lit != nil && lit.IsValueType("string") {
 			// is a static regex
-			r.AppendTodo(tpl.Regex)
-			r.AppendComment(tpl.Challenge)
+			r.AppendTodoTpl(tpl.Regex)
+			r.AppendCommentTpl(tpl.Challenge)
 			r.AppendOutro(gtpl.Regex)
 			addSpeedComment(r)
 		}
@@ -81,9 +81,9 @@ func testToLowerUpper(fnName string) extypes.SuggestionFunc {
 			addSpeedComment(r)
 
 			if fn.NextParentByType(astrav.NodeTypeBlockStmt).IsContainedByType(astrav.NodeTypeRangeStmt) {
-				r.AppendImprovement(tpl.UnicodeLoop.Format(fnName))
+				r.AppendImprovementTpl(tpl.UnicodeLoop.Format(fnName))
 			} else {
-				r.AppendImprovement(tpl.Unicode.Format(fnName))
+				r.AppendImprovementTpl(tpl.Unicode.Format(fnName))
 			}
 		}
 	}
@@ -95,7 +95,7 @@ func testFlattenMap(pkg *astrav.Package, r *extypes.Response) {
 	loopCount += len(entryFn.FindNodeTypeInCallTree(astrav.NodeTypeRangeStmt))
 	if 1 < loopCount {
 		addSpeedComment(r)
-		r.AppendImprovement(tpl.FlattenMap)
+		r.AppendImprovementTpl(tpl.FlattenMap)
 	}
 }
 
@@ -105,12 +105,12 @@ func testMapRuneInt(pkg *astrav.Package, r *extypes.Response) {
 	}
 	if len(pkg.FindByValueType("map[string]int")) != 0 {
 		addSpeedComment(r)
-		r.AppendImprovement(tpl.MapRune.Format("map[string]int"))
+		r.AppendImprovementTpl(tpl.MapRune.Format("map[string]int"))
 		return
 	}
 	if len(pkg.FindByValueType("map[int]string")) != 0 {
 		addSpeedComment(r)
-		r.AppendImprovement(tpl.MapRune.Format("map[int]string"))
+		r.AppendImprovementTpl(tpl.MapRune.Format("map[int]string"))
 		return
 	}
 }
@@ -121,17 +121,17 @@ func testTrySwitch(pkg *astrav.Package, r *extypes.Response) {
 	}
 	if len(pkg.FindByValueType("map[rune]int")) != 0 {
 		addSpeedComment(r)
-		r.AppendComment(tpl.TrySwitch)
+		r.AppendCommentTpl(tpl.TrySwitch)
 		return
 	}
 	if len(pkg.FindByValueType("map[string]int")) != 0 {
 		addSpeedComment(r)
-		r.AppendComment(tpl.TrySwitch)
+		r.AppendCommentTpl(tpl.TrySwitch)
 		return
 	}
 	if len(pkg.FindByValueType("map[int]string")) != 0 {
 		addSpeedComment(r)
-		r.AppendComment(tpl.TrySwitch)
+		r.AppendCommentTpl(tpl.TrySwitch)
 		return
 	}
 }
@@ -142,7 +142,7 @@ func testRuneLoop(pkg *astrav.Package, r *extypes.Response) {
 		l := rng.(*astrav.RangeStmt)
 		if l.Value() == nil {
 			if l.Key() != nil {
-				r.AppendImprovement(tpl.LoopRuneNotByte)
+				r.AppendImprovementTpl(tpl.LoopRuneNotByte)
 			}
 		} else {
 			var isByte bool
@@ -152,7 +152,7 @@ func testRuneLoop(pkg *astrav.Package, r *extypes.Response) {
 				}
 			}
 			if isByte {
-				r.AppendImprovement(tpl.LoopRuneNotByte)
+				r.AppendImprovementTpl(tpl.LoopRuneNotByte)
 			}
 		}
 
@@ -160,7 +160,7 @@ func testRuneLoop(pkg *astrav.Package, r *extypes.Response) {
 			!r.HasSuggestion(tpl.MapRune) &&
 			!r.HasSuggestion(tpl.FlattenMap) {
 
-			r.AppendImprovement(tpl.TypeConversion)
+			r.AppendImprovementTpl(tpl.TypeConversion)
 			return
 		}
 	}
@@ -170,7 +170,7 @@ func testGoRoutine(pkg *astrav.Package, r *extypes.Response) {
 	goStmts := pkg.FindByNodeType(astrav.NodeTypeGoStmt)
 	if len(goStmts) != 0 {
 		addSpeedComment(r)
-		r.AppendTodo(tpl.GoRoutines)
+		r.AppendTodoTpl(tpl.GoRoutines)
 	}
 }
 
@@ -179,7 +179,7 @@ func testIfElseToSwitch(pkg *astrav.Package, r *extypes.Response) {
 	for _, rng := range ranges {
 		ifs := rng.FindByNodeType(astrav.NodeTypeIfStmt)
 		if 5 < len(ifs) {
-			r.AppendTodo(tpl.IfsToSwitch)
+			r.AppendTodoTpl(tpl.IfsToSwitch)
 			return
 		}
 	}
@@ -197,7 +197,7 @@ func testMapInFunc(pkg *astrav.Package, r *extypes.Response) {
 	}
 	if hasMapDef {
 		addSpeedComment(r)
-		r.AppendTodo(tpl.MoveMap)
+		r.AppendTodoTpl(tpl.MoveMap)
 	}
 }
 

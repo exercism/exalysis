@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/logrusorgru/aurora"
-	"github.com/tehsphinx/astrav"
 	"github.com/exercism/exalysis/extypes"
 	"github.com/exercism/exalysis/gtpl"
+	"github.com/logrusorgru/aurora"
+	"github.com/tehsphinx/astrav"
 	"golang.org/x/lint"
 )
 
@@ -28,9 +28,9 @@ func GoLint(folder *astrav.Folder, r *extypes.Response, pkgName string) bool {
 	fmt.Println(aurora.Gray("golint:\t\t"), aurora.Red("FAIL"))
 	fmt.Println(resLint)
 	if pkgName == "twofer" || pkgName == "hamming" {
-		r.AppendImprovement(gtpl.NotLinted)
+		r.AppendImprovementTpl(gtpl.NotLinted)
 	} else {
-		r.AppendTodo(gtpl.NotLinted)
+		r.AppendTodoTpl(gtpl.NotLinted)
 	}
 
 	return false

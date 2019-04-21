@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/exercism/exalysis/gtpl"
+	"github.com/exercism/go-analyzer/suggester/sugg"
 )
 
 // NewResponse creates a new response
@@ -48,7 +49,12 @@ func (s *Response) AppendIntro(template gtpl.Template) {
 }
 
 // AppendTodo adds a task to the list to be done before approval
-func (s *Response) AppendTodo(template gtpl.Template) {
+func (s *Response) AppendTodo(comment sugg.Comment) {
+	s.AppendTodoTpl(s.cmtToTempl(comment))
+}
+
+// AppendTodoTpl adds a task to the list to be done before approval
+func (s *Response) AppendTodoTpl(template gtpl.Template) {
 	if exists(s.todo, template) {
 		return
 	}
@@ -57,7 +63,13 @@ func (s *Response) AppendTodo(template gtpl.Template) {
 
 // AppendImprovement adds a optional improvement to the response that can be made
 // by the student to improve the solution.
-func (s *Response) AppendImprovement(template gtpl.Template) {
+func (s *Response) AppendImprovement(comment sugg.Comment) {
+	s.AppendImprovementTpl(s.cmtToTempl(comment))
+}
+
+// AppendImprovementTpl adds a optional improvement to the response that can be made
+// by the student to improve the solution.
+func (s *Response) AppendImprovementTpl(template gtpl.Template) {
 	if exists(s.improvement, template) {
 		return
 	}
@@ -65,16 +77,27 @@ func (s *Response) AppendImprovement(template gtpl.Template) {
 }
 
 // AppendComment adds a thought or comment to the response
-func (s *Response) AppendComment(template gtpl.Template) {
+func (s *Response) AppendComment(comment sugg.Comment) {
+	s.AppendCommentTpl(s.cmtToTempl(comment))
+}
+
+// AppendCommentTpl adds a thought or comment to the response
+func (s *Response) AppendCommentTpl(template gtpl.Template) {
 	if exists(s.comment, template) {
 		return
 	}
 	s.comment = append(s.comment, template)
 }
 
-// AppendBlockSuggestion adds a block suggestion to the response.
+// AppendBlock adds a block suggestion to the response.
 // It is counted as an improvement.
-func (s *Response) AppendBlockSuggestion(template gtpl.Template) {
+func (s *Response) AppendBlock(comment sugg.Comment) {
+	s.AppendBlockTpl(s.cmtToTempl(comment))
+}
+
+// AppendBlockTpl adds a block suggestion to the response.
+// It is counted as an improvement.
+func (s *Response) AppendBlockTpl(template gtpl.Template) {
 	if exists(s.blocksugg, template) {
 		return
 	}
@@ -147,6 +170,10 @@ func (s *Response) GetAnswerString() string {
 		answ += t.TplString()
 	}
 	return answ
+}
+
+func (s *Response) cmtToTempl(comment sugg.Comment) gtpl.Template {
+	return gtpl.NewTemplate(comment.ID(), comment.ToString())
 }
 
 func (s *Response) praise() gtpl.Template {

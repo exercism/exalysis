@@ -36,10 +36,10 @@ func examWaitGroup(pkg *astrav.Package, r *extypes.Response) {
 	wgs := pkg.FindByName("WaitGroup")
 	goTokens := pkg.FindByNodeType(astrav.NodeTypeGoStmt)
 	if len(wgs) != 0 && 1 < len(goTokens) {
-		r.AppendImprovement(tpl.WaitGroup)
+		r.AppendImprovementTpl(tpl.WaitGroup)
 	}
 	if len(wgs) != 0 && len(goTokens) == 1 {
-		r.AppendImprovement(tpl.WaitGroupNotNeeded)
+		r.AppendImprovementTpl(tpl.WaitGroupNotNeeded)
 	}
 }
 
@@ -51,7 +51,7 @@ func examAddOne(pkg *astrav.Package, r *extypes.Response) {
 			continue
 		}
 		if bLit.(*astrav.BasicLit).Value == "1" {
-			r.AppendImprovement(tpl.WaitGroupAddOne)
+			r.AppendImprovementTpl(tpl.WaitGroupAddOne)
 		}
 	}
 }
@@ -64,7 +64,7 @@ func examBufferSizeLen(pkg *astrav.Package, r *extypes.Response) {
 		}
 		lenNode := node.FindFirstByName("len")
 		if lenNode != nil {
-			r.AppendImprovement(tpl.BufferSizeLen)
+			r.AppendImprovementTpl(tpl.BufferSizeLen)
 		}
 	}
 }
@@ -73,7 +73,7 @@ func examSelect(pkg *astrav.Package, r *extypes.Response) {
 	nodes := pkg.FindByNodeType(astrav.NodeTypeSelectStmt)
 	for _, node := range nodes {
 		if len(node.Children()) == 1 {
-			r.AppendImprovement(tpl.SelectNotNeeded)
+			r.AppendImprovementTpl(tpl.SelectNotNeeded)
 		}
 	}
 }
@@ -85,7 +85,7 @@ func examGoroutineLeak(pkg *astrav.Package, r *extypes.Response) {
 		for _, loop := range loops {
 			cond := loop.(*astrav.ForStmt).Cond()
 			if cond == nil {
-				r.AppendTodo(tpl.GoroutineLeak)
+				r.AppendTodoTpl(tpl.GoroutineLeak)
 			}
 		}
 	}
@@ -99,7 +99,7 @@ func examForRange(pkg *astrav.Package, r *extypes.Response) {
 	mergeLoop := loops[len(loops)-1]
 	cond := mergeLoop.(*astrav.ForStmt).Cond()
 	if cond != nil {
-		r.AppendImprovement(tpl.ForRangeNoVars)
+		r.AppendImprovementTpl(tpl.ForRangeNoVars)
 	}
 }
 
@@ -116,13 +116,13 @@ func examCombineWhileWaiting(pkg *astrav.Package, r *extypes.Response) {
 		}
 	}
 	// They didn't update the map inside the merge loop
-	r.AppendImprovement(tpl.CombineMapsWhileWaiting)
+	r.AppendImprovementTpl(tpl.CombineMapsWhileWaiting)
 }
 
 func examMutex(pkg *astrav.Package, r *extypes.Response) {
 	mutexes := pkg.FindByValueType("sync.Mutex")
 	if len(mutexes) > 0 {
-		r.AppendImprovement(tpl.Mutex)
+		r.AppendImprovementTpl(tpl.Mutex)
 	}
 }
 
@@ -130,7 +130,7 @@ func examRangeChan(pkg *astrav.Package, r *extypes.Response) {
 	for _, node := range pkg.FindByNodeType(astrav.NodeTypeRangeStmt) {
 		x := node.(*astrav.RangeStmt).X()
 		if strings.Contains(x.ValueType().String(), "chan") {
-			r.AppendImprovement(tpl.RangeChan)
+			r.AppendImprovementTpl(tpl.RangeChan)
 		}
 	}
 }

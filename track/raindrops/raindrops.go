@@ -38,14 +38,14 @@ func examAllCases(pkg *astrav.Package, r *extypes.Response) {
 
 		occs := fmtPrintfRegex.FindAllString(lit.(*astrav.BasicLit).Value, -1)
 		if 1 < len(occs) {
-			r.AppendTodo(tpl.AllCases)
+			r.AppendTodoTpl(tpl.AllCases)
 			return
 		}
 	}
 
 	rets := pkg.FindByNodeType(astrav.NodeTypeReturnStmt)
 	if 6 < len(rets) {
-		r.AppendTodo(tpl.AllCases)
+		r.AppendTodoTpl(tpl.AllCases)
 	}
 }
 
@@ -60,7 +60,7 @@ func examFmtPrintf(pkg *astrav.Package, r *extypes.Response) {
 				continue
 			}
 			if fmtPrintfRegex.MatchString(lit.(*astrav.BasicLit).Value) {
-				r.AppendImprovement(tpl.FmtPrint.Format("fmt.Sprintf"))
+				r.AppendImprovementTpl(tpl.FmtPrint.Format("fmt.Sprintf"))
 			}
 		}
 	}
@@ -79,7 +79,7 @@ func examRemoveExtraBool(pkg *astrav.Package, r *extypes.Response) {
 		}
 
 		name := node.(*astrav.Ident).Name
-		r.AppendImprovement(tpl.RemoveExtraBool.Format(name))
+		r.AppendImprovementTpl(tpl.RemoveExtraBool.Format(name))
 		break
 	}
 }
@@ -94,7 +94,7 @@ func examLoopMap(pkg *astrav.Package, r *extypes.Response) {
 			continue
 		}
 		if strings.HasPrefix(ident.ValueType().String(), "map") {
-			r.AppendTodo(tpl.LoopMap)
+			r.AppendTodoTpl(tpl.LoopMap)
 			return
 		}
 	}
@@ -114,7 +114,7 @@ func examExtensiveForLoop(pkg *astrav.Package, r *extypes.Response) {
 
 		// check if loop goes up to input var
 		if loop.Cond().FindFirstByName(paramName) != nil {
-			r.AppendImprovement(tpl.ExtensiveFor)
+			r.AppendImprovementTpl(tpl.ExtensiveFor)
 			return
 		}
 
@@ -123,7 +123,7 @@ func examExtensiveForLoop(pkg *astrav.Package, r *extypes.Response) {
 		if basicLit != nil {
 			val := basicLit.(*astrav.BasicLit).Value
 			if val != "7" && val != "8" {
-				r.AppendImprovement(tpl.ExtensiveFor)
+				r.AppendImprovementTpl(tpl.ExtensiveFor)
 				return
 			}
 		}
@@ -136,7 +136,7 @@ func examExtensiveForLoop(pkg *astrav.Package, r *extypes.Response) {
 		basicLit = loop.Init().FindFirstByNodeType(astrav.NodeTypeBasicLit)
 		if basicLit != nil {
 			if basicLit.(*astrav.BasicLit).Value != "3" {
-				r.AppendImprovement(tpl.ExtensiveFor)
+				r.AppendImprovementTpl(tpl.ExtensiveFor)
 				return
 			}
 		}
@@ -147,14 +147,14 @@ func examExtensiveForLoop(pkg *astrav.Package, r *extypes.Response) {
 			return
 		}
 		if loop.Post().IsNodeType(astrav.NodeTypeIncDecStmt) {
-			r.AppendImprovement(tpl.ExtensiveFor)
+			r.AppendImprovementTpl(tpl.ExtensiveFor)
 			return
 		}
 		if loop.Post().IsNodeType(astrav.NodeTypeAssignStmt) {
 			basicLit := loop.Post().FindFirstByNodeType(astrav.NodeTypeBasicLit)
 			if basicLit != nil {
 				if basicLit.(*astrav.BasicLit).Value != "2" {
-					r.AppendImprovement(tpl.ExtensiveFor)
+					r.AppendImprovementTpl(tpl.ExtensiveFor)
 					return
 				}
 			}
@@ -168,7 +168,7 @@ func examItoa(pkg *astrav.Package, r *extypes.Response) {
 		return
 	}
 
-	r.AppendImprovement(tpl.Itoa)
+	r.AppendImprovementTpl(tpl.Itoa)
 }
 
 func examPlusEqual(pkg *astrav.Package, r *extypes.Response) {
@@ -185,7 +185,7 @@ func examPlusEqual(pkg *astrav.Package, r *extypes.Response) {
 		}
 
 		if binExpr.(*astrav.BinaryExpr).Op.String() == "+" {
-			r.AppendComment(tpl.PlusEqual)
+			r.AppendCommentTpl(tpl.PlusEqual)
 			return
 		}
 	}
@@ -197,20 +197,20 @@ func examManyLoops(pkg *astrav.Package, r *extypes.Response) {
 	count += len(pkg.FindByNodeType(astrav.NodeTypeRangeStmt))
 
 	if 1 < count {
-		r.AppendTodo(tpl.ManyLoops)
+		r.AppendTodoTpl(tpl.ManyLoops)
 	}
 }
 
 func examStringsBuilder(pkg *astrav.Package, r *extypes.Response) {
 	builder := pkg.FindByName("Builder")
 	if builder != nil {
-		r.AppendImprovement(tpl.StringsBuilder.Format("strings.Builder"))
+		r.AppendImprovementTpl(tpl.StringsBuilder.Format("strings.Builder"))
 	}
 }
 
 func examBytesBuffer(pkg *astrav.Package, r *extypes.Response) {
 	buffer := pkg.FindByName("Buffer")
 	if buffer != nil {
-		r.AppendImprovement(tpl.StringsBuilder.Format("bytes.Buffer"))
+		r.AppendImprovementTpl(tpl.StringsBuilder.Format("bytes.Buffer"))
 	}
 }

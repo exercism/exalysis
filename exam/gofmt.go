@@ -5,11 +5,11 @@ import (
 	"fmt"
 	"go/format"
 
+	"github.com/exercism/exalysis/extypes"
+	"github.com/exercism/exalysis/gtpl"
 	"github.com/logrusorgru/aurora"
 	"github.com/pmezard/go-difflib/difflib"
 	"github.com/tehsphinx/astrav"
-	"github.com/exercism/exalysis/extypes"
-	"github.com/exercism/exalysis/gtpl"
 )
 
 // GoFmt runs gofmt on provided go files and adds suggestions to the response
@@ -25,9 +25,9 @@ func GoFmt(folder *astrav.Folder, r *extypes.Response, pkgName string) bool {
 	fmt.Println(aurora.Gray("gofmt:\t\t"), aurora.Red("FAIL"))
 	fmt.Println(resFmt)
 	if pkgName == "twofer" || pkgName == "hamming" {
-		r.AppendImprovement(gtpl.NotFormatted)
+		r.AppendImprovementTpl(gtpl.NotFormatted)
 	} else {
-		r.AppendTodo(gtpl.NotFormatted)
+		r.AppendTodoTpl(gtpl.NotFormatted)
 	}
 
 	return false

@@ -32,7 +32,7 @@ var exFuncs = []extypes.SuggestionFunc{
 func examStringsJoin(pkg *astrav.Package, r *extypes.Response) {
 	node := pkg.FindFirstByName("Join")
 	if node != nil {
-		r.AppendImprovement(tpl.StringsJoin)
+		r.AppendImprovementTpl(tpl.StringsJoin)
 	}
 }
 
@@ -45,7 +45,7 @@ func examFmt(pkg *astrav.Package, r *extypes.Response) {
 		}
 	}
 	if plusUsed {
-		r.AppendComment(tpl.PlusUsed)
+		r.AppendCommentTpl(tpl.PlusUsed)
 		return
 	}
 
@@ -58,19 +58,19 @@ func examFmt(pkg *astrav.Package, r *extypes.Response) {
 
 		spfCount++
 		if 1 < spfCount {
-			r.AppendImprovement(tpl.MinimalConditional)
+			r.AppendImprovementTpl(tpl.MinimalConditional)
 		}
 
 		bLit := fmtSprintf.Parent().FindFirstByNodeType(astrav.NodeTypeBasicLit)
 		if bLit != nil && bytes.Contains(bLit.GetSource(), []byte("%v")) {
-			r.AppendImprovement(tpl.UseStringPH)
+			r.AppendImprovementTpl(tpl.UseStringPH)
 			break
 		} else if bLit != nil {
 			continue
 		}
 
 		if bytes.Contains(pkg.FindFirstByName("ShareWith").GetSource(), []byte("%v")) {
-			r.AppendImprovement(tpl.UseStringPH)
+			r.AppendImprovementTpl(tpl.UseStringPH)
 		}
 	}
 }
@@ -92,7 +92,7 @@ var outputPart = regexp.MustCompile(`, one for me\.`)
 func examConditional(pkg *astrav.Package, r *extypes.Response) {
 	matches := outputPart.FindAllIndex(pkg.FindFirstByName("ShareWith").GetSource(), -1)
 	if 1 < len(matches) {
-		r.AppendImprovement(tpl.MinimalConditional)
+		r.AppendImprovementTpl(tpl.MinimalConditional)
 	}
 }
 
@@ -102,7 +102,7 @@ func examGeneralizeNames(pkg *astrav.Package, r *extypes.Response) {
 		contains = bytes.Contains(pkg.FindFirstByName("ShareWith").GetSource(), []byte("Bob"))
 	}
 	if contains {
-		r.AppendTodo(tpl.GeneralizeName)
+		r.AppendTodoTpl(tpl.GeneralizeName)
 	}
 }
 
@@ -130,7 +130,7 @@ var commentStrings = map[string]struct {
 func checkComment(cGroup astrav.Node, r *extypes.Response, commentType, name string) {
 	strPack := commentStrings[commentType]
 	if cGroup == nil {
-		r.AppendImprovement(tpl.MissingComment.Format(strPack.typeString))
+		r.AppendImprovementTpl(tpl.MissingComment.Format(strPack.typeString))
 		addCommentFormat(r)
 	} else {
 		text := cGroup.Children()[0].(*astrav.Comment).Text
@@ -139,7 +139,7 @@ func checkComment(cGroup astrav.Node, r *extypes.Response, commentType, name str
 		if strings.Contains(c, strPack.stubString) {
 			addStub(r)
 		} else if !strings.HasPrefix(c, fmt.Sprintf(strPack.prefixString, name)) {
-			r.AppendImprovement(tpl.WrongCommentFormat.Format(fmt.Sprintf(strPack.wrongCommentName, name)))
+			r.AppendImprovementTpl(tpl.WrongCommentFormat.Format(fmt.Sprintf(strPack.wrongCommentName, name)))
 			addCommentFormat(r)
 		}
 	}
@@ -157,7 +157,7 @@ func getAddStub() func(r *extypes.Response) {
 			return
 		}
 		added = true
-		r.AppendImprovement(tpl.Stub)
+		r.AppendImprovementTpl(tpl.Stub)
 	}
 }
 func getAddCommentFormat() func(r *extypes.Response) {

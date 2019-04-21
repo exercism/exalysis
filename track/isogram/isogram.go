@@ -36,7 +36,7 @@ func examTwoLoops(pkg *astrav.Package, r *extypes.Response) {
 	loops = append(loops, pkg.FindByNodeType(astrav.NodeTypeForStmt)...)
 
 	if 1 < len(loops) {
-		r.AppendImprovement(tpl.TwoLoops)
+		r.AppendImprovementTpl(tpl.TwoLoops)
 	}
 }
 
@@ -53,15 +53,15 @@ func examZeroValueAssign(pkg *astrav.Package, r *extypes.Response) {
 		switch ident.ValueType().String() {
 		case "string":
 			if bLit.Value == `""` {
-				r.AppendImprovement(tpl.ZeroValueAssign)
+				r.AppendImprovementTpl(tpl.ZeroValueAssign)
 			}
 		case "bool":
 			if bLit.Value == `false` {
-				r.AppendImprovement(tpl.ZeroValueAssign)
+				r.AppendImprovementTpl(tpl.ZeroValueAssign)
 			}
 		case "int", "int8", "int16", "int32", "int64", "uint", "uint8", "uint16", "uint32", "uint64":
 			if bLit.Value == `0` {
-				r.AppendImprovement(tpl.ZeroValueAssign)
+				r.AppendImprovementTpl(tpl.ZeroValueAssign)
 			}
 		}
 	}
@@ -82,9 +82,9 @@ func examIfContinueIsLetter(pkg *astrav.Package, r *extypes.Response) {
 	ifNodes := ifNode.FindByNodeType(astrav.NodeTypeIfStmt)
 
 	if len(contNodes)+len(retNodes) == 0 {
-		r.AppendImprovement(tpl.IfContinue)
+		r.AppendImprovementTpl(tpl.IfContinue)
 	} else if len(contNodes) == 0 && len(ifNodes) != 0 {
-		r.AppendImprovement(tpl.IfContinue)
+		r.AppendImprovementTpl(tpl.IfContinue)
 	}
 }
 
@@ -93,10 +93,10 @@ func examUniversalIsLetter(pkg *astrav.Package, r *extypes.Response) {
 	for _, node := range nodes {
 		bLit := node.(*astrav.BasicLit)
 		if strings.Contains(bLit.Value, "-") {
-			r.AppendImprovement(tpl.UniversalIsLetter)
+			r.AppendImprovementTpl(tpl.UniversalIsLetter)
 		}
 		if strings.Contains(bLit.Value, "a") && bLit.IsValueType("rune") {
-			r.AppendImprovement(tpl.UniversalIsLetter)
+			r.AppendImprovementTpl(tpl.UniversalIsLetter)
 		}
 	}
 }
@@ -115,7 +115,7 @@ func examNonExistingMapValue(pkg *astrav.Package, r *extypes.Response) {
 		}
 
 		if assign[0].IsValueType("bool") {
-			r.AppendComment(tpl.NonExistingMapValue)
+			r.AppendCommentTpl(tpl.NonExistingMapValue)
 		}
 	}
 }
@@ -136,7 +136,7 @@ func examJustReturn(pkg *astrav.Package, r *extypes.Response) {
 			continue
 		}
 
-		r.AppendImprovement(tpl.JustReturn)
+		r.AppendImprovementTpl(tpl.JustReturn)
 		break
 	}
 }
@@ -145,19 +145,19 @@ func examRegexCompileInFunc(pkg *astrav.Package, r *extypes.Response) {
 	main := pkg.FindFirstByName("IsIsogram")
 	regComp := pkg.FindFirstByName("regexp.Compile")
 	if regComp != nil && main.Contains(regComp) {
-		r.AppendTodo(tpl.RegexInFunc)
-		r.AppendTodo(tpl.MustCompile)
+		r.AppendTodoTpl(tpl.RegexInFunc)
+		r.AppendTodoTpl(tpl.MustCompile)
 	}
 	if regComp != nil {
-		r.AppendTodo(tpl.IsLetter)
+		r.AppendTodoTpl(tpl.IsLetter)
 	}
 
 	regComp = pkg.FindFirstByName("regexp.MustCompile")
 	if regComp != nil && main.Contains(regComp) {
-		r.AppendTodo(tpl.RegexInFunc)
+		r.AppendTodoTpl(tpl.RegexInFunc)
 	}
 	if regComp != nil {
-		r.AppendTodo(tpl.IsLetter)
+		r.AppendTodoTpl(tpl.IsLetter)
 	}
 }
 
@@ -171,9 +171,9 @@ func examToLowerUpper(fnName string) extypes.SuggestionFunc {
 			addSpeedComment(r)
 
 			if fn.NextParentByType(astrav.NodeTypeBlockStmt).IsContainedByType(astrav.NodeTypeRangeStmt) {
-				r.AppendImprovement(tpl.UnicodeLoop.Format(fnName))
+				r.AppendImprovementTpl(tpl.UnicodeLoop.Format(fnName))
 			} else {
-				r.AppendImprovement(tpl.Unicode.Format(fnName))
+				r.AppendImprovementTpl(tpl.Unicode.Format(fnName))
 			}
 		}
 	}

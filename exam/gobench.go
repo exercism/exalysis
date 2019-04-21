@@ -37,7 +37,7 @@ func GoBench(_ *astrav.Folder, r *extypes.Response, _ string, skip bool) bool {
 	if state.Success() {
 		return true
 	}
-	r.AppendTodo(gtpl.PassTests)
+	r.AppendTodoTpl(gtpl.PassTests)
 	return false
 }
 

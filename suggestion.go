@@ -21,6 +21,8 @@ import (
 	"github.com/exercism/exalysis/track/raindrops"
 	"github.com/exercism/exalysis/track/scrabble"
 	"github.com/exercism/exalysis/track/twofer"
+	"github.com/exercism/go-analyzer/analyzer"
+	"github.com/exercism/go-analyzer/suggester/sugg"
 	"github.com/logrusorgru/aurora"
 	"github.com/tehsphinx/astrav"
 )
@@ -39,17 +41,12 @@ var exercisePkgs = map[string]extypes.SuggestionFunc{
 // GetSuggestions selects the package suggestion routine and returns the suggestions
 func GetSuggestions(codePath string) (string, string) {
 	var r = extypes.NewResponse()
-	r, examRes, pkgName := getSuggestions(r, codePath)
-	return r.GetAnswerString(), rating(r, examRes, pkgName)
-}
-
-func getSuggestions(r *extypes.Response, codePath string) (*extypes.Response, *exam.Result, string) {
 	folder := astrav.NewFolder(http.Dir(codePath), "")
 	_, err := folder.ParseFolder()
 	if err != nil {
 		addGreeting(r, "", "there")
-		r.AppendTodo(gtpl.Compile)
-		return r, nil, ""
+		r.AppendTodoTpl(gtpl.Compile)
+		return r.GetAnswerString(), rating(r, nil, "")
 	}
 
 	var pkgName string
@@ -64,17 +61,51 @@ func getSuggestions(r *extypes.Response, codePath string) (*extypes.Response, *e
 	}
 	fmt.Println(aurora.Sprintf(aurora.Gray(msg), aurora.Green(pkgName)))
 
+	analyze := pkgName == "twofer" || pkgName == "hamming"
+
 	addGreeting(r, pkgName, getStudentName(codePath))
-	examRes, err := exam.All(folder, r, pkgName)
+	examRes, err := exam.All(folder, r, pkgName, analyze)
 	if err != nil {
 		log.Fatal(err)
 	}
 
+	if analyze {
+		getSuggsAnalyzer(r, codePath)
+	} else {
+		getSuggestions(pkg, r, suggFunc)
+	}
+	addTip(r, pkgName)
+	return r.GetAnswerString(), rating(r, examRes, pkgName)
+}
+
+func getSuggsAnalyzer(r *extypes.Response, codePath string) {
+	res := analyzer.Analyze("", codePath)
+	for _, err := range res.Errors {
+		log.Printf("ERROR on %s:\n", codePath)
+		log.Println(err)
+	}
+
+	for _, cmt := range res.Comments {
+		switch cmt.Category() {
+		case sugg.CtgTodo:
+			r.AppendTodo(cmt)
+		case sugg.CtgImprovement:
+			r.AppendImprovement(cmt)
+		case sugg.CtgThought:
+			r.AppendComment(cmt)
+		case sugg.CtgBlock:
+			r.AppendBlock(cmt)
+		default:
+			log.Println("unknown comment category encountered")
+			r.AppendImprovement(cmt)
+		}
+	}
+}
+
+func getSuggestions(pkg *astrav.Package, r *extypes.Response, suggFunc extypes.SuggestionFunc) {
 	if suggFunc != nil {
 		suggFunc(pkg, r)
 	}
-	addTip(r, pkgName)
-	return r, examRes, pkgName
 }
 
 var student = regexp.MustCompile("users/([^/]*)/go/")
