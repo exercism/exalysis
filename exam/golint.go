@@ -25,14 +25,14 @@ func GoLint(folder *astrav.Folder, r *extypes.Response) bool {
 		return true
 	}
 
-	fmtOuput("golint", resLint, r)
+	fmtOuput("golint", resLint)
+	r.AppendTodoTpl(gtpl.NotLinted)
 	return false
 }
 
-func fmtOuput(tool, result string, r *extypes.Response) {
+func fmtOuput(tool, result string) {
 	fmt.Println(aurora.Gray(fmt.Sprintf("%s:\t\t", tool)), aurora.Red("FAIL"))
 	fmt.Println(result)
-	r.AppendTodoTpl(gtpl.NotLinted)
 }
 
 func lintCode(files map[string][]byte) string {

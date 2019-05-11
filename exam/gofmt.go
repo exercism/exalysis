@@ -6,6 +6,7 @@ import (
 	"go/format"
 
 	"github.com/exercism/exalysis/extypes"
+	"github.com/exercism/exalysis/gtpl"
 	"github.com/logrusorgru/aurora"
 	"github.com/pmezard/go-difflib/difflib"
 	"github.com/tehsphinx/astrav"
@@ -21,7 +22,8 @@ func GoFmt(folder *astrav.Folder, r *extypes.Response) bool {
 		return true
 	}
 
-	fmtOuput("gofmt", resFmt, r)
+	fmtOuput("gofmt", resFmt)
+	r.AppendTodoTpl(gtpl.NotFormatted)
 	return false
 }
 
