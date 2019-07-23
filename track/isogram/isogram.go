@@ -21,8 +21,8 @@ func Suggest(pkg *astrav.Package, r *extypes.Response) {
 
 var exFuncs = []extypes.SuggestionFunc{
 	examRegexCompileInFunc,
-	examToLowerUpper("strings.ToLower"),
-	examToLowerUpper("strings.ToUpper"),
+	examToLowerUpper("strings.ToLower", "ToLower"),
+	examToLowerUpper("strings.ToUpper", "ToUpper"),
 	examJustReturn,
 	examNonExistingMapValue,
 	examUniversalIsLetter,
@@ -161,9 +161,9 @@ func examRegexCompileInFunc(pkg *astrav.Package, r *extypes.Response) {
 	}
 }
 
-func examToLowerUpper(fnName string) extypes.SuggestionFunc {
+func examToLowerUpper(fullName, fnName string) extypes.SuggestionFunc {
 	return func(pkg *astrav.Package, r *extypes.Response) {
-		fns := pkg.FindByName(fnName)
+		fns := pkg.FindByName(fullName)
 		for _, fn := range fns {
 			if _, ok := fn.(*astrav.SelectorExpr); !ok {
 				continue
