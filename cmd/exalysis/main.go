@@ -17,7 +17,7 @@ import (
 
 var (
 	minConfidence = flag.Float64("min_confidence", 0.8, "golint: minimum confidence of a problem to print it")
-	watch         = flag.Bool("watch", false, "starts Exalysis in watch mode, waiting for 'exercism download ...' commands in the clipboard")
+	watch         = flag.Bool("watch", false, "starts Exalysis in watch mode, waiting for `exercism download ...` commands in the clipboard")
 	outputAnswer  = flag.Bool("output", false, "outputs the answer to the student. Only applies to watch mode, where the answer is usually suppressed")
 	bench         = flag.Bool("bench", false, "runs the benchmarks and outputs the result")
 )
