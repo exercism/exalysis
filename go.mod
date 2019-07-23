@@ -17,3 +17,5 @@ replace golang.org/x/lint => github.com/golang/lint v0.0.0-20180702182130-06c868
 // replace github.com/exercism/go-analyzer => ../go-analyzer
 
 // replace github.com/tehsphinx/astrav => ../astrav
+
+go 1.13
