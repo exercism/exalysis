@@ -80,10 +80,11 @@ func testToLowerUpper(fnName string) extypes.SuggestionFunc {
 			}
 			addSpeedComment(r)
 
+			fName := fnName[8:]
 			if fn.NextParentByType(astrav.NodeTypeBlockStmt).IsContainedByType(astrav.NodeTypeRangeStmt) {
-				r.AppendImprovementTpl(tpl.UnicodeLoop.Format(fnName))
+				r.AppendImprovementTpl(tpl.UnicodeLoop.Format(fName))
 			} else {
-				r.AppendImprovementTpl(tpl.Unicode.Format(fnName))
+				r.AppendImprovementTpl(tpl.Unicode.Format(fName))
 			}
 		}
 	}
