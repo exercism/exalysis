@@ -24,6 +24,8 @@ Exalysis will do its format, lint, and test checks on any solution, but specific
 
 ## Installation
 
+Ensure you are in a project in your `$GOPATH` when executing these commands.
+
 ```
 GO111MODULE=on go get github.com/exercism/exalysis
 GO111MODULE=on go install github.com/exercism/exalysis/cmd/exalysis
