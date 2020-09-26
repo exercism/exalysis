@@ -1,5 +1,7 @@
 module github.com/exercism/exalysis
 
+go 1.14
+
 require (
 	github.com/atotto/clipboard v0.1.1 // indirect
 	github.com/exercism/go-analyzer v0.2.1
@@ -9,10 +11,11 @@ require (
 	github.com/stretchr/testify v1.3.0
 	github.com/tehsphinx/astrav v0.4.1
 	github.com/tehsphinx/clipboard v0.1.3
-	golang.org/x/lint v0.0.0-20190409202823-959b441ac422
+	golang.org/x/lint v0.0.0-20200302205851-738671d3881b
+	golang.org/x/tools v0.0.0-20200925191224-5d1fdd8fa346 // indirect
 )
 
-replace golang.org/x/lint => github.com/golang/lint v0.0.0-20180702182130-06c8688daad7
+ //replace golang.org/x/lint => github.com/golang/lint v0.0.0-20180702182130-06c8688daad7
 
 // replace github.com/exercism/go-analyzer => ../go-analyzer
 
