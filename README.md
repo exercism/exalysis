@@ -24,12 +24,15 @@ Exalysis will do its format, lint, and test checks on any solution, but specific
 
 ## Installation
 
-Ensure you are in a project in your `$GOPATH` when executing these commands.
+Make sure you are in any go module path on your computer. If you have no local modules (or are not sure what that means), choose any empty folder and use `go mod init myModule` to create a module. This will create a `go.mod` file in that folder.
+
+Then install exalysis with this command:
 
 ```
-GO111MODULE=on go get github.com/exercism/exalysis
-GO111MODULE=on go install github.com/exercism/exalysis/cmd/exalysis
+go install github.com/exercism/exalysis/cmd/exalysis
 ```
+
+This will build and place the executable in your `$GOPATH/bin` directory which is usually `$HOME/go/bin`. Add this directory to the $PATH environment variable to be able to use exalysis (and other go tools) from anywhere.
 
 ## Usage
 
