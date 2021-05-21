@@ -3,15 +3,14 @@ language: go
 sudo: false
 
 go:
-- "1.12.x"
+- "1.16.x"
 
 git:
   depth: 1
 
 install:
-- export GO111MODULE=on
 - go mod download
-- go install github.com/golangci/golangci-lint/cmd/golangci-lint
+- go get github.com/golangci/golangci-lint/cmd/golangci-lint
 
 script:
 - go build -o ./exalysis cmd/exalysis/*.go
