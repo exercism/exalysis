@@ -14,9 +14,3 @@ require (
 	golang.org/x/lint v0.0.0-20200302205851-738671d3881b
 	golang.org/x/tools v0.0.0-20200925191224-5d1fdd8fa346 // indirect
 )
-
-//replace golang.org/x/lint => github.com/golang/lint v0.0.0-20180702182130-06c8688daad7
-
-// replace github.com/exercism/go-analyzer => ../go-analyzer
-
-// replace github.com/tehsphinx/astrav => ../astrav
